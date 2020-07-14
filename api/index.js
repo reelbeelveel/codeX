@@ -1,7 +1,8 @@
-// Script modified: Tue July 14, 2020 @ 05:48:07 EDT
+// Script modified: Tue July 14, 2020 @ 06:22:00 EDT
 const express = require('express');
 const app = express();
 
+// GLOBALS
 //IMPORT ROUTES
 const apiCreateRouter = require('./routes/api/create');
 const apiViewRouter = require('./routes/api/view');
