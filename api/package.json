@@ -1,10 +1,9 @@
 {
-  "name": "a2aapi",
+  "name": "codeX",
   "version": "1.0.0",
-  "description": "Test Application for NPM REST",
+  "description": "Code Exporter",
   "main": "index.js",
   "scripts": {
-    "test": "console.log('Test')"
   },
   "author": "keelbeelveel",
   "license": "ISC",
@@ -13,11 +12,8 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "joi": "^14.3.1",
-    "mongodb": "^3.5.9",
-    "mongoose": "^5.9.23"
+    "joi": "^14.3.1"
   },
   "repository": {
     "type": "git",
