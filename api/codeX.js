@@ -1,4 +1,4 @@
-// Script modified: Wed July 15, 2020 @ 03:39:32 EDT
+// Script modified: Wed July 15, 2020 @ 04:00:12 EDT
 // Private
 
 
@@ -7,7 +7,6 @@ module.exports = engine;
 async function engine(data) {
     const hijs = require('highlight.js');
     return hijs.highlightAuto(data).value;
-
 }
 
 // engine.config()
