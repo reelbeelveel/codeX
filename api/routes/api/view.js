@@ -1,4 +1,4 @@
-// Script modified: Tue July 14, 2020 @ 10:33:44 EDT
+// Script modified: Tue July 14, 2020 @ 10:54:18 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -12,7 +12,7 @@ const idSchema = joi.object({
     .length(snipIdLength)
 });
 
-router.get('/:snipID', async (req, res) => {
+router.get('/:snipID?', async (req, res) => {
     try {
         const value = await idSchema.validateAsync(req.params);
         if (value != {}){
