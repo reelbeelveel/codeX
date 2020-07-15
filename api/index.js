@@ -1,4 +1,4 @@
-// Script modified: Tue July 14, 2020 @ 06:22:00 EDT
+// Script modified: Tue July 14, 2020 @ 10:50:25 EDT
 const express = require('express');
 const app = express();
 
@@ -7,6 +7,6 @@ const app = express();
 const apiCreateRouter = require('./routes/api/create');
 const apiViewRouter = require('./routes/api/view');
 app.use('/api/create', apiCreateRouter);
-app.use('/api/view/:type/:reqId', apiViewRouter);
+app.use('/api/view', apiViewRouter);
 
 app.listen(3000);
