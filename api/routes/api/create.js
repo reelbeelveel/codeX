@@ -1,4 +1,4 @@
-// Script modified: Tue July 14, 2020 @ 10:35:24 EDT
+// Script modified: Wed July 15, 2020 @ 03:30:40 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -29,10 +29,19 @@ router.get('/:type/:reqId', async (req, res) => {
 
         // TODO: Check "Cache"?
         // TODO: If not in cache, submit to highlight engine.
+        var codeX = require('../../codeX');
+        console.log(req.body);
+        try {
+        var codeexport = await codeX(req.body);
+        } catch (err) {
+    console.log(err);
+            throw new Error('Could not decode');
+        }
         // TODO: Return result to user.
         // TODO: This is a placeholder! Remove in future.
         res.status(200)
-            .send("Hi! Your request has been received, but this part of the API is not yet functional.")
+            .send(codeexport)
+            //.send("Hi! Your request has been received, but this part of the API is not yet functional.")
             .end();
         // Handles Validation errors.
     } catch (err) {
