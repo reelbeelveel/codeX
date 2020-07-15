@@ -1,18 +1,22 @@
-*README Modified: Sun July 12, 2020 @ 06:23:14 EDT*
+# codeX
+## The Simple Code Snipper
+### Code Snippet Generator
+*README Modified: Mon July 13, 2020 @ 09:52:44 EDT*
+
+---
+
 ## File Structure:
+
 ```
-$projectFrontendRoot = /usr/etc/apples2apples/source
-$projectBackendRoot = /usr/etc/apples2apples/api
-/usr/etc/apples2apples/
+$projectFrontendRoot = TBD
+$projectBackendRoot = TBD
   |\__ 📁 (/api)
   |    |\___ 📁 (/nodemodules)
   |    |     \____ 📁 (...)
   |    |\___ 📁(/routes)
   |    |     |\___ 📁 (/api)
-  |    |           |\___ 💾 cards.js
-  |    |           |\___ 💾 lobbies.js
-  |    |           \____ 💾 profiles.js
-  |    |\___ 💾 api.js
+  |    |           \____ 💾 snippet.js
+  |    |\___ 💾 index.js
   |    |\___ 💾 package.lock
   |    \____ 💾 package.json
   |
@@ -30,10 +34,10 @@ $projectBackendRoot = /usr/etc/apples2apples/api
        |   |     \____ 💾 index.html
        |   \____ 📁 (/js)
        |         \____ 💾 index.js
-       \____ 💾 a2a.conf
+       \____ 💾 cdX.conf
 📁 /etc/httpd
   |\___ 📁 (/sites-available)
-  |     \___ 💾 a2a.conf # Apache `.conf` file
+  |     \___ 💾 cdX.conf # Apache `.conf` file
   \____ 📁 (/sites-enabled)
-        \____ 🔗 a2a.lnk -> a2a.conf # Symlink to conf file
+        \____ 🔗 cdX.lnk -> cdX.conf # Symlink to conf file
 ```
