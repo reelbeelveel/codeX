@@ -1,4 +1,4 @@
-// Script modified: Thu July 16, 2020 @ 11:06:23 EDT
+// Script modified: Thu July 16, 2020 @ 11:16:41 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -30,9 +30,9 @@ router.get('/:type/:reqId', async (req, res) => {
 
         // TODO: Check "Cache"?
         // TODO: If not in cache, submit to highlight engine.
-        var codeX = require('../../codeX');
+        var syntaxEngine = require('../../engine');
         try {
-        var codeexport = await codeX(value.type, req.body);
+        var codeexport = await syntaxEngine(value.type, req.body);
         } catch (err) {
             console.log(err);
             throw new Error(`Could not decode: ${err}`);
