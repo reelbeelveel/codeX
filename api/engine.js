@@ -1,4 +1,4 @@
-// Script modified: Thu July 16, 2020 @ 11:12:27 EDT
+// Script modified: Thu July 16, 2020 @ 11:50:38 EDT
 // Private
 
 
@@ -16,7 +16,8 @@ async function engine(type, data) {
     // else if(type.startsWith('xxxx'))
     else if(type.startsWith('cdx_')) {
         console.log('Engine Request to [cdx_]');
-        return data;
+        var codex = require('./codex');
+        return codex(lang, data);
     }
     else { // Return An Error
         throw new Error(`Invalid control type: ${type.slice(0,4)}`);
