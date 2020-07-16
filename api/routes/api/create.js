@@ -1,4 +1,4 @@
-// Script modified: Wed July 15, 2020 @ 09:27:18 EDT
+// Script modified: Thu July 16, 2020 @ 11:06:23 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -12,7 +12,8 @@ const tokenLength = constants.tkLen;
 //          string of len tokenLength.
 const schema = joi.object({
     type: joi.string()
-    .alphanum()
+    .token()
+    .min(4)
     .required(),
     reqId: joi.string()
     .token()
@@ -34,7 +35,7 @@ router.get('/:type/:reqId', async (req, res) => {
         var codeexport = await codeX(value.type, req.body);
         } catch (err) {
             console.log(err);
-            throw new Error('Could not decode');
+            throw new Error(`Could not decode: ${err}`);
         }
         // TODO: Return result to user.
         // TODO: This is a placeholder! Remove in future.
