@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Fri July 17, 2020 @ 02:42:54 EDT -->
+<!-- Page revised: Fri July 17, 2020 @ 02:56:42 EDT -->
 <html>
     <head>
         <title>codeX | Create</title>
@@ -12,14 +12,29 @@
         <main>
             <div>
                 <form id="codexGenerator">
+
+                    <label for="engines">Select an Engine:</label>
+                    <input list="engines" name="engines" required>
+                    <datalist id="engines">
+                        <option value="[cdx_] CodeX">
+                        <option value="[hijs] highlight.js">
+                    </datalist>
+
+                    <label for="languages">Select a Language:</label>
+                    <input list="languages" name="languages" required>
+                    <datalist id="languages">
+                        <option value="Bash (.sh/.zsh)">
+                        <option value="JavaScript (js)">
+                    </datalist>
+
                     <label for="codeInput">Label Placeholder:</label>
-                    <textarea id="codeInput" name="codeInput" required>Placeholder code</textarea>
+                    <textarea id="codeInput" name="codeInput" autofocus required></textarea>
                     <input type="submit"/>
                 </form>
             </div>
         </main>
-    <footer>
-    </footer>
+        <footer>
+        </footer>
     </body>
 </html>
 
