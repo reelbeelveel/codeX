@@ -1,7 +1,6 @@
 tags
 .env
 source/pagesource/.jekyll-cache/
-source/pagesource/_site/
 source/.jekyll-cache/
-api/bash.js
-api/engine.js
+source/pagesource/_site/
+
