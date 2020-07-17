@@ -1,16 +1,16 @@
 #!/bin/bash
-# script revised: Mon July 13, 2020 @ 01:01:39 EDT
+# script revised: Fri July 17, 2020 @ 12:43:34 EDT
 echo "  "
 echo "######################"
 echo " build.sh"
 echo "######################"
 echo "  "
-sudo cp -v /usr/etc/apples2apples/source/a2a.conf /etc/httpd/sites-available/a2a.conf
-sudo cp -rv /usr/etc/apples2apples/source/pagesource/* /var/www/a2a/html/
+sudo cp -v /usr/etc/codeX/source/cdX.conf /etc/httpd/sites-available/cdX.conf
+sudo cp -rv /usr/etc/codeX/source/pagesource/* /var/www/cdX/html/
 echo "  "
 echo "--------------------"
 echo "  "
-echo "site [a2a] built from pagesource (/usr/etc/apples2apples/source/pagesource/*)";
+echo "site [cdX] built from pagesource (/usr/etc/codeX/source/pagesource/*)";
 sudo systemctl reload httpd
 echo "httpd reloaded."
 echo "  "

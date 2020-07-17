@@ -1,4 +1,6 @@
 tags
 .env
 source/pagesource/.jekyll-cache/
+source/.jekyll-cache/
 source/pagesource/_site/
+
