@@ -1,5 +1,6 @@
-// Script modified: Thu July 16, 2020 @ 11:50:38 EDT
+// Script modified: Thu July 16, 2020 @ 08:39:36 EDT
 // Private
+const hijs = require('highlight.js');
 
 
 // Public
@@ -8,9 +9,12 @@ async function engine(type, data) {
     const lang = type.substring(4);
     if(type.startsWith('hijs')){
         console.log('Engine Request to [hijs]');
-        const hijs = require('highlight.js/lib/core');
+        if (lang == "auto"){
+            return hijs.highlightAuto(data);
+        } else {
         hijs.registerLanguage(lang, require(`highlight.js/lib/languages/${lang}`));
         return hijs.highlight(lang, data).value;
+        }
     }
     // Add New control type with
     // else if(type.startsWith('xxxx'))
