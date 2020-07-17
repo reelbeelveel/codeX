@@ -1,4 +1,4 @@
-// Script modified: Tue July 14, 2020 @ 10:35:24 EDT
+// Script modified: Thu July 16, 2020 @ 11:16:41 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -12,7 +12,8 @@ const tokenLength = constants.tkLen;
 //          string of len tokenLength.
 const schema = joi.object({
     type: joi.string()
-    .alphanum()
+    .token()
+    .min(4)
     .required(),
     reqId: joi.string()
     .token()
@@ -29,10 +30,17 @@ router.get('/:type/:reqId', async (req, res) => {
 
         // TODO: Check "Cache"?
         // TODO: If not in cache, submit to highlight engine.
+        var syntaxEngine = require('../../engine');
+        try {
+        var codeexport = await syntaxEngine(value.type, req.body);
+        } catch (err) {
+            console.log(err);
+            throw new Error(`Could not decode: ${err}`);
+        }
         // TODO: Return result to user.
         // TODO: This is a placeholder! Remove in future.
         res.status(200)
-            .send("Hi! Your request has been received, but this part of the API is not yet functional.")
+            .send(codeexport)
             .end();
         // Handles Validation errors.
     } catch (err) {

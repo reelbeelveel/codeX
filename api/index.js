@@ -1,6 +1,9 @@
-// Script modified: Tue July 14, 2020 @ 10:50:25 EDT
+// Script modified: Wed July 15, 2020 @ 03:35:20 EDT
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.text());
 
 // GLOBALS
 //IMPORT ROUTES
