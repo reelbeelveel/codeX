@@ -17,13 +17,13 @@
   |\___ 💾 package.lock
   |\___ 💾 package.json
   |
-  |\__ 📁(/.sh)
+  |\___ 📁(/.sh)
   |    |\___ 💾 build.sh
   |    |\___ 💾 clean.sh
   |    |\___ 💾 flag-available.sh
   |    |\___ 💾 flag-unaailable.sh
   |    \____ 💾 rebuild.sh
-  |\_ 📁 (/pagesource)
+  |\___ 📁 (/pagesource)
   |   |\___ 📁 (/css)
   |   |     \____ 💾 main.css
   |   |\___ 💾 index.html
