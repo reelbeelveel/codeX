@@ -10,7 +10,6 @@
 ```
 $projectFrontendRoot = TBD
 $projectBackendRoot = TBD
-  |\__ 📁 (/api)
   |    |\___ 📁 (/nodemodules)
   |    |     \____ 📁 (...)
   |    |\___ 📁(/routes)
@@ -19,8 +18,7 @@ $projectBackendRoot = TBD
   |    |\___ 💾 index.js
   |    |\___ 💾 package.lock
   |    \____ 💾 package.json
-  |
-  \___ 📁 (/source)
+  |    |
        |\__ 📁(/.sh)
        |    |\___ 💾 build.sh
        |    |\___ 💾 clean.sh
