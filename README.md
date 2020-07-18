@@ -7,31 +7,30 @@
 ## File Structure:
 
 ```
-$projectFrontendRoot = TBD
-$projectBackendRoot = TBD
-  |    |\___ 📁 (/nodemodules)
-  |    |     \____ 📁 (...)
-  |    |\___ 📁(/routes)
-  |    |     |\___ 📁 (/api)
-  |    |           \____ 💾 snippet.js
-  |    |\___ 💾 index.js
-  |    |\___ 💾 package.lock
-  |    \____ 💾 package.json
-  |    |
-       |\__ 📁(/.sh)
-       |    |\___ 💾 build.sh
-       |    |\___ 💾 clean.sh
-       |    |\___ 💾 flag-available.sh
-       |    |\___ 💾 flag-unaailable.sh
-       |    \____ 💾 rebuild.sh
-       |\_ 📁 (/pagesource)
-       |   |\___ 📁 (/css)
-       |   |     \____ 💾 main.css
-       |   |\___ 📁 (/html)
-       |   |     \____ 💾 index.html
-       |   \____ 📁 (/js)
-       |         \____ 💾 index.js
-       \____ 💾 cdX.conf
+  |\___ 📁 (/nodemodules)
+  |     \____ 📁 (...)
+  |\___ 📁(/routes)
+  |     \___ 📁 (/api)
+  |           |\--- 💾 create.js
+  |           \____ 💾 view.js
+  |\___ 💾 index.js
+  |\___ 💾 package.lock
+  |\___ 💾 package.json
+  |
+  |\__ 📁(/.sh)
+  |    |\___ 💾 build.sh
+  |    |\___ 💾 clean.sh
+  |    |\___ 💾 flag-available.sh
+  |    |\___ 💾 flag-unaailable.sh
+  |    \____ 💾 rebuild.sh
+  |\_ 📁 (/pagesource)
+  |   |\___ 📁 (/css)
+  |   |     \____ 💾 main.css
+  |   |\___ 💾 index.html
+  |   \____ 📁 (/js)
+  |         \____ 💾 index.js
+  \____ 💾 cdX.conf
+
 📁 /etc/httpd
   |\___ 📁 (/sites-available)
   |     \___ 💾 cdX.conf # Apache `.conf` file
