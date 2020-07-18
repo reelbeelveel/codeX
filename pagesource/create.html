@@ -1,40 +1,65 @@
 <!DOCTYPE HTML>
 <!-- Page revised: Fri July 17, 2020 @ 11:37:38 EDT -->
+<!-- Page revised: Sat July 18, 2020 @ 3:25:38 EDT -->
 <html>
-    <head>
-        <title>codeX | Create</title>
-        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-        <!-- TODO: Metadata here! -->
-    </head>
-    <body>
-        <header>
-        </header>
-        <main>
-            <div>
-                <form id="codexGenerator"> 
-                    <label for="engine">Select an Engine:</label>
-                    <input list="engine-list" id="engine" type="text" name="engine" required>
-                    <datalist id="engine-list">
-                        <option value="[cdx_] CodeX">
-                        <option value="[hijs] highlight.js">
-                    </datalist>
 
-                    <label for="lang">Select a Language:</label>
-                    <input list="lang-list" id="lang" type="text" name="lang" required>
-                    <datalist id="lang-list">
-                        <option value="Bash (.sh/.zsh)">
-                        <option value="JavaScript (js)">
-                    </datalist>
+<head>
+    <title>codeX | Create</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <!-- TODO: Metadata here! -->
+</head>
 
-                    <label for="codeInput">Label Placeholder:</label>
-                    <textarea id="codeInput" name="codeInput" autofocus required></textarea>
-                    <input type="button" value="Generate" onclick="getFormData()"/>
-                </form>
-            </div>
-        </main>
-        <footer>
-        </footer>
-    </body>
-    <script src="js/index.js"></script>
+<body>
+    <header>
+    </header>
+    <main>
+        <div>
+            <form id="codexGenerator" class="input-form">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="engine">Select an Engine:</label>
+                        </td>
+                        <td>
+                            <input list="engine-list" id="engine" type="text" name="engine" required>
+                            <datalist id="engine-list">
+                                <option value="[cdx_] CodeX">
+                                <option value="[hijs] highlight.js">
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lang">Select a Language:</label>
+                        </td>
+                        <td>
+                            <input list="lang-list" id="lang" type="text" name="lang" required>
+                            <datalist id="lang-list">
+                                <option value="Bash (.sh/.zsh)">
+                                <option value="JavaScript (js)">
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="codeInput">Label Placeholder:</label>
+                        </td>
+                        <td>
+                            <textarea id="codeInput" name="codeInput" autofocus required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="Generate" onclick="getFormData()" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script src="js/index.js"></script>
+
 </html>
-

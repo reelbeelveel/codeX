@@ -67,3 +67,7 @@ span.testcolor5 { background-color: var(--clr-fg-lite);
 }
 span.testcolor5::after { content: " (--clr-fg-lite)";  }
 /* END DEBUG. REMOVE BEFORE MERGING TO MASTER. */
+
+.input-form {
+    margin: 100px 100px;;
+}
