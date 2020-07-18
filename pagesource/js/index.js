@@ -1,5 +1,5 @@
 // index.js
-// Last revised: Sat July 18, 2020 @ 12:15:46 EDT
+// Last revised: Sat July 18, 2020 @ 02:54:47 EDT
 const Http = new XMLHttpRequest();
 const token = getToken();
 function getToken() {
@@ -25,7 +25,8 @@ function getFormData() {
     generatePreview(engine, lang, input);
 }
 function generatePreview(engine, lang, input) {
-    Http.open("POST", `https://codexapp.co/api/create/${engine}${lang}/${token}/`).send(input);
+    Http.open("POST", `https://codexapp.co/api/create/${engine}${lang}/${token}/`)
+    Http.send(input);
     console.log(`[POST To:] https://codexapp.co/api/create/${engine}${lang}/${token}`)
     Http.onreadystatechange=(e)=> {
         console.log(`[API Call to api/create]: Recieved: ${Http.responseText}`);
