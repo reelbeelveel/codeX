@@ -1,4 +1,4 @@
-// Script modified: Fri July 17, 2020 @ 09:42:35 EDT
+// Script modified: Fri July 17, 2020 @ 10:56:32 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -7,6 +7,8 @@ const https = require('https');
 const fs = require('fs');
 const httpPort = 3000;
 const httpsPort = 3001;
+    const UIDGenerator = require('uid-generator');
+    const uidgen = new UIDGenerator();
 
 app.use(bodyParser.text());
 
@@ -24,10 +26,16 @@ var credentials = {
   cert: cert
 };
 
-//GET home route
-app.get('/', (req, res) => {
-   res.send('Hello World.');
+app.get('/api/getToken/', async (req, res) => {
+    try {
+        var token = await uidgen.generate();
+    } catch (err) {
+        console.log(err);
+        res.status(400).send(err).end();
+    }
+    res.status(200).send(token).end();
 });
+
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
