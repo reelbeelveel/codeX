@@ -1,4 +1,4 @@
-// Script modified: Thu July 16, 2020 @ 08:39:36 EDT
+// Script modified: Sat July 18, 2020 @ 06:51:26 EDT
 // Private
 const hijs = require('highlight.js');
 
@@ -10,7 +10,7 @@ async function engine(type, data) {
     if(type.startsWith('hijs')){
         console.log('Engine Request to [hijs]');
         if (lang == "auto"){
-            return hijs.highlightAuto(data);
+            return hijs.highlightAuto(data).value;
         } else {
         hijs.registerLanguage(lang, require(`highlight.js/lib/languages/${lang}`));
         return hijs.highlight(lang, data).value;
