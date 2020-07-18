@@ -1,4 +1,4 @@
-// Script modified: Fri July 17, 2020 @ 10:56:32 EDT
+// Script modified: Fri July 17, 2020 @ 11:46:23 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -17,6 +17,13 @@ var cert = fs.readFileSync(__dirname + '/certsFiles/selfsigned.crt');
 
 // GLOBALS
 //IMPORT ROUTES
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:4000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const apiCreateRouter = require('./routes/api/create');
 const apiViewRouter = require('./routes/api/view');
 app.use('/api/create', apiCreateRouter);
