@@ -1,5 +1,5 @@
-// Script modified: Tue July 14, 2020 @ 10:21:16 EDT
-const tokenLength = 32;
+// Script modified: Fri July 17, 2020 @ 10:59:50 EDT
+const tokenLength = 22;
 const snipIdLength = 64;
 
 module.exports = {
