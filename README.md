@@ -1,6 +1,5 @@
 # codeX
-## The Simple Code Snipper
-### Code Snippet Generator
+## Simple Code Exporter
 *README Modified: Mon July 13, 2020 @ 09:52:44 EDT*
 
 ---
