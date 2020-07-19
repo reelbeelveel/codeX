@@ -68,11 +68,19 @@ span.testcolor5::after { content: " (--clr-fg-lite)";  }
 /* END DEBUG. REMOVE BEFORE MERGING TO MASTER. */
 
 .input-form {
-    margin: 100px 100px;;
+    margin: auto auto;
+    width: 500px;
 }
 
 label {
-    color: var(--clr-bg-dark); 
+    color: var(--clr-fg-lite); 
     font-family: "Lucida Console", Courier, monospace;
 
+}
+
+#codeInput {
+    height: 50px;
+    min-width: 100%;
+    min-height: 50px;
+    margin: 20px 0;
 }
