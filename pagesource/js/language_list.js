@@ -1,8 +1,8 @@
-// List modified: Sun July 19, 2020 @ 01:26:38 EDT
+// List modified: Sun July 19, 2020 @ 01:44:26 EDT
 var language_list = [
     {
         displayText: 'Auto',
-        hijsName: 'auto',
+        apiId: 'auto',
         filetypes: [
             {
                 type: '.*',
@@ -26,7 +26,7 @@ var language_list = [
                 type: '.zsh',
                 common: true
             }],
-        hijsName: 'bash',
+        apiId: 'bash',
         cdxEnabled: true
     },{
         displayText: 'C++',
@@ -34,7 +34,7 @@ var language_list = [
             type: '.cpp',
             common: true
         }],
-        hijsName: 'cpp',
+        apiId: 'cpp',
         cdxEnabled: false
     },{
         displayText: 'JavaScript',
@@ -45,7 +45,7 @@ var language_list = [
             type: '.json',
             common: false
         }],
-        hijsName: 'javascript',
+        apiId: 'javascript',
         cdxEnabled: false
     },{
         displayText: 'Markdown',
@@ -53,7 +53,7 @@ var language_list = [
             type: '.md',
             common: true
         }],
-        hijsName: 'md',
+        apiId: 'md',
         cdxEnabled: false
     },{
         displayText: 'Python',
@@ -70,6 +70,6 @@ var language_list = [
             type: '.pyc',
             common: false
         }],
-        hijsName: 'py',
+        apiId: 'py',
         cdxEnabled: false
     }];

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 01:33:19 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 01:58:47 EDT -->
 <html>
 
 <head>
@@ -24,9 +24,10 @@
                             <label for="engine">Select an Engine:</label>
                         </td>
                         <td>
-                            <input list="engine-list" id="engine" type="text" name="engine" required>
+                            <select id="engine">
                             <!-- Import engine list -->
                             <!-- TODO: Convert to json in future? -->
+                            </select>
                             <script src="js/engine_list.js"></script>
                         </td>
                     </tr>
@@ -35,9 +36,10 @@
                             <label for="lang">Select a Language:</label>
                         </td>
                         <td>
-                            <input list="lang-list" id="lang" type="text" name="lang" required>
+                            <select id="lang">
                             <!-- Import language_list -->
                             <!-- TODO: Convert to json in future? -->
+                            </select>
                             <script src="js/language_list.js"></script>
                         </td>
                     </tr>
@@ -58,7 +60,7 @@
             </form>
         </div>
         <div id="previewPanel">
-            <textarea disabled>Preview here</textarea
+            <textarea id="previewArea" disabled>Preview here</textarea
         </div>
     </main>
     <footer>
@@ -69,10 +71,10 @@
 <script>
     let fields = [
         { 
-            datalistId: "lang-list",
+            id: "lang",
             populateWith: language_list
         },{
-            datalistId: "engine-list",
+            id: "engine",
             populateWith: engine_list
         }];
     populateSelections("codexGenerator", fields);
