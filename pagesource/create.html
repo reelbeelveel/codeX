@@ -1,66 +1,65 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 04:56:45 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 05:32:29 EDT -->
 <html>
 
 <head>
     <title>codeX | Create</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <!-- TODO: Metadata here! -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- helps with mobile/desktop viewing zpg -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- helps with mobile/desktop viewing zpg -->
 </head>
 
 <body>
     <header>
     </header>
     <main>
-        <div>
-            <center>
+        <div class="main-content">
+            <div>
                 <img src="logo.png" style="padding-bottom: 50px;"></img> <!-- temporary logo -->
-            </center>
+            </div>
             <form id="codexGenerator" class="input-form">
-                <table>
+                <table width="100%">
                     <tr>
-                        <td>
+                        <td class="form-label-col">
                             <label for="engine">Select an Engine:</label>
                         </td>
                         <td>
                             <select id="engine">
-                            <!-- Import engine list -->
-                            <!-- TODO: Convert to json in future? -->
+                                <!-- Import engine list -->
+                                <!-- TODO: Convert to json in future? -->
                             </select>
                             <script src="js/engine_list.js"></script>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="form-label-col">
                             <label for="lang">Select a Language:</label>
                         </td>
                         <td>
                             <select id="lang">
-                            <!-- Import language_list -->
-                            <!-- TODO: Convert to json in future? -->
+                                <!-- Import language_list -->
+                                <!-- TODO: Convert to json in future? -->
                             </select>
                             <script src="js/language_list.js"></script>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <!--<td class="form-label-col">
                             <label for="codeInput">Label Placeholder:</label>
                         </td>
                         <td>
                             <textarea id="codeInput" name="codeInput" autofocus placeholder="Test" required></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" value="Generate" onclick="generatePreview()" />
-                        </td>
+                        </td>-->
                     </tr>
                 </table>
+                <textarea id="codeInput" name="codeInput" autofocus placeholder="Paste your code here"
+                    required></textarea>
+                <input type="button" value="Generate Preview" onclick="generatePreview()" />
             </form>
         </div>
         <div id="previewPanel">
-            <div id="previewArea" disabled>Preview here</div>
+            <div id="previewArea">Preview here</div>
         </div>
     </main>
     <footer>
@@ -70,10 +69,10 @@
 </script>
 <script>
     let fields = [
-        { 
+        {
             id: "lang",
             populateWith: language_list
-        },{
+        }, {
             id: "engine",
             populateWith: engine_list
         }];
