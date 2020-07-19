@@ -1,5 +1,5 @@
-// index.js
-// Last revised: Sat July 18, 2020 @ 08:57:06 EDT
+// browser.js
+// Last revised: Sun July 19, 2020 @ 12:12:26 EDT
 const Http = new XMLHttpRequest();
 const token = getToken();
 function getToken() {
