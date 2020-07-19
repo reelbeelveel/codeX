@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 12:30:59 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 01:17:13 EDT -->
 <html>
 
 <head>
@@ -37,8 +37,8 @@
                         </td>
                         <td>
                             <input list="lang-list" id="lang" type="text" name="lang" required>
-                            <datalist id="lang-list">
-                            </datalist>
+                            <!-- Ripped out datalist. Will be loaded dynamically by browser.js -->
+                            <!-- <datalist id="lang-list"></datalist> -->
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
     </footer>
 </body>
 <script src="browser.js">
-    populateSelections("input-form", new Array({ datalistId: "lang-list", populateWith: language_list }));
 </script>
+<script>populateSelections("codexGenerator", new Array({ datalistId: "lang-list", populateWith: language_list }));</script>
 
 </html>

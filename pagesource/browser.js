@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun July 19, 2020 @ 12:12:26 EDT
+// Last revised: Sun July 19, 2020 @ 01:15:39 EDT
 const Http = new XMLHttpRequest();
 const token = getToken();
 function getToken() {
@@ -46,18 +46,36 @@ function generatePreview() {
 //      populateWith: language_list
 //  }];
 //
-function populateSelections(formId, fields){
-    console.log(formId, fields);
+function populateSelections(formId, fields) {
+    console.log({formid:formId, fields: fields, fieldLength: fields.length});
     var i, j;
-    for(i = 0; i < fields.length - 1; i++){
+    for(i = 0; i < fields.length; i++) {
+        
+        // Loads list of options to populate Datalist
         var list = fields[i].populateWith;
-        var datalistId = fields[i].datalistId;
+
+        // Creates Datalist Object, with ID specified from `fields`
+        var datalist = document.createElement("datalist");
+        datalist.id = fields[i].datalistId;
+        console.log({list: list, listLength: list.length, datalist: datalist});
+
+        // Loop through all objects in list
         for (j = 0; j < list.length; j++){
-            var option = document.createElement("OPTIONS");
+            // Create option object for object in list
+            // Fill Id with index from list
+            // Attach option to datalist
+            var option = document.createElement("option");
             option.id=`Opt${j}`;
             option.innerHTML = list[j].displayText;
-            document.querySelector(`form#${formId} datalist#${datalistId}`).appendChild(option);
+            datalist.appendChild(option);
+            console.log(`option: ${option} attached to datalist: ${datalist}`)
+            console.log({option: option, datalist: datalist});
         }
+        // Attach datalist to input liat
+        var form = document.querySelector(`form#${formId}`);
+        console.log({form: form});
+        form.appendChild(datalist);
+        console.log(`Attached datalist: ${datalist} to form: ${form}`);
     }
 }
 
