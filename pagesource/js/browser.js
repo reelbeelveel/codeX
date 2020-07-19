@@ -1,25 +1,43 @@
 // browser.js
-// Last revised: Sun July 19, 2020 @ 02:11:36 EDT
-const Http = new XMLHttpRequest();
-const token = getToken();
-function getToken() {
+// Last revised: Sun July 19, 2020 @ 03:03:52 EDT
+
+var token = getToken().then(value => {token = value}, reason => { console.log{`Token promise rejected; `} });
+
+async function getToken() {
+    const Http = new XMLHttpRequest();
     const tokenUrl='https://codexapp.co/api/getToken/';
     Http.open("GET", tokenUrl);
-    Http.send();
     console.log("Token call");
-
     Http.onreadystatechange=(e)=>{
-        console.log(`[API Call to api/getToken/]: Recieved token: ${Http.responseText}`);
-        return Http.responseText;
+        if(Http.readyState === Http.DONE) {
+            var status = Http.status;
+            if (status === 0 || (status >= 200 && status < 400)) {
+                // The request has been completed successfully
+                let res = Http.responseText;
+                console.log(`[API Call to api/getToken/]: Recieved token: "${res}"`);
+                return res;
+            } else {
+                // Oh no! There has been an error with the request!
+                console.log("There was an error with the getToken request.");
+                console.log({status: Http.status});
+            }
+        } 
     }
+    Http.send();
 }
 
 
 
 function generatePreview() {
-    var engine = null;
-    var lang = null;
-    var input = null;
+    const Http = new XMLHttpRequest();dd
+    var engineSelect= document.querySelector("select#engine");
+    var langSelect = document.querySelector("select#lang");
+
+    var engine = engineSelect.options[engineSelect.selectedIndex].id;
+    var lang = langSelect.options[langSelect.selectedIndex].id;
+    var input = document.querySelector("textarea#codeInput").value;
+
+    console.log({token: token});
     Http.open("POST", `https://codexapp.co/api/create/${engine}${lang}/${token}/`)
     Http.send(input);
     console.log(`[POST To:] https://codexapp.co/api/create/${engine}${lang}/${token}`)
@@ -38,7 +56,7 @@ function populateSelections(formId, fields) {
     console.log({formid:formId, fields: fields, fieldLength: fields.length});
     var i, j;
     for(i = 0; i < fields.length; i++) {
-        
+
         // Loads list of options to populate Datalist
         var list = fields[i].populateWith;
         select = document.querySelector(`select#${fields[i].id}`)
