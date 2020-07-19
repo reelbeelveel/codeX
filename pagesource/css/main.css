@@ -71,3 +71,9 @@ span.testcolor5::after { content: " (--clr-fg-lite)";  }
 .input-form {
     margin: 100px 100px;;
 }
+
+label {
+    color: #242424; 
+    font-family: "Lucida Console", Courier, monospace;
+
+}
