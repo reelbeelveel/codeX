@@ -1,7 +1,26 @@
 // browser.js
-// Last revised: Sun July 19, 2020 @ 03:03:52 EDT
+// Last revised: Sun July 19, 2020 @ 03:51:20 EDT
 
-var token = getToken().then(value => {token = value}, reason => { console.log{`Token promise rejected; `} });
+// Disable to hide logs
+const loggerEnabled=true;
+
+var token = getToken().then(value => {token = value}, reason => { console.log(`Token promise rejected; `) });
+function timeStamp() {
+    var d = new Date();
+    var days = ["Sun.","Mon.","Tues.","Wed.","Thurs.","Fri.","Sat."];
+    var months = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sep.", "Oct.", "Nov.", "Dec." ];
+    var timeZone = "unknown";
+    try{
+        // Chrome, Firefox
+        timeZone = /.*\s(.+)/.exec((new Date()).toLocaleDateString(navigator.language, { timeZoneName:'short' }))[1];
+    }catch(e){
+        // IE, some loss in accuracy due to guessing at the abbreviation
+        // Note: This regex adds a grouping around the open paren as a
+        //       workaround for an IE regex parser bug
+        timeZone = (new Date()).toTimeString().match(new RegExp("[A-Z](?!.*[\(])","g")).join('');
+    }
+    return `${days[d.getDay()]} ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} @ ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}:${d.getMilliseconds()} ${timeZone}`;
+}
 
 async function getToken() {
     const Http = new XMLHttpRequest();
@@ -14,7 +33,7 @@ async function getToken() {
             if (status === 0 || (status >= 200 && status < 400)) {
                 // The request has been completed successfully
                 let res = Http.responseText;
-                console.log(`[API Call to api/getToken/]: Recieved token: "${res}"`);
+                new Logger(`[API Call to api/getToken/]: Recieved token: "${res}"`, 'Token Recieved!', 'color: yellow; font-weight: bold;');
                 return res;
             } else {
                 // Oh no! There has been an error with the request!
@@ -29,7 +48,7 @@ async function getToken() {
 
 
 function generatePreview() {
-    const Http = new XMLHttpRequest();dd
+    const Http = new XMLHttpRequest();
     var engineSelect= document.querySelector("select#engine");
     var langSelect = document.querySelector("select#lang");
 
@@ -59,10 +78,10 @@ function populateSelections(formId, fields) {
 
         // Loads list of options to populate Datalist
         var list = fields[i].populateWith;
-        select = document.querySelector(`select#${fields[i].id}`)
+        select = document.querySelector(`select#${fields[i].id}`);
 
         // Creates Datalist Object, with ID specified from `fields`
-        console.log({list: list, listLength: list.length, select: select});
+        new Logger({list, select});
 
         // Loop through all objects in list
         for (j = 0; j < list.length; j++){
@@ -74,8 +93,16 @@ function populateSelections(formId, fields) {
             option.id = list[j].aopId;
             option.innerHTML = list[j].displayText;
             select.appendChild(option);
-            console.log(`option: ${option} attached to select: ${select}`)
-            console.log({option: option, select: select});
+            new Logger({option, select}, `option: ${option} attached to select: ${select}`, 'font-weight: bold; color: orange;');
+        }
+    }
+}
+
+class Logger {
+    constructor(log, title=timeStamp(), style='font-weight: bold;') {
+        if(loggerEnabled) {
+            console.log(`%c ${title}`, style);
+            console.log(log);
         }
     }
 }
