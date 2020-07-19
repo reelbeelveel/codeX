@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 01:17:13 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 01:33:19 EDT -->
 <html>
 
 <head>
@@ -25,10 +25,9 @@
                         </td>
                         <td>
                             <input list="engine-list" id="engine" type="text" name="engine" required>
-                            <datalist id="engine-list">
-                                <option value="[cdx_] CodeX">
-                                <option value="[hijs] highlight.js">
-                            </datalist>
+                            <!-- Import engine list -->
+                            <!-- TODO: Convert to json in future? -->
+                            <script src="js/engine_list.js"></script>
                         </td>
                     </tr>
                     <tr>
@@ -37,8 +36,9 @@
                         </td>
                         <td>
                             <input list="lang-list" id="lang" type="text" name="lang" required>
-                            <!-- Ripped out datalist. Will be loaded dynamically by browser.js -->
-                            <!-- <datalist id="lang-list"></datalist> -->
+                            <!-- Import language_list -->
+                            <!-- TODO: Convert to json in future? -->
+                            <script src="js/language_list.js"></script>
                         </td>
                     </tr>
                     <tr>
@@ -64,8 +64,18 @@
     <footer>
     </footer>
 </body>
-<script src="browser.js">
+<script src="js/browser.js">
 </script>
-<script>populateSelections("codexGenerator", new Array({ datalistId: "lang-list", populateWith: language_list }));</script>
+<script>
+    let fields = [
+        { 
+            datalistId: "lang-list",
+            populateWith: language_list
+        },{
+            datalistId: "engine-list",
+            populateWith: engine_list
+        }];
+    populateSelections("codexGenerator", fields);
+</script>
 
 </html>
