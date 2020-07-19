@@ -1,5 +1,5 @@
 // index.js
-// Last revised: Sat July 18, 2020 @ 08:13:26 EDT
+// Last revised: Sat July 18, 2020 @ 08:57:06 EDT
 const Http = new XMLHttpRequest();
 const token = getToken();
 function getToken() {
@@ -39,6 +39,25 @@ function generatePreview() {
     Http.onreadystatechange=(e)=> {
         console.log(`[API Call to api/create]: Recieved: ${Http.responseText}`);
 
+    }
+}
+// fields = [{
+//      datalistId: "lang-list",
+//      populateWith: language_list
+//  }];
+//
+function populateSelections(formId, fields){
+    console.log(formId, fields);
+    var i, j;
+    for(i = 0; i < fields.length - 1; i++){
+        var list = fields[i].populateWith;
+        var datalistId = fields[i].datalistId;
+        for (j = 0; j < list.length; j++){
+            var option = document.createElement("OPTIONS");
+            option.id=`Opt${j}`;
+            option.innerHTML = list[j].displayText;
+            document.querySelector(`form#${formId} datalist#${datalistId}`).appendChild(option);
+        }
     }
 }
 

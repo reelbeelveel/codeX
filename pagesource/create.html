@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sat July 18, 2020 @ 07:27:06 EDT -->
-<!-- Page revised: Sat July 18, 2020 @ 07:27:06 EDT -->
+<!-- Page revised: Sat July 18, 2020 @ 09:00:54 EDT -->
+<!-- Page revised: Sat July 18, 2020 @ 09:00:54 EDT -->
 <html>
 
 <head>
@@ -35,9 +35,6 @@
                         <td>
                             <input list="lang-list" id="lang" type="text" name="lang" required>
                             <datalist id="lang-list">
-                                <option value="Auto">
-                                <option value="Bash (.sh/.zsh)">
-                                <option value="JavaScript (js)">
                             </datalist>
                         </td>
                     </tr>
@@ -64,6 +61,8 @@
     <footer>
     </footer>
 </body>
-<script src="js/index.js"></script>
+<script src="js/index.js">
+    populateSelections("input-form", new Array({ datalistId: "lang-list", populateWith: language_list }));
+</script>
 
 </html>
