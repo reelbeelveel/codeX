@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:14:35 EDT
+// List modified: Mon July 20, 2020 @ 11:16:29 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -158,6 +158,14 @@ var language_list = [
             common: true
         }],
         apiId: 'asciidoc',
+        cdxEnabled: false
+    },{
+        displayText: 'AspectJ',
+        fileTypes: [{
+            type: '.aj',
+            common: true
+        }],
+        apiId: 'aspectj',
         cdxEnabled: false
     },{
         displayText: 'Bash',
