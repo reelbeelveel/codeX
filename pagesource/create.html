@@ -1,82 +1,82 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 09:13:47 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 09:49:39 EDT -->
 <html>
 
-<head>
-    <title>codeX | Create</title>
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
-    <!-- TODO: Metadata here! -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- helps with mobile/desktop viewing zpg -->
-</head>
+    <head>
+        <title>codeX | Create</title>
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <!-- TODO: Metadata here! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- helps with mobile/desktop viewing zpg -->
+    </head>
 
-<body>
-    <header>
+    <body>
+        <header>
             <div>
                 <a href="index.html"><img src="Resources/logo.png" style="padding-bottom: 50px;"></img></a> <!-- temporary logo -->
             </div>
-    </header>
-    <main>
-        <div class="main-content">
-            <form id="codexGenerator" class="input-form">
-                <table width="100%">
-                    <tr>
-                        <td class="form-label-col">
-                            <label for="engine">Select an Engine:</label>
-                        </td>
-                        <td>
-                            <select id="engine">
-                                <!-- Import engine list -->
-                                <!-- TODO: Convert to json in future? -->
-                            </select>
-                            <script src="js/engine_list.js"></script>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="form-label-col">
-                            <label for="lang">Select a Language:</label>
-                        </td>
-                        <td>
-                            <select id="lang">
-                                <!-- Import language_list -->
-                                <!-- TODO: Convert to json in future? -->
-                            </select>
-                            <script src="js/language_list.js"></script>
-                        </td>
-                    </tr>
-                    <tr>
-                        <!--<td class="form-label-col">
-                            <label for="codeInput">Label Placeholder:</label>
-                        </td>
-                        <td>
-                            <textarea id="codeInput" name="codeInput" autofocus placeholder="Test" required></textarea>
-                        </td>-->
-                    </tr>
-                </table>
-                <textarea id="codeInput" name="codeInput" autofocus placeholder="Paste your code here"
-                    required></textarea>
-                <input type="button" value="Generate Preview" onclick="generatePreview()" />
-            </form>
-        </div>
-        <div id="previewPanel">
-            <div id="previewArea">Preview here</div>
-        </div>
-    </main>
-    <footer>
-    </footer>
-</body>
-<script src="js/browser.js">
-</script>
-<script>
-    let fields = [
-        {
-            id: "lang",
-            populateWith: language_list
-        }, {
-            id: "engine",
-            populateWith: engine_list
-        }];
-    populateSelections("codexGenerator", fields);
-</script>
+        </header>
+        <main>
+            <div class="main-content">
+                <form id="codexGenerator" class="input-form">
+                    <table width="100%">
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="engine">Select an Engine:</label>
+                            </td>
+                            <td>
+                                <select id="engine">
+                                    <!-- Import engine list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="js/engine_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="lang">Select a Language:</label>
+                            </td>
+                            <td>
+                                <select id="lang">
+                                    <!-- Import language_list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="js/language_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--<td class="form-label-col">
+                                <label for="codeInput">Label Placeholder:</label>
+                                </td>
+                                <td>
+                                <textarea id="codeInput" name="codeInput" autofocus placeholder="Test" required></textarea>
+                                </td>-->
+                        </tr>
+                    </table>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="Paste your code here"
+                                                                        required></textarea>
+                    <input type="button" value="Generate Preview" onclick="generatePreview()" />
+                </form>
+            </div>
+            <div id="previewPanel">
+                <div id="previewArea">Preview here</div>
+            </div>
+        </main>
+        <footer>
+        </footer>
+    </body>
+    <script src="js/browser.js">
+    </script>
+    <script>
+        let fields = [
+            {
+                id: "lang",
+                populateWith: language_list
+            }, {
+                id: "engine",
+                populateWith: engine_list
+            }];
+        populateSelections("codexGenerator", fields);
+    </script>
 
 </html>

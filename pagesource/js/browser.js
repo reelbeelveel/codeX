@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun July 19, 2020 @ 05:02:27 EDT
+// Last revised: Sun July 19, 2020 @ 09:37:31 EDT
 
 function timeStamp() {
     var d = new Date();
@@ -70,9 +70,10 @@ function generatePreview() {
         Http.send(input);
         console.log(`[POST To:] https://codexapp.co/api/create/${engine}${lang}/${token}`);
         Http.onreadystatechange=(e)=> {
-            console.log(`[API Call to api/create]: Recieved: ${Http.responseText}`);
+            var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+            console.log(`[API Call to api/create]: Recieved: ${previewText}`);
             var preview = document.getElementById("previewArea");
-            preview.innerHTML = Http.responseText;
+            preview.innerHTML = previewText;
         }
     }
 }
