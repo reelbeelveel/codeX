@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:53:08 EDT
+// List modified: Mon July 20, 2020 @ 11:03:49 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -72,6 +72,68 @@ var language_list = [
             common: true
         }],
         apiId: 'applescript',
+        cdxEnabled: false
+    },{
+        displayText: 'ArcGIS Arcade',
+        fileTypes: [{
+            type: '.mxd',
+            common: true
+        },{
+            type: '.3dd',
+            common: false
+        },{
+            type: '.adf',
+            common: false
+        },{
+            type: '.apl',
+            common: false
+        },{
+            type: '.apr',
+            common: false
+        },{
+            type: '.dgn',
+            common: false
+        },{
+            type: '.e00',
+            common: false
+        },{
+            type: '.flt',
+            common: false
+        },{
+            type: '.gen',
+            common: false
+        },{
+            type: '.lpk',
+            common: false
+        },{
+            type: '.mpk',
+            common: false
+        },{
+            type: '.msd',
+            common: false
+        },{
+            type: '.nmf',
+            common: false
+        },{
+            type: '.pix',
+            common: false
+        },{
+            type: '.prj',
+            common: false
+        },{
+            type: '.rdf',
+            common: false
+        },{
+            type: '.rlf',
+            common: false
+        },{
+            type: '.style',
+            common: false
+        },{
+            type: '.sxd',
+            common: false
+        }],
+        apiId: 'arcade',
         cdxEnabled: false
     },{
         displayText: 'Bash',
