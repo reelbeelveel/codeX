@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:12:29 EDT
+// List modified: Mon July 20, 2020 @ 11:14:35 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -150,6 +150,14 @@ var language_list = [
             common: true
         }],
         apiId: 'armasm',
+        cdxEnabled: false
+    },{
+        displayText: 'AsciiDoc',
+        fileTypes: [{
+            type: '.txt',
+            common: true
+        }],
+        apiId: 'asciidoc',
         cdxEnabled: false
     },{
         displayText: 'Bash',
