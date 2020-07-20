@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:45:20 EDT
+// List modified: Mon July 20, 2020 @ 10:48:46 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -48,6 +48,14 @@ var language_list = [
             common: true
         }],
         apiId: 'ada',
+        cdxEnabled: false
+    },{
+        displayText: 'AngelScript',
+        fileTypes: [{ 
+            type: '.as',
+            common: true
+        }],
+        apiId: 'angelscript',
         cdxEnabled: false
     },{
         displayText: 'Bash',
