@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:50:52 EDT
+// List modified: Mon July 20, 2020 @ 10:53:08 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -64,6 +64,14 @@ var language_list = [
             common: true
         }],
         apiId: 'apache',
+        cdxEnabled: false
+    },{
+        displayText: 'AppleScript',
+        fileTypes: [{
+            type: '.scpt',
+            common: true
+        }],
+        apiId: 'applescript',
         cdxEnabled: false
     },{
         displayText: 'Bash',
