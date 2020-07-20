@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:36:44 EDT
+// List modified: Mon July 20, 2020 @ 10:45:20 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -24,6 +24,30 @@ var language_list = [
             common: false
         }],
         apiId: 'abnf',
+        cdxEnabled: false
+    },{
+        displayText: 'Apache Access Log',
+        fileTypes: [{ }],
+        apiId: 'accesslog',
+        cdxEnabled: false
+    },{
+        displayText: 'Action Script',
+        fileTypes: [{
+            type: '.actionscript',
+            common: true
+        },{
+            type: '.as',
+            common: true
+        }],
+        apiId: 'actionscript',
+        cdxEnabled: false
+    },{
+        displayText: 'Ada',
+        fileTypes: [{ 
+            type: '.ada',
+            common: true
+        }],
+        apiId: 'ada',
         cdxEnabled: false
     },{
         displayText: 'Bash',
