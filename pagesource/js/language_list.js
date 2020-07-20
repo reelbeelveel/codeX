@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:18:35 EDT
+// List modified: Mon July 20, 2020 @ 11:23:36 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -226,7 +226,7 @@ var language_list = [
             type: '.md',
             common: true
         }],
-        apiId: 'md',
+        apiId: 'markdown',
         cdxEnabled: false
     },{
         displayText: 'Python',
@@ -243,7 +243,7 @@ var language_list = [
             type: '.pyc',
             common: false
         }],
-        apiId: 'py',
+        apiId: 'python',
         cdxEnabled: false
     },{
         displayText: 'XML',
