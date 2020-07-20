@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:06:33 EDT
+// List modified: Mon July 20, 2020 @ 11:09:08 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -142,6 +142,14 @@ var language_list = [
             common: true
         }],
         apiId: 'arduino',
+        cdxEnabled: false
+    },{
+        displayText: 'ARM Assembly',
+        fileTypes: [{
+            type: '.s',
+            common: true
+        }],
+        apiId: 'armasm',
         cdxEnabled: false
     },{
         displayText: 'Bash',
