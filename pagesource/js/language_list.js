@@ -1,14 +1,29 @@
-// List modified: Sun July 19, 2020 @ 01:44:26 EDT
+// List modified: Mon July 20, 2020 @ 10:36:44 EDT
 var language_list = [
     {
         displayText: 'Auto',
-        apiId: 'auto',
-        filetypes: [
-            {
+        fileTypes: [{
                 type: '.*',
                 common: true
             }],
+        apiId: 'auto',
         prettyName: 'Automatic Highlight', // Experimental, does nothing
+        cdxEnabled: false
+    },{
+        displayText: '1C:Enterprise',
+        fileTypes: [{ }],
+        apiId: '1c',
+        cdxEnabled: false
+    },{
+        displayText: 'Augmented Backus-Naur Form',
+        fileTypes: [{ 
+            type: '.abnf',
+            common: false
+        },{
+            type: '.bnf',
+            common: false
+        }],
+        apiId: 'abnf',
         cdxEnabled: false
     },{
         displayText: 'Bash',
