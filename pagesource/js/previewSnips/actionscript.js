@@ -1,4 +1,4 @@
-package org.example.dummy {
+preview.type_actionscript = `package org.example.dummy {
     import org.dummy.*;
 
     /*define package inline interface*/
@@ -21,4 +21,4 @@ package org.example.dummy {
             return pairs;
         }
     }
-}
+}`;

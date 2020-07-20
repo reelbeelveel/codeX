@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+preview.type_xml = `<!DOCTYPE html>
 <title>Title</title>
 
 <style>body {width: 500px;}</style>
@@ -10,4 +10,4 @@
 <body>
   <p checked class="title" id='title'>Title</p>
   <!-- here goes the rest of the page -->
-</body>
+</body>`;

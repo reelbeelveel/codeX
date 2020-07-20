@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 11:06:32 EDT -->
+<!-- Page revised: Mon July 20, 2020 @ 11:34:38 EDT -->
 <html>
 
     <head>
@@ -54,8 +54,7 @@
                                 </td>-->
                         </tr>
                     </table>
-                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
-                                                                        required onchange="generatePreview()"></textarea>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..." required onchange="generatePreview()"></textarea>
                     <input type="button" value="Generate Preview" onclick="generatePreview()" />
                 </form>
             </div>
@@ -78,6 +77,7 @@
                 populateWith: engine_list
             }];
         populateSelections("codexGenerator", fields);
+        generatePlaceholder("codexGenerator");
     </script>
 
 </html>

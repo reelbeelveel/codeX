@@ -1,4 +1,4 @@
-/* Highlight.js est for Arcade */
+preview.type_arcade = `/* Highlight.js est for Arcade */
 function testGeometry(element, point) {
     if (point.y != -1)
         return point;
@@ -11,4 +11,4 @@ function testGeometry(element, point) {
 }
 var filePath = "literal " + TextFormatting.BackSlash + TextFormatting.SingleQuote + ".ext"
 var d = Dictionary("field1", 1, "field2",2);
-return FeatureSet($map, ["POPULATION", "ELECTION-DATA"]);
+return FeatureSet($map, ["POPULATION", "ELECTION-DATA"]);`;

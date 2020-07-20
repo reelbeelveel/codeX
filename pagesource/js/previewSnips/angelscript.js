@@ -1,4 +1,4 @@
-interface IInterface
+preview.type_angelscript = `interface IInterface
 {
     void DoSomething();
 }
@@ -53,4 +53,4 @@ void Main()
 {
     SomeClass@ c = SomeClass();
     c.DoSomething();
-}
+}`;

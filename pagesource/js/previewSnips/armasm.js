@@ -1,4 +1,4 @@
-.text
+preview.type_armasm = `.text
 
 .global connect
 connect:
@@ -33,4 +33,4 @@ connect_call:  .long 283
 
 /* all addresses are network byte-order (big-endian) */
 server_addr:            .long 0x0100007f ; localhost
-server_port:            .hword 0x0b1a
+server_port:            .hword 0x0b1a`;

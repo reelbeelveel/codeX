@@ -1,8 +1,8 @@
-; hotkeys and hotstrings
+preview.type_autohotkey = `; hotkeys and hotstrings
 #a::WinSet, AlwaysOnTop, Toggle, A
 #Space::
-  MsgBox, Percent sign (`%) need to be escaped.
-  Run "C:\Program Files\some\program.exe"
+  MsgBox, Percent sign (\`%) need to be escaped.
+  Run "C:\\Program Files\\some\\program.exe"
   Gosub, label1
 return
 ::btw::by the way
@@ -21,4 +21,4 @@ label1:
     StringReplace, temp, Clipboard, old, new, All
     MsgBox, , Clipboard, %temp%
   }
-return
+return`;

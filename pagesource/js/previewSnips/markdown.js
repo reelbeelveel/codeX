@@ -1,4 +1,4 @@
-# hello world
+preview.type_markdown = `# hello world
 
 you can write text [with links](http://example.com) inline or [link references][1].
 
@@ -19,4 +19,4 @@ hello world
     so are code segments
 
 1. one thing (yeah!)
-2. two thing `i can write code`, and `more` wipee!
+2. two thing \`i can write code\`, and \`more\` wipee!`;

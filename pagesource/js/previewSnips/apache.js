@@ -1,4 +1,4 @@
-# rewrite`s rules for wordpress pretty url
+preview.type_apache = `# rewrites rules for wordpress pretty url
 LoadModule rewrite_module  modules/mod_rewrite.so
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -13,7 +13,7 @@ Allow from All
 <Location /maps/>
   RewriteMap map txt:map.txt
   RewriteMap lower int:tolower
-  RewriteCond %{REQUEST_URI} ^/([^/.]+)\.html$ [NC]
-  RewriteCond ${map:${lower:%1}|NOT_FOUND} !NOT_FOUND
-  RewriteRule .? /index.php?q=${map:${lower:%1}} [NC,L]
-</Location>
+  RewriteCond %{REQUEST_URI} ^/([^/.]+)\\.html$ [NC]
+  RewriteCond \${map:\${lower:%1}|NOT_FOUND} !NOT_FOUND
+  RewriteRule .? /index.php?q=\${map:\${lower:%1}} [NC,L]
+</Location>`;

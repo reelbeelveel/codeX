@@ -1,4 +1,4 @@
-#!/bin/bash
+preview.type_bash = `#!/bin/bash
 
 ###### CONFIG
 ACCEPTED_HOSTS="/root/.hag_accepted.conf"
@@ -11,7 +11,7 @@ then
 fi
 
 genApacheConf(){
- echo -e "# Host ${HOME_DIR}$1/$2 :"
+ echo -e "# Host \${HOME_DIR}$1/$2 :"
 }
 
-echo '"quoted"' | tr -d \" > text.txt
+echo '"quoted"' | tr -d \\" > text.txt`;

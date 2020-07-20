@@ -1,8 +1,8 @@
-function $initHighlight(block, cls) {
+preview.type_javascript = `function $initHighlight(block, cls) {
   try {
-    if (cls.search(/\bno\-highlight\b/) != -1)
+    if (cls.search(/\\bno\\-highlight\\b/) != -1)
       return process(block, true, 0x0F) +
-             ` class="${cls}"`;
+             \` class="\${cls}"\`;
   } catch (e) {
     /* handle exception */
   }
@@ -18,4 +18,4 @@ function $initHighlight(block, cls) {
   )
 }
 
-export  $initHighlight;
+export  $initHighlight;`;

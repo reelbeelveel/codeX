@@ -1,4 +1,4 @@
-Hello, World!
+preview.type_asciidoc = `Hello, World!
 ============
 Author Name, <author@domain.foo>
 
@@ -9,8 +9,8 @@ using an explicit link:http://example.com[link prefix].
 ** alternatively, you can put underlines around a phrase to add _emphasis_
 * astericks around a phrase make the text *bold*
 * pluses around a phrase make it +monospaced+
-* `smart' quotes using a leading backtick and trailing single quote
-** use two of each for double ``smart'' quotes
+` + "* `smart' quotes using a leading backtick and trailing single quote" + `
+` + "** use two of each for double ``smart'' quotes" + `
 
 - escape characters are supported
 - you can escape a quote inside emphasized text like 'here\'s johnny!'
@@ -60,6 +60,6 @@ I'll join that party, too.
 ....
 
 . one thing (yeah!)
-. two thing `i can write code`, and `more` wipee!
+` + ". two thing `i can write code`, and `more` wipee!" + `
 
-NOTE: AsciiDoc is quite cool, you should try it.
+NOTE: AsciiDoc is quite cool, you should try it.`;

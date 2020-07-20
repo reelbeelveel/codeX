@@ -1,4 +1,4 @@
-/*
+preview.type_arduino = `/*
   Blink
   Turns on an LED on for one second, then off for one second, repeatedly.
  
@@ -21,4 +21,4 @@ void loop() {
   delay(1000);               // wait for a second
   digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);               // wait for a second
-}
+}`;

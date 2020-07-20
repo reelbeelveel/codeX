@@ -1,4 +1,4 @@
-package body Sqlite.Simple is
+preview.type_ada = `package body Sqlite.Simple is
 
       Foo : int := int'Size;
       Bar : int := long'Size;
@@ -14,4 +14,4 @@ package body Sqlite.Simple is
       Foo := Bar;
    end Message;
 
-end Sqlite.Simple;
+end Sqlite.Simple;`;

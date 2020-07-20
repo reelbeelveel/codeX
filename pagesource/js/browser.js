@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun July 19, 2020 @ 09:37:31 EDT
+// Last revised: Mon July 20, 2020 @ 01:33:21 EDT
 
 function timeStamp() {
     var d = new Date();
@@ -57,8 +57,8 @@ function generatePreview() {
     var engineSelect= document.querySelector("select#engine");
     var langSelect = document.querySelector("select#lang");
 
-    var engine = engineSelect.options[engineSelect.selectedIndex].id;
-    var lang = langSelect.options[langSelect.selectedIndex].id;
+    var engine = engineSelect.options[engineSelect.selectedIndex].value;
+    var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
     new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
@@ -77,13 +77,8 @@ function generatePreview() {
         }
     }
 }
-// fields = [{
-//      id: "lang-list",
-//      populateWith: language_list
-//  }];
-//
 function populateSelections(formId, fields) {
-    console.log({formid:formId, fields: fields, fieldLength: fields.length});
+    new Logger ({formid:formId, fields: fields, fieldLength: fields.length});
     var i, j;
     for(i = 0; i < fields.length; i++) {
 
@@ -101,12 +96,37 @@ function populateSelections(formId, fields) {
             // Attach option to datalist
             var option = document.createElement("option");
             option.class = `Opt${j}`;
-            option.id = list[j].apiId;
+            option.value = list[j].apiId;
             option.innerText = list[j].displayText;
+
+            // import previewSnippet
+            if(fields[i].id == "lang" && list[j].apiId != 'auto' ){
+                var imported = document.createElement('script');
+                imported.src = `/js/previewSnips/${list[j].apiId}.js`;
+                imported.type = 'text/javascript';
+                document.head.appendChild(imported);
+            }
+
             select.appendChild(option);
             new Logger({option, select}, `option: ${option} attached to select: ${select}`, 'font-weight: bold;');
         }
     }
+}
+
+function generatePlaceholder(formId) {
+    let len = language_list.length;
+    let randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
+    let randomLang = language_list[randomIndex];
+    let previewId = `type_${randomLang.apiId}`;
+    console.log(previewId);
+    console.log(Object.keys(preview));
+    console.log(preview[previewId]);
+    let previewText = preview[`type_${randomLang.apiId}`];
+
+    new Logger({formId, len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
+    document.querySelector(`select#engine`).value = 'hijs';
+    document.querySelector(`select#lang`).value = randomLang.apiId;
+    document.querySelector(`textarea#codeInput`).innerHTML = previewText;
 }
 
 

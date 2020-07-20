@@ -1,4 +1,4 @@
-package com.aspectj.syntax;
+preview.type_aspectj = `package com.aspectj.syntax;
 import org.aspectj.lang.annotation.AdviceName;
 
 privileged public aspect LoggingAspect percflowbelow(ajia.services.*){
@@ -20,4 +20,4 @@ privileged public aspect LoggingAspect percflowbelow(ajia.services.*){
   public void Identifiable.setId(String id) {
     this.id = id;
   }
-}
+}`;

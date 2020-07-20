@@ -1,4 +1,4 @@
-; line comment
+preview.type_abnf = `; line comment
 
 ruleset     =   [optional] *(group1 / group2 / SP) CRLF ; trailing comment
 
@@ -19,4 +19,4 @@ optional    =   hex-codes
 hex-codes   =   %x68.65.6C.6C.6F
 literal     =   "string literal"
 sensitive   =   %s"case-sensitive string"
-insensitive =   %i"case-insensitive string"
+insensitive =   %i"case-insensitive string"`;
