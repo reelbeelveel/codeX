@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun July 19, 2020 @ 10:33:26 EDT -->
+<!-- Page revised: Sun July 19, 2020 @ 11:00:48 EDT -->
 <html>
 
     <head>
@@ -14,7 +14,7 @@
     <body>
         <header>
             <div>
-                <a href="index.html"><img src="Resources/logo.png" style="padding-bottom: 50px;"></img></a> <!-- temporary logo -->
+                <a href="/"><img src="Resources/logo.png" style="padding-bottom: 50px;"></img></a> <!-- temporary logo -->
             </div>
         </header>
         <main>
@@ -54,13 +54,13 @@
                                 </td>-->
                         </tr>
                     </table>
-                    <textarea id="codeInput" name="codeInput" autofocus placeholder="Paste your code here"
-                                                                        required></textarea>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
+                                                                        required onchange="generatePreview()"></textarea>
                     <input type="button" value="Generate Preview" onclick="generatePreview()" />
                 </form>
             </div>
             <div id="previewPanel">
-                <div id="previewArea">Preview here</div>
+                <div id="previewArea">i// And the preview shows up here here</div>
             </div>
         </main>
         <footer>
