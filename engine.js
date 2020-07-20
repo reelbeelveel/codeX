@@ -1,6 +1,7 @@
-// Script modified: Thu July 16, 2020 @ 08:39:36 EDT
+// Script modified: Sun July 19, 2020 @ 09:23:23 EDT
 // Private
 const hijs = require('highlight.js');
+hijs.configure({useBR: true}); 
 
 
 // Public
