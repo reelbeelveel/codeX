@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:03:49 EDT
+// List modified: Mon July 20, 2020 @ 11:06:33 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -134,6 +134,14 @@ var language_list = [
             common: false
         }],
         apiId: 'arcade',
+        cdxEnabled: false
+    },{
+        displayText: 'Arduino',
+        fileTypes: [{
+            type: '.ino',
+            common: true
+        }],
+        apiId: 'arduino',
         cdxEnabled: false
     },{
         displayText: 'Bash',
