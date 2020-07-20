@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:09:08 EDT
+// List modified: Mon July 20, 2020 @ 11:12:29 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -178,6 +178,14 @@ var language_list = [
         apiId: 'cpp',
         cdxEnabled: false
     },{
+        displayText: 'HTML',
+        fileTypes: [{
+            type: '.html',
+            common: true
+        }],
+        apiId: 'xml',
+        cdxEnabled: false
+    },{
         displayText: 'JavaScript',
         fileTypes: [{
             type: '.js',
@@ -212,5 +220,13 @@ var language_list = [
             common: false
         }],
         apiId: 'py',
+        cdxEnabled: false
+    },{
+        displayText: 'XML',
+        fileTypes: [{
+            type: '.xml',
+            common: true
+        }],
+        apiId: 'xml',
         cdxEnabled: false
     }];
