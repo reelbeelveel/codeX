@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:48:46 EDT
+// List modified: Mon July 20, 2020 @ 10:50:52 EDT
 var language_list = [
     {
         displayText: 'Auto',
@@ -56,6 +56,14 @@ var language_list = [
             common: true
         }],
         apiId: 'angelscript',
+        cdxEnabled: false
+    },{
+        displayText: 'Apache Config',
+        fileTypes: [{
+            type: '.conf',
+            common: true
+        }],
+        apiId: 'apache',
         cdxEnabled: false
     },{
         displayText: 'Bash',
