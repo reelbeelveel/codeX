@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 08:26:40 EDT
+// List modified: Mon July 20, 2020 @ 08:44:58 EDT
 let preview = {};
 var language_list = [
     {
@@ -179,10 +179,79 @@ var language_list = [
     },{
         displayText: 'AutoIt',
         fileTypes: [{
-            type: '',
+            type: '.au3',
             common: true
         }],
         apiId: 'autoit',
+        cdxEnabled: false
+    },{
+        displayText: 'AVR Assembly',
+        fileTypes: [{
+            type: '.asm',
+            common: true
+        }],
+        apiId: 'avrasm',
+        cdxEnabled: false
+    },{
+        displayText: 'Awk',
+        fileTypes: [{
+            type: '.awk',
+            common: true
+        }],
+        apiId: 'awk',
+        cdxEnabled: false
+    },{
+        displayText: 'MS Axapta/Dynamics AX',
+        fileTypes: [{
+            type: '.ald',
+            common: 'false'
+        },{
+            type: '.alc',
+            common: 'false'
+        },{
+            type: '.ali',
+            common: 'false'
+        },{
+            type: '.alt',
+            common: 'false'
+        },{
+            type: '.aoi',
+            common: 'false'
+        },{
+            type: '.add',
+            common: 'false'
+        },{
+            type: '.adi',
+            common: 'false'
+        },{
+            type: '.ahd',
+            common: 'false'
+        },{
+            type: '.ahi',
+            common: 'false'
+        },{
+            type: '.aod',
+            common: 'false'
+        },{
+            type: '.khd',
+            common: 'false'
+        },{
+            type: '.khi',
+            common: 'false'
+        },{
+            type: '.ktd',
+            common: 'false'
+        },{
+            type: 'kti',
+            common: 'false'
+        },{
+            type: '.auc',
+            common: 'false'
+        },{
+            type: '.aoc',
+            common: 'false'
+        }],
+        apiId: 'axapta',
         cdxEnabled: false
     },{
         displayText: 'Bash',
@@ -202,6 +271,11 @@ var language_list = [
             }],
         apiId: 'bash',
         cdxEnabled: true
+    },{
+        displayText: 'BASIC',
+        fileTypes: [{}],
+        apiId: 'basic',
+        cdxEnabled: false
     },{
         displayText: 'C++',
         fileTypes: [{
@@ -664,6 +738,99 @@ Func example($min, $max)
 		EndIf
 	Next
 EndFunc   ;==>example`;
+
+preview.type_avrasm = `;* Title:       Block Copy Routines
+;* Version:     1.1
+
+.include "8515def.inc"
+
+        rjmp    RESET       ;reset handle
+
+.def    flashsize=r16       ;size of block to be copied
+
+flash2ram:
+        lpm                 ;get constant
+        st      Y+,r0       ;store in SRAM and increment Y-pointer
+        adiw    ZL,1        ;increment Z-pointer
+        dec     flashsize
+        brne    flash2ram   ;if not end of table, loop more
+        ret
+
+.def    ramtemp =r1         ;temporary storage register
+.def    ramsize =r16        ;size of block to be copied`;
+
+preview.type_awk = `BEGIN {
+  POPService  = "/inet/tcp/0/emailhost/pop3"
+  RS = ORS = "\\r\\n"
+  print "user name"            |& POPService
+  POPService                    |& getline
+  print "pass password"         |& POPService
+  POPService                    |& getline
+  print "retr 1"                |& POPService
+  POPService                    |& getline
+  if ($1 != "+OK") exit
+  print "quit"                  |& POPService
+  RS = "\\r\\n\\\\.\\r\\n"
+  POPService |& getline
+  print $0
+  close(POPService)
+}`;
+
+preview.type_axapta = `class ExchRateLoadBatch extends RunBaseBatch {
+  ExchRateLoad rbc;
+  container currencies;
+  boolean actual;
+  boolean overwrite;
+  date beg;
+  date end;
+
+  #define.CurrentVersion(5)
+
+  #localmacro.CurrentList
+    currencies,
+    actual,
+    beg,
+    end
+  #endmacro
+}
+
+public boolean unpack(container packedClass) {
+  container       base;
+  boolean         ret;
+  Integer         version    = runbase::getVersion(packedClass);
+
+  switch (version) {
+    case #CurrentVersion:
+      [version, #CurrentList] = packedClass;
+      return true;
+    default:
+      return false;
+  }
+  return ret;
+}`;
+
+preview.type_basic = `10 CLS
+20 FOR I = 0 TO 15
+22 FOR J = 0 TO 7
+30 COLOR I,J
+40 PRINT " ** ";
+45 NEXT J
+46 COLOR I,0
+47 GOSUB 100
+48 PRINT
+50 NEXT I
+60 COLOR 15,0
+99 END
+100 FOR T = 65 TO 90
+101 PRINT CHR$(T);
+102 NEXT T
+103 RETURN
+200 REM Data types test
+201 TOTAL# = 3.30#		'Double precision variable
+202 BALANCE! = 3!		'Single precision variable
+203 B2! = 12e5			'120000
+204 ITEMS% = 10			'Integer variable
+205 HEXTEST = &H12DB	'Hex value`;
 
 preview.type_bash = `#!/bin/bash
 
