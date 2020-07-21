@@ -287,6 +287,57 @@ div#previewArea {
     border: 1px solid var(--clr-accentB);
 }
 select {
-    font-family: Hurmit-NF;
+    /* font-family: Hurmit-NF; */
+    color: var(--clr-fg-lite); 
+    font-family: "Lucida Console", Courier, monospace;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
 
 }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--clr-bg-lite);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--clr-bg-dark);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-accentA);
+  }
+
+  ::-webkit-scrollbar-corner{
+      background: var(--clr-bg-lite);
+      border-color: var(--clr-bg-lite);
+  }
+
+  .button{
+    margin-top:10px;
+    position:-webkit-sticky;
+    color: var(--clr-fg-lite); 
+    font-family: "Lucida Console", Courier, monospace;
+    font-size: 20px;
+    border-radius: 5px;
+
+
+  }
+  .button:hover{
+      background:var(--clr-accentA);
+  }
+
+  tr{
+    width:100%;
+    border-style: dashed;
+  }
+
+  td{
+      width:50%;
+  }
