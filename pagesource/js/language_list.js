@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 09:13:44 EDT
+// List modified: Mon July 20, 2020 @ 09:44:25 EDT
 let preview = {};
 var language_list = [
     {
@@ -328,12 +328,60 @@ var language_list = [
         apiId: 'clojure-repl',
         cdxEnabled: false
     },{
+        displayText: 'CMake',
+        fileTypes: [{}],
+        apiId: 'cmake',
+        cdxEnabled: false
+    },{
+        displayText: 'CoffeeScript',
+        fileTypes: [{}],
+        apiId: 'coffeescript',
+        cdxEnabled: false
+    },{
+        displayText: 'Coq',
+        fileTypes: [{}],
+        apiId: 'coq',
+        cdxEnabled: false
+    },{
+        displayText: 'Caché Object Script',
+        fileTypes: [{}],
+        apiId: 'cos',
+        cdxEnabled: false
+    },{
         displayText: 'C++',
         fileTypes: [{
             type: '.cpp',
             common: true
         }],
         apiId: 'cpp',
+        cdxEnabled: false
+    },{
+        displayText:'crmsh',
+        fileTypes: [{}],
+        apiId, 'crmsh',
+        cdxEnabled: false
+    },{
+        displayText: 'Crystal',
+        fileTypes: [{}],
+        apiId: 'crystal',
+        cdxEnabled: false
+    },{
+        displayText: 'C#',
+        fileTypes: [{
+            type: '.c#',
+            common: true
+        }],
+        apiId: 'csharp',
+        cdxEnabled: false
+    },{
+        displayText: 'CSP',
+        fileTypes: [{}],
+        apiId: 'csp',
+        cdxEnabled: false
+    },{
+        displayText: 'CSS',
+        fileTypes: [{}],
+        apiId: 'css',
         cdxEnabled: false
     },{
         displayText: 'HTML',
@@ -1098,6 +1146,105 @@ user=> (f 5 7)
 user=> nil
 nil`;
 
+preview.type_cmake = `cmake_minimum_required(VERSION 2.8.8)
+project(cmake_example)
+
+# Show message on Linux platform
+if (\${CMAKE_SYSTEM_NAME} MATCHES Linux)
+    message("Good choice, bro!")
+endif()
+
+# Tell CMake to run moc when necessary:
+set(CMAKE_AUTOMOC ON)
+# As moc files are generated in the binary dir,
+# tell CMake to always look for includes there:
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Widgets finds its own dependencies.
+find_package(Qt5Widgets REQUIRED)
+
+add_executable(myproject main.cpp mainwindow.cpp)
+qt5_use_modules(myproject Widgets)`;
+
+preview.type_coffeescript = `grade = (student, period=(if b? then 7 else 6)) ->
+  if student.excellentWork
+    "A+"
+  else if student.okayStuff
+    if student.triedHard then "B" else "B-"
+  else
+    "C"
+
+class Animal extends Being
+  constructor: (@name) ->
+
+  move: (meters) ->
+    alert @name + " moved #{meters}m."`;
+
+preview.type_cos = `#dim test as %Library.Integer
+SET test = 123.099
+set ^global = %request.Content
+Write "Current date """, $ztimestamp, """, result: ", test + ^global = 125.099
+do ##class(Cinema.Utils).AddShow("test") // class method call
+do ##super() ; another one-line comment
+d:(^global = 2) ..thisClassMethod(1, 2, "test")
+/*
+ * Sub-languages support:
+ */
+&sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
+&js<for (var i = 0; i < String("test").split("").length); ++i) {
+    console.log(i);
+}>
+&html<<!DOCTYPE html>
+<html>
+<head> <meta name="test"/> </head>
+<body>Test</body>
+</html>>
+
+quit $$$OK`;
+
+
+preview.type_coq = `Inductive seq : nat -> Set :=
+| niln : seq 0
+| consn : forall n : nat, nat -> seq n -> seq (S n).
+
+Fixpoint length (n : nat) (s : seq n) {struct s} : nat :=
+  match s with
+  | niln => 0
+  | consn i _ s' => S (length i s')
+  end.
+
+Theorem length_corr : forall (n : nat) (s : seq n), length n s = n.
+Proof.
+  intros n s.
+
+  (* reasoning by induction over s. Then, we have two new goals
+     corresponding on the case analysis about s (either it is
+     niln or some consn *)
+  induction s.
+
+    (* We are in the case where s is void. We can reduce the
+       term: length 0 niln *)
+    simpl.
+
+    (* We obtain the goal 0 = 0. *)
+    trivial.
+
+    (* now, we treat the case s = consn n e s with induction
+       hypothesis IHs *)
+    simpl.
+
+    (* The induction hypothesis has type length n s = n.
+       So we can use it to perform some rewriting in the goal: *)
+    rewrite IHs.
+
+    (* Now the goal is the trivial equality: S n = S n *)
+    trivial.
+
+  (* Now all sub cases are closed, we perform the ultimate
+     step: typing the term built using tactics and save it as
+     a witness of the theorem. *)
+Qed.`;
+
 preview.type_cpp = `#include <iostream>
 
 int main(int argc, char *argv[]) {
@@ -1113,27 +1260,124 @@ int main(int argc, char *argv[]) {
   return -2e3 + 12l;
 }`;
 
-preview.type_javascript = `function $initHighlight(block, cls) {
-  try {
-    if (cls.search(/\\bno\\-highlight\\b/) != -1)
-      return process(block, true, 0x0F) +
-             \` class="\${cls}"\`;
-  } catch (e) {
-    /* handle exception */
-  }
-  for (var i = 0 / 2; i < classes.length; i++) {
-    if (checkCondition(classes[i]) === undefined)
-      console.log('undefined');
-  }
+preview.type_crmsh = `node webui
+node 168633611: node1
+rsc_template web-server apache \
+	params port=8000 \
+	op monitor interval=10s
+# Never use this STONITH agent in production!
+primitive development-stonith stonith:null \
+	params hostlist="webui node1 node2 node3"
+primitive proxy systemd:haproxy \
+	op monitor interval=10s
+primitive proxy-vip IPaddr2 \
+	params ip=10.13.37.20
+primitive srv1 @web-server
+primitive srv2 @web-server
+primitive test1 Dummy
+primitive test2 IPaddr2 \
+	params ip=10.13.37.99
+primitive vip1 IPaddr2 \
+	params ip=10.13.37.21 \
+	op monitor interval=20s
+primitive vip2 IPaddr2 \
+	params ip=10.13.37.22 \
+	op monitor interval=20s
+group g-proxy proxy-vip proxy
+group g-serv1 vip1 srv1
+group g-serv2 vip2 srv2
+# Never put the two web servers on the same node
+colocation co-serv -inf: g-serv1 g-serv2
+# Never put any web server or haproxy on webui
+location l-avoid-webui { g-proxy g-serv1 g-serv2 } -inf: webui
+# Prever to spread groups across nodes
+location l-proxy g-proxy 200: node1
+location l-serv1 g-serv1 200: node2
+location l-serv2 g-serv2 200: node3
+property cib-bootstrap-options: \
+	stonith-enabled=true \
+	no-quorum-policy=ignore \
+	placement-strategy=balanced \
+	have-watchdog=false \
+	dc-version="1.1.13-1.1.13+git20150827.e8888b9" \
+	cluster-infrastructure=corosync \
+	cluster-name=hacluster
+rsc_defaults rsc-options: \
+	resource-stickiness=1 \
+	migration-threshold=3
+op_defaults op-options: \
+	timeout=600 \
+	record-pending=true`;
 
-  return (
-    <div>
-      <web-component>{block}</web-component>
-    </div>
-  )
+preview.type_crystal = `class Person
+  def initialize(@name : String)
+  end
+
+  def greet
+    puts "Hi, I'm #{@name}"
+  end
+end
+
+class Employee < Person
+end
+
+employee = Employee.new "John"
+employee.greet         # => "Hi, I'm John"
+employee.is_a?(Person) # => true
+
+@[Link("m")]
+lib C
+  # In C: double cos(double x)
+  fun cos(value : Float64) : Float64
+end
+
+C.cos(1.5_f64) # => 0.0707372
+
+s = uninitialized String
+s = <<-'STR'
+\\hello\\world
+\\hello\\world
+STR`;
+
+preview.type_csharp = `using System.IO.Compression;
+
+#pragma warning disable 414, 3021
+
+namespace MyApplication
+{
+    [Obsolete("...")]
+    class Program : IInterface
+    {
+        public static List<int> JustDoIt(int count)
+        {
+            Console.WriteLine($"Hello {Name}!");
+            return new List<int>(new int[] { 1, 2, 3 })
+        }
+    }
+}`;
+
+preview.type_csp = `Content-Security-Policy:
+    default-src 'self';
+    style-src 'self' css.example.com;
+    img-src *.example.com;
+    script-src 'unsafe-eval' 'self' js.example.com 'nonce-Nc3n83cnSAd3wc3Sasdfn939hc3'`;
+
+preview.type_css = `@font-face {
+  font-family: Chunkfive; src: url('Chunkfive.otf');
 }
 
-export  $initHighlight;`;
+body, .usertext {
+  color: #F0F0F0; background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=http]::after {
+    content: attr(href)
+  }
+}`;
 
 preview.type_markdown = `# hello world
 
