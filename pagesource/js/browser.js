@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Mon July 20, 2020 @ 01:33:21 EDT
+// Last revised: Mon July 20, 2020 @ 08:17:26 EDT
 
 function timeStamp() {
     var d = new Date();
@@ -41,6 +41,7 @@ async function getToken() {
                 // The request has been completed successfully
                 token = Http.responseText;
                 new Logger(`[API Call to api/getToken/]: Recieved token: "${token}"`, 'Token Recieved!', 'color: yellow; font-weight: bold;');
+                generatePlaceholder();
             } else {
                 // Oh no! There has been an error with the request!
                 console.log("There was an error with the getToken request.");
@@ -99,21 +100,14 @@ function populateSelections(formId, fields) {
             option.value = list[j].apiId;
             option.innerText = list[j].displayText;
 
-            // import previewSnippet
-            if(fields[i].id == "lang" && list[j].apiId != 'auto' ){
-                var imported = document.createElement('script');
-                imported.src = `/js/previewSnips/${list[j].apiId}.js`;
-                imported.type = 'text/javascript';
-                document.head.appendChild(imported);
-            }
-
             select.appendChild(option);
             new Logger({option, select}, `option: ${option} attached to select: ${select}`, 'font-weight: bold;');
         }
     }
 }
 
-function generatePlaceholder(formId) {
+function generatePlaceholder() {
+    const Http = new XMLHttpRequest();
     let len = language_list.length;
     let randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
     let randomLang = language_list[randomIndex];
@@ -123,10 +117,25 @@ function generatePlaceholder(formId) {
     console.log(preview[previewId]);
     let previewText = preview[`type_${randomLang.apiId}`];
 
-    new Logger({formId, len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
+    new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
     document.querySelector(`select#engine`).value = 'hijs';
     document.querySelector(`select#lang`).value = randomLang.apiId;
-    document.querySelector(`textarea#codeInput`).innerHTML = previewText;
+    document.querySelector(`textarea#codeInput`).placeholder = previewText;
+
+    if (token===null){
+        new Logger('','No Token!', 'color: red; font-weight: bold;');
+        preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
+    } else {
+        Http.open("POST", `https://codexapp.co/api/create/hijs${randomLang.apiId}/${token}/`);
+        Http.send(previewText);
+        console.log(`[POST To:] https://codexapp.co/api/create/hijs${randomLang.apiId}/${token}`);
+        Http.onreadystatechange=(e)=> {
+            var hiPreviewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+            console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
+            var hiPreview = document.getElementById("previewArea");
+            hiPreview.innerHTML = hiPreviewText;
+        }
+    }
 }
 
 

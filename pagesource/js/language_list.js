@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 01:38:57 EDT
+// List modified: Mon July 20, 2020 @ 08:20:09 EDT
 let preview = {};
 var language_list = [
     {
@@ -540,7 +540,7 @@ using an explicit link:http://example.com[link prefix].
 ` + "** use two of each for double ``smart'' quotes" + `
 
 - escape characters are supported
-- you can escape a quote inside emphasized text like 'here\'s johnny!'
+- you can escape a quote inside emphasized text like 'here\\'s johnny!'
 
 term:: definition
  another term:: another definition
@@ -731,3 +731,16 @@ preview.type_xml = `<!DOCTYPE html>
   <p checked class="title" id='title'>Title</p>
   <!-- here goes the rest of the page -->
 </body>`;
+
+preview.type_python = `@requires_authorization
+def somefunc(param1='', param2=0):
+    r'''A docstring'''
+    if param1 > param2: # interesting
+        print 'Gre\\'ater'
+    return (param2 - param1 + 1 + 0b10l) or None
+
+class SomeClass:
+    pass
+
+>>> message = '''interpreter
+... prompt'''`;
