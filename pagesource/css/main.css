@@ -86,11 +86,19 @@ label {
     font-size: 20px;
 
 }
+
+@media only screen and (max-width: 520px) {
+    label{
+        font-size: 13px;
+    }
+}
 #codeInput {
     height: 150px;
     min-width: 100%;
     min-height: 150px;
+    max-height: 600px;
     overflow-y: auto;
+    resize: none;
 }
 div#header, div#header * { --bar-height: 6em; }
 
@@ -295,6 +303,11 @@ select {
     width: 50%;
 
 }
+@media only screen and (max-width: 520px) {
+    select{
+        font-size: 13px;
+    }
+}
 ::-webkit-scrollbar {
     width: 10px;
   }
@@ -321,7 +334,6 @@ select {
 
   .button{
     margin-top:10px;
-    position:-webkit-sticky;
     color: var(--clr-fg-lite); 
     font-family: "Lucida Console", Courier, monospace;
     font-size: 20px;
