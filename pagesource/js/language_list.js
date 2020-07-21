@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 11:03:17 EDT
+// List modified: Tue July 21, 2020 @ 12:16:37 EDT
 let preview = {};
 var language_list = [
     {
@@ -442,6 +442,120 @@ var language_list = [
         apiId: 'dust',
         cdxEnabled: false
     },{
+        displayText: 'Extended Backus-Naur Form',
+        fileTypes: [{
+            type: '.bnf',
+            common: true
+        }],
+        apiId:'ebnf',
+        cdxEnabled: false
+    },{
+        displayText:'Elixir',
+        fileTypes: [{}],
+        apiId: 'elixir',
+        cdxEnabled: false
+    },{
+        displayText: 'Elm',
+        fileTypes: [{}],
+        apiId: 'elm',
+        cdxEnabled: false
+    },{
+        displayText: 'ERB (Embedded Ruby)',
+        fileTypes: [{
+            type: '.ruby',
+            common: true
+        }],
+        apiId: 'erb',
+        cdxEnabled: false
+    },{
+        displayText: 'Erlang REPL',
+        fileTypes: [{}],
+        apiId: 'erlang-repl',
+        cdxEnabled: false
+    },{
+        displayText: 'Erlang',
+        fileTypes: [{}],
+        apiId: 'erlang',
+        cdxEnabled: false
+    },{
+        displayText: 'MS Excel Formulae',
+        fileTypes: [{}],
+        apiId: 'excel',
+        cdxEnabled: false
+    },{
+        displayText: 'Fix',
+        fileTypes: [{}],
+        apiId: 'fix',
+        cdxEnabled: false
+    },{
+        displayText: 'Flix',
+        fileTypes: [{}],
+        apiId: 'flix',
+        cdxEnabled: false
+    },{
+        displayText: 'Fortran',
+        fileTypes: [{}],
+        apiId: 'fortran',
+        cdxEnabled: false
+    },{
+        displayText: 'F#',
+        fileTypes: [{}],
+        apiId: 'fsharp',
+        cdxEnabled: false
+    },{
+        displayText: 'GAMS',
+        fileTypes: [{}],
+        apiId: 'gams',
+        cdxEnabled: false
+    },{
+        displayText: 'GAUSS',
+        fileTypes: [{}],
+        apiId: 'gauss',
+        cdxEnabled: false
+    },{
+        displayText: 'G-Code (ISO 6983)',
+        fileTypes: [{}],
+        apiId: 'gcode',
+        cdxEnabled: false
+    },{
+        displayText: 'Gherkin',
+        fileTypes: [{}],
+        apiId: 'gherkin',
+        cdxEnabled: false
+    },{
+        displayText: 'GLSL',
+        fileTypes: [{}],
+        apiId: 'glsl',
+        cdxEnabled: false
+    },{
+        displayText: 'GML',
+        fileTypes: [{
+            type: '.gml',
+            common: true
+        }],
+        apiId: 'gml',
+        cdxEnabled: false
+    },{
+        displayText: "Go",
+        fileTypes: [{}],
+        apiId: 'go',
+        cdxEnabled: false
+    },{
+        displayText: 'Golo',
+        fileTypes: [{}],
+        apiId: 'golo',
+        cdxEnabled: false
+    },{
+        displayText: 'Gradle',
+        fileTypes: [{}],
+        apiId: 'gradle',
+        cdxEnabled: false
+    },{
+        displayText: 'Groovy',
+        fileTypes: [{}],
+        apiId: 'groovy',
+        cdxEnabled: false
+    },{
         displayText: 'HTML',
         fileTypes: [{
             type: '.html',
@@ -484,6 +598,14 @@ var language_list = [
             common: false
         }],
         apiId: 'python',
+        cdxEnabled: false
+    },{
+        displayText: 'Ruby',
+        fileTypes: [{
+            type: '.ruby',
+            common: true
+        }],
+        apiId: 'ruby',
         cdxEnabled: false
     },{
         displayText: 'XML',
@@ -1801,7 +1923,647 @@ preview.type_dust = `<h3>Hours</h3>
   {/users}
 </ul>`;
 
+preview.type_ebnf = `(* line comment *)
 
+rule        =   [optional] , symbol , { letters } , ( digit | symbol ) ;
+
+optional    =   ? something unnecessary ? ; (* trailing comment *)
+
+symbol      =   '!' | '@' | '#' | '$' | '%' | '&' | '*' ;
+digit       =   "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+letter      =   "A" | "B" | "C" | "D" | "E" | "F" | "G"
+              | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+              | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+              | "V" | "W" | "X" | "Y" | "Z" ;`;
+
+preview.type_elixir = `defrecord Person, first_name: nil, last_name: "Dudington" do
+  def name record do # huh ?
+    "#{record.first_name} #{record.last_name}"
+  end
+end
+
+defrecord User, name: "José", age: 25
+
+guy = Person.new first_name: "Guy"
+guy.name
+
+defmodule ListServer do
+  @moduledoc """
+  This module provides an easy to use ListServer, useful for keeping
+  lists of things.
+  """
+  use GenServer.Behaviour
+  alias Foo.Bar
+
+  ### Public API
+  @doc """
+  Starts and links a new ListServer, returning {:ok, pid}
+
+  ## Example
+
+    iex> {:ok, pid} = ListServer.start_link
+
+  """
+  def start_link do
+    :gen_server.start_link({:local, :list}, __MODULE__, [], [])
+  end
+
+  ### GenServer API
+  def init(list) do
+    {:ok, list}
+  end
+
+  # Clear the list
+  def handle_cast :clear, list do
+    {:noreply, []}
+  end
+end
+
+{:ok, pid} = ListServer.start_link
+pid <- {:foo, "bar"}
+
+greeter = fn(x) -> IO.puts "hey #{x}" end
+greeter.("Bob")`;
+
+preview.type_elm = `import Browser
+import Html exposing (div, button, text)
+import Html.Events exposing (onClick)
+
+type Msg
+    = Increment
+
+main =
+    Browser.sandbox
+        { init = 0
+        , update = \\msg model -> model + 1
+        , view = view
+        }
+
+view model =
+    div []
+        [ div [] [ text (String.fromInt model) ]
+        , button [ onClick Increment ] [ text "+" ]
+        ]
+
+chars =
+    String.cons 'C' <| String.cons 'h' <| "ars"`;
+
+preview.type_erb = `<%# this is a comment %>
+
+<% @posts.each do |post| %>
+  <p><%= link_to post.title, post %></p>
+<% end %>
+
+<%- available_things = things.select(&:available?) -%>
+<%%- x = 1 + 2 -%%>
+<%% value = 'real string #{@value}' %%>
+<%%= available_things.inspect %%>`;
+
+preview.erlang_repl = `1> Str = "abcd".
+"abcd"
+2> L = test:length(Str).
+4
+3> Descriptor = {L, list_to_atom(Str)}.
+{4,abcd}
+4> L.
+4
+5> b().
+Descriptor = {4,abcd}
+L = 4
+Str = "abcd"
+ok
+6> f(L).
+ok
+7> b().
+Descriptor = {4,abcd}
+Str = "abcd"
+ok
+8> {L, _} = Descriptor.
+{4,abcd}
+9> L.
+4
+10> 2#101.
+5
+11> 1.85e+3.
+1850`;
+
+preview.type_erlang = `-module(ssh_cli).
+
+-behaviour(ssh_channel).
+
+-include("ssh.hrl").
+%% backwards compatibility
+-export([listen/1, listen/2, listen/3, listen/4, stop/1]).
+
+if L =/= [] ->      % If L is not empty
+    sum(L) / count(L);
+true ->
+    error
+end.
+
+%% state
+-record(state, {
+    cm,
+    channel
+   }).
+
+-spec foo(integer()) -> integer().
+foo(X) -> 1 + X.
+
+test(Foo)->Foo.
+
+init([Shell, Exec]) ->
+    {ok, #state{shell = Shell, exec = Exec}};
+init([Shell]) ->
+    false = not true,
+    io:format("Hello, \\"~p!~n", [atom_to_list('World')]),
+    {ok, #state{shell = Shell}}.
+
+concat([Single]) -> Single;
+concat(RList) ->
+    EpsilonFree = lists:filter(
+        fun (Element) ->
+            case Element of
+                epsilon -> false;
+                _ -> true
+            end
+        end,
+        RList),
+    case EpsilonFree of
+        [Single] -> Single;
+        Other -> {concat, Other}
+    end.
+
+union_dot_union({union, _}=U1, {union, _}=U2) ->
+    union(lists:flatten(
+        lists:map(
+            fun (X1) ->
+                lists:map(
+                    fun (X2) ->
+                        concat([X1, X2])
+                    end,
+                    union_to_list(U2)
+                )
+            end,
+            union_to_list(U1)
+        ))).`;
+
+preview.type_excel = `=IF(C10 <= 275.5, "Unprofitable", "Profitable")`;
+
+preview.type_fix = `8=FIX.4.2␁9=0␁35=8␁49=SENDERTEST␁56=TARGETTEST␁34=00000001526␁52=20120429-13:30:08.137␁1=ABC12345␁11=2012abc1234␁14=100␁17=201254321␁20=0␁30=NYSE␁31=108.20␁32=100␁38=100␁39=2␁40=1␁47=A␁54=5␁55=BRK␁59=2␁60=20120429-13:30:08.000␁65=B␁76=BROKER␁84=0␁100=NYSE␁111=100␁150=2␁151=0␁167=CS␁377=N␁10000=SampleCustomTag␁10=123␁
+
+8=FIX.4.29=035=849=SENDERTEST56=TARGETTEST34=0000000152652=20120429-13:30:08.1371=ABC1234511=2012abc123414=10017=20125432120=030=NYSE31=108.2032=10038=10039=240=147=A54=555=BRK59=260=20120429-13:30:08.00065=B76=BROKER84=0100=NYSE111=100150=2151=0167=CS377=N10000=SampleCustomTag10=123
+`;
+
+preview.type_flix = `/**
+ * An example of Flix for syntax highlighting.
+ */
+
+// Here is a namespace.
+namespace a.b.c {
+
+    // Here are some literals.
+    def b: Bool = true
+    def c: Char = 'a'
+    def f: Float = 1.23
+    def i: Int = 42
+    def s: Str = "string"
+
+    // Here are some relations.
+    rel LitStm(r: Str, c: Int)
+    rel AddStm(r: Str, x: Str, y: Str)
+    rel DivStm(r: Str, x: Str, y: Str)
+
+    // Here is a lattice.
+    lat LocalVar(k: Str, v: Constant)
+
+    // Here is an index.
+    index LitStm{{r}, {r, c}}
+
+    // Here is an enum.
+    enum Constant {
+          case Top,
+
+        case Cst(Int),
+
+          case Bot
+    }
+
+    // Here is a function.
+    def leq(e1: Constant, e2: Constant): Bool = match (e1, e2) with {
+        case (Constant.Bot, _)                      => true
+        case (Constant.Cst(n1), Constant.Cst(n2))   => n1 == n2
+        case (_, Constant.Top)                      => true
+        case _                                      => false
+    }
+
+    // Here are some rules.
+    LocalVar(r, alpha(c)) :- LitStm(r, c).
+
+    LocalVar(r, sum(v1, v2)) :- AddStm(r, x, y),
+                                LocalVar(x, v1),
+                                LocalVar(y, v2).
+}`;
+
+preview.type_fortran = `subroutine test_sub(k)
+    implicit none
+
+  !===============================
+  !   This is a test subroutine
+  !===============================
+
+    integer, intent(in)           :: k
+    double precision, allocatable :: a(:)
+    integer, parameter            :: nmax=10
+    integer                       :: i
+
+    allocate (a(nmax))
+
+    do i=1,nmax
+      a(i) = dble(i)*5.d0
+    enddo
+
+    print *, 'Hello world'
+    write (*,*) a(:)
+
+end subroutine test_sub`;
+
+preview.type_fsharp = `open System
+
+// Single line comment...
+(*
+  This is a
+  multiline comment.
+*)
+let checkList alist =
+    match alist with
+    | [] -> 0
+    | [a] -> 1
+    | [a; b] -> 2
+    | [a; b; c] -> 3
+    | _ -> failwith "List is too big!"
+
+
+let text = "Some text..."
+let text2 = @"A ""verbatim"" string..."
+let catalog = """
+Some "long" string...
+"""
+
+let rec fib x = if x <= 2 then 1 else fib(x-1) + fib(x-2)
+
+let fibs =
+    Async.Parallel [ for i in 0..40 -> async { return fib(i) } ]
+    |> Async.RunSynchronously
+
+type Sprocket(gears) =
+  member this.Gears : int = gears
+
+[<AbstractClass>]
+type Animal =
+  abstract Speak : unit -> unit
+
+type Widget =
+  | RedWidget
+  | GreenWidget
+
+type Point = {X: float; Y: float;}
+
+[<Measure>]
+type s
+let minutte = 60<s>
+
+type DefaultMailbox<'a>() =
+    let mutable inbox = ConcurrentQueue<'a>()
+    let awaitMsg = new AutoResetEvent(false)`;
+
+preview.type_gams = `SETS
+    I   canning plants   / SEATTLE, SAN-DIEGO /
+    J   markets          / NEW-YORK, CHICAGO, TOPEKA / ;
+PARAMETERS
+    A(I)  capacity of plant i in cases
+      /    SEATTLE     350
+           SAN-DIEGO   600  /
+    B(J)  demand at market j in cases
+      /    NEW-YORK    325
+           CHICAGO     300
+           TOPEKA      275  / ;
+TABLE D(I,J)  distance in thousands of miles
+                  NEW-YORK       CHICAGO      TOPEKA
+    SEATTLE          2.5           1.7          1.8
+    SAN-DIEGO        2.5           1.8          1.4  ;
+SCALAR F  freight in dollars per case per thousand miles  /90/ ;
+PARAMETER C(I,J)  transport cost in thousands of dollars per case ;
+          C(I,J) = F * D(I,J) / 1000 ;
+VARIABLES
+    X(I,J)  shipment quantities in cases
+    Z       total transportation costs in thousands of dollars ;
+POSITIVE VARIABLE X ;
+EQUATIONS
+    COST        define objective function
+    SUPPLY(I)   observe supply limit at plant i
+    DEMAND(J)   satisfy demand at market j ;
+COST ..        Z  =E=  SUM((I,J), C(I,J)*X(I,J)) ;
+SUPPLY(I) ..   SUM(J, X(I,J))  =L=  A(I) ;
+DEMAND(J) ..   SUM(I, X(I,J))  =G=  B(J) ;
+MODEL TRANSPORT /ALL/ ;
+SOLVE TRANSPORT USING LP MINIMIZING Z ;`;
+
+preview.type_gauss = `// This is a test
+#include pv.sdf
+
+proc (1) = calc(local__row, fin);
+    if local__row;
+        nr = local__row;
+    else;
+        k = colsf(fin);
+        nr = floor(minc(maxbytes/(k*8*3.5)|maxvec/(k+1)));
+    endif;
+    retp(nr);
+endp;
+
+s = "{% test string %}";
+
+fn twopi=pi*2;
+
+/* Takes in multiple numbers.
+   Output sum */
+keyword add(str);
+   local tok,sum;
+   sum = 0;
+   do until str $== "";
+      { tok, str } = token(str);
+      sum = sum + stof(tok);
+   endo;
+   print "Sum is: " sum;
+endp;`;
+
+preview.type_gcode = `O003 (DIAMOND SQUARE)
+N2 G54 G90 G49 G80
+N3 M6 T1 (1.ENDMILL)
+N4 M3 S1800
+N5 G0 X-.6 Y2.050
+N6 G43  H1  Z.1
+N7 G1 Z-.3 F50.
+N8 G41 D1 Y1.45
+N9 G1 X0 F20.
+N10 G2 J-1.45
+(CUTTER COMP CANCEL)
+N11 G1 Z-.2 F50.
+N12 Y-.990
+N13 G40
+N14 G0 X-.6 Y1.590
+N15 G0 Z.1
+N16 M5 G49 G28 G91 Z0
+N17 CALL O9456
+N18 #500=0.004
+N19 #503=[#500+#501]
+N20 VC45=0.0006
+VS4=0.0007
+N21 G90 G10 L20 P3 X5.Y4. Z6.567
+N22 G0 X5000
+N23 IF [#1 LT 0.370] GOTO 49
+N24 X-0.678 Y+.990
+N25 G84.3 X-0.1
+N26 #4=#5*COS[45]
+N27 #4=#5*SIN[45]
+N28 VZOFZ=652.9658
+%`;
+
+preview.type_gherkin = `# language: en
+Feature: Addition
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
+
+  @this_is_a_tag
+  Scenario Outline: Add two numbers
+    * I have a calculator
+    Given I have entered <input_1> into the calculator
+    And I have entered <input_2> into the calculator
+    When I press <button>
+    Then the result should be <output> on the screen
+    And I have a string like
+    """
+    Here is
+    some
+    multiline text
+    """
+
+  Examples:
+    | input_1 | input_2 | button | output |
+    | 20      | 30      | add    | 50     |
+    | 2       | 5       | add    | 7      |
+    | 0       | 40      | add    | 40     |`;
+
+preview.type_glsl = `// vertex shader
+#version 150
+in  vec2 in_Position;
+in  vec3 in_Color;
+
+out vec3 ex_Color;
+void main(void) {
+    gl_Position = vec4(in_Position.x, in_Position.y, 0.0, 1.0);
+    ex_Color = in_Color;
+}
+
+
+// geometry shader
+#version 150
+
+layout(triangles) in;
+layout(triangle_strip, max_vertices = 3) out;
+
+void main() {
+  for(int i = 0; i < gl_in.length(); i++) {
+    gl_Position = gl_in[i].gl_Position;
+    EmitVertex();
+  }
+  EndPrimitive();
+}
+
+
+// fragment shader
+#version 150
+precision highp float;
+
+in  vec3 ex_Color;
+out vec4 gl_FragColor;
+
+void main(void) {
+    gl_FragColor = vec4(ex_Color, 1.0);
+}`;
+
+preview.type_gml = `/// @description Collision code
+// standard collision handling
+
+// Horizontal collisions
+if(place_meeting(x+hspd, y, obj_wall)) {
+	while(!place_meeting(x+sign(hspd), y, obj_wall)) {
+		x += sign(hspd);
+	}
+	hspd = 0;
+}
+x += hspd;
+
+// Vertical collisions
+if(place_meeting(x, y+vspd, collide_obj)) {
+	while(!place_meeting(x, y+sign(vspd), collide_obj)) {
+		y += sign(vspd);
+	}
+	vspd = 0;
+}
+y += vspd;
+
+show_debug_message("This is a test");`;
+
+preview.type_go = `package main
+
+import "fmt"
+
+func main() {
+    ch := make(chan float64)
+    ch <- 1.0e10    // magic number
+    x, ok := <- ch
+    defer fmt.Println(\`exitting now\\\`)
+    go println(len("hello world!"))
+    return
+}`;
+
+preview.type_golo = `module hello
+
+function dyno = -> DynamicObject()
+
+struct human = { name }
+
+@annotated
+function main = |args| {
+    let a = 1
+    var b = 2
+    
+    println("hello") 
+
+    let john = human("John Doe")
+}`;
+
+preview.type_gradle = `apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 5
+        versionName "0.4.4"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    signingConfigs {
+        release
+    }
+    buildTypes {
+        release {
+            // runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.example:example-lib:1.0.0'
+}
+
+
+def propFile = file('../signing.properties')
+if( propFile.canRead() ) {
+    def Properties p = new Properties()
+    p.load(new FileInputStream(propFile))
+
+    if( p!=null
+    &&  p.containsKey("STORE_FILE")
+    &&  p.containsKey('STORE_PASSWORD')
+    &&  p.containsKey('KEY_ALIAS')
+    &&  p.containsKey('KEY_PASSWORD')
+    ) {
+        println "RELEASE_BUILD: Signing..."
+
+        android.signingConfigs.release.storeFile = file( p['STORE_FILE'] )
+        android.signingConfigs.release.storePassword = p['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = p['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = p['KEY_PASSWORD']
+    } else {
+        println "RELEASE_BUILD: Required properties in signing.properties are missing"
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    println "RELEASE_BUILD: signing.properties not found"
+    android.buildTypes.release.signingProperties = null
+}`;
+
+preview.type_groovy = `#!/usr/bin/env groovy
+package model
+
+import groovy.transform.CompileStatic
+import java.util.List as MyList
+
+trait Distributable {
+    void distribute(String version) {}
+}
+
+@CompileStatic
+class Distribution implements Distributable {
+    double number = 1234.234 / 567
+    def otherNumber = 3 / 4
+    boolean archivable = condition ?: true
+    def ternary = a ? b : c
+    String name = "Guillaume"
+    Closure description = null
+    List<DownloadPackage> packages = []
+    String regex = ~/.*foo.*/
+    String multi = '''
+        multi line string
+    ''' + """
+        now with double quotes and \${gstring}
+    """ + $/
+        even with dollar slashy strings
+    /$
+
+    /**
+     * description method
+     * @param cl the closure
+     */
+    void description(Closure cl) { this.description = cl }
+
+    void version(String name, Closure versionSpec) {
+        def closure = { println "hi" } as Runnable
+
+        MyList ml = [1, 2, [a: 1, b:2,c :3]]
+        for (ch in "name") {}
+
+        // single line comment
+        DownloadPackage pkg = new DownloadPackage(version: name)
+
+        check that: true
+
+        label:
+        def clone = versionSpec.rehydrate(pkg, pkg, pkg)
+        /*
+            now clone() in a multiline comment
+        */
+        clone()
+        packages.add(pkg)
+
+        assert 4 / 2 == 2
+    }
+}`;
 
 preview.type_javascript = `function $initHighlight(block, cls) {
   try {
@@ -1847,6 +2609,21 @@ hello world
 
 1. one thing (yeah!)
 2. two thing \`i can write code\`, and \`more\` wipee!`;
+
+preview.type_ruby = `# The Greeter class
+class Greeter
+  def initialize(name)
+    @name = name.capitalize
+  end
+
+  def salute
+    puts "Hello #{@name}!"
+  end
+end
+
+g = Greeter.new("world")
+g.salute`;
+
 
 preview.type_xml = `<!DOCTYPE html>
 <title>Title</title>
