@@ -1,4 +1,10 @@
-/* Stylesheet revised: Tue July 21, 2020 @ 02:13:46 EDT */
+/* Stylesheet revised: Tue July 21, 2020 @ 02:43:20 EDT */
+@font-face {
+    font-family: Hack;
+    src: url('../Resources/fonts/Hack-Regular.ttf');
+    font-family: Hurmit-NF;
+    src url('../Resources/fonts/Hurmit-NF.otf')
+}
 :root {    /* Color Settings!                           
             * DO NOT HARD-CODE COLORS.  Add them here as variables,
             * then use them on elements like:           
@@ -254,8 +260,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .main-content{
     max-width: 90%;
     margin: 2em 2em 2em 2em;
-    border-style: solid;
-    border-color: red;
     padding:10px;
     border-radius: 10px;
 }
@@ -273,5 +277,13 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 div#previewArea {
     margin: 1em 1em 1em 1em;
+    font-family: Hurmit-NF;
 }
-h2 { color: var(--clr-accentA); }
+h2 { 
+        color: var(--clr-accentA);
+        font-family: Hack;
+}
+select {
+    font-family: Hurmit-NF;
+
+}
