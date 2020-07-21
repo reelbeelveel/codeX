@@ -58,14 +58,14 @@
                         </tr>
                     </table>
                     <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
-                        required onchange="generatePreview()"></textarea>
-                    <input type="button" value="Generate Preview" onclick="generatePreview()" />
+                        required onchange="generatePreview()"oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'a></textarea>
+                    <input type="button" value="Generate Preview" style="position:-webkit-sticky"; onclick="generatePreview()" />
                 </form>
             </div>
             <!-- end flex box one -->
             <!-- start flex box two -->
             <div id="previewPanel" class="main-content">
-                <h1>where am i????</h1>
+                <h1>im here</h1>
                 <div id="previewArea">// And the preview shows up here here</div>
             </div>
             <!-- end flex box two -->

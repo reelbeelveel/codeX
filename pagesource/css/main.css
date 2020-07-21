@@ -12,6 +12,7 @@
 --clr-accentB: #f78764;
 --clr-fg-dark: #2384fb;
 --clr-fg-lite: #9dfff9;
+--flex-cut-off: 1500px;
 
 /* Feel Free to change these! I generated these ones using
  * https://coolors.co/
@@ -69,19 +70,21 @@ span.testcolor5::after { content: " (--clr-fg-lite)";  }
 
 .input-form {
     margin: auto auto;
-    width: 500px;
+    width: auto;
 }
 
 label {
     color: var(--clr-fg-dark); 
     font-family: "Lucida Console", Courier, monospace;
+    font-size: 20px;
 
 }
 #codeInput {
-    height: 50px;
+    height: 150px;
     min-width: 100%;
-    min-height: 50px;
-    margin: 20px 0;
+    min-height: 150px;
+    overflow-y: auto;
+    
 }
 img {
     width: 100%;
@@ -105,7 +108,7 @@ img {
   }
 }
  
- form, input, select, textarea, .previewPanel{
+ form, input, select, textarea, .previewPanel, .main-content{
     background-color: var(--clr-bg-lite);
     color: var(--clr-fg-lite);
  }
@@ -238,6 +241,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .main-content{
   border-style: solid;
   border-color: red;
+  padding:10px;
 }
 
 @media only screen and (max-width: 1500px) {
