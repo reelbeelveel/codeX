@@ -1,4 +1,4 @@
-// List modified: Tue July 21, 2020 @ 12:16:37 EDT
+// List modified: Tue July 21, 2020 @ 01:06:44 EDT
 let preview = {};
 var language_list = [
     {
@@ -556,12 +556,75 @@ var language_list = [
         apiId: 'groovy',
         cdxEnabled: false
     },{
+        displayText: 'HAML',
+        fileTypes: [{}],
+        apiId: 'haml',
+        cdxEnabled: false
+    },{
+        displayText: 'Handlebars',
+        fileTypes: [{}],
+        apiId: 'handlebars',
+        cdxEnabled: false
+    },{
+        displayText: 'Haskell',
+        fileTypes: [{}],
+        apiId: 'haskell',
+        cdxEnabled: false
+    },{
+        displayText: 'Haxe',
+        fileTypes: [{}],
+        apiId: 'haxe',
+        cdxEnabled: false
+    },{
+        displayText: 'HSP',
+        fileTypes: [{}],
+        apiId: 'hsp',
+        cdxEnabled: false
+    },{
         displayText: 'HTML',
         fileTypes: [{
             type: '.html',
             common: true
         }],
         apiId: 'xml',
+        cdxEnabled: false
+    },{
+        displayText: 'HTTP',
+        fileTypes: [{}],
+        apiId: 'http',
+        cdxEnabled: false
+    },{
+        displayText: 'Hy',
+        fileTypes: [{}],
+        apiId: 'hy',
+        cdxEnabled: false
+    },{
+        displayText: 'Inform 7',
+        fileTypes: [{}],
+        apiId: 'inform7',
+        cdxEnabled: false
+    },{
+        displayText:'INI',
+        fileTypes: [{}],
+        apiId: 'ini',
+        cdxEnabled: false
+    },{
+        displayText: 'IRPF90',
+        fileTypes: [{}],
+        apiId: 'irpf90',
+        cdxEnabled: false
+    },{
+        displayText: 'ISBL',
+        fileTypes: [{}],
+        apiId: 'isbl',
+        cdxEnabled: false
+    },{
+        displayText: 'Java',
+        fileTypes: [{
+            type: '.java',
+            common: true
+        }],
+        apiId: 'java',
         cdxEnabled: false
     },{
         displayText: 'JavaScript',
@@ -573,6 +636,92 @@ var language_list = [
             common: false
         }],
         apiId: 'javascript',
+        cdxEnabled: false
+    },{
+        displayText: 'JBoss CLI',
+        fileTypes: [{}],
+        apiId: 'jboss-cli',
+        cdxEnabled: false
+    },{
+        displayText: 'JSON',
+        fileTypes: [{
+            type: '.json',
+            common: true
+        }],
+        apiId: 'json',
+        cdxEnabled: false
+    },{
+        displayText: 'Julia',
+        fileTypes: [{}],
+        apiId: 'julia',
+        cdxEnabled: false
+    },{
+        displayText: 'Julia REPL',
+        fileTypes: [{}],
+        apiId: 'julia-repl',
+        cdxEnabled: false
+    },{
+        displayText: 'Kotlin',
+        fileTypes: [{}],
+        apiId: 'kotlin',
+        cdxEnabled: false
+    },{
+        displayText: 'Lasso',
+        fileTypes: [{}],
+        apiId: 'lasso',
+        cdxEnabled: false
+    },{
+        displayText: 'LaTeX',
+        fileTypes: [{
+            type: '.tex',
+            common: true
+        }],
+        apiId: 'latex',
+        cdxEnabled: false
+    },{
+        displayText: 'LDIF',
+        fileTypes: [{}],
+        apiId: 'ldif',
+        cdxEnabled: false
+    },{
+        displayText: 'Leaf',
+        fileTypes: [{}],
+        apiId: 'leaf',
+        cdxEnabled: false
+    },{
+        displayText: 'Less',
+        fileTypes: [{}],
+        apiId: 'less',
+        cdxEnabled: false
+    },{
+        displayText: 'Lisp',
+        fileTypes: [{}],
+        apiId: 'lisp',
+        cdxEnabled: false
+    },{
+        displayText: 'LiveCode',
+        fileTypes: [{}],
+        apiId: 'livecodeserver',
+        cdxEnabled: false
+    },{
+        displayText: 'LiveScript',
+        fileTypes: [{}],
+        apiId: 'livescript',
+        cdxEnabled: false
+    },{
+        displayText: 'LLVM IR',
+        fileTypes: [{}],
+        apiId: 'llvm',
+        cdxEnabled: false
+    },{
+        displayText: 'Linden Scripting Language (LSL)',
+        fileTypes: [{}],
+        apiId: 'lsl',
+        cdxEnabled: false
+    },{
+        displayText: 'Lua',
+        fileTypes: [{}],
+        apiId: 'lua',
         cdxEnabled: false
     },{
         displayText: 'Markdown',
@@ -606,6 +755,11 @@ var language_list = [
             common: true
         }],
         apiId: 'ruby',
+        cdxEnabled: false
+    },{
+        displayText: 'TOML',
+        fileTypes: [{}],
+        apiId: 'ini',
         cdxEnabled: false
     },{
         displayText: 'XML',
@@ -2565,6 +2719,407 @@ class Distribution implements Distributable {
     }
 }`;
 
+preview.type_haml = `!!! XML
+%html
+  %body
+    %h1.jumbo{:id=>"a", :style=>'font-weight: normal', :title=>title} highlight.js
+    /html comment
+    -# ignore this line
+    %ul(style='margin: 0')
+    -items.each do |i|
+      %i= i
+    = variable
+    =variable2
+    ~ variable3
+    ~variable4
+    The current year is #{DataTime.now.year}.`;
+
+preview.type_handlebars = `<div class="entry">
+  {{!-- only show if author exists --}}
+  {{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{/if}}
+</div>`;
+
+preview.type_haskell = `{-# LANGUAGE TypeSynonymInstances #-}
+module Network.UDP
+( DataPacket(..)
+, openBoundUDPPort
+, openListeningUDPPort
+, pingUDPPort
+, sendUDPPacketTo
+, recvUDPPacket
+, recvUDPPacketFrom
+) where
+
+import qualified Data.ByteString as Strict (ByteString, concat, singleton)
+import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
+import Data.ByteString.Char8 (pack, unpack)
+import Network.Socket hiding (sendTo, recv, recvFrom)
+import Network.Socket.ByteString (sendTo, recv, recvFrom)
+
+-- Type class for converting StringLike types to and from strict ByteStrings
+class DataPacket a where
+  toStrictBS :: a -> Strict.ByteString
+  fromStrictBS :: Strict.ByteString -> a
+
+instance DataPacket Strict.ByteString where
+  toStrictBS = id
+  {-# INLINE toStrictBS #-}
+  fromStrictBS = id
+  {-# INLINE fromStrictBS #-}
+
+openBoundUDPPort :: String -> Int -> IO Socket
+openBoundUDPPort uri port = do
+  s <- getUDPSocket
+  bindAddr <- inet_addr uri
+  let a = SockAddrInet (toEnum port) bindAddr
+  bindSocket s a
+  return s
+
+pingUDPPort :: Socket -> SockAddr -> IO ()
+pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()`;
+
+preview.type_haxe = `package my.package;
+
+#if js
+import js.Browser;
+#elseif sys
+import Sys;
+#else
+import Date;
+#end
+
+import Lambda;
+using Main.IntExtender;
+
+extern class Math {
+    static var PI(default,null) : Float;
+    static function floor(v:Float):Int;
+}
+
+/**
+ * Abstract forwarding
+ */
+abstract MyAbstract(Int) from Int to Int {
+    inline function new(i:Int) {
+        this = i;
+    }
+
+    @:op(A * B)
+    public function multiply(rhs:MyAbstract) {
+        return this * rhs;
+    }
+}
+
+// an enum
+enum Color {
+    Red;
+    Green;
+    Blue;
+    Rgb(r:Int, g:Int, b:Int);
+}
+
+@:generic
+class Gen<T> {
+    var v:T;
+    public function new(v:T) {
+        this.v = v;
+    }
+
+    public var x(get, set):T;
+
+    private inline function get_x():T
+        return v;
+
+    private inline function set_x(x:T):T
+        return v = x;
+}
+
+class Main extends BaseClass implements SomeFunctionality {
+    var callback:Void->Void = null;
+    var myArray:Array<Float> = new Array<Float>();
+    var arr = [4,8,0,3,9,1,5,2,6,7];
+
+    public function new(x) {
+        super(x);
+    }
+
+    public static function main() {
+        trace('What\\'s up?');
+        trace('Hi, \${name}!');
+
+        // switch statements!
+        var c:Color = Color.Green;
+        var x:Int = switch(c) {
+            case Red: 0;
+            case Green: 1;
+            case Blue: 2;
+            case Rgb(r, g, b): 3;
+            case _: -1;
+        }
+
+        for(i in 0...3) {
+            trace(i);
+            continue;
+            break;
+        }
+
+        do {
+            trace("Hey-o!");
+        } while(false);
+
+        var done:Bool = false;
+        while(!done) {
+            done = true;
+        }
+
+        var H:Int = cast new MyAbstract(42);
+        var h:Int = cast(new MyAbstract(31), Int);
+
+        try {
+            throw "error";
+        }
+        catch(err:String) {
+            trace(err);
+        }
+        
+        var map = new haxe.ds.IntMap<String>();
+        var f = map.set.bind(_, "12");
+    }
+
+    function nothing():Void
+        trace("nothing!");
+
+    private inline function func(a:Int, b:Float, ?c:String, d:Bool=false):Dynamic {
+        return {
+            x: 0,
+            y: true,
+            z: false,
+            a: 1.53,
+            b: 5e10,
+            c: -12,
+            h: null
+        };
+    }
+
+
+    override function quicksort( lo : Int, hi : Int ) : Void {
+        var i = lo;
+        var j = hi;
+        var buf = arr;
+        var p = buf[(lo+hi)>>1];
+        while( i <= j ) {
+            while( arr[i] > p ) i++;
+            while( arr[j] < p ) j--;
+            if( i <= j ) {
+                var t = buf[i];
+                buf[i++] = buf[j];
+                buf[j--] = t;
+            }
+        }
+        if( lo < j ) quicksort( lo, j );
+        if( i < hi ) quicksort( i, hi );
+    }
+}`;
+
+preview.type_hsp = `#include "foo.hsp"
+
+	// line comment
+	message = "Hello, World!"
+	message2 = {"Multi
+	line
+	string"}
+	num = 0
+	mes message
+	
+	input num : button "sqrt", *label
+	stop
+	
+*label
+	/*
+	 block comment
+	*/
+	if(num >= 0) {
+		dialog "sqrt(" + num + ") = " + sqrt(num)
+	} else {
+		dialog "error", 1
+	}
+	stop`;
+
+preview.type_http = `POST /task?id=1 HTTP/1.1
+Host: example.org
+Content-Type: application/json; charset=utf-8
+Content-Length: 137
+
+{
+  "status": "ok",
+  "extended": true,
+  "results": [
+    {"value": 0, "type": "int64"},
+    {"value": 1.0e+3, "type": "decimal"}
+  ]
+}`;
+
+preview.type_hy = `#!/usr/bin/env hy
+
+(import os.path)
+
+(import hy.compiler)
+(import hy.core)
+
+
+;; absolute path for Hy core
+(setv *core-path* (os.path.dirname hy.core.--file--))
+
+
+(defn collect-macros [collected-names opened-file]
+  (while True
+    (try
+     (let [data (read opened-file)]
+       (if (and (in (first data)
+                    '(defmacro defmacro/g! defn))
+                (not (.startswith (second data) "_")))
+         (.add collected-names (second data))))
+     (except [e EOFError] (break)))))
+
+
+(defmacro core-file [filename]
+  \`(open (os.path.join *core-path* ~filename)))
+
+
+(defmacro contrib-file [filename]
+  \`(open (os.path.join *core-path* ".." "contrib" ~filename)))
+
+
+(defn collect-core-names []
+  (doto (set)
+        (.update hy.core.language.*exports*)
+        (.update hy.core.shadow.*exports*)
+        (collect-macros (core-file "macros.hy"))
+        (collect-macros (core-file "bootstrap.hy"))))`;
+
+preview.type_inform7 = `Book 1 - Language Definition Testing File
+
+[Comments in Inform 7 can be [nested] inside one another]
+
+Syntax highlighting is an action applying to one thing.
+Understand "highlight [something preferably codeish]" as syntax highlighting.
+
+Code is a kind of thing. Code is usually plural-named.
+
+Code can be highlighted. Code is usually not highlighted.
+
+Check syntax highlighting:
+  unless the noun is code:
+    say "[The noun] isn't source code you can highlight.";
+    rule fails.
+
+Carry out syntax highlighting:
+  now the noun is highlighted.
+
+Table of Programming Languages
+language  utility
+ruby      "Web back-end development"
+lua       "Embedded scripting"
+erlang    "High-concurrency server applications"`;
+
+preview.type_ini = `; boilerplate
+[package]
+name = "some_name"
+authors = ["Author"]
+description = "This is \\
+a description"
+
+[[lib]]
+name = \${NAME}
+default = True
+auto = no
+counter = 1_000`;
+
+preview.type_irpf90 = ` BEGIN_PROVIDER [ integer(bit_kind), psi_det_sorted_bit, (N_int,2,psi_det_size) ]
+&BEGIN_PROVIDER [ double precision, psi_coef_sorted_bit, (psi_det_size,N_states) ]
+ implicit none
+ BEGIN_DOC
+ ! Determinants on which we apply <i|H|psi> for perturbation.
+ ! They are sorted by determinants interpreted as integers. Useful
+ ! to accelerate the search of a random determinant in the wave
+ ! function.
+ END_DOC
+ integer :: i,j,k
+ integer, allocatable ::  iorder(:)
+ integer*8, allocatable :: bit_tmp(:)
+ integer*8, external :: det_search_key
+
+ allocate ( iorder(N_det), bit_tmp(N_det) )
+
+ do i=1,N_det
+   iorder(i) = i
+   !DIR$ FORCEINLINE
+   bit_tmp(i) = det_search_key(psi_det(1,1,i),N_int)
+ enddo
+ call isort(bit_tmp,iorder,N_det)
+ !DIR$ IVDEP
+ do i=1,N_det
+  do j=1,N_int
+    psi_det_sorted_bit(j,1,i) = psi_det(j,1,iorder(i))
+    psi_det_sorted_bit(j,2,i) = psi_det(j,2,iorder(i))
+  enddo
+  do k=1,N_states
+    psi_coef_sorted_bit(i,k) = psi_coef(iorder(i),k)
+  enddo
+ enddo
+
+ deallocate(iorder, bit_tmp)
+
+END_PROVIDER
+`;
+
+preview.type_isbl = `﻿  // Описание констант
+  ADD_EQUAL_NUMBER_TEMPLATE = "%s.%s = %s"
+  EMPLOYEES_REFERENCE = "РАБ"
+  /********************************************* 
+   *  Получить список кодов или ИД работников, *
+   *  соответствующих текущему пользователю    *
+   *********************************************/
+  Employees: IReference.РАБ = CreateReference(EMPLOYEES_REFERENCE; 
+    ArrayOf("Пользователь"; SYSREQ_STATE); MyFunction(FALSE; MyParam * 0.05))
+  Employees.Events.DisableAll
+  EmployeesTableName = Employees.TableName
+  EmployeesUserWhereID = Employees.AddWhere(Format(ADD_EQUAL_NUMBER_TEMPLATE; 
+    ArrayOf(EmployeesTableName; Employees.Requisites("Пользователь").SQLFieldName; 
+    EDocuments.CurrentUser.ID)))
+  Employees.Open()
+  Result = CreateStringList()
+  foreach Employee in Employees
+    if IsResultCode
+      Result.Add(Employee.SYSREQ_CODE)
+    else
+      Result.Add(Employee.SYSREQ_ID)
+    endif  
+  endforeach
+  Employees.Close()
+  Employees.DelWhere(EmployeesUserWhereID)
+  Employees.Events.EnableAll
+  Employees = nil`;
+
+preview.type_java = `/**
+ * @author John Smith <john.smith@example.com>
+*/
+package l2f.gameserver.model;
+
+public abstract strictfp class L2Char extends L2Object {
+  public static final Short ERROR = 0x0001;
+
+  public void moveTo(int x, int y, int z) {
+    _ai = null;
+    log("Should not be called");
+    if (1 > 5) { // wtf!?
+      return;
+    }
+  }
+}`;
+
 preview.type_javascript = `function $initHighlight(block, cls) {
   try {
     if (cls.search(/\\bno\\-highlight\\b/) != -1)
@@ -2586,6 +3141,593 @@ preview.type_javascript = `function $initHighlight(block, cls) {
 }
 
 export  $initHighlight;`;
+
+preview.type_jboss_cli = `jms-queue add --queue-address=myQueue --entries=queue/myQueue
+
+deploy /path/to/file.war
+
+/system-property=prop1:add(value=value1)
+
+
+
+/extension=org.jboss.as.modcluster:add
+
+./foo=bar:remove
+
+/subsystem=security/security-domain=demo-realm/authentication=classic:add
+
+/subsystem=security/security-domain=demo-realm/authentication=classic/login-module=UsersRoles:add( \\
+    code=UsersRoles, \\
+    flag=required, \\
+    module-options=  { \\
+         usersProperties=auth/demo-users.properties, \\
+         rolesProperties =auth/demo-roles.properties,  \\
+         hashAlgorithm= MD5, \\
+         hashCharset="UTF-8"  \\
+    } \\
+)`;
+
+preview.type_json = `[
+  {
+    "title": "apples",
+    "count": [12000, 20000],
+    "description": {"text": "...", "sensitive": false}
+  },
+  {
+    "title": "oranges",
+    "count": [17500, null],
+    "description": {"text": "...", "sensitive": false}
+  }
+]`;
+
+preview.type_julia = `### Types
+
+# Old-style definitions
+
+immutable Point{T<:AbstractFloat}
+    index::Int
+    x::T
+    y::T
+end
+
+abstract A
+
+type B <: A end
+
+typealias P Point{Float16}
+
+# New-style definitions
+
+struct Plus
+    f::typeof(+)
+end
+
+mutable struct Mut
+    mutable::A          # mutable should not be highlighted (not followed by struct)
+    primitive::B        # primitive should not be highlighted (not followed by type)
+end
+
+primitive type Prim 8 end
+
+abstract type Abstr end
+
+### Modules
+
+module M
+
+using X
+import Y
+importall Z
+
+export a, b, c
+
+end # module
+
+baremodule Bare
+end
+
+### New in 0.6
+
+# where, infix isa, UnionAll
+function F{T}(x::T) where T
+    for i in x
+        i isa UnionAll && return
+    end
+end
+
+### Miscellaneous
+
+#=
+Multi
+Line
+Comment
+=#
+function method0(x, y::Int; version::VersionNumber=v"0.1.2")
+    """
+    Triple
+    Quoted
+    String
+    """
+
+    @assert π > e
+
+    s = 1.2
+    変数 = "variable"
+
+    if s * 100_000 ≥ 5.2e+10 && true || x === nothing
+        s = 1. + .5im
+    elseif 1 ∈ [1, 2, 3]
+        println("s is $s and 変数 is $変数")
+    else
+        x = [1 2 3; 4 5 6]
+        @show x'
+    end
+
+    local var = rand(10)
+    global g = 44
+    var[1:5]
+    var[5:end-1]
+    var[end]
+
+    opt = "-la"
+    run(\`ls $opt\`)
+
+    try
+        ccall(:lib, (Ptr{Void},), Ref{C_NULL})
+    catch
+        throw(ArgumentError("wat"))
+    finally
+        warn("god save the queen")
+    end
+
+    '\\u2200' != 'T'
+
+    return 5s / 2
+end`;
+
+preview.type_julia_repl = `julia> function foo(x) x + 1 end
+foo (generic function with 1 method)
+
+julia> foo(42)
+43
+
+julia> foo(42) === 43.
+false
+
+
+Here we match all three lines of code:
+
+julia> function foo(x::Float64)
+           42. - x
+       end
+foo (generic function with 2 methods)
+
+julia> for x in Any[1, 2, 3.4]
+          println("foo($x) = $(foo(x))")
+       end
+foo(1) = 2
+foo(2) = 3
+foo(3.4) = 38.6
+
+
+... unless it is not properly indented:
+
+julia> function foo(x)
+    x + 1
+end
+
+
+Ordinary Julia code does not get highlighted:
+
+Pkg.add("Combinatorics")
+abstract type Foo end`;
+
+preview.type_kotlin = `import kotlin.lang.test
+
+trait A {
+    fun x()
+}
+
+fun xxx() : Int {
+	return 888
+}
+
+public fun main(args : Array<String>) {
+}`;
+
+preview.type_lasso = `<?LassoScript
+/* Lasso 8 */
+  local('query' = 'SELECT * FROM \`'+var:'table'+'\` WHERE \`id\` > 10
+    ORDER BY \`Name\` LIMIT 30');
+  Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
+    var("class1.name" = (found_count != 0 ? "subtotal" | "nonefound"),
+        "total_amount" = found_count || "No results");
+    records;
+      output: "<tr>"loop_count"</tr>";
+    /records;
+  /Inline;
+?><div class="[$class1.name]">[$total_amount]</div>
+<?lasso
+/* Lasso 9 */ ?>
+[noprocess] causes [delimiters] to be <?=skipped?> until the next [/noprocess]
+[
+  define strings.combine(value::string, ...other)::string => {
+    local(result = #value->append(#other->asString&trim))
+    return set(#result, not #other, \\givenBlock)
+  }
+  /**! descriptive text */
+  define person => type {
+    parent entity
+    data name::string, protected nickname, birthdate :: date
+    data private ssn = null
+    private showAge() => frozen { return ..age }
+    protected fullName() => \`"\` + .nickname + \`"\` + .'name'
+    public ssnListed::boolean => .ssn() ? true | false
+  }
+  define person->name=(value) => {
+    .'name' = #value
+    return self->'name'
+  }
+  define bytes->+(rhs::bytes) => bytes(self)->append(#rhs)&
+] <!-- an HTML comment <?=disables delimiters?> as well -->
+[no_square_brackets] disables [square brackets] for the rest of the file
+<?=
+  // query expression
+  with n in array((:-12, 0xABCD, 3.14159e14), (:NaN, -infinity, .57721))
+  let swapped = pair(#n->\\second, #n->first)
+  group #swapped by #n->first into t
+  let key = #t->key
+  order by #key
+  select pair(#key, #1)
+  do {^
+    #n->upperCase
+  ^}
+?>`;
+
+preview.type_latex = `\\documentclass{article}
+\\usepackage[koi8-r]{inputenc}
+\\hoffset=0pt
+\\voffset=.3em
+\\tolerance=400
+\\newcommand{\\eTiX}{\\TeX}
+\\begin{document}
+\\section*{Highlight.js}
+\\begin{table}[c|c]
+$\\frac 12\\, + \\, \\frac 1{x^3}\\text{Hello \\! world}$ & \\textbf{Goodbye\\~ world} \\\\\\eTiX $ \\pi=400 $
+\\end{table}
+Ch\\'erie, \\c{c}a ne me pla\\^\\i t pas! % comment \\b
+G\\"otterd\\"ammerung~45\\%=34.
+$$
+    \\int\\limits_{0}^{\\pi}\\frac{4}{x-7}=3
+$$
+\\end{document}`;
+
+preview.type_ldif = `# Example LDAP user
+dn: uid=user.0,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: Morris
+sn: Day
+cn: Morris Day
+initials: MD
+employeeNumber: 0
+uid: user.0
+mail: user.0@example.com
+userPassword: password
+telephoneNumber: +1 042 100 3866
+homePhone: +1 039 680 4135
+pager: +1 284 199 0966
+mobile: +1 793 707 0251
+street: 90280 Spruce Street
+l: Minneapolis
+st: MN
+postalCode: 50401
+postalAddress: Morris Day$90280 Spruce Street$Minneapolis, MN  50401
+description: This is the description for Morris Day.
+
+dn: CN=John Smith,OU=Legal,DC=example,DC=com
+changetype: modify
+replace: employeeID
+employeeID: 1234
+-
+replace: employeeNumber
+employeeNumber: 98722
+-
+replace: extensionAttribute6
+extensionAttribute6: JSmith98
+-
+
+dn: CN=Jane Smith,OU=Accounting,DC=example,DC=com
+changetype: modify
+replace: employeeID
+employeeID: 5678
+-
+replace: employeeNumber
+employeeNumber: 76543
+-
+replace: extensionAttribute6
+extensionAttribute6: JSmith14
+-`;
+
+preview.type_leaf = `#empty(friends) {
+    Try adding some friends!
+} ##loop(friends, "friend") {
+    <li> #(friend.name) </li>
+}
+
+#someTag(parameter.list, goes, "here") {
+    This is an optional body here
+}
+
+#index(friends, "0") {
+    Hello, #(self)!
+} ##else() {
+    Nobody's there!
+}
+
+#()
+
+#raw() {
+    <li> Hello </li>
+}`;
+
+preview.type_less = `@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+    body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+    margin:     @rhythm 0 0 @rhythm;
+    padding:    calc(5% + 20px);
+    background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+    background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: /* ? */ 'Omega';
+    src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+    display:     inline-block;
+    font-family: "Omega", Alpha, sans-serif;
+    content:     "\\f085";
+    color:       rgba(98, 76 /* or 54 */, 231, .75);
+}`;
+
+preview.type_lisp = `#!/usr/bin/env csi
+
+(defun prompt-for-cd ()
+   "Prompts
+    for CD"
+   (prompt-read "Title" 1.53 1 2/4 1.7 1.7e0 2.9E-4 +42 -7 #b001 #b001/100 #o777 #O777 #xabc55 #c(0 -5.6))
+   (prompt-read "Artist" &rest)
+   (or (parse-integer (prompt-read "Rating") :junk-allowed t) 0)
+  (if x (format t "yes") (format t "no" nil) ;and here comment
+  )
+  ;; second line comment
+  '(+ 1 2)
+  (defvar *lines*)                ; list of all lines
+  (position-if-not #'sys::whitespacep line :start beg))
+  (quote (privet 1 2 3))
+  '(hello world)
+  (* 5 7)
+  (1 2 34 5)
+  (:use "aaaa")
+  (let ((x 10) (y 20))
+    (print (+ x y))
+  )`;
+preview.type_livecodeserver = `<?rev
+
+global gControllerHandlers, gData
+local sTest
+put "blog,index" into gControllerHandlers
+
+
+command blog
+  -- simple comment
+  put "Hello World!" into sTest
+  # ANOTHER COMMENT
+  put "form,url,asset" into tHelpers
+  rigLoadHelper tHelpers
+end blog
+
+/*Hello
+block comment!*/
+
+function myFunction
+  if the secs > 2000000000 then
+    put "Welcome to the future!"
+  else
+    return "something"
+  end if
+end myFunction
+
+
+--| END OF blog.lc
+--| Location: ./system/application/controllers/blog.lc
+----------------------------------------------------------------------`;
+
+preview.type_livescript = `# take the first n objects from a list
+take = (n, [x, ...xs]:list) -->
+  | n <= 0     => []
+  | empty list => []
+  | otherwise  => [x] ++ take n - 1, xs
+
+take 2, [1, 2, 3, 4, 5]
+
+# Curried functions
+take-three = take 3
+take-three [6, 7, 8, 9, 10]
+
+# Function composition
+last-three = reverse >> take-three >> reverse
+last-three [1 to 8]
+
+# List comprehensions and piping
+const t1 =
+  * id: 1
+    name: 'george'
+  * id: 2
+    name: 'mike'
+  * id: 3
+    name: 'donald'
+
+const t2 =
+  * id: 2
+    age: 21
+  * id: 1
+    age: 20
+  * id: 3
+    age: 26
+[{id:id1, name, age}
+  for {id:id1, name} in t1
+  for {id:id2, age} in t2
+  where id1 is id2]
+  |> sort-by \\id
+  |> JSON.stringify
+
+~function add x, y
+  @result = x + y
+
+class A
+  (num) ->
+    @x = num
+  property: 1
+  method: (y) ->
+    @x + @property + y
+
+a = new A 3
+a.x        #=> 3
+a.property #=> 1
+a.method 6 #=> 10
+
+f = !-> 2
+g = (x) !-> x + 2
+
+result = switch 'test'
+case 'blatant'
+  'effort'
+  fallthrough
+case 'at'
+  'increasing'
+  fallthrough
+case 'relevance'
+  void`;
+
+preview.type_llvm = `; ModuleID = 'test.c'
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct._IO_FILE = type { i32, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*, %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64, i8*, i8*, i8*, i8*, i64, i32, [20 x i8] }
+%struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*, i32 }
+%struct.what = type { i8, i16 }
+
+@.str = private unnamed_addr constant [6 x i8] c"foo()\\00", align 1
+@e_long = common global i64 0, align 8
+@g_double = common global double 0.000000e+00, align 8
+@.str.1 = private unnamed_addr constant [7 x i8] c"oooooh\\00", align 1
+@func_ptr = common global i32 (...)* null, align 8
+@stderr = external global %struct._IO_FILE*, align 8
+
+; Function Attrs: nounwind uwtable
+define i32 @foo() #0 {
+  %1 = call i32 @puts(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i32 0, i32 0))
+  ret i32 0
+}
+
+declare i32 @puts(i8*) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @main(i32 %argc, i8** %argv) #0 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i8**, align 8
+
+; <label>:7                                       ; preds = %0
+  %8 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 0
+  store i8 1, i8* %8, align 2
+  store i8 49, i8* %b_char, align 1
+  %9 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 1
+  store double 1.000000e+01, double* @g_double, align 8
+  store i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str.1, i32 0, i32 0), i8** %cp_char_ptr, align 8
+  store i32 (...)* bitcast (i32 ()* @foo to i32 (...)*), i32 (...)** @func_ptr, align 8
+  %10 = call i32 @puts(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.2, i32 0, i32 0))
+  store i32 10, i32* %1, align 4
+  br label %66
+
+; <label>:63                                      ; preds = %11
+  %64 = load %struct._IO_FILE*, %struct._IO_FILE** @stderr, align 8
+  %65 = call i32 @fputs(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.9, i32 0, i32 0), %struct._IO_FILE* %64)
+  store i32 -1, i32* %1, align 4
+  br label %66
+
+; <label>:66                                      ; preds = %63, %46, %7
+  %67 = load i32, i32* %1, align 4
+  ret i32 %67
+}
+
+declare i32 @printf(i8*, ...) #1
+
+declare i32 @fputs(i8*, %struct._IO_FILE*) #1
+
+attributes #0 = { nounwind uwtable "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = !{!"clang version 3.8.0 (tags/RELEASE_380/final)"}`;
+
+preview.type_lsl = `default
+{
+    state_entry()
+    {
+        llSay(PUBLIC_CHANNEL, "Hello, Avatar!");
+    }
+
+    touch_start(integer num_detected)
+    {
+        llSay(PUBLIC_CHANNEL, "Touched.");
+    }
+}`;
+
+preview.type_lua = `--[[
+Simple signal/slot implementation
+]]
+local signal_mt = {
+    __index = {
+        register = table.insert
+    }
+}
+function signal_mt.__index:emit(... --[[ Comment in params ]])
+    for _, slot in ipairs(self) do
+        slot(self, ...)
+    end
+end
+local function create_signal()
+    return setmetatable({}, signal_mt)
+end
+
+-- Signal test
+local signal = create_signal()
+signal:register(function(signal, ...)
+    print(...)
+end)
+signal:emit('Answer to Life, the Universe, and Everything:', 42)
+
+--[==[ [=[ [[
+Nested ]]
+multi-line ]=]
+comment ]==]
+[==[ Nested
+[=[ multi-line
+[[ string
+]] ]=] ]==]`;
 
 preview.type_markdown = `# hello world
 
