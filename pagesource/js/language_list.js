@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 10:14:31 EDT
+// List modified: Mon July 20, 2020 @ 11:03:17 EDT
 let preview = {};
 var language_list = [
     {
@@ -282,7 +282,7 @@ var language_list = [
             type: '.bnf',
             common: true
         }],
-        apiId: '.bnf',
+        apiId: 'bnf',
         cdxEnabled: false
     },{
         displayText: 'Brainfuck',

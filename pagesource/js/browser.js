@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Mon July 20, 2020 @ 09:25:04 EDT
+// Last revised: Mon July 20, 2020 @ 11:02:40 EDT
 
 function timeStamp() {
     var d = new Date();
@@ -61,6 +61,9 @@ function generatePreview() {
     var engine = engineSelect.options[engineSelect.selectedIndex].value;
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
+    if(input == ""){
+        generatePlaceholder(lang);   
+    } else {
     new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
     if (token===null){
@@ -76,6 +79,7 @@ function generatePreview() {
             var preview = document.getElementById("previewArea");
             preview.innerHTML = previewText;
         }
+    }
     }
 }
 function populateSelections(formId, fields) {
@@ -106,29 +110,36 @@ function populateSelections(formId, fields) {
     }
 }
 
-function generatePlaceholder() {
+function generatePlaceholder(lang = null) {
     const Http = new XMLHttpRequest();
-    let len = language_list.length;
-    let randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
-    let randomLang = language_list[randomIndex];
-    let previewId = `type_${randomLang.apiId}`;
+    let len, randomIndex, randomLang, previewId, apiId;
+    if (lang === null) {
+    len = language_list.length;
+    randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
+    randomLang = language_list[randomIndex];
+    previewId = `type_${randomLang.apiId.replace('-', '_')}`;
+        apiId = randomLang.apiId;
+    document.querySelector(`select#lang`).value = randomLang.apiId;
+    } else {
+    previewId = `type_${lang.replace('-', '_')}`;
+        apiId = lang;
+    }
     console.log(previewId);
     console.log(Object.keys(preview));
     console.log(preview[previewId]);
-    let previewText = preview[`type_${randomLang.apiId.replace('-', '_')}`];
+    let previewText = preview[previewId];
 
     new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
-    document.querySelector(`select#engine`).value = 'hijs';
-    document.querySelector(`select#lang`).value = randomLang.apiId;
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
+    document.querySelector(`select#engine`).value = 'hijs';
 
     if (token===null){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
     } else {
-        Http.open("POST", `https://codexapp.co/api/create/hijs${randomLang.apiId}/${token}/`);
+        Http.open("POST", `https://codexapp.co/api/create/hijs${apiId}/${token}/`);
         Http.send(previewText);
-        console.log(`[POST To:] https://codexapp.co/api/create/hijs${randomLang.apiId}/${token}`);
+        console.log(`[POST To:] https://codexapp.co/api/create/hijs${apiId}/${token}`);
         Http.onreadystatechange=(e)=> {
             var hiPreviewText = Http.responseText.replace(/\r|\n/gm, "<br />");
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
