@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 09:51:46 EDT
+// List modified: Mon July 20, 2020 @ 10:14:31 EDT
 let preview = {};
 var language_list = [
     {
@@ -382,6 +382,64 @@ var language_list = [
         displayText: 'CSS',
         fileTypes: [{}],
         apiId: 'css',
+        cdxEnabled: false
+    },{
+        displayText: 'D',
+        fileTypes: [{}],
+        apiId: 'd',
+        cdxEnabled: false
+    },{
+        displayText: 'Dart',
+        fileTypes: [{}],
+        apiId: 'dart',
+        cdxEnabled: false
+    },{
+        displayText: 'Delphi',
+        fileTypes: [{}],
+        apiId: 'delphi',
+        cdxEnabled: false
+    },{
+        displayText: 'Diff',
+        fileTypes: [{}],
+        apiId: 'diff',
+        cdxEnabled: false
+    },{
+        displayText: 'Django',
+        fileTypes: [{}],
+        apiId: 'django',
+        cdxEnabled: false
+    },{
+        displayText: 'DNS Zone',
+        fileTypes: [{}],
+        apiId: 'dns',
+        cdxEnabled: false
+    },{
+        displayText: 'Dockerfile',
+        fileTypes: [{}],
+        apiId: 'dockerfile',
+        cdxEnabled: false
+    },{
+        displayText: 'DOS Batch file',
+        fileTypes: [{
+            type: '.bat',
+            common: true
+        }],
+        apiId: 'dos',
+        cdxEnabled: false
+    },{
+        displayText: 'dsconfig',
+        fileTypes: [{}],
+        apiId: 'dsconfig',
+        cdxEnabled: false
+    },{
+        displayText: 'Device Tree',
+        fileTypes: [{}],
+        apiId: 'dts',
+        cdxEnabled: false
+    },{
+        displayText: 'Dust',
+        fileTypes: [{}],
+        apiId: 'dust',
         cdxEnabled: false
     },{
         displayText: 'HTML',
@@ -1378,6 +1436,394 @@ body, .usertext {
     content: attr(href)
   }
 }`;
+
+preview.type_d = `#!/usr/bin/rdmd
+// Computes average line length for standard input.
+import std.stdio;
+
+/+
+  this is a /+ nesting +/ comment
++/
+
+enum COMPILED_ON = __TIMESTAMP__;  // special token
+
+enum character = '©';
+enum copy_valid = '&copy;';
+enum backslash_escaped = '\\\\';
+
+// string literals
+enum str = \`hello "world"!\`;
+enum multiline = r"lorem
+ipsum
+dolor";  // wysiwyg string, no escapes here allowed
+enum multiline2 = "sit
+amet
+\\"adipiscing\\"
+elit.";
+enum hex = x"66 6f 6f";   // same as "foo"
+
+#line 5
+
+// float literals
+enum f = [3.14f, .1, 1., 1e100, 0xc0de.01p+100];
+
+static if (something == true) {
+   import std.algorithm;
+}
+
+void main() pure nothrow @safe {
+    ulong lines = 0;
+    double sumLength = 0;
+    foreach (line; stdin.byLine()) {
+        ++lines;
+        sumLength += line.length;
+    }
+    writeln("Average line length: ",
+        lines ? sumLength / lines : 0);
+}`;
+
+preview.type_dart = `library app;
+import 'dart:html';
+
+part 'app2.dart';
+
+/**
+ * Class description and [link](http://dartlang.org/).
+ */
+@Awesome('it works!')
+class SomeClass<S extends Iterable> extends BaseClass<S> implements Comparable {
+  factory SomeClass(num param);
+  SomeClass._internal(int q) : super() {
+    assert(q != 1);
+    double z = 0.0;
+  }
+
+  /// **Sum** function
+  int sum(int a, int b) => a + b;
+
+  ElementList els() => querySelectorAll('.dart');
+}
+
+String str = ' (${'parameter' + 'zxc'})';
+String str = " (${true ? 2 + 2 / 2 : null})";
+String str = " ($variable)";
+String str = r'\\nraw\\';
+String str = r"\\nraw\\";
+var str = '''
+Something \${2+3}
+''';
+var str = r"""
+Something \${2+3}
+""";
+
+checkVersion() async {
+  var version = await lookUpVersion();
+}`;
+
+preview.type_delphi = `TList = Class(TObject)
+Private
+  Some: String;
+Public
+  Procedure Inside; // Suxx
+End;{TList}
+
+Procedure CopyFile(InFileName, var OutFileName: String);
+Const
+  BufSize = 4096; (* Huh? *)
+Var
+  InFile, OutFile: TStream;
+  Buffer: Array[1..BufSize] Of Byte;
+  ReadBufSize: Integer;
+Begin
+  InFile := Nil;
+  OutFile := Nil;
+  Try
+    InFile := TFileStream.Create(InFileName, fmOpenRead);
+    OutFile := TFileStream.Create(OutFileName, fmCreate);
+    Repeat
+      ReadBufSize := InFile.Read(Buffer, BufSize);
+      OutFile.Write(Buffer, ReadBufSize);
+    Until ReadBufSize<>BufSize;
+    Log('File ''' + InFileName + ''' copied'#13#10);
+  Finally
+    InFile.Free;
+    OutFile.Free;
+  End;{Try}
+End;{CopyFile}`;
+
+preview.type_diff = `Index: languages/ini.js
+===================================================================
+--- languages/ini.js    (revision 199)
++++ languages/ini.js    (revision 200)
+@@ -1,8 +1,7 @@
+ hljs.LANGUAGES.ini =
+ {
+   case_insensitive: true,
+-  defaultMode:
+-  {
++  defaultMode: {
+     contains: ['comment', 'title', 'setting'],
+     illegal: '[^\\\\s]'
+   },
+
+*** /path/to/original timestamp
+--- /path/to/new      timestamp
+***************
+*** 1,3 ****
+--- 1,9 ----
++ This is an important
++ notice! It should
++ therefore be located at
++ the beginning of this
++ document!
+
+! compress the size of the
+! changes.
+
+  It is important to spell`;
+
+preview.type_django = `{% if articles|length %}
+{% for article in articles %}
+
+{% custom %}
+
+{# Striped table #}
+<tr class="{% cycle odd,even %}">
+  <td>{{ article|default:"Hi... " }}</td>
+  <td {% if article.today %}class="today"{% endif %}>
+    Published on {{ article.date }}
+  </td>
+</tr>
+
+{% endfor %}
+{% endif %}`;
+
+preview.type_dns = `$ORIGIN example.com.    ; designates the start of this zone file in the namespace
+$TTL 1h                 ; default expiration time of all resource records without their own TTL value
+example.com.  IN  SOA   ns.example.com. username.example.com. ( 2007120710 1d 2h 4w 1h )
+example.com.  IN  NS    ns                    ; ns.example.com is a nameserver for example.com
+example.com.  IN  NS    ns.somewhere.example. ; ns.somewhere.example is a backup nameserver for example.com
+example.com.  IN  MX    10 mail.example.com.  ; mail.example.com is the mailserver for example.com
+@             IN  MX    20 mail2.example.com. ; equivalent to above line, "@" represents zone origin
+@             IN  MX    50 mail3              ; equivalent to above line, but using a relative host name
+example.com.  IN  A     192.0.2.1             ; IPv4 address for example.com
+              IN  AAAA  2001:db8:10::1        ; IPv6 address for example.com
+ns            IN  A     192.0.2.2             ; IPv4 address for ns.example.com
+              IN  AAAA  2001:db8:10::2        ; IPv6 address for ns.example.com
+www           IN  CNAME example.com.          ; www.example.com is an alias for example.com
+wwwtest       IN  CNAME www                   ; wwwtest.example.com is another alias for www.example.com
+mail          IN  A     192.0.2.3             ; IPv4 address for mail.example.com
+mail2         IN  A     192.0.2.4             ; IPv4 address for mail2.example.com
+mail3         IN  A     192.0.2.5             ; IPv4 address for mail3.example.com`;
+
+preview.type_dockerfile = `# Example instructions from https://docs.docker.com/reference/builder/
+FROM ubuntu:14.04
+
+MAINTAINER example@example.com
+
+ENV foo /bar
+WORKDIR \${foo}   # WORKDIR /bar
+ADD . $foo       # ADD . /bar
+COPY \\$foo /quux # COPY $foo /quux
+ARG   VAR=FOO
+
+RUN apt-get update && apt-get install -y software-properties-common\
+    zsh curl wget git htop\
+    unzip vim telnet
+RUN ["/bin/bash", "-c", "echo hello \${USER}"]
+
+CMD ["executable","param1","param2"]
+CMD command param1 param2
+
+EXPOSE 1337
+
+ENV myName="John Doe" myDog=Rex\\ The\\ Dog \
+    myCat=fluffy
+
+ENV myName John Doe
+ENV myDog Rex The Dog
+ENV myCat fluffy
+
+ADD hom* /mydir/        # adds all files starting with "hom"
+ADD hom?.txt /mydir/    # ? is replaced with any single character
+
+COPY hom* /mydir/        # adds all files starting with "hom"
+COPY hom?.txt /mydir/    # ? is replaced with any single character
+COPY --from=foo / .
+
+ENTRYPOINT ["executable", "param1", "param2"]
+ENTRYPOINT command param1 param2
+
+VOLUME ["/data"]
+
+USER daemon
+
+LABEL com.example.label-with-value="foo"
+LABEL version="1.0"
+LABEL description="This text illustrates \\
+that label-values can span multiple lines."
+
+WORKDIR /path/to/workdir
+
+ONBUILD ADD . /app/src
+
+STOPSIGNAL SIGKILL
+
+HEALTHCHECK --retries=3 cat /health
+
+SHELL ["/bin/bash", "-c"]`;
+
+preview.type_dos = `cd \
+copy a b
+ping 192.168.0.1
+@rem ping 192.168.0.1
+net stop sharedaccess
+del %tmp% /f /s /q
+del %temp% /f /s /q
+ipconfig /flushdns
+taskkill /F /IM JAVA.EXE /T
+
+cd Photoshop/Adobe Photoshop CS3/AMT/
+if exist application.sif (
+    ren application.sif _application.sif
+) else (
+    ren _application.sif application.sif
+)
+
+taskkill /F /IM proquota.exe /T
+
+sfc /SCANNOW
+
+set path = test
+
+xcopy %1\\*.* %2`;
+
+preview.type_dsconfig = `# Create client connection policies
+dsconfig create-client-connection-policy \\
+  --policy-name "Restrictive Client Connection Policy" \\
+  --set "description:Restrictive Client Connection Policy" \\
+  --set enabled:true --set evaluation-order-index:1000 \\
+  --set "connection-criteria:User.0 Connection Criteria" \\
+  --set maximum-concurrent-connections:2 \\
+  --set "maximum-connection-duration:1 s" \\
+  --set "maximum-idle-connection-duration:1 s" \\
+  --set maximum-operation-count-per-connection:1000
+create-client-connection-policy \\
+  --policy-name "Another Client Connection Policy" \\
+  --set enabled:true --set evaluation-order-index:100 \\
+  --set 'connection-criteria:User.1 Connection Criteria' \\
+  --reset maximum-concurrent-connections
+# Configure global ACIs
+dsconfig set-access-control-handler-prop \\
+ --add global-aci:'(target="ldap:///cn=config")(targetattr="*")(version 3.0; acl "Allow access to the config tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)' \\
+ --add global-aci:'(target="ldap:///cn=monitor")(targetattr="*")(version 3.0; acl "Allow access to the monitor tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)' \\
+ --remove global-aci:'(target="ldap:///cn=alerts")(targetattr="*")(version 3.0; acl "Allow access to the alerts tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)'
+# Delete error logger
+dsconfig delete-log-publisher --publisher-name "File-Based Error Logger"`;
+
+preview.type_dts = `/*
+ *  Copyright (C) 2011 - 2014 Xilinx
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+/include/ "skeleton.dtsi"
+
+/ {
+	compatible = "xlnx,zynq-7000";
+
+	pmu {
+		compatible = "arm,cortex-a9-pmu";
+		interrupts = <0 5 4>, <0 6 4>;
+		interrupt-parent = <&intc>;
+		reg = < 0xf8891000 0x1000 0xf8893000 0x1000 >;
+	};
+
+	regulator_vccpint: fixedregulator@0 {
+		compatible = "regulator-fixed";
+		regulator-name = "VCCPINT";
+		regulator-min-microvolt = <1000000>;
+		regulator-max-microvolt = <1000000>;
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
+	amba: amba {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		interrupt-parent = <&intc>;
+		ranges;
+
+		adc: adc@f8007100 {
+			compatible = "xlnx,zynq-xadc-1.00.a";
+			reg = <0xf8007100 0x20>;
+			interrupts = <0 7 4>;
+			interrupt-parent = <&intc>;
+			clocks = <&clkc 12>;
+		};
+
+		i2c0: i2c@e0004000 {
+			compatible = "cdns,i2c-r1p10";
+			status = "disabled";
+			clocks = <&clkc 38>;
+			interrupt-parent = <&intc>;
+			interrupts = <0 25 4>;
+			reg = <0xe0004000 0x1000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+
+		L2: cache-controller@f8f02000 {
+			compatible = "arm,pl310-cache";
+			reg = <0xF8F02000 0x1000>;
+			interrupts = <0 2 4>;
+			arm,data-latency = <3 2 2>;
+			arm,tag-latency = <2 2 2>;
+			cache-unified;
+			cache-level = <2>;
+		};
+
+	};
+};`;
+
+preview.type_dust = `<h3>Hours</h3>
+
+<ul>
+  {#users}
+  <li {hello}>{firstName}</li>{~n}
+  {/users}
+</ul>`;
+
+
+
+preview.type_javascript = `function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\bno\\-highlight\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class="\${cls}"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;`;
 
 preview.type_markdown = `# hello world
 
