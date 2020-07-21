@@ -2,22 +2,25 @@
 <!-- Page revised: Mon July 20, 2020 @ 10:51:00 EDT -->
 <html>
 
-    <head>
-        <title>codeX | Create</title>
-        <link rel="stylesheet" type="text/css" href="./css/main.css" />
-        <link rel="icon" type="image/png" href="/Resources/favicon.png">
-        <!-- TODO: Metadata here! -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- helps with mobile/desktop viewing zpg -->
-    </head>
+<head>
+    <title>codeX | Create</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="icon" type="image/png" href="/Resources/favicon.png">
+    <!-- TODO: Metadata here! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- helps with mobile/desktop viewing zpg -->
+</head>
 
-    <body>
-        <header>
-            <div>
-                <a href="/"><img src="Resources/logo.png" style="padding-bottom: 50px;"></img></a> <!-- temporary logo -->
-            </div>
-        </header>
-        <main>
+<body>
+    <header>
+        <div>
+            <a href="/"><img src="Resources/logo.png" style="padding-bottom: 50px;"></img></a> <!-- temporary logo -->
+        </div>
+    </header>
+    <main>
+        
+        <div class="flex-prop">
+            <!-- start flex box one -->
             <div class="main-content">
                 <form id="codexGenerator" class="input-form">
                     <table width="100%">
@@ -54,29 +57,35 @@
                                 </td>-->
                         </tr>
                     </table>
-                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..." required onchange="generatePreview()"></textarea>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
+                        required onchange="generatePreview()"></textarea>
                     <input type="button" value="Generate Preview" onclick="generatePreview()" />
                 </form>
             </div>
-            <div id="previewPanel">
+            <!-- end flex box one -->
+            <!-- start flex box two -->
+            <div id="previewPanel" class="main-content">
+                <h1>where am i????</h1>
                 <div id="previewArea">// And the preview shows up here here</div>
             </div>
-        </main>
-        <footer>
-        </footer>
-    </body>
-    <script src="js/browser.js">
-    </script>
-    <script>
-        let fields = [
-            {
-                id: "lang",
-                populateWith: language_list
-            }, {
-                id: "engine",
-                populateWith: engine_list
-            }];
-        populateSelections("codexGenerator", fields);
-    </script>
+            <!-- end flex box two -->
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script src="js/browser.js">
+</script>
+<script>
+    let fields = [
+        {
+            id: "lang",
+            populateWith: language_list
+        }, {
+            id: "engine",
+            populateWith: engine_list
+        }];
+    populateSelections("codexGenerator", fields);
+</script>
 
 </html>

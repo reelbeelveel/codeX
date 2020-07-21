@@ -84,9 +84,27 @@ label {
     margin: 20px 0;
 }
 img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
  }
+
+@media only screen and (min-width: 1500px) {
+  img {
+    width:1500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  img {
+    width:100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+ 
  form, input, select, textarea, .previewPanel{
     background-color: var(--clr-bg-lite);
     color: var(--clr-fg-lite);
@@ -196,4 +214,40 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-link {
   text-decoration: underline;
+}
+
+.flex-prop{
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%
+}
+
+@media only screen and (min-width: 1500px) {
+  .flex-prop{
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .flex-prop{
+    flex-direction: column;
+  }
+}
+
+.main-content{
+  border-style: solid;
+  border-color: red;
+}
+
+@media only screen and (max-width: 1500px) {
+  .main-content{
+    width: 100%; 
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .main-content{
+  width: 50%;
+  }
 }
