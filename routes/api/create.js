@@ -1,4 +1,4 @@
-// Script modified: Thu July 16, 2020 @ 11:16:41 EDT
+// Script modified: Mon July 20, 2020 @ 09:18:46 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -12,7 +12,6 @@ const tokenLength = constants.tkLen;
 //          string of len tokenLength.
 const schema = joi.object({
     type: joi.string()
-    .token()
     .min(4)
     .required(),
     reqId: joi.string()
@@ -22,11 +21,11 @@ const schema = joi.object({
 });
 
 // Accepts request in the form url/api/create/TYPE/ID
-router.get('/:type/:reqId', async (req, res) => {
+router.post('/:type/:reqId', async (req, res) => {
     try {
         // Validates Type and ID using schema
         const value = await schema.validateAsync(req.params);
-        console.log(`[/api/create.js] Valid GET request for Type: ${value.type} and ID: ${value.reqId} received.`);
+        console.log(`[/api/create.js] Valid POST request for Type: ${value.type} and ID: ${value.reqId} received.`);
 
         // TODO: Check "Cache"?
         // TODO: If not in cache, submit to highlight engine.

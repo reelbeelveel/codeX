@@ -1,40 +1,104 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Fri July 17, 2020 @ 03:34:26 EDT -->
+<!-- Page revised: Tue July 21, 2020 @ 02:35:04 EDT -->
 <html>
-    <head>
-        <title>codeX | Create</title>
-        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-        <!-- TODO: Metadata here! -->
-    </head>
-    <body>
-        <header>
-        </header>
-        <main>
-            <div>
-                <form id="codexGenerator"> 
-                    <label for="engine">Select an Engine:</label>
-                    <input list="engine-list" id="engine" type="text" name="engine" required>
-                    <datalist id="engine-list">
-                        <option value="[cdx_] CodeX">
-                        <option value="[hijs] highlight.js">
-                    </datalist>
 
-                    <label for="lang">Select a Language:</label>
-                    <input list="lang-list" id="lang" type="text" name="lang" required>
-                    <datalist id="lang-list">
-                        <option value="Bash (.sh/.zsh)">
-                        <option value="JavaScript (js)">
-                    </datalist>
+<head>
+    <title>codeX | Create</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="icon" type="image/png" href="/Resources/favicon.png">
+    <!-- TODO: Metadata here! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- helps with mobile/desktop viewing zpg -->
+</head>
 
-                    <label for="codeInput">Label Placeholder:</label>
-                    <textarea id="codeInput" name="codeInput" autofocus required></textarea>
-                    <input type="button" value="Generate" onclick="getFormData()"/>
+<body>
+    <div id="header" class="header">
+    <header>
+        <ul class="bar">
+            <li id="logo">
+            <a href="/">
+                <img src="Resources/logo.png"/>
+            </a> <!-- temporary logo -->
+            </li>
+            <li id="github">
+                <a href="https://github.com/keelbeelveel/codeX">
+                    <img src="Resources/github.png"/>
+                </a>
+        </ul>
+    </header>
+    </div>
+    <main>
+        
+        <div class="flex-prop">
+            <!-- start flex box one -->
+            <div class="main-content">
+                <h2>// Write your code here...</h2> 
+                <hr />
+                <form id="codexGenerator" class="input-form">
+                    <table width="100%">
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="engine">Select an Engine:</label>
+                            </td>
+                            <td>
+                                <select id="engine">
+                                    <!-- Import engine list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="js/engine_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="lang">Select a Language:</label>
+                            </td>
+                            <td>
+                                <select id="lang" onchange="generatePreview()">
+                                    <!-- Import language_list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="js/language_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--<td class="form-label-col">
+                                <label for="codeInput">Label Placeholder:</label>
+                                </td>
+                                <td>
+                                <textarea id="codeInput" name="codeInput" autofocus placeholder="Test" required></textarea>
+                                </td>-->
+                        </tr>
+                    </table>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
+                        required onchange="generatePreview()"oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'a></textarea>
+                    <input type="button" value="Generate Preview" style="position:-webkit-sticky"; onclick="generatePreview()" />
                 </form>
             </div>
-        </main>
-        <footer>
-        </footer>
-    </body>
-    <script src="js/create.js"></script>
-</html>
+            <!-- end flex box one -->
+            <!-- start flex box two -->
+            <div id="previewPanel" class="main-content">
+                <h2>// The preview shows up here.</h2>
+                <hr />
+                <div id="previewArea"></div>
+            </div>
+            <!-- end flex box two -->
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script src="js/browser.js">
+</script>
+<script>
+    let fields = [
+        {
+            id: "lang",
+            populateWith: language_list
+        }, {
+            id: "engine",
+            populateWith: engine_list
+        }];
+    populateSelections("codexGenerator", fields);
+</script>
 
+</html>
