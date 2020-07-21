@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Mon July 20, 2020 @ 08:17:26 EDT
+// Last revised: Mon July 20, 2020 @ 09:15:12 EDT
 
 function timeStamp() {
     var d = new Date();
@@ -109,13 +109,13 @@ function populateSelections(formId, fields) {
 function generatePlaceholder() {
     const Http = new XMLHttpRequest();
     let len = language_list.length;
-    let randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
+    let randomIndex = 29;//Math.floor(Math.random() * (len - 1)) + 1;
     let randomLang = language_list[randomIndex];
     let previewId = `type_${randomLang.apiId}`;
     console.log(previewId);
     console.log(Object.keys(preview));
     console.log(preview[previewId]);
-    let previewText = preview[`type_${randomLang.apiId}`];
+    let previewText = preview[`type_${randomLang.apiId.replace('-', '_')}`];
 
     new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
     document.querySelector(`select#engine`).value = 'hijs';

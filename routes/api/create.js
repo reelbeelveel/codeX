@@ -1,4 +1,4 @@
-// Script modified: Sat July 18, 2020 @ 12:07:35 EDT
+// Script modified: Mon July 20, 2020 @ 09:18:46 EDT
 const express = require('express');
 const router = express.Router();
 const joi = require('@hapi/joi');
@@ -12,7 +12,6 @@ const tokenLength = constants.tkLen;
 //          string of len tokenLength.
 const schema = joi.object({
     type: joi.string()
-    .token()
     .min(4)
     .required(),
     reqId: joi.string()
