@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 08:44:58 EDT
+// List modified: Mon July 20, 2020 @ 08:57:47 EDT
 let preview = {};
 var language_list = [
     {
@@ -275,6 +275,27 @@ var language_list = [
         displayText: 'BASIC',
         fileTypes: [{}],
         apiId: 'basic',
+        cdxEnabled: false
+    },{
+        displayText: 'Backus-Naur Form',
+        fileTypes: [{
+            type: '.bnf',
+            common: true
+        }],
+        apiId: '.bnf',
+        cdxEnabled: false
+    },{
+        displayText: 'Brainfuck',
+        fileTypes: [{}],
+        apiId: 'brainfuck',
+        cdxEnabled: false
+    },{
+        displayText: 'C',
+        fileTypes: [{
+            type: '.c',
+            common: true
+        }],
+        apiId: 'c',
         cdxEnabled: false
     },{
         displayText: 'C++',
@@ -849,6 +870,54 @@ genApacheConf(){
 }
 
 echo '"quoted"' | tr -d \\" > text.txt`;
+
+preview.type_bnf = `<syntax>         ::= <rule> | <rule> <syntax>
+<rule>           ::= <opt-whitespace> "<" <rule-name> ">" <opt-whitespace> "::=" <opt-whitespace> <expression> <line-end>
+<opt-whitespace> ::= " " <opt-whitespace> | ""
+<expression>     ::= <list> | <list> <opt-whitespace> "|" <opt-whitespace> <expression>
+<line-end>       ::= <opt-whitespace> <EOL> | <line-end> <line-end>
+<list>           ::= <term> | <term> <opt-whitespace> <list>
+<term>           ::= <literal> | "<" <rule-name> ">"
+<literal>        ::= '"' <text> '"' | "'" <text> "'"`;
+
+preview.type_brainfuck = `++++++++++
+[ 3*10 and 10*10
+  ->+++>++++++++++<<
+]>>
+[ filling cells
+  ->++>>++>++>+>++>>++>++>++>++>++>++>++>++>++>++>++[</]<[<]<[<]>>
+]<
++++++++++<<
+[ rough codes correction loop
+  ->>>+>+>+>+++>+>+>+>+>+>+>+>+>+>+>+>+>+>+[<]<
+]
+more accurate сodes correction
+>>>++>
+-->+++++++>------>++++++>++>+++++++++>++++++++++>++++++++>--->++++++++++>------>++++++>
+++>+++++++++++>++++++++++++>------>+++
+rewind and output
+[<]>[.>]`;
+
+preview.type_c = `#include <stdio.h>
+int main() {
+    int n, i;
+    unsigned long long fact = 1;
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    // shows error if the user enters a negative integer
+    if (n < 0)
+        printf("Error! Factorial of a negative number doesn't exist.");
+    else {
+        for (i = 1; i <= n; ++i) {
+            fact *= i;
+        }
+        printf("Factorial of %d = %llu", n, fact);
+    }
+
+    return 0;
+}`;
+
 
 preview.type_cpp = `#include <iostream>
 
