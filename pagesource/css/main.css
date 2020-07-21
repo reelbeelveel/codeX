@@ -1,4 +1,4 @@
-/* Stylesheet revised: Tue July 21, 2020 @ 01:59:04 EDT */
+/* Stylesheet revised: Tue July 21, 2020 @ 02:13:46 EDT */
 :root {    /* Color Settings!                           
             * DO NOT HARD-CODE COLORS.  Add them here as variables,
             * then use them on elements like:           
@@ -20,8 +20,7 @@
  */
 }
 
-html {                                           
-
+html {
     background-color: var(--clr-bg-dark);
     color: var(--clr-fg-lite);
 }
@@ -35,26 +34,26 @@ div#testdiv {
 }
 div#testdiv span { display: block; }
 span.testcolor0 { 
-background-color: var(--clr-bg-dark); 
-color: var(--clr-fg-dark);
+    background-color: var(--clr-bg-dark); 
+    color: var(--clr-fg-dark);
 }
 span.testcolor0::after { content: " (--clr-bg-dark)";  }
 
 span.testcolor1 { 
-background-color: var(--clr-bg-lite); 
-color: var(--clr-fg-lite);
+    background-color: var(--clr-bg-lite); 
+    color: var(--clr-fg-lite);
 }
 span.testcolor1::after { content: " (--clr-bg-lite)";  }
 
 span.testcolor2 { 
-background-color: var(--clr-accentA); 
-color: var(--clr-fg-lite);
+    background-color: var(--clr-accentA); 
+    color: var(--clr-fg-lite);
 }
 span.testcolor2::after { content: " (--clr-accentA)";  }
 
 span.testcolor3 { 
-background-color: var(--clr-accentB); 
-color: var(--clr-fg-dark);
+    background-color: var(--clr-accentB); 
+    color: var(--clr-fg-dark);
 }
 span.testcolor3::after { content: " (--clr-accentB)";  }
 
@@ -85,7 +84,7 @@ label {
     height: 150px;
     min-width: 100%;
     min-height: 150px;
-overflow-y: auto;
+    overflow-y: auto;
 }
 div#header, div#header * { --bar-height: 6em; }
 
@@ -115,40 +114,40 @@ li#icon {
 }
 li#github {
     float: right;
- }
+}
 header ul.bar li a img {
     position: relative;
     height: var(--bar-height);
     width: auto;
 }
 
- form, input, select, textarea, .previewPanel, .main-content{
+form, input, select, textarea, .previewPanel, .main-content{
     background-color: var(--clr-bg-lite);
     color: var(--clr-fg-lite);
- }
+}
 /*
 
 Railscasts-like style (c) Visoft, Inc. (Damien White)
 
-*/
+ */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #232323;
-  color: #e6e1dc;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #232323;
+    color: #e6e1dc;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #bc9458;
-  font-style: italic;
+    color: #bc9458;
+    font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag {
-  color: #c26230;
+    color: #c26230;
 }
 
 .hljs-string,
@@ -156,20 +155,20 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-regexp,
 .hljs-variable,
 .hljs-template-variable {
-  color: #a5c261;
+    color: #a5c261;
 }
 
 .hljs-subst {
-  color: #519f50;
+    color: #519f50;
 }
 
 .hljs-tag,
 .hljs-name {
-  color: #e8bf6a;
+    color: #e8bf6a;
 }
 
 .hljs-type {
-  color: #da4939;
+    color: #da4939;
 }
 
 
@@ -179,93 +178,100 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-builtin-name,
 .hljs-attr,
 .hljs-link {
-  color: #6d9cbe;
+    color: #6d9cbe;
 }
 
 .hljs-params {
-  color: #d0d0ff;
+    color: #d0d0ff;
 }
 
 .hljs-attribute {
-  color: #cda869;
+    color: #cda869;
 }
 
 .hljs-meta {
-  color: #9b859d;
+    color: #9b859d;
 }
 
 .hljs-title,
 .hljs-section {
-  color: #ffc66d;
+    color: #ffc66d;
 }
 
 .hljs-addition {
-  background-color: #144212;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
+    background-color: #144212;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%;
 }
 
 .hljs-deletion {
-  background-color: #600;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
+    background-color: #600;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%;
 }
 
 .hljs-selector-class {
-  color: #9b703f;
+    color: #9b703f;
 }
 
 .hljs-selector-id {
-  color: #8b98ab;
+    color: #8b98ab;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .hljs-link {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .flex-prop{
-  display:flex;
-  margin-left: auto;
-  margin-right: auto;
-  width:100%
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%
 }
 
 @media only screen and (min-width: 1500px) {
-  .flex-prop{
-    flex-direction: row;
-  }
+    .flex-prop{
+        flex-direction: row;
+    }
 }
 
 @media only screen and (max-width: 1500px) {
-  .flex-prop{
-    flex-direction: column;
-  }
+    .flex-prop{
+        flex-direction: column;
+    }
 }
 
 .main-content{
-  border-style: solid;
-  border-color: red;
-  padding:10px;
+    max-width: 90%;
+    margin: 2em 2em 2em 2em;
+    border-style: solid;
+    border-color: red;
+    padding:10px;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 1500px) {
-  .main-content{
-    width: 100%; 
-  }
+    .main-content{
+        width: 100%; 
+    }
 }
 
 @media only screen and (min-width: 1500px) {
-  .main-content{
-  width: 50%;
-  }
+    .main-content{
+        width: 50%;
+    }
 }
+div#previewArea {
+    margin: 1em 1em 1em 1em;
+}
+h2 { color: var(--clr-accentA); }
