@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 09:44:25 EDT
+// List modified: Mon July 20, 2020 @ 09:51:46 EDT
 let preview = {};
 var language_list = [
     {
@@ -358,7 +358,7 @@ var language_list = [
     },{
         displayText:'crmsh',
         fileTypes: [{}],
-        apiId, 'crmsh',
+        apiId: 'crmsh',
         cdxEnabled: false
     },{
         displayText: 'Crystal',
