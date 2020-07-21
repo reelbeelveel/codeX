@@ -1,4 +1,4 @@
-// List modified: Mon July 20, 2020 @ 08:20:09 EDT
+// List modified: Mon July 20, 2020 @ 08:26:40 EDT
 let preview = {};
 var language_list = [
     {
@@ -175,6 +175,14 @@ var language_list = [
             common: true
         }],
         apiId: 'autohotkey',
+        cdxEnabled: false
+    },{
+        displayText: 'AutoIt',
+        fileTypes: [{
+            type: '',
+            common: true
+        }],
+        apiId: 'autoit',
         cdxEnabled: false
     },{
         displayText: 'Bash',
@@ -640,6 +648,23 @@ label1:
   }
 return`;
 
+preview.type_autoit = `#NoTrayIcon
+#AutoIt3Wrapper_Run_Tidy=Y
+#include <Misc.au3>
+
+_Singleton(@ScriptName) ; Allow only one instance
+example(0, 10)
+
+Func example($min, $max)
+	For $i = $min To $max
+		If Mod($i, 2) == 0 Then
+			MsgBox(64, "Message", $i & ' is even number!')
+		Else
+			MsgBox(64, "Message", $i & ' is odd number!')
+		EndIf
+	Next
+EndFunc   ;==>example`;
+
 preview.type_bash = `#!/bin/bash
 
 ###### CONFIG
@@ -744,3 +769,4 @@ class SomeClass:
 
 >>> message = '''interpreter
 ... prompt'''`;
+
