@@ -1,4 +1,4 @@
-// Script modified: Wed July 22, 2020 @ 04:38:18 EDT
+// Script modified: Wed July 22, 2020 @ 04:50:58 EDT
 const express = require('express');
 const syntaxEngine = require('../../engine');
 const router = express.Router();
@@ -47,5 +47,15 @@ router.post('/:type/:reqId', async (req, res) => {
     }
 });
 
+router.post('/', (req, res) => {
+    res.status(400)
+        .send('Bad Request, did not specify type/id.')
+        .end();
+})
+router.all('/', (req, res) => {
+    res.status(400)
+        .send('Bad Request. /api/create only supports \'POST\'.')
+        .end();
+})
 
 module.exports = router;

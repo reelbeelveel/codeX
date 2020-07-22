@@ -38,11 +38,11 @@ router.post('/', (req, res) => {
     res.status(400)
         .send('Bad Request, did not specify type/args/id.')
         .end();
-})
+});
 router.all('/', (req, res) => {
     res.status(400)
         .send('Bad Request. /api/export only supports \'POST\'.')
         .end();
-})
+});
 
 module.exports = router;
