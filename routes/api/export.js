@@ -1,8 +1,10 @@
-const express = require('express');
-const syntaxEngine = require('../../engine');
-const router = express.Router();
-const joi = require('@hapi/joi');
 const constante = require('./constants');
+const express = require('express');
+const joi = require('@hapi/joi');
+const router = express.Router();
+const syntaxEngine = require('../../engine');
+const path = require('path');
+const puppeteer = require('puppeteer');
 const tokenLength = constante.tkLen;
 
 const schema = joi.object({
@@ -23,11 +25,16 @@ router.post('/:type/:args/:reqId', async (req, res) => {
         const value = await schema.validateAsync(req.params);
         try {
             var codeexport = await syntaxEngine(value.type, req.body);
+            const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
+            const page = await browser.newPage();
+            await page.setContent(`<html>${codeexport}</html>`);
+            await page.screenshot({path: path.join(__dirname, '/../../exports/tmp.png')});
+            res.status(200).sendFile('tmp.png', { root: path.join(__dirname, '../../exports') });
+
         } catch (err) {
             console.log(err);
-            throw new Error(`Could not Highlight: ${err}`);
+            throw new Error(`Could not Export: ${err}`);
         }
-        res.status(200).send(codeexport).end();
     } catch (err) {
         console.log(err);
         res.status(400).send(`Bad Request,\n${err}`).end();
