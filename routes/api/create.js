@@ -1,5 +1,6 @@
-// Script modified: Mon July 20, 2020 @ 09:18:46 EDT
+// Script modified: Wed July 22, 2020 @ 04:38:18 EDT
 const express = require('express');
+const syntaxEngine = require('../../engine');
 const router = express.Router();
 const joi = require('@hapi/joi');
 const constants = require('./constants');
@@ -29,12 +30,11 @@ router.post('/:type/:reqId', async (req, res) => {
 
         // TODO: Check "Cache"?
         // TODO: If not in cache, submit to highlight engine.
-        var syntaxEngine = require('../../engine');
         try {
         var codeexport = await syntaxEngine(value.type, req.body);
         } catch (err) {
             console.log(err);
-            throw new Error(`Could not decode: ${err}`);
+            throw new Error(`Could not Highlight: ${err}`);
         }
         // TODO: Return result to user.
         // TODO: This is a placeholder! Remove in future.
