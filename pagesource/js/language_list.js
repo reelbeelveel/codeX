@@ -1,4 +1,4 @@
-// List modified: Tue July 21, 2020 @ 02:32:09 EDT
+// List modified: Wed July 22, 2020 @ 03:22:09 EDT
 let preview = {};
 var language_list = [
     {
@@ -2173,7 +2173,7 @@ preview.type_erb = `<%# this is a comment %>
 <%% value = 'real string #{@value}' %%>
 <%%= available_things.inspect %%>`;
 
-preview.erlang_repl = `1> Str = "abcd".
+preview.type_erlang_repl = `1> Str = "abcd".
 "abcd"
 2> L = test:length(Str).
 4
