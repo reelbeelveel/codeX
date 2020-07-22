@@ -7,3 +7,4 @@ pagesource/.jekyll-cache/
 pagesource/_site/
 .gitignore
 node_modules/
+exports/

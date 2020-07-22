@@ -24,12 +24,16 @@ router.post('/:type/:args/:reqId', async (req, res) => {
     try {
         const value = await schema.validateAsync(req.params);
         try {
-            var codeexport = await syntaxEngine(value.type, req.body);
+            var tempString = await syntaxEngine(value.type, req.body);
+            var codeExport = tempString.replace(/\r|\n/gm, "<br />");
             const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
             const page = await browser.newPage();
-            await page.setContent(`<html>${codeexport}</html>`);
-            await page.screenshot({path: path.join(__dirname, '/../../exports/tmp.png')});
-            res.status(200).sendFile('tmp.png', { root: path.join(__dirname, '../../exports') });
+            const sheet = 'night-owl';
+
+            await page.setContent(`<html><pre><code>${codeExport}</code></pre></html>`);
+            await page.addStyleTag({path: path.join(__dirname, `/../../styles/${sheet}.css`)})
+            await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
+            res.status(200).sendFile(`${value.reqId}.png`, { root: path.join(__dirname, '../../exports') });
 
         } catch (err) {
             console.log(err);
