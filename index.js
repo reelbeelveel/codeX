@@ -1,4 +1,4 @@
-// Script modified: Fri July 17, 2020 @ 11:46:23 EDT
+// Script modified: Wed July 22, 2020 @ 04:38:18 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -26,8 +26,12 @@ app.use(function(req, res, next) {
 
 const apiCreateRouter = require('./routes/api/create');
 const apiViewRouter = require('./routes/api/view');
+const apiExportRouter = require('./routes/api/export');
+
 app.use('/api/create', apiCreateRouter);
 app.use('/api/view', apiViewRouter);
+app.use('/api/export', apiExportRouter);
+
 var credentials = {
   key: key,
   cert: cert
