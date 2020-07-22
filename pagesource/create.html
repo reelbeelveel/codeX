@@ -35,12 +35,12 @@
                 <h2>// Write your code here...</h2> 
                 <hr />
                 <form id="codexGenerator" class="input-form">
-                    <table width="100%">
+                    <table style="margin-left: auto; margin-right:auto; width:100%">
                         <tr>
                             <td class="form-label-col">
                                 <label for="engine">Select an Engine:</label>
                             </td>
-                            <td>
+                            <td align="right">
                                 <select id="engine">
                                     <!-- Import engine list -->
                                     <!-- TODO: Convert to json in future? -->
@@ -52,7 +52,7 @@
                             <td class="form-label-col">
                                 <label for="lang">Select a Language:</label>
                             </td>
-                            <td>
+                            <td align="right">
                                 <select id="lang" onchange="generatePreview()">
                                     <!-- Import language_list -->
                                     <!-- TODO: Convert to json in future? -->
@@ -70,8 +70,11 @@
                         </tr>
                     </table>
                     <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
-                        required onchange="generatePreview()"oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'a></textarea>
-                    <input type="button" value="Generate Preview" style="position:-webkit-sticky"; onclick="generatePreview()" />
+                        required onchange="generatePreview()"oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'a
+                        style="resize: none"></textarea>
+                    <center>
+                        <input type="button" value="Generate Preview" class="button" onclick="generatePreview()" />
+                    </center>
                 </form>
             </div>
             <!-- end flex box one -->
@@ -85,6 +88,7 @@
         </div>
     </main>
     <footer>
+        <a name="bot">
     </footer>
 </body>
 <script src="js/browser.js">
