@@ -1,5 +1,10 @@
 // browser.js
-// Last revised: Mon July 20, 2020 @ 11:02:40 EDT
+// Last revised: Wed July 22, 2020 @ 03:32:54 EDT
+
+// Comment out one or the other to change where the API is called (debug).
+// TODO: instructions for local api hosting
+const apiUrl = 'http://localhost:3000';
+// const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -28,10 +33,10 @@ class Logger {
         }
     }
 }
-var token = null;
+var token = undefined;
 async function getToken() {
     const Http = new XMLHttpRequest();
-    const tokenUrl='https://codexapp.co/api/getToken/';
+    const tokenUrl = `${apiUrl}/api/getToken/`;
     Http.open("GET", tokenUrl);
     console.log("Token call");
     Http.onreadystatechange=(e)=>{
@@ -62,17 +67,17 @@ function generatePreview() {
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
     if(input == ""){
-        generatePlaceholder(lang);   
+        generatePlaceholder(lang);
     } else {
     new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
-    if (token===null){
+    if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
+        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `https://codexapp.co/api/create/${engine}${lang}/${token}/`);
+        Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
         Http.send(input);
-        console.log(`[POST To:] https://codexapp.co/api/create/${engine}${lang}/${token}`);
+        console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
         Http.onreadystatechange=(e)=> {
             var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
             console.log(`[API Call to api/create]: Recieved: ${previewText}`);
@@ -113,7 +118,7 @@ function populateSelections(formId, fields) {
 function generatePlaceholder(lang = null) {
     const Http = new XMLHttpRequest();
     let len, randomIndex, randomLang, previewId, apiId;
-    if (lang === null) {
+    if (lang == null) {
     len = language_list.length;
     randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
     randomLang = language_list[randomIndex];
@@ -133,13 +138,13 @@ function generatePlaceholder(lang = null) {
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
     document.querySelector(`select#engine`).value = 'hijs';
 
-    if (token===null){
+    if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
+        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `https://codexapp.co/api/create/hijs${apiId}/${token}/`);
+        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/${token}/`);
         Http.send(previewText);
-        console.log(`[POST To:] https://codexapp.co/api/create/hijs${apiId}/${token}`);
+        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
         Http.onreadystatechange=(e)=> {
             var hiPreviewText = Http.responseText.replace(/\r|\n/gm, "<br />");
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
