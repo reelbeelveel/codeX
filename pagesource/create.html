@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Tue July 21, 2020 @ 02:35:04 EDT -->
+<!-- Page revised: Wed July 22, 2020 @ 09:19:23 EDT -->
 <html>
 
 <head>
@@ -81,6 +81,8 @@
             <!-- start flex box two -->
             <div id="previewPanel" class="main-content">
                 <h2>// The preview shows up here.</h2>
+                <select id="style" onchange="refreshSheet()"></select>
+                <script src="js/style_list.js"></script>
                 <hr />
                 <div id="previewArea"></div>
             </div>
@@ -101,8 +103,12 @@
         }, {
             id: "engine",
             populateWith: engine_list
+        }, {
+            id: "style",
+            populateWith: style_list
         }];
-    populateSelections("codexGenerator", fields);
+    populateSelections(fields);
+    refreshSheet();
 </script>
 
 </html>

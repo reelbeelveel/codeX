@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Wed July 22, 2020 @ 08:00:14 EDT
+// Last revised: Wed July 22, 2020 @ 09:22:29 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -30,6 +30,7 @@ class Logger {
         if(loggerEnabled) {
             console.log(`%c ${title}`, style);
             console.log(log);
+            console.trace();
         }
     }
 }
@@ -87,8 +88,8 @@ function generatePreview() {
     }
     }
 }
-function populateSelections(formId, fields) {
-    new Logger ({formid:formId, fields: fields, fieldLength: fields.length});
+function populateSelections(fields) {
+    new Logger ({fields: fields, fieldLength: fields.length});
     var i, j;
     for(i = 0; i < fields.length; i++) {
 
@@ -153,5 +154,12 @@ function generatePlaceholder(lang = null) {
         }
     }
 }
-
+const previewStyle = document.createElement('link')
+document.querySelector("head").appendChild(previewStyle);
+previewStyle.rel = "stylesheet";
+previewStyle.type= "text/css";
+function refreshSheet() {
+        var styleSelect = document.querySelector('select#style');
+        previewStyle.href=`./css/styles/${styleSelect.options[styleSelect.selectedIndex].value}`;
+}
 

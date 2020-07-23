@@ -33,7 +33,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             const sheet = value.style;
 
             await page.setContent(`<html><pre><code>${codeExport}</code></pre></html>`);
-            await page.addStyleTag({path: path.join(__dirname, `/../../styles/${sheet}.css`)})
+            await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/js/styles/${sheet}.css`)})
             await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
             res.status(200).sendFile(`${value.reqId}.png`, { root: path.join(__dirname, '../../exports') });
 
