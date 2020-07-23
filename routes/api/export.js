@@ -13,22 +13,24 @@ const schema = joi.object({
     .required(),
     args: joi.string()
     .required(),
+    style: joi.string()
+    .required(),
     reqId: joi.string()
     .token()
     .length(tokenLength)
     .required()
 })
 
-router.post('/:type/:args/:reqId', async (req, res) => {
+router.post('/:type/:args/:style/:reqId', async (req, res) => {
     // Validate schema, Check Parameters.
     try {
         const value = await schema.validateAsync(req.params);
         try {
             var tempString = await syntaxEngine(value.type, req.body);
-            var codeExport = tempString.replace(/\r|\n/gm, "<br />");
+            var codeExport = tempString;
             const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
             const page = await browser.newPage();
-            const sheet = 'night-owl';
+            const sheet = value.style;
 
             await page.setContent(`<html><pre><code>${codeExport}</code></pre></html>`);
             await page.addStyleTag({path: path.join(__dirname, `/../../styles/${sheet}.css`)})
@@ -47,7 +49,7 @@ router.post('/:type/:args/:reqId', async (req, res) => {
 
 router.post('/', (req, res) => {
     res.status(400)
-        .send('Bad Request, did not specify type/args/id.')
+        .send('Bad Request, did not specify type/args/style/id.')
         .end();
 });
 router.all('/', (req, res) => {

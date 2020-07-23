@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Wed July 22, 2020 @ 03:32:54 EDT
+// Last revised: Wed July 22, 2020 @ 08:00:14 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -146,7 +146,7 @@ function generatePlaceholder(lang = null) {
         Http.send(previewText);
         console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
         Http.onreadystatechange=(e)=> {
-            var hiPreviewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+            var hiPreviewText = `<pre><code>${Http.responseText}</code><pre>`;
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
             var hiPreview = document.getElementById("previewArea");
             hiPreview.innerHTML = hiPreviewText;
