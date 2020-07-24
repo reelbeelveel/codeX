@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Fri July 24, 2020 @ 02:00:47 EDT
+// Last revised: Fri July 24, 2020 @ 02:39:44 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -60,6 +60,7 @@ async function getToken() {
 getToken();
 
 var langDetect = document.createElement('div');
+var detectVisible = false;
 function generatePreview() {
     const Http = new XMLHttpRequest();
     var engineSelect= document.querySelector("select#engine");
@@ -83,18 +84,21 @@ function generatePreview() {
                 xhr.open("POST", `${apiUrl}/api/detect/`);
                 xhr.send(input);
                 xhr.onreadystatechange=(e)=> {
-                   var detected = xhr.responseText;
+                    var detected = xhr.responseText;
                     for(var i = 1; i < language_list.length; i++){
                         if(language_list[i].apiId == detected) {
                             detected = language_list[i].displayText;
+                            detectVisible = true;
                             break;
                         }
                     }
                     langDetect.innerHTML = `Detected: ${detected}`;
                     document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
                 }
-            }
-            else { document.querySelector('div#previewPanel.main-content').removeChild(langDetect); }
+            } else if (detectVisible) {
+                document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
+                detectVisible = false;
+        }
             Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
             Http.send(input);
             console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
