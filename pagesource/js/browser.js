@@ -1,9 +1,9 @@
 // browser.js
-// Last revised: Fri July 24, 2020 @ 12:48:13 EDT
+// Last revised: Fri July 24, 2020 @ 02:00:47 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-// const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
 const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
@@ -59,6 +59,7 @@ async function getToken() {
 }
 getToken();
 
+var langDetect = document.createElement('div');
 function generatePreview() {
     const Http = new XMLHttpRequest();
     var engineSelect= document.querySelector("select#engine");
@@ -76,6 +77,24 @@ function generatePreview() {
             new Logger('','No Token!', 'color: red; font-weight: bold;');
             preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
         } else {
+            if (lang == "auto"){
+                // TODO: Get Predicted Languages
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", `${apiUrl}/api/detect/`);
+                xhr.send(input);
+                xhr.onreadystatechange=(e)=> {
+                   var detected = xhr.responseText;
+                    for(var i = 1; i < language_list.length; i++){
+                        if(language_list[i].apiId == detected) {
+                            detected = language_list[i].displayText;
+                            break;
+                        }
+                    }
+                    langDetect.innerHTML = `Detected: ${detected}`;
+                    document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
+                }
+            }
+            else { document.querySelector('div#previewPanel.main-content').removeChild(langDetect); }
             Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
             Http.send(input);
             console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
@@ -109,9 +128,7 @@ function populateSelections(fields) {
             option.class = `Opt${j}`;
             option.value = list[j].apiId;
             option.innerText = list[j].displayText;
-
             select.appendChild(option);
-            new Logger({option, select}, `option: ${option} attached to select: ${select}`, 'font-weight: bold;');
         }
     }
 }
