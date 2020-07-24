@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Fri July 24, 2020 @ 02:39:44 EDT
+// Last revised: Fri July 24, 2020 @ 03:22:28 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -199,29 +199,7 @@ function getExport() {
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`);
-        Http.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-        Http.responseType = 'arraybuffer/blob';
-        var image = document.createElement("img");
-
-        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
-        Http.onreadystatechange=(e)=>{
-            if (Http.readyState == 4) {
-                var uInt8Array = new Uint8Array(Http.response);
-                var i = uInt8Array.length;
-                var binaryString = new Array(i);
-                while (i--)
-                {
-                    binaryString[i] = String.fromCharCode(uInt8Array[i]);
-                }
-                var data = binaryString.join('');
-
-                var base64 = window.btoa(data);
-
-                image.src="data:image/png;base64,"+base64;
-                preview.appendChild(image);
-                new Logger({uInt8Array, binaryString, data, base64, image, preview});
-            }}
+        window.open(`${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`, 'blank_');
         Http.send(input);
     }
 }
