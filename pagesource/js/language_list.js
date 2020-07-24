@@ -1,4 +1,4 @@
-// List modified: Wed July 22, 2020 @ 03:22:09 EDT
+// List modified: Thu July 23, 2020 @ 11:09:48 EDT
 let preview = {};
 var language_list = [
     {
@@ -724,12 +724,192 @@ var language_list = [
         apiId: 'lua',
         cdxEnabled: false
     },{
+        displayText: 'Makefile',
+        fileTypes: [{}],
+        apiId: 'makefile',
+        cdxEnabled: false
+    },{
         displayText: 'Markdown',
         fileTypes: [{
             type: '.md',
             common: true
         }],
         apiId: 'markdown',
+        cdxEnabled: false
+    },{
+        displayText: 'Mathematica',
+        fileTypes: [{}],
+        apiId: 'mathematica',
+        cdxEnabled: false
+    },{
+        displayText: 'Matlab',
+        fileTypes: [{}],
+        apiId: 'matlab',
+        cdxEnabled: false
+    },{
+        displayText: 'Maxima',
+        fileTypes: [{}],
+        apiId: 'maxima',
+        cdxEnabled: false
+    },{
+        displayText: 'MEL',
+        fileTypes: [{}],
+        apiId: 'mel',
+        cdxEnabled: false
+    },{
+        displayText: 'Mercury',
+        fileTypes: [{}],
+        apiId: 'Mercury',
+        cdxEnabled: false
+    },{
+        displayText: 'MIPS Assembly',
+        fileTypes: [{}],
+        apiId: 'mipsasm',
+        cdxEnabled: false
+    },{
+        displayText: 'Mizar',
+        fileTypes: [{}],
+        apiId: 'mizar',
+        cdxEnabled: false
+    },{
+        displayText: 'Mojolicious',
+        fileTypes: [{}],
+        apiId: 'mojolicious',
+        cdxEnabled: false
+    },{
+        displayText: 'Monkey',
+        fileTypes: [{}],
+        apiId: 'monkey',
+        cdxEnabled: false
+    },{
+        displayText: 'MoonScript',
+        fileTypes: [{}],
+        apiId: 'moonscript',
+        cdxEnabled: false
+    },{
+        displayText: 'N1QL',
+        fileTypes: [{}],
+        apiId: 'n1ql',
+        cdxEnabled: false
+    },{
+        displayText: 'Nginx Config',
+        fileTypes: [{}],
+        apiId: 'nginx',
+        cdxEnabled: false
+    },{
+        displayText: 'Nim',
+        fileTypes: [{}],
+        apiId: 'nim',
+        cdxEnabled: false
+    },{
+        displayText: 'Nix',
+        fileTypes: [{}],
+        apiId: 'nix',
+        cdxEnabled: false
+    },{
+        displayText: 'NSIS',
+        fileTypes: [{}],
+        apiId: 'nsis',
+        cdxEnabled: false
+    },{
+        displayText: 'Objective-C',
+        fileTypes: [{}],
+        apiId: 'objectivec',
+        cdxEnabled: false
+    },{
+        displayText: 'OCaml',
+        fileTypes: [{}],
+        apiId: 'ocaml',
+        cdxEnabled: false
+    },{
+        displayText: 'OpenSCAD',
+        fileTypes: [{}],
+        apiId: 'openscad',
+        cdxEnabled: false
+    },{
+        displayText: 'Oxygene',
+        fileTypes: [{}],
+        apiId: 'oxygene',
+        cdxEnabled: false
+    },{
+        displayText: 'Parser3',
+        fileTypes: [{}],
+        apiId: 'parser3',
+        cdxEnabled: false
+    },{
+        displayText: 'Packet Filter Config',
+        fileTypes: [{}],
+        apiId: 'pf',
+        cdxEnabled: false
+    },{
+        displayText: 'Perl',
+        fileTypes: [{}],
+        apiId: 'perl',
+        cdxEnabled: false
+    },{
+        displayText: 'PHP',
+        fileTypes: [{}],
+        apiId: 'php',
+        cdxEnabled: false
+    },{
+        displayText: 'PHP Template',
+        fileTypes: [{}],
+        apiId: '',
+        cdxEnabled: false
+    },{
+        displayText: 'PL/pgSQL',
+        fileTypes: [{}],
+        apiId: 'pgSQL',
+        cdxEnabled: false
+    },{
+        displayText: 'Plain Text',
+        fileTypes: [{}],
+        apiId: 'plaintext',
+        cdxEnabled: false
+    },{
+        displayText: 'Pony',
+        fileTypes: [{}],
+        apiId: 'pony',
+        cdxEnabled: false
+    },{
+        displayText: 'PostgreSQL',
+        fileTypes: [{}],
+        apiId: 'pgsql',
+        cdxEnabled: false
+    },{
+        displayText: 'PowerShell',
+        fileTypes: [{}],
+        apiId: 'powershell',
+        cdxEnabled: false
+    },{
+        displayText: 'Processing',
+        fileTypes: [{}],
+        apiId: 'processing',
+        cdxEnabled: false
+    },{
+        displayText: 'Prolog',
+        fileTypes: [{}],
+        apiId: 'prolog',
+        cdxEnabled: false
+    },{
+        displayText: '.properties',
+        fileTypes: [{}],
+        apiId: '.properties',
+        cdxEnabled: false
+    },{
+        displayText: 'Protocol Buffers',
+        fileTypes: [{}],
+        apiId: 'protobuf',
+        cdxEnabled: false
+    },{
+        displayText: 'Puppet',
+        fileTypes: [{}],
+        apiId: 'puppet',
+        cdxEnabled: false
+    },{
+        displayText: 'PureBASIC',
+        fileTypes: [{}],
+        apiId: 'purebasic',
         cdxEnabled: false
     },{
         displayText: 'Python',
@@ -749,6 +929,56 @@ var language_list = [
         apiId: 'python',
         cdxEnabled: false
     },{
+        displayText: 'Python Profiler',
+        fileTypes: [{}],
+        apiId: 'profile',
+        cdxEnabled: false
+    },{
+        displayText: 'Python REPL',
+        fileTypes: [{}],
+        apiId: 'python-repl',
+        cdxEnabled: false
+    },{
+        displayText: 'Q',
+        fileTypes: [{}],
+        apiId: 'q',
+        cdxEnabled: false
+    },{
+        displayText: 'QML',
+        fileTypes: [{}],
+        apiId: 'qml',
+        cdxEnabled: false
+    },{
+        displayText: 'R',
+        fileTypes: [{}],
+        apiId: 'r',
+        cdxEnabled: false
+    },{
+        displayText: 'ReasonML',
+        fileTypes: [{}],
+        apiId: 'reasonml',
+        cdxEnabled: false
+    },{
+        displayText: 'RIB (RenderMan)',
+        fileTypes: [{}],
+        apiId: 'rib',
+        cdxEnabled: false
+    },{
+        displayText: 'Roboconf',
+        fileTypes: [{}],
+        apiId: 'roboconf',
+        cdxEnabled: false
+    },{
+        displayText: 'RouterOS (MicroTik)',
+        fileTypes: [{}],
+        apiId: 'routeros',
+        cdxEnabled: false
+    },{
+        displayText: 'RSL (RenderMan)',
+        fileTypes: [{}],
+        apiId: 'rsl',
+        cdxEnabled: false
+    },{
         displayText: 'Ruby',
         fileTypes: [{
             type: '.ruby',
@@ -757,9 +987,190 @@ var language_list = [
         apiId: 'ruby',
         cdxEnabled: false
     },{
+        displayText: 'Rules Language (Oracle)',
+        fileTypes: [{}],
+        apiId: 'ruleslanguage',
+        cdxEnabled: false
+    },{
+        displayText: 'Rust',
+        fileTypes: [{}],
+        apiId: 'rust',
+        cdxEnabled: false
+    },{
+        displayText: 'SAS',
+        fileTypes: [{}],
+        apiId: 'sas',
+        cdxEnabled: false
+    },{
+        displayText: 'Scala',
+        fileTypes: [{}],
+        apiId: 'scala',
+        cdxEnabled: false
+    },{
+        displayText: 'Scheme',
+        fileTypes: [{}],
+        apiId: 'scheme',
+        cdxEnabled: false
+    },{
+        displayText: 'Scilab',
+        fileTypes: [{}],
+        apiId: 'scilab',
+        cdxEnabled: false
+    },{
+        displayText: 'SCSS',
+        fileTypes: [{}],
+        apiId: 'scss',
+        cdxEnabled: false
+    },{
+        displayText: 'Shell Session',
+        fileTypes: [{}],
+        apiId: 'shell',
+        cdxEnabled: false
+    },{
+        displayText: 'Smali',
+        fileTypes: [{}],
+        apiId: 'smali',
+        cdxEnabled: false
+    },{
+        displayText: 'Smalltalk',
+        fileTypes: [{}],
+        apiId: 'smalltalk',
+        cdxEnabled: false
+    },{
+        displayText: 'SML (StandardML)',
+        fileTypes: [{}],
+        apiId: 'sml',
+        cdxEnabled: false
+    },{
+        displayText: 'SQF',
+        fileTypes: [{}],
+        apiId: 'sqf',
+        cdxEnabled: false
+    },{
+        displayText: 'SQL',
+        fileTypes: [{}],
+        apiId: 'sql',
+        cdxEnabled: false
+    },{
+        displayText: 'Stan',
+        fileTypes: [{}],
+        apiId: 'stan',
+        cdxEnabled: false
+    },{
+        displayText: 'Stata',
+        fileTypes: [{}],
+        apiId: 'stata',
+        cdxEnabled: false
+    },{
+        displayText: 'STEP Part 21',
+        fileTypes: [{}],
+        apiId: 'step21',
+        cdxEnabled: false
+    },{
+        displayText: 'Stylus',
+        fileTypes: [{}],
+        apiId: 'stylus',
+        cdxEnabled: false
+    },{
+        displayText: 'SubUnit',
+        fileTypes: [{}],
+        apiId: 'subunit',
+        cdxEnabled: false
+    },{
+        displayText: 'Swift',
+        fileTypes: [{}],
+        apiId: 'swift',
+        cdxEnabled: false
+    },{
+        displayText: 'Tagger Script',
+        fileTypes: [{}],
+        apiId: 'taggerscript',
+        cdxEnabled: false
+    },{
+        displayText: 'Test Anything Protocol',
+        fileTypes: [{}],
+        apiId: 'tap',
+        cdxEnabled: false
+    },{
+        displayText: 'Tcl',
+        fileTypes: [{}],
+        apiId: 'tcl',
+        cdxEnabled: false
+    },{
+        displayText: 'Thrift',
+        fileTypes: [{}],
+        apiId: 'thrift',
+        cdxEnabled: false
+    },{
         displayText: 'TOML',
         fileTypes: [{}],
         apiId: 'ini',
+        cdxEnabled: false
+    },{
+        displayText: 'TP',
+        fileTypes: [{}],
+        apiId: 'tp',
+        cdxEnabled: false
+    },{
+        displayText: 'Twig',
+        fileTypes: [{}],
+        apiId: 'twig',
+        cdxEnabled: false
+    },{
+        displayText: 'TypeScript',
+        fileTypes: [{}],
+        apiId: 'typescript',
+        cdxEnabled: false
+    },{
+        displayText: 'Vala',
+        fileTypes: [{}],
+        apiId: 'vala',
+        cdxEnabled: false
+    },{
+        displayText: 'VBScript',
+        fileTypes: [{}],
+        apiId: 'vbscript',
+        cdxEnabled: false
+    },{
+        displayText: 'VBScript in HTML',
+        fileTypes: [{}],
+        apiId: 'vbscript-html',
+        cdxEnabled: false
+    },{
+        displayText: 'Visual Basic .NET',
+        fileTypes: [{}],
+        apiId: 'vbnet',
+        cdxEnabled: false
+    },{
+        displayText: 'Verilog',
+        fileTypes: [{}],
+        apiId: 'verilog',
+        cdxEnabled: false
+    },{
+        displayText: 'VHDL',
+        fileTypes: [{}],
+        apiId: 'vhdl',
+        cdxEnabled: false
+    },{
+        displayText: 'Vimscript',
+        fileTypes: [{
+            type: '.vim',
+            common: true
+        },{
+            type: '.vimrc',
+            common: false
+        }],
+        apiId: 'vim',
+        cdxEnabled: false
+    },{
+        displayText: 'x86 Assembly',
+        fileTypes: [{}],
+        apiId: 'x86asm',
+        cdxEnabled: false
+    },{
+        displayText: 'XL',
+        fileTypes: [{}],
+        apiId: 'xl',
         cdxEnabled: false
     },{
         displayText: 'XML',
@@ -768,6 +1179,21 @@ var language_list = [
             common: true
         }],
         apiId: 'xml',
+        cdxEnabled: false
+    },{
+        displayText: 'XQuery',
+        fileTypes: [{}],
+        apiId: 'xquery',
+        cdxEnabled: false
+    },{
+        displayText: 'YAML',
+        fileTypes: [{}],
+        apiId: 'yaml',
+        cdxEnabled: false
+    },{
+        displayText: 'Zephir',
+        filetypes: [{}],
+        apiId: 'zephir',
         cdxEnabled: false
     }];
 
@@ -3729,6 +4155,20 @@ comment ]==]
 [[ string
 ]] ]=] ]==]`;
 
+preview.type_makefile = `# Makefile
+
+BUILDDIR      = _build
+EXTRAS       ?= $(BUILDDIR)/extras
+
+.PHONY: main clean
+
+main:
+	@echo "Building main facility..."
+	build_main $(BUILDDIR)
+
+clean:
+	rm -rf $(BUILDDIR)/*`;
+
 preview.type_markdown = `# hello world
 
 you can write text [with links](http://example.com) inline or [link references][1].
@@ -3752,6 +4192,1383 @@ hello world
 1. one thing (yeah!)
 2. two thing \`i can write code\`, and \`more\` wipee!`;
 
+preview.type_mathematica = `(* ::Package:: *)
+
+(* Mathematica Package *)
+
+BeginPackage["SomePkg\`"]
+
+Begin["\`Private\`"]
+
+SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &, ns]];
+Print[$ActivationKey];
+
+End[] (* End Private Context *)
+
+EndPackage[]`;
+
+preview.type_matlab = `n = 20; % number of points
+points = [random('unid', 100, n, 1), random('unid', 100, n, 1)];
+len = zeros(1, n - 1);
+points = sortrows(points);
+%% Initial set of points
+plot(points(:,1),points(:,2));
+for i = 1: n-1
+    len(i) = points(i + 1, 1) - points(i, 1);
+end
+while(max(len) > 2 * min(len))
+    [d, i] = max(len);
+    k = on_margin(points, i, d, -1);
+    m = on_margin(points, i + 1, d, 1);
+    xm = 0; ym = 0;
+%% New point
+    if(i == 1 || i + 1 == n)
+        xm = mean(points([i,i+1],1))
+        ym = mean(points([i,i+1],2))
+    else
+        [xm, ym] = dlg1(points([k, i, i + 1, m], 1), ...
+            points([k, i, i + 1, m], 2))
+    end
+
+    points = [ points(1:i, :); [xm, ym]; points(i + 1:end, :)];
+end
+
+%{
+    This is a block comment. Please ignore me.
+%}
+
+function [net] = get_fit_network(inputs, targets)
+    % Create Network
+    numHiddenNeurons = 20;  % Adjust as desired
+    net = newfit(inputs,targets,numHiddenNeurons);
+    net.trainParam.goal = 0.01;
+    net.trainParam.epochs = 1000;
+    % Train and Apply Network
+    [net,tr] = train(net,inputs,targets);
+end
+
+foo_matrix = [1, 2, 3; 4, 5, 6]''';
+foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
+
+cell2flatten = {1,2,3,4,5};
+flattenedcell = cat(1, cell2flatten{:});`;
+
+preview.type_maxima = `/* Maxima computer algebra system */
+
+/* symbolic constants */
+
+[true, false, unknown, inf, minf, ind,
+ und, %e, %i, %pi, %phi, %gamma];
+
+/* programming keywords */
+
+if a then b elseif c then d else f;
+for x:1 thru 10 step 2 do print(x);
+for z:-2 while z < 0 do print(z);
+for m:0 unless m > 10 do print(m);
+for x in [1, 2, 3] do print(x);
+foo and bar or not baz;
+
+/* built-in variables */
+
+[_, __, %, %%, linel, simp, dispflag,
+ stringdisp, lispdisp, %edispflag];
+
+/* built-in functions */
+
+[sin, cosh, exp, atan2, sqrt, log, struve_h,
+ sublist_indices, read_array];
+
+/* user-defined symbols */
+
+[foo, ?bar, baz%, quux_mumble_blurf];
+
+/* symbols using Unicode characters */
+
+[Љ, Щ, щ, Ӄ, ЩЩЩ, ӃӃЉЉщ];
+
+/* numbers */
+
+ibase : 18 $
+[0, 1234, 1234., 0abcdefgh];
+reset (ibase) $
+[.54321, 3.21e+0, 12.34B56];
+
+/* strings */
+
+s1 : "\\"now\\" is";
+s2 : "the 'time' for all good men";
+print (s1, s2, "to come to the aid",
+  "of their country");
+
+/* expressions */
+
+foo (x, y, z) :=
+  if x > 1 + y
+    then z - x*y
+  elseif y <= 100!
+    then x/(y + z)^2
+  else z - y . x . y;
+`;
+
+preview.type_mel = `proc string[] getSelectedLights()
+
+{
+  string $selectedLights[];
+
+  string $select[] = \`ls -sl -dag -leaf\`;
+
+  for ( $shape in $select )
+  {
+    // Determine if this is a light.
+    //
+    string $class[] = getClassification( \`nodeType $shape\` );
+
+
+    if ( ( \`size $class\` ) > 0 && ( "light" == $class[0] ) )
+    {
+      $selectedLights[ \`size $selectedLights\` ] = $shape;
+    }
+  }
+
+  // Result is an array of all lights included in
+
+  // current selection list.
+  return $selectedLights;
+}`;
+
+preview.type_mercury = `% "Hello World" in Mercury.
+:- module hello.
+
+
+:- interface.
+:- import_module io.
+
+:- pred main(io::di, io::uo) is det.
+
+
+:- implementation.
+
+main(!IO) :-
+    io.write_string("Hello, world\\n", !IO).
+
+:- pred filter(pred(T), list(T), list(T), list(T) ).
+:- mode filter(in(pred(in) is semidet), in, out, out ) is det.
+
+filter(_, [], [], []).
+filter(P, [X | Xs], Ys, Zs) :-
+    filter(P, Xs, Ys0, Zs0),
+    ( if P(X)   then    Ys = [X | Ys0],   Zs = Zs0
+                else    Ys = Ys0      ,   Zs = [X | Zs0]
+    ).`;
+
+preview.type_mipsasm = `.text
+.global AckermannFunc
+
+# Preconditions:
+#   1st parameter ($a0) m
+#   2nd parameter ($a1) n
+# Postconditions:
+#   result in ($v0) = value of A(m,n)
+
+AckermannFunc:
+            addi    $sp,   $sp, -8
+            sw      $s0, 4($sp)
+            sw      $ra, 0($sp)
+
+            # move the parameter registers to temporary  - no, only when nec.
+
+LABEL_IF:   bne     $a0, $zero, LABEL_ELSE_IF
+
+            addi    $v0, $a1, 1
+
+            # jump to LABEL_DONE
+            j LABEL_DONE`;
+
+preview.type_mizar = `::: ## Lambda calculus
+
+environ
+
+  vocabularies LAMBDA,
+      NUMBERS,
+      NAT_1, XBOOLE_0, SUBSET_1, FINSEQ_1, XXREAL_0, CARD_1,
+      ARYTM_1, ARYTM_3, TARSKI, RELAT_1, ORDINAL4, FUNCOP_1;
+
+  :: etc...
+
+begin
+
+reserve D for DecoratedTree,
+        p,q,r for FinSequence of NAT,
+        x for set;
+
+definition
+  let D;
+
+  attr D is LambdaTerm-like means
+    (dom D qua Tree) is finite &
+::>                          *143,306
+    for r st r in dom D holds
+      r is FinSequence of {0,1} &
+      r^<*0*> in dom D implies D.r = 0;
+end;
+
+registration
+  cluster LambdaTerm-like for DecoratedTree of NAT;
+  existence;
+::>       *4
+end;
+
+definition
+  mode LambdaTerm is LambdaTerm-like DecoratedTree of NAT;
+end;
+
+::: Then we extend this ordinary one-step beta reduction, that is,
+:::  any subterm is also allowed to reduce.
+definition
+  let M,N;
+
+  pred M beta N means
+    ex p st
+      M|p beta_shallow N|p &
+      for q st not p is_a_prefix_of q holds
+        [r,x] in M iff [r,x] in N;
+end;
+
+theorem Th4:
+  ProperPrefixes (v^<*x*>) = ProperPrefixes v \\/ {v}
+proof
+  thus ProperPrefixes (v^<*x*>) c= ProperPrefixes v \\/ {v}
+  proof
+    let y;
+    assume y in ProperPrefixes (v^<*x*>);
+    then consider v1 such that
+A1: y = v1 and
+A2: v1 is_a_proper_prefix_of v^<*x*> by TREES_1:def 2;
+ v1 is_a_prefix_of v & v1 <> v or v1 = v by A2,TREES_1:9;
+then
+ v1 is_a_proper_prefix_of v or v1 in {v} by TARSKI:def 1,XBOOLE_0:def 8;
+then  y in ProperPrefixes v or y in {v} by A1,TREES_1:def 2;
+    hence thesis by XBOOLE_0:def 3;
+  end;
+  let y;
+  assume y in ProperPrefixes v \\/ {v};
+then A3: y in ProperPrefixes v or y in {v} by XBOOLE_0:def 3;
+A4: now
+    assume y in ProperPrefixes v;
+    then consider v1 such that
+A5: y = v1 and
+A6: v1 is_a_proper_prefix_of v by TREES_1:def 2;
+ v is_a_prefix_of v^<*x*> by TREES_1:1;
+then  v1 is_a_proper_prefix_of v^<*x*> by A6,XBOOLE_1:58;
+    hence thesis by A5,TREES_1:def 2;
+  end;
+ v^{} = v by FINSEQ_1:34;
+  then
+ v is_a_prefix_of v^<*x*> & v <> v^<*x*> by FINSEQ_1:33,TREES_1:1;
+then  v is_a_proper_prefix_of v^<*x*> by XBOOLE_0:def 8;
+then  y in ProperPrefixes v or y = v & v in ProperPrefixes (v^<*x*>)
+  by A3,TARSKI:def 1,TREES_1:def 2;
+  hence thesis by A4;
+end;`;
+
+preview.type_perl = `# loads object
+sub load
+{
+  my $flds = $c->db_load($id,@_) || do {
+    Carp::carp "Can\`t load (class: $c, id: $id): '$!'"; return undef
+  };
+  my $o = $c->_perl_new();
+  $id12 = $id / 24 / 3600;
+  $o->{'ID'} = $id12 + 123;
+  #$o->{'SHCUT'} = $flds->{'SHCUT'};
+  my $p = $o->props;
+  my $vt;
+  $string =~ m/^sought_text$/;
+  $items = split //, 'abc';
+  $string //= "bar";
+  for my $key (keys %$p)
+  {
+    if(\${$vt.'::property'}) {
+      $o->{$key . '_real'} = $flds->{$key};
+      tie $o->{$key}, 'CMSBuilder::Property', $o, $key;
+    }
+  }
+  $o->save if delete $o->{'_save_after_load'};
+
+  # GH-117
+  my $g = glob("/usr/bin/*");
+
+  return $o;
+}
+
+__DATA__
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>
+__END__
+
+=head1 NAME
+POD till the end of file`;
+
+preview.type_mojolicious = `%layout 'bootstrap';
+% title "Import your subs";
+%= form_for '/settings/import' => (method => 'post', enctype => 'multipart/form-data') => begin
+     %= file_field 'opmlfile' => multiple => 'true'
+     %= submit_button 'Import', 'class' => 'btn'
+% end
+<div>
+% if ($subs) {
+<dl>
+% for my $item (@$subs) {
+% my ($dir, $align) = ($item->{rtl}) ? ('rtl', 'right') : ('ltr', 'left');
+<dt align="<%= $align %>"><a href="<%= $item->{'xmlUrl'} %>"><i class="icon-rss"></i> rss</a>
+<a dir="<%= $dir %>" href="<%= $item->{htmlUrl} %>"><%== $item->{title} %></a>
+</dt>
+<dd><b>Categories</b>
+%= join q{, }, sort @{ $item->{categories} || [] };
+</dd>
+</dl>
+% }
+</div>`;
+
+preview.type_monkey = `#IMAGE_FILES="*.png|*.jpg"
+#SOUND_FILES="*.wav|*.ogg"
+#MUSIC_FILES="*.wav|*.ogg"
+#BINARY_FILES="*.bin|*.dat"
+
+Import mojo
+
+' The main class which expends Mojo's 'App' class:
+Class GameApp Extends App
+    Field player:Player
+
+    Method OnCreate:Int()
+        Local img:Image = LoadImage("player.png")
+        Self.player = New Player()
+        SetUpdateRate(60)
+
+        Return 0
+    End
+
+    Method OnUpdate:Int()
+        player.x += HALFPI
+
+        If (player.x > 100) Then
+            player.x = 0
+        Endif
+
+        Return 0
+    End
+
+    Method OnRender:Int()
+        Cls(32, 64, 128)
+        player.Draw()
+
+        player = Null
+        Return 0
+    End
+End`;
+
+preview.type_moonscript = `print "I am #{math.random! * 100}% sure."
+
+my_function = (name="something", height=100) ->
+  print "Hello I am", name
+  print "My height is", height
+
+my_function dance: "Tango", partner: "none"
+
+my_func 5,4,3,      -- multi-line arguments
+  8,9,10
+
+table = {
+  name: "Bill",
+  age: 200,
+  ["favorite food"]: "rice",
+  :keyvalue,
+  [1+7]: 'eight'
+}
+
+class Inventory
+  new: =>
+    @items = {}
+
+  add_item: (name) =>
+    if @items[name]
+      @items[name] += 1
+    else
+      @items[name] = 1
+
+inv = Inventory!
+inv\\add_item "t-shirt"
+inv\\add_item "pants"
+
+import
+  assert_csrf
+  require_login
+  from require "helpers"`;
+
+preview.type_n1ql = `SELECT *
+FROM \`beer-sample\`
+WHERE brewery_id IS NOT MISSING AND type="beer"
+LIMIT 1;
+
+UPSERT INTO product (KEY, VALUE) VALUES (
+    "odwalla-juice1", {
+        "productId": "odwalla-juice1",
+        "unitPrice": 5.40,
+        "type": "product",
+        "color":"red"
+    }
+) RETURNING *;
+
+INFER \`beer-sample\` WITH {
+    "sample_size": 10000,
+    "num_sample_values": 1,
+    "similarity_metric": 0.0
+};`;
+
+preview.type_nginx = `user  www www;
+worker_processes  2;
+pid /var/run/nginx.pid;
+error_log  /var/log/nginx.error_log  debug | info | notice | warn | error | crit;
+
+events {
+    connections   2000;
+    use kqueue | rtsig | epoll | /dev/poll | select | poll;
+}
+
+http {
+    log_format main      '$remote_addr - $remote_user [$time_local] '
+                         '"$request" $status $bytes_sent '
+                         '"$http_referer" "$http_user_agent" '
+                         '"$gzip_ratio"';
+
+    send_timeout 3m;
+    client_header_buffer_size 1k;
+
+    gzip on;
+    gzip_min_length 1100;
+
+    #lingering_time 30;
+
+    server {
+        server_name   one.example.com  www.one.example.com;
+        access_log   /var/log/nginx.access_log  main;
+
+        rewrite (.*) /index.php?page=$1 break;
+
+        location / {
+            proxy_pass         http://127.0.0.1/;
+            proxy_redirect     off;
+            proxy_set_header   Host             $host;
+            proxy_set_header   X-Real-IP        $remote_addr;
+            charset            koi8-r;
+        }
+
+        location /api/ {
+            fastcgi_pass 127.0.0.1:9000;
+        }
+
+        location ~* \\.(jpg|jpeg|gif)$ {
+            root         /spool/www;
+        }
+    }
+}`;
+
+preview.type_nim = `import module1, module2, module3
+from module4 import nil
+
+type
+  TFoo = object ## Doc comment
+    a: int32
+  PFoo = ref TFoo
+
+proc do_stuff314(param_1: TFoo, par2am: var PFoo): PFoo {.exportc: "dostuff" .} =
+  # Regular comment
+  discard """
+  dfag
+sdfg""
+"""
+  result = nil
+
+method abc(a: TFoo) = discard 1u32 + 0xabcdefABCDEFi32 + 0o01234567i8 + 0b010
+
+discard rawstring"asdf""adfa"
+var normalstring = "asdf"
+let a: uint32 = 0xFFaF'u32`;
+
+preview.type_nix = `{ stdenv, foo, bar ? false, ... }:
+
+/*
+ * foo
+ */
+
+let
+  a = 1; # just a comment
+  b = null;
+  c = toString 10;
+in stdenv.mkDerivation rec {
+  name = "foo-\${version}";
+  version = "1.3";
+
+  configureFlags = [ "--with-foo2" ] ++ stdenv.lib.optional bar "--with-foo=\${ with stdenv.lib; foo }"
+
+  postInstall = ''
+   \${ if true then "--\${test}" else false }
+  '';
+
+  meta = with stdenv.lib; {
+    homepage = https://nixos.org;
+  };
+}`;
+
+preview.type_nsis = `/*
+  NSIS Scheme
+  for highlight.js
+*/
+
+; Includes
+!include MUI2.nsh
+
+; Defines
+!define x64 "true"
+
+; Settings
+Name "installer_name"
+OutFile "installer_name.exe"
+RequestExecutionLevel user
+CRCCheck on
+
+!ifdef \${x64}
+  InstallDir "$PROGRAMFILES6\\installer_name"
+!else
+  InstallDir "$PROGRAMFILES\\installer_name"
+!endif
+
+; Pages
+!insertmacro MUI_PAGE_INSTFILES
+
+; Sections
+Section "section_name" section_index
+  nsExec::ExecToLog "calc.exe"
+SectionEnd
+
+; Functions
+Function .onInit
+  DetailPrint "The install button reads $(^InstallBtn)"
+  DetailPrint 'Here comes a$\\n$\\rline-break!'
+  DetailPrint \`Escape the dollar-sign: $$\`
+FunctionEnd`;
+
+preview.type_objectivec = `#import <UIKit/UIKit.h>
+#import "Dependency.h"
+
+@protocol WorldDataSource
+@optional
+- (NSString*)worldName;
+@required
+- (BOOL)allowsToLive;
+@end
+
+@property (nonatomic, readonly) NSString *title;
+- (IBAction) show;
+@end`;
+
+preview.type_ocaml = `(* This is a
+multiline, (* nested *) comment *)
+type point = { x: float; y: float };;
+let some_string = "this is a string";;
+let rec length lst =
+    match lst with
+      [] -> 0
+    | head :: tail -> 1 + length tail
+  ;;
+exception Test;;
+type expression =
+      Const of float
+    | Var of string
+    | Sum of expression * expression    (* e1 + e2 *)
+    | Diff of expression * expression   (* e1 - e2 *)
+    | Prod of expression * expression   (* e1 * e2 *)
+    | Quot of expression * expression   (* e1 / e2 *)
+class point =
+    object
+      val mutable x = 0
+      method get_x = x
+      method private move d = x <- x + d
+    end;;`;
+
+preview.type_openscad = `use <write.scad>
+include <../common/base.scad>
+
+//draw a foobar
+module foobar(){
+    translate([0,-10,0])
+    difference(){
+        cube([5,10.04,15]);
+        sphere(r=10,$fn=100);
+    }
+}
+
+foobar();
+#cube ([5,5,5]);
+echo("done");`;
+
+preview.type_oxygene = `namespace LinkedList;
+
+interface
+
+uses
+  System.Text;
+
+type
+  List<T> = public class
+    where T is Object;
+  private
+    method AppendToString(aBuilder: StringBuilder);
+  public
+    constructor(aData: T);
+    constructor(aData: T; aNext: List<T>);
+    property Next: List<T>;
+    property Data: T;
+
+    method ToString: string; override;
+  end;
+
+implementation
+
+constructor List<T>(aData: T);
+begin
+  Data := aData;
+end;
+
+constructor List<T>(aData: T; aNext: List<T>);
+begin
+  constructor(aData);
+  Next := aNext;
+end;
+
+method List<T>.ToString: string;
+begin
+  with lBuilder := new StringBuilder do begin
+    AppendToString(lBuilder);
+    result := lBuilder.ToString();
+  end;
+end;
+
+method List<T>.AppendToString(aBuilder: StringBuilder);
+begin
+  if assigned(Data) then
+    aBuilder.Append(Data.ToString)
+  else
+    aBuilder.Append('nil');
+
+  if assigned(Next) then begin
+    aBuilder.Append(', ');
+    Next.AppendToString(aBuilder);
+  end;
+end;
+
+end.`;
+
+    preview.type_parser3 = `@CLASS
+base
+
+@USE
+module.p
+
+@BASE
+class
+
+# Comment for code
+@create[aParam1;aParam2][local1;local2]
+  ^connect[mysql://host/database?ClientCharset=windows-1251]
+  ^for[i](1;10){
+    <p class="paragraph">^eval($i+10)</p>
+    ^connect[mysql://host/database]{
+      $tab[^table::sql{select * from \`table\` where a='1'}]
+      $var_Name[some\${value}]
+    }
+  }
+
+  ^rem{
+    Multiline comment with code: $var
+    ^while(true){
+      ^for[i](1;10){
+        ^sleep[]
+      }
+    }
+  }
+  ^taint[^#0A]
+
+@GET_base[]
+## Comment for code
+  # Isn't comment
+  $result[$.hash_item1[one] $.hash_item2[two]]`;
+
+    preview.type_pf = `# from the PF FAQ: http://www.openbsd.org/faq/pf/example1.html
+
+# macros
+
+int_if="xl0"
+
+tcp_services="{ 22, 113 }"
+icmp_types="echoreq"
+
+comp3="192.168.0.3"
+
+# options
+
+set block-policy return
+set loginterface egress
+set skip on lo
+
+# FTP Proxy rules
+
+anchor "ftp-proxy/*"
+
+pass in quick on $int_if inet proto tcp to any port ftp \\
+    divert-to 127.0.0.1 port 8021
+
+# match rules
+
+match out on egress inet from !(egress:network) to any nat-to (egress:0)
+
+# filter rules
+
+block in log
+pass out quick
+
+antispoof quick for { lo $int_if }
+
+pass in on egress inet proto tcp from any to (egress) \\
+    port $tcp_services
+
+pass in on egress inet proto tcp to (egress) port 80 rdr-to $comp3
+
+pass in inet proto icmp all icmp-type $icmp_types
+
+pass in on $int_if`;
+
+preview.type_pgsql = `BEGIN;
+SELECT sum(salary) OVER w, avg(salary) OVER w
+  FROM empsalary
+  WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
+END;
+
+CREATE FUNCTION days_of_week() RETURNS SETOF text AS $$
+BEGIN
+  FOR i IN 7 .. 13 LOOP
+    RETURN NEXT to_char(to_date(i::text,'J'),'TMDy');
+  END LOOP;
+END;
+$$ STABLE LANGUAGE plpgsql;`;
+
+preview.type_php = `require_once 'Zend/Uri/Http.php';
+
+namespace Location\\Web;
+
+interface Factory
+{
+    static function _factory();
+}
+
+abstract class URI extends BaseURI implements Factory
+{
+    abstract function test();
+
+    public static $st1 = 1;
+    const ME = "Yo";
+    var $list = NULL;
+    private $var;
+
+    /**
+     * Returns a URI
+     *
+     * @return URI
+     */
+    static public function _factory($stats = array(), $uri = 'http')
+    {
+        echo __METHOD__;
+        $uri = explode(':', $uri, 0b10);
+        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+        $desc = 'Multi
+line description';
+
+        // Security check
+        if (!ctype_alnum($scheme)) {
+            throw new Zend_Uri_Exception('Illegal scheme');
+        }
+
+        $this->var = 0 - self::$st;
+        $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \\Location\\Web\\URI::class));
+
+        return [
+            'uri'   => $uri,
+            'value' => null,
+        ];
+    }
+}
+
+echo URI::ME . URI::$st1;
+
+__halt_compiler () ; datahere
+datahere
+datahere */
+datahere`;
+
+preview.type_php_template = `<html>
+</html>
+<body>
+<?php
+# Here echo command is used to print
+echo "Hello, world!";
+?>
+</body>`;
+
+preview.type_plaintext = ` id | description
+----+-------------
+  1 | one
+  2 | two
+  3 | three
+(3 rows)`;
+
+preview.type_pony = `use "collections"
+
+class StopWatch
+  """
+  A simple stopwatch class for performance micro-benchmarking
+  """
+  var _s: U64 = 0
+
+  fun delta(): U64 =>
+    Time.nanos() - _s
+
+actor LonelyPony
+  """
+  A simple manifestation of the lonely pony problem
+  """
+  var env: Env
+  let sw: StopWatch = StopWatch
+
+  new create(env': Env) =>
+    env = env`;
+
+preview.type_powershell = `$initialDate = [datetime]'2013/1/8'
+
+$rollingDate = $initialDate
+
+do {
+    $client = New-Object System.Net.WebClient
+    $results = $client.DownloadString("http://not.a.real.url")
+    Write-Host "$rollingDate.ToShortDateString() - $results"
+    $rollingDate = $rollingDate.AddDays(21)
+    $username = [System.Environment]::UserName
+} until ($rollingDate -ge [datetime]'2013/12/31')`;
+
+preview.type_processing = `import java.util.LinkedList;
+import java.awt.Point;
+
+PGraphics pg;
+String load;
+
+void setup() {
+  size(displayWidth, displayHeight, P3D);
+  pg = createGraphics(displayWidth*2,displayHeight,P2D);
+  pg.beginDraw();
+  pg.background(255,255,255);
+  //pg.smooth(8);
+  pg.endDraw();
+}
+void draw(){
+  background(255);
+}`;
+
+preview.type_profile = `       261917242 function calls in 686.251 CPU seconds
+
+       ncalls  tottime  filename:lineno(function)
+       152824  513.894  {method 'sort' of 'list' objects}
+    129590630   83.894  rrule.py:842(__cmp__)
+    129590630   82.439  {cmp}
+       153900    1.296  rrule.py:399(_iter)
+304393/151570    0.963  rrule.py:102(_iter_cached)`;
+
+preview.type_prolog = `mergesort([],[]). % special case
+mergesort([A],[A]).
+mergesort([A,B|R],S) :-
+   split([A,B|R],L1,L2),
+   mergesort(L1,S1),
+   mergesort(L2,S2),
+   merge(S1,S2,S).
+
+split([],[],[]).
+split([A],[A],[]).
+split([A,B|R],[A|Ra],[B|Rb]) :-  split(R,Ra,Rb).`;
+
+preview.type_.properties = `# .properties
+! Exclamation mark = comments, too
+
+key1 = value1
+key2 : value2
+key3   value3
+key\\ spaces multiline\\
+            value4
+empty_key
+! Key can contain escaped chars
+\\:\\= = value5`;
+
+preview.type_protobuf = `package languages.protobuf;
+
+option java_package = "org.highlightjs.languages.protobuf";
+
+message Customer {
+  required int64 customer_id = 1;
+  optional string name = 2;
+  optional string real_name = 3 [default = "Anonymous"];
+  optional Gender gender = 4;
+  repeated string email_addresses = 5;
+
+  optional bool is_admin = 6 [default = false]; // or should this be a repeated field in Account?
+
+  enum Gender {
+    MALE = 1,
+    FEMALE = 2
+  }
+}
+
+service CustomerSearch {
+  rpc FirstMatch(CustomerRequest) returns (CustomerResponse);
+  rpc AllMatches(CustomerRequest) returns (CustomerResponse);
+}`;
+
+preview.type_puppet = `# EC2 sample
+
+class ec2utils {
+
+    # This must include the path to the Amazon EC2 tools
+    $ec2path = ["/usr/bin", "/bin", "/usr/sbin", "/sbin",
+                "/opt/ec2/ec2-api-tools/bin",
+                "/opt/ec2/aws-elb-tools/bin"]
+
+    define elasticip ($instanceid, $ip)
+    {
+        exec { "ec2-associate-address-$name":
+            logoutput   => on_failure,
+            environment => $ec2utils::ec2env,
+            path        => $ec2utils::ec2path,
+            command     => "ec2assocaddr $ip \
+                                         -i $instanceid",
+            # Only do this when necessary
+            unless => "test \`ec2daddr $ip | awk '{print \\$3}'\` == $instanceid",
+        }
+    }
+
+    mount { "$mountpoint":
+        device  => $devicetomount,
+        ensure  => mounted,
+        fstype  => $fstype,
+        options => $mountoptions,
+        require => [ Exec["ec2-attach-volume-$name"],
+                     File["$mountpoint"]
+        ],
+    }
+
+}`;
+
+preview.type_purebasic = `; PureBASIC 5 - Syntax Highlighting Example
+
+Enumeration Test 3 Step 10
+  #Constant_One ; Will be 3
+  #Constant_Two ; Will be 13
+EndEnumeration
+
+A.i = #Constant_One
+B = A + 3
+
+STRING.s = SomeProcedure("Hello World", 2, #Empty$, #Null$)
+ESCAPED_STRING$ = ~"An escaped (\\\\) string!\\nNewline..."
+
+FixedString.s{5} = "12345"
+
+Macro XCase(Type, Text)
+  Type#Case(Text)
+EndMacro
+
+StrangeProcedureCall ("This command is split " +
+                      "over two lines") ; Line continuation example
+
+If B > 3 : X$ = "Concatenation of commands" : Else : X$ = "Using colons" : EndIf
+
+Declare.s Attach(String1$, String2$)
+
+Procedure.s Attach(String1$, String2$)
+  ProcedureReturn String1$+" "+String2$
+EndProcedure `;
+
+preview.type_python = `@requires_authorization
+def somefunc(param1='', param2=0):
+    r'''A docstring'''
+    if param1 > param2: # interesting
+        print 'Gre\\'ater'
+    return (param2 - param1 + 1 + 0b10l) or None
+
+class SomeClass:
+    pass
+
+>>> message = '''interpreter
+... prompt'''`;
+
+preview.type_python_repl = `>>> v = "foo = 42"
+>>> v
+"foo = 42"
+>>> print(v)
+foo = 42
+>>> print(repr(v).rstrip('"'))
+"foo = 42
+>>> print(repr(v).lstrip('"'))
+foo = 42"
+
+>>> """
+... abc
+... """
+>>> def test():
+...     pass`;
+
+preview.type_q = `select time, price by date,stock from quote where price=(max;price)fby stock
+data:raze value flip trade
+select vwap:size wavg price by 5 xbar time.minute from aapl where date within (.z.d-10;.z.d)
+f1:{[x;y;z] show (x;y+z);sum 1 2 3}
+.z.pc:{[handle] show -3!(\`long$.z.p;"Closed";handle)}
+// random normal distribution, e.g. nor 10
+nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\\:(2*pi)*n?1f;-1_.z.s 1+x]}
+
+mode:{where g=max g:count each group x}		// mode function`;
+
+preview.type_qml = `/****************************************************************************
+** QML with Highlight.js                                                  **/
+import QtQuick 2.5 // good version
+
+Window {
+    id: root
+    width: 1024; height: 600
+    color: "black"
+    property int highestZ: 0 // 0 is lowest, +infinity is highest
+    property real defaultSize = 200.1
+    signal activated(real xPosition, real yPosition)
+    // show the file picker
+    FileDialog {
+        id:fileDialog // an id in a comment should not be detected
+        title: "Choose a folder with some images"
+        onAccepted: folderModel.folder = fileUrl + "/" // if this is on property
+    }
+    Flickable {
+        id: flickableproperty
+        contentHeight: height * surfaceViewportRatio
+        property real zRestore: 0
+        Behavior on scale { NumberAnimation { duration: 200 } }
+        Repeater {
+            model: FolderListModel {
+                id: folderModel
+                nameFilters: ["*.png", "*.jpg", "*.gif"]
+            }
+            Component.onCompleted: {
+                var x;
+                x = Math.random() * root.width - width / 2
+                rotation = Math.random() * 13 - 6
+                if (pinch.scale > 0) {
+                    photoFrame.rotation = 0;
+                    photoFrame.scale = Math.min(root.width, root.height) / Math.max(image.sourceSize.width, image.sourceSize.height) * 0.85
+                } else {
+                    photoFrame.rotation = pinch.previousAngle
+                    photoFrame.scale = pinch.previousScale
+                }
+            }
+            function setFrameColor() {
+                if (currentFrame)
+                    currentFrame.border.color = "black";
+                currentFrame = photoFrame;
+            }
+        }
+    }
+    Timer { id: fadeTimer; interval: 1000; onTriggered: { hfade.start(); vfade.start() } }
+    Component.onCompleted: fileDialog.open()
+}`;
+
+preview.type_r = `library(ggplot2)
+
+centre <- function(x, type, ...) {
+  switch(type,
+         mean = mean(x),
+         median = median(x),
+         trimmed = mean(x, trim = .1))
+}
+
+myVar1
+myVar.2
+data$x
+foo "bar" baz
+# test "test"
+"test # test"
+
+(123) (1) (10) (0.1) (.2) (1e-7)
+(1.2e+7) (2e) (3e+10) (0x0) (0xa)
+(0xabcdef1234567890) (123L) (1L)
+(0x10L) (10000000L) (1e6L) (1.1L)
+(1e-3L) (4123.381E-10i)
+(3.) (3.E10) # BUG: .E10 should be part of number
+
+# Numbers in some different contexts
+1L
+0x40
+.234
+3.
+1L + 30
+plot(cars, xlim=20)
+plot(cars, xlim=0x20)
+foo<-30
+my.data.3 <- read() # not a number
+c(1,2,3)
+1%%2
+
+"this is a quote that spans
+multiple lines
+\\"
+
+is this still a quote? it should be.
+# even still!
+
+" # now we're done.
+
+'same for
+single quotes #'
+
+# keywords
+NULL, NA, TRUE, FALSE, Inf, NaN, NA_integer_,
+NA_real_, NA_character_, NA_complex_, function,
+while, repeat, for, if, in, else, next, break,
+..., ..1, ..2
+
+# not keywords
+the quick brown fox jumped over the lazy dogs
+null na true false inf nan na_integer_ na_real_
+na_character_ na_complex_ Function While Repeat
+For If In Else Next Break .. .... "NULL" \`NULL\` 'NULL'
+
+# operators
++, -, *, /, %%, ^, >, >=, <, <=, ==, !=, !, &, |, ~,
+->, <-, <<-, $, :, ::
+
+# infix operator
+foo %union% bar
+%"test"%
+\`"test"\`
+`;
+
+preview.type_reasonml = `/* This is a
+   multiline
+   comment */
+
+type point = {
+  x: float,
+  y: float,
+};
+
+let some_string = "this is a string";
+
+let rec length = lst =>
+  switch (lst) {
+  | [] => 0
+  | [head, ...tail] => 1 + length(tail)
+  };
+
+type result('a, 'b) =
+  | Ok('a)
+  | Error('b);
+
+let promisify = (res: result('a, 'b)) : Js.Promise.t('a) =>
+  switch (res) {
+  | Ok(a) => Js.Promise.resolve(a)
+  | Error(b) => Js.Promise.reject(b)
+  };
+
+exception Test;
+
+module MakeFFI = (T: {type t;}) => {
+  [@bs.module] external ffi : string => T.t = "";
+};
+
+type expression =
+  | Const(float)
+  | Var(string)
+  | Sum(expression, expression) /* e1 + e2 */
+  | Diff(expression, expression) /* e1 - e2 */
+  | Prod(expression, expression) /* e1 * e2 */
+  | Quot(expression, expression); /* e1 / e2 */
+
+class point = {
+  as _;
+  val mutable x = 0;
+  pub get_x = x;
+  pri move = d => x = x + d;
+};`;
+
+preview.type_rib = `FrameBegin 0
+Display "Scene" "framebuffer" "rgb"
+Option "searchpath" "shader" "+&:/home/kew"
+Option "trace" "int maxdepth" [4]
+Attribute "visibility" "trace" [1]
+Attribute "irradiance" "maxerror" [0.1]
+Attribute "visibility" "transmission" "opaque"
+Format 640 480 1.0
+ShadingRate 2
+PixelFilter "catmull-rom" 1 1
+PixelSamples 4 4
+Projection "perspective" "fov" 49.5502811377
+Scale 1 1 -1
+
+WorldBegin
+
+ReadArchive "Lamp.002_Light/instance.rib"
+Surface "plastic"
+ReadArchive "Cube.004_Mesh/instance.rib"
+# ReadArchive "Sphere.010_Mesh/instance.rib"
+# ReadArchive "Sphere.009_Mesh/instance.rib"
+ReadArchive "Sphere.006_Mesh/instance.rib"
+
+WorldEnd
+FrameEnd`;
+
+preview.type_roboconf = `# This is a comment
+import toto.graph;
+
+##
+# Facet
+##
+facet VM {
+	installer: iaas;
+}
+
+# Components
+VM_ec2 {
+	facets: VM;
+	children: cluster-node, mysql;
+}
+
+VM_openstack {
+	facets: VM;
+	children: cluster-node, mysql;
+}
+
+cluster-node {
+	alias: a cluster node;
+	installer: puppet;
+	exports: ip, port, optional-property1, optional_property2;
+	imports: cluster-node.ip (optional), cluster-node.port (optional), mysql.ip, mysql.port;
+}
+
+mysql {
+	alias: a MySQL database;
+	installer: puppet;
+	exports: ip, port;
+}
+
+##
+# Normally, instances are defined in another file...
+##
+instance of VM_ec2 {
+	name: VM_;
+	count: 3;
+	my-instance-property: whatever;
+	
+	instance of cluster-node {
+		name: cluster node;		# An in-line comment
+	}
+}
+
+instance of VM_openstack {
+	name: VM_database;
+	
+	instance of mysql {
+		name: mysql;
+	}
+}`;
+
+preview.type_routeros = `# Берем список DNS серверов из /ip dns
+ # Проверяем их доступность, 
+# и только рабочие прописываем в настройки DHCP сервера
+:global ActiveDNSServers []
+:local PingResult 0
+:foreach serv in=[/ip dns get servers] do={
+  :do {:set PingResult [ping $serv count=3]} on-error={:set PingResult 0}
+  :if ($PingResult=3) do={ :set ActiveDNSServers ($ActiveDNSServers,$serv) }
+# отладочный вывод в журнал 
+  :log info "Server: $serv, Ping-result: $PingResult";
+}
+
+/ip dhcp-server network set [find address=192.168.254.0/24] dns-server=$ActiveDNSServers
+
+#---   FIX TTL  ----
+/ip firewall mangle chain=postrouting action=change-ttl new-ttl=set:128 comment="NAT hide" 
+
+`;
+
+preview.type_rsl = `#define TEST_DEFINE 3.14
+/*  plastic surface shader
+ *
+ *  Pixie is:
+ *  (c) Copyright 1999-2003 Okan Arikan. All rights reserved.
+ */
+
+surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
+                 color specularcolor = 1;) {
+  normal Nf = faceforward (normalize(N),I);
+  Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks *
+       specular(Nf,-normalize(I),roughness);
+  Oi = Os;
+  Ci *= Oi;
+}`;
+
+preview.type_ruleslanguage = `//This is a comment
+ABORT "You experienced an abort.";
+WARN "THIS IS A WARNING";
+CALL "RIDER_X";
+DONE;
+FOR EACH X IN CSV_FILE "d:\\lodestar\\user\\d377.lse"
+ LEAVE FOR;
+END FOR;
+IF ((BILL_KW = 0) AND (KW > 0)) THEN
+END IF;
+INCLUDE "R1";
+LEAVE RIDER;
+SELECT BILL_PERIOD
+   WHEN "WINTER"
+      BLOCK KWH
+      FROM 0 TO 400 CHARGE $0.03709
+      FROM 400 CHARGE $0.03000
+      TOTAL $ENERGY_CHARGE_WIN;
+   WHEN "SUMMER"
+      $VOLTAGE_DISCOUNT_SUM = $0.00
+   OTHERWISE
+      $VOLTAGE_DISCOUNT_SUM = $1.00
+END SELECT;
+/* Report top five peaks */
+LABEL PK.NM "Peak Number";
+SAVE_UPDATE MV TO TABLE "METERVALUE";
+
+FOR EACH INX IN ARRAYUPPERBOUND(#MYARRAY[])
+  #MYARRAY[INX].VALUE = 2;
+  CLEAR #MYARRAY[];
+END FOR
+
+//Interval Data
+HNDL_1_ADD_EDI = INTDADDATTRIBUTE(HNDL_1, "EDI_TRANSACTION", EDI_ID);
+HNDL_1_ADD_VAL_MSG = INTDADDVMSG(HNDL_1,"Missing (Status Code 9) values found");
+EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600, "Y", "0", " ");`;
+
 preview.type_ruby = `# The Greeter class
 class Greeter
   def initialize(name)
@@ -3766,6 +5583,1268 @@ end
 g = Greeter.new("world")
 g.salute`;
 
+preview.type_rust = `#[derive(Debug)]
+pub enum State {
+    Start,
+    Transient,
+    Closed,
+}
+
+impl From<&'a str> for State {
+    fn from(s: &'a str) -> Self {
+        match s {
+            "start" => State::Start,
+            "closed" => State::Closed,
+            _ => unreachable!(),
+        }
+    }
+}`;
+
+preview.type_sas = `/**********************************************************************
+ * Program: example.sas
+ * Purpose: SAS Example for HighlightJS Plug-in
+ **********************************************************************/
+
+%put Started at %sysfunc(putn(%sysfunc(datetime()), datetime.));
+options
+    errors = 20  /* Maximum number of prints of repeat errors */
+    fullstimer   /* Detailed timer after each step execution  */
+;
+
+%let maindir = /path/to/maindir;
+%let outdir  = &maindir/out.;
+
+systask command "mkdir -p &outdir." wait;
+libname main "&maindir" access = readonly;
+
+data testing;
+    input name $ number delimiter = ",";
+    datalines;
+    John,1
+    Mary,2
+    Jane,3
+    ;
+    if number > 1 then final = 0;
+    else do;
+        final = 1;
+    end;
+run;
+
+%macro testMacro(positional, named = value);
+    %put positional = &positional.;
+    %put named      = &named.;
+%mend testMacro;
+%testMacro(positional, named = value);
+
+dm 'clear log output odsresults';
+
+proc datasets lib = work kill noprint; quit;
+libname _all_ clear;
+
+data _null_;
+    set sashelp.macro(
+        keep  = name
+        where = (scope = "global");
+    );
+    call symdel(name);
+run;`;
+
+preview.type_scala = `/**
+ * A person has a name and an age.
+ */
+case class Person(name: String, age: Int)
+
+abstract class Vertical extends CaseJeu
+case class Haut(a: Int) extends Vertical
+case class Bas(name: String, b: Double) extends Vertical
+
+sealed trait Ior[+A, +B]
+case class Left[A](a: A) extends Ior[A, Nothing]
+case class Right[B](b: B) extends Ior[Nothing, B]
+case class Both[A, B](a: A, b: B) extends Ior[A, B]
+
+trait Functor[F[_]] {
+  def map[A, B](fa: F[A], f: A => B): F[B]
+}
+
+// beware Int.MinValue
+def absoluteValue(n: Int): Int =
+  if (n < 0) -n else n
+
+def interp(n: Int): String =
+  s"there are $n \${color} balloons.\\n"
+
+type ξ[A] = (A, A)
+
+trait Hist { lhs =>
+  def ⊕(rhs: Hist): Hist
+}
+
+def gsum[A: Ring](as: Seq[A]): A =
+  as.foldLeft(Ring[A].zero)(_ + _)
+
+val actions: List[Symbol] =
+  'init :: 'read :: 'write :: 'close :: Nil
+
+trait Cake {
+  type T;
+  type Q
+  val things: Seq[T]
+
+  abstract class Spindler
+
+  def spindle(s: Spindler, ts: Seq[T], reversed: Boolean = false): Seq[Q]
+}
+
+val colors = Map(
+  "red"       -> 0xFF0000,
+  "turquoise" -> 0x00FFFF,
+  "black"     -> 0x000000,
+  "orange"    -> 0xFF8040,
+  "brown"     -> 0x804000)
+
+lazy val ns = for {
+  x <- 0 until 100
+  y <- 0 until 100`;
+
+preview.type_scheme = `;; Calculation of Hofstadter's male and female sequences as a list of pairs
+
+(define (hofstadter-male-female n)
+(letrec ((female (lambda (n)
+           (if (= n 0)
+           1
+           (- n (male (female (- n 1)))))))
+     (male (lambda (n)
+         (if (= n 0)
+             0
+             (- n (female (male (- n 1))))))))
+  (let loop ((i 0))
+    (if (> i n)
+    '()
+    (cons (cons (female i)
+            (male i))
+      (loop (+ i 1)))))))
+
+(hofstadter-male-female 8)
+
+(define (find-first func lst)
+(call-with-current-continuation
+ (lambda (return-immediately)
+   (for-each (lambda (x)
+       (if (func x)
+           (return-immediately x)))
+         lst)
+   #f)))`;
+
+preview.type_scilab = `// A comment
+function I = foo(dims, varargin)
+  d=[1; matrix(dims(1:$-1),-1,1)]
+  for i=1:size(varargin)
+    if varargin(i)==[] then
+       I=[],
+       return;
+    end
+  end
+endfunction
+
+b = cos(a) + cosh(a);
+bar_matrix = [ "Hello", "world" ];
+foo_matrix = [1, 2, 3; 4, 5, 6];`;
+
+preview.type_scss = `@import "compass/reset";
+
+// variables
+$colorGreen: #008000;
+$colorGreenDark: darken($colorGreen, 10);
+
+@mixin container {
+    max-width: 980px;
+}
+
+// mixins with parameters
+@mixin button($color:green) {
+    @if ($color == green) {
+        background-color: #008000;
+    }
+    @else if ($color == red) {
+        background-color: #B22222;
+    }
+}
+
+button {
+    @include button(red);
+}
+
+div,
+.navbar,
+#header,
+input[type="input"] {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.row-12 > [class*="spans"] {
+    border-left: 1px solid #B5C583;
+}
+
+// nested definitions
+ul {
+    width: 100%;
+    padding: {
+        left: 5px; right: 5px;
+    }
+  li {
+      float: left; margin-right: 10px;
+      .home {
+          background: url('http://placehold.it/20') scroll no-repeat 0 0;
+    }
+  }
+}
+
+.banner {
+    @extend .container;
+}
+
+a {
+  color: $colorGreen;
+  &:hover { color: $colorGreenDark; }
+  &:visited { color: #c458cb; }
+}
+
+@for $i from 1 through 5 {
+    .span#{$i} {
+        width: 20px*$i;
+    }
+}
+
+@mixin mobile {
+  @media screen and (max-width : 600px) {
+    @content;
+  }
+}`;
+
+preview.type_shell = `$ echo $EDITOR
+vim
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+$ git push
+Everything up-to-date
+$ echo 'All
+> done!'
+All
+done!`;
+
+preview.type_smali = `.class public Lcom/test/Preferences;
+.super Landroid/preference/PreferenceActivity;
+.source "Preferences.java"
+
+
+# instance fields
+.field private PACKAGE_NAME:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "InlinedApi"
+        }
+    .end annotation
+
+    .prologue
+    .line 25
+    invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
+
+    const-string v4, "ASDF!"
+
+    .line 156
+    .end local v0           #customOther:Landroid/preference/Preference;
+    .end local v1           #customRate:Landroid/preference/Preference;
+    .end local v2           #hideApp:Landroid/preference/Preference;
+    :cond_56
+
+        .line 135
+    invoke-static {p1}, Lcom/google/ads/AdActivity;->b(Lcom/google/ads/internal/d;)Lcom/google/ads/internal/d;
+
+    .line 140
+    :cond_e
+    monitor-exit v1
+    :try_end_f
+    .catchall {:try_start_5 .. :try_end_f} :catchall_30
+
+    .line 143
+    invoke-virtual {p1}, Lcom/google/ads/internal/d;->g()Lcom/google/ads/m;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/google/ads/m;->c:Lcom/google/ads/util/i$d;
+
+    invoke-virtual {v0}, Lcom/google/ads/util/i$d;->a()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    .line 144
+    if-nez v0, :cond_33
+
+    .line 145
+    const-string v0, "activity was null while launching an AdActivity."
+
+    invoke-static {v0}, Lcom/google/ads/util/b;->e(Ljava/lang/String;)V
+
+    .line 160
+    :goto_22
+    return-void
+
+    .line 136
+    :cond_23
+    :try_start_23
+    invoke-static {}, Lcom/google/ads/AdActivity;->c()Lcom/google/ads/internal/d;
+
+    move-result-object v0
+
+    if-eq v0, p1, :cond_e
+
+    return-void
+.end method`;
+
+preview.type_smalltalk = `Object>>method: num
+    "comment 123"
+    | var1 var2 |
+    (1 to: num) do: [:i | |var| ^i].
+    Klass with: var1.
+    Klass new.
+    arr := #('123' 123.345 #hello Transcript var $@).
+    arr := #().
+    var2 = arr at: 3.
+    ^ self abc
+
+heapExample
+    "HeapTest new heapExample"
+    "Multiline
+    decription"
+    | n rnd array time sorted |
+    n := 5000.
+    "# of elements to sort"
+    rnd := Random new.
+    array := (1 to: n)
+                collect: [:i | rnd next].
+    "First, the heap version"
+    time := Time
+                millisecondsToRun: [sorted := Heap withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for Heap: ' , time printString , ' msecs'.
+    "The quicksort version"
+    time := Time
+                millisecondsToRun: [sorted := SortedCollection withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'`;
+
+preview.type_sml = `structure List : LIST =
+  struct
+
+    val op +  = InlineT.DfltInt.+
+
+    datatype list = datatype list
+
+    exception Empty = Empty
+
+    fun last [] = raise Empty
+      | last [x] = x
+      | last (_::r) = last r
+
+  fun loop ([], []) = EQUAL
+    | loop ([], _) = LESS
+    | loop (_, []) = GREATER
+    | loop (x :: xs, y :: ys) =
+      (case compare (x, y) of
+     EQUAL => loop (xs, ys)
+         | unequal => unequal)
+    in
+  loop
+    end
+
+  end (* structure List *)
+`;
+
+preview.type_sqf = `/***
+	Arma Scripting File
+	Edition: 1.66
+***/
+
+// Enable eating to improve health.
+_unit addAction ["Eat Energy Bar", {
+    if (_this getVariable ["EB_NumActivation", 0] > 0) then {
+        _this setDamage (0 max (damage _this - 0.25));
+    } else {
+        hint "You have eaten it all";
+    };
+    // 4 - means something...
+    Z_obj_vip = nil;
+    [_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
+}];`;
+
+preview.type_sql = `CREATE TABLE "topic" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "forum_id" integer NOT NULL,
+    "subject" varchar(255) NOT NULL
+);
+ALTER TABLE "topic"
+ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id")
+REFERENCES "forum" ("id");
+
+-- Initials
+insert into "topic" ("forum_id", "subject")
+values (2, 'D''artagnian');`;
+
+preview.type_stan = `// Multivariate Regression Example
+// Taken from stan-reference-2.8.0.pdf p.66
+
+data {
+  int<lower=0> N;             // num individuals
+  int<lower=1> K;             // num ind predictors
+  int<lower=1> J;             // num groups
+  int<lower=1> L;             // num group predictors
+  int<lower=1,upper=J> jj[N]; // group for individual
+  matrix[N,K] x;              // individual predictors
+  row_vector[L] u[J];         // group predictors
+  vector[N] y;                // outcomes
+}
+parameters {
+  corr_matrix[K] Omega;       // prior correlation
+  vector<lower=0>[K] tau;     // prior scale
+  matrix[L,K] gamma;          // group coeffs
+  vector[K] beta[J];          // indiv coeffs by group
+  real<lower=0> sigma;        // prediction error scale
+}
+model {
+  tau ~ cauchy(0,2.5);
+  Omega ~ lkj_corr(2);
+  to_vector(gamma) ~ normal(0, 5);
+  {
+    row_vector[K] u_gamma[J];
+    for (j in 1:J)
+      u_gamma[j] <- u[j] * gamma;
+    beta ~ multi_normal(u_gamma, quad_form_diag(Omega, tau));
+  }
+  {
+    vector[N] x_beta_jj;
+    for (n in 1:N)
+      x_beta_jj[n] <- x[n] * beta[jj[n]];
+    y ~ normal(x_beta_jj, sigma);
+  }
+}
+
+# Note: Octothorpes indicate comments, too!`;
+
+preview.type_stata = `program define gr_log
+version 6.0
+
+local or = \`2'
+local xunits = \`3'
+local b1 = ln(\`or')
+
+* make summary of logistic data from equation
+set obs \`xunits'
+generate pgty = 1 - 1/(1 + exp(score))
+/**
+ * Comment 1
+*/
+reg y x
+* Comment 2
+reg y2 x //comment 3
+This is a \`loc' $glob \${glob2}
+This is a \`"string " "' "string\`1'two\${hi}" bad \`"string " "' good \`"string " "'
+
+//Limit to just the project ados
+cap adopath - SITE
+cap adopath - PLUS
+/*cap adopath - PERSONAL
+cap adopath - OLDPLACE*/
+adopath ++ "\${dir_base}/code/ado/"
+A string \`"Wow"'. \`""one" "two""'
+A \`local' em\`b'ed
+a global \${dir_base} $dir_base em\${b}ed
+
+forval i=1/4{
+  if \`i'==2{
+    cap reg y x1, robust
+    local x = ln(4)
+    local x =ln(4)
+    local ln = ln
+  }
+}
+ 
+* add mlibs in the new adopath to the index
+mata: mata mlib index`;
+
+preview.type_step21 = `ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION((''),'2;1');
+FILE_NAME('CUBE_4SQUARE','2013-11-29T',('acook'),(''),
+'SOMETHINGCAD BY SOME CORPORATION, 2012130',
+'SOMETHINGCAD BY SOME CORPORATION, 2012130','');
+FILE_SCHEMA(('CONFIG_CONTROL_DESIGN'));
+ENDSEC;
+/* file written by SomethingCAD */
+DATA;
+#1=DIRECTION('',(1.E0,0.E0,0.E0));
+#2=VECTOR('',#1,4.E0);
+#3=CARTESIAN_POINT('',(-2.E0,-2.E0,-2.E0));
+#4=LINE('',#3,#2);
+#5=DIRECTION('',(0.E0,1.E0,0.E0));
+#6=VECTOR('',#5,4.E0);
+#7=CARTESIAN_POINT('',(2.E0,-2.E0,-2.E0));
+#8=LINE('',#7,#6);
+#9=DIRECTION('',(-1.E0,0.E0,0.E0));
+#10=VECTOR('',#9,4.E0);
+#11=CARTESIAN_POINT('',(2.E0,2.E0,-2.E0));
+#12=LINE('',#11,#10);
+#13=DIRECTION('',(0.E0,-1.E0,0.E0));
+#14=VECTOR('',#13,4.E0);
+#15=CARTESIAN_POINT('',(-2.E0,2.E0,-2.E0));
+#16=LINE('',#15,#14);
+#17=DIRECTION('',(0.E0,0.E0,1.E0));
+#18=VECTOR('',#17,4.E0);
+#19=CARTESIAN_POINT('',(-2.E0,-2.E0,-2.E0));
+#20=LINE('',#19,#18);
+#21=DIRECTION('',(0.E0,0.E0,1.E0));
+ENDSEC;
+END-ISO-10303-21;`;
+
+preview.type_stylus = `@import "nib"
+
+// variables
+$green = #008000
+$green_dark = darken($green, 10)
+
+// mixin/function
+container()
+  max-width 980px
+
+// mixin/function with parameters
+buttonBG($color = green)
+  if $color == green
+    background-color #008000
+  else if $color == red
+    background-color #B22222
+
+button
+  buttonBG(red)
+
+.blue-button
+  buttonBG(blue)
+
+#content, .content
+  font Tahoma, Chunkfive, sans-serif
+  background url('hatch.png')
+  color #F0F0F0 !important
+  width 100%`;
+
+preview.type_subunit = `progress: 28704
+time: 2016-07-05 12:17:02.290433Z
+test: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/branch.txt)
+time: 2016-07-05 12:17:02.314892Z
+successful: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/branch.txt)
+time: 2016-07-05 12:17:02.314939Z
+time: 2016-07-05 12:17:02.314991Z
+test: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/transport.txt)
+time: 2016-07-05 12:17:02.315665Z
+successful: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/transport.txt)
+time: 2016-07-05 12:17:02.315691Z
+time: 2016-07-05 12:17:02.315770Z
+test: bzrlib.tests.blackbox.test_add.TestAdd.test_add_control_dir(pre-views)
+time: 2016-07-05 12:17:02.368936Z
+successful: bzrlib.tests.blackbox.test_add.TestAdd.test_add_control_dir(pre-views) [ multipart
+]
+time: 2016-07-05 12:17:02.368993Z
+time: 2016-07-05 12:17:02.369079Z`;
+
+preview.type_swift = `import Foundation
+
+@objc class Person: Entity {
+  var name: String!
+  var age:  Int!
+
+  init(name: String, age: Int) {
+    /* /* ... */ */
+  }
+
+  // Return a descriptive string for this person
+  func description(offset: Int = 0) -> String {
+    return "\\(name) is \\(age + offset) years old"
+  }
+}`;
+
+preview.type_taggerscript = `$if($is_video(),video,$if($is_lossless(),lossless,lossy))/
+$if($is_video(),
+$noop(Video track)
+$if($ne(%album%,[non-album tracks]),
+$if2(%albumartist%,%artist%) - %album%$if(%discsubtitle%, - %discsubtitle%)/%_discandtracknumber%%title%,
+Music Videos/%artist%/%artist% - %title%),
+$if($eq(%compilation%,1),
+$noop(Various Artist albums)
+$firstalphachar($if2(%albumartistsort%,%artistsort%))/$if2(%albumartist%,%artist%)/%album%$if(%_releasecomment%, \\(%_releasecomment%\\),)/%_discandtracknumber%%artist% - %title%,
+$noop(Single Artist Albums)
+$firstalphachar($if2(%albumartistsort%,%artistsort%))/$if2(%albumartist%,%artist%)/%album%$if(%_releasecomment%, \\(%_releasecomment%\\),)/%_discandtracknumber%%title%
+))`;
+
+preview.type_yaml = `---
+# comment
+string_1: "Bar"
+string_2: 'bar'
+string_3: bar
+inline_keys_ignored: sompath/name/file.jpg
+keywords_in_yaml:
+  - true
+  - false
+  - TRUE
+  - FALSE
+  - 21
+  - 21.0
+  - !!str 123
+"quoted_key": &foobar
+  bar: foo
+  foo:
+  "foo": bar
+
+reference: *foobar
+
+multiline_1: |
+  Multiline
+  String
+multiline_2: >
+  Multiline
+  String
+multiline_3: "
+  Multiline string
+  "
+
+ansible_variables: "foo {{variable}}"
+
+array_nested:
+- a
+- b: 1
+  c: 2
+- b
+- comment`;
+
+preview.type_tap = `# Hardware architecture: x86_64
+# Timestamp: 2016-06-16 06:23 (GMT+1)
+# 
+TAP version 13
+1..19
+ok 1 - zdtm/static/conntracks # SKIP manual run only
+ok 2 - zdtm/static/maps03 # SKIP manual run only
+ok 3 - zdtm/static/mlock_setuid
+ok 4 - zdtm/static/groups
+ok 5 - zdtm/static/maps05
+ok 6 - zdtm/static/pdeath_sig
+ok 7 - zdtm/static/xids00
+ok 8 - zdtm/static/proc-self
+ok 9 - zdtm/static/file_fown
+ok 10 - zdtm/static/eventfs00
+ok 11 - zdtm/static/uptime_grow # SKIP manual run only
+ok 12 - zdtm/static/signalfd00
+ok 13 - zdtm/static/inotify_irmap
+ok 14 - zdtm/static/fanotify00
+ok 15 - zdtm/static/session00
+ok 16 - zdtm/static/rlimits00
+ok 17 - zdtm/static/maps04
+ok 18 - zdtm/static/pty03
+ok 19 - zdtm/static/pty02`;
+
+preview.type_tcl = `package json
+
+source helper.tcl
+# randomness verified by a die throw
+set ::rand 4
+
+proc give::recursive::count {base p} { ; # 2 mandatory params
+    while {$p > 0} {
+        set result [expr $result * $base]; incr p -1
+    }
+    return $result
+}
+
+set a {a}; set b "bcdef"; set lst [list "item"]
+puts [llength $a$b]
+
+set ::my::tid($id) $::my::tid(def)
+lappend lst $arr($idx) $::my::arr($idx) $ar(key)
+lreplace ::my::tid($id) 4 4
+puts $::rand \${::rand} \${::AWESOME::component::variable}
+
+puts "$x + $y is\\t [expr $x + $y]"
+
+proc isprime x {
+    expr {$x>1 && ![regexp {^(oo+?)\\1+$} [string repeat o $x]]}
+}`;
+
+preview.type_thrift = `namespace * thrift.test
+
+/**
+ * Docstring!
+ */
+enum Numberz
+{
+  ONE = 1,
+  TWO,
+  THREE,
+  FIVE = 5,
+  SIX,
+  EIGHT = 8
+}
+
+const Numberz myNumberz = Numberz.ONE;
+// the following is expected to fail:
+// const Numberz urNumberz = ONE;
+
+typedef i64 UserId
+
+struct Msg
+{
+  1: string message,
+  2: i32 type
+}
+struct NestedListsI32x2
+{
+  1: list<list<i32>> integerlist
+}
+struct NestedListsI32x3
+{
+  1: list<list<list<i32>>> integerlist
+}
+service ThriftTest
+{
+  void        testVoid(),
+  string      testString(1: string thing),
+  oneway void testInit()
+}`;
+
+preview.type_tp = `/PROG  ALL
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 3689;
+CREATE		= DATE 14-05-13  TIME 17:03:06;
+MODIFIED	= DATE 14-05-13  TIME 17:21:44;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 118;
+MEMORY_SIZE	= 4365;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/MN
+  ! motion ;
+J P[1:test point] 100% FINE    ;
+J P[1] 100.0sec CNT100    ;
+J P[1] 100msec CNT R[1]    ;
+L P[1] 100/sec FINE    ;
+L P[1] 100cm/min CNT100    ;
+L P[1] 100.0inch/min CNT100    ;
+L P[1] 100deg/sec CNT100    ;
+  ! indirect speed ;
+L P[1] R[1]sec CNT100    ;
+  ! indirect indirect ;
+L PR[1] R[R[1]]msec CNT100    ;
+  ! indirect destination ;
+L PR[R[1]] max_speed CNT100    ;
+   ;
+  ! assignment ;
+  R[1]=R[2]    ;
+  ! indirect assignment ;
+  R[R[1]]=R[2] ;
+  ! system variables ;
+  $foo=$bar[100].$baz ;
+  R[1]=$FOO.$BAR ;
+    ;
+  ! various keyword assignments ;
+  PR[1]=LPOS    ;
+  PR[1]=JPOS    ;
+  PR[1]=UFRAME[1] ;
+  PR[1]=UTOOL[1] ;
+  PR[1]=P[1]    ;
+  PR[1,1:component]=5    ;
+  SR[1:string reg]=SR[2]+AR[1]    ;
+  R[1]=SO[1:Cycle start] DIV SI[2:Remote]    ;
+  R[1]=UO[1:Cmd enabled] MOD UI[1:*IMSTP]    ;
+  ! mixed logic ;
+  DO[1]=(DI[1] AND AR[1] AND F[1] OR TIMER[1]>TIMER_OVERFLOW[1]) ;
+  F[1]=(ON) ;
+  JOINT_MAX_SPEED[1]=5 ;
+  LINEAR_MAX_SPEED=5 ;
+  SKIP CONDITION DI[1]=OFF-   ;
+  PAYLOAD[R[1]] ;
+  OFFSET CONDITION PR[1]    ;
+  UFRAME_NUM=1 ;
+  UTOOL_NUM=1 ;
+  UFRAME[1]=PR[1] ;
+  UTOOL[1]=PR[1] ;
+  RSR[1]=ENABLE ;
+  RSR[AR[1]]=DISABLE ;
+  UALM[1] ;
+  TIMER[1]=START ;
+  TIMER[1]=STOP ;
+  TIMER[1]=RESET ;
+  OVERRIDE=50% ;
+  TOOL_OFFSET CONDITION PR[1]    ;
+  LOCK PREG ;
+  UNLOCK PREG ;
+  COL DETECT ON ;
+  COL DETECT OFF ;
+  COL GUARD ADJUST R[1] ;
+  COL GUARD ADJUST 50 ;
+  MONITOR TEST ;
+  MONITOR END TEST ;
+  R[1]=STRLEN SR[1] ;
+  SR[1]=SUBSTR SR[2],R[3],R[4] ;
+  R[1]=FINDSTR SR[1],SR[2] ;
+  DIAG_REC[1,5,2] ;
+   ;
+  ! program calls ;
+  CALL TEST ;
+  CALL TEST(1,'string',SR[1],AR[1]) ;
+  RUN TEST ;
+  RUN TEST(1,'string',SR[1],AR[1]) ;
+   ;
+  ! conditionals ;
+  IF R[1]=1,JMP LBL[5] ;
+  IF R[1]=AR[1],CALL TEST ;
+  IF (DI[1]),R[1]=(5) ;
+  SELECT R[1]=1,JMP LBL[5] ;
+         =2,CALL TEST ;
+         ELSE,JMP LBL[100] ;
+  FOR R[1]=1 TO R[2] ;
+  ENDFOR ;
+   ;
+  ! wait statement ;
+  WAIT   1.00(sec) ;
+  WAIT R[5] ;
+  WAIT DI[1]=ON    ;
+  WAIT DI[1]=ON+    ;
+  WAIT ERR_NUM=1    ;
+  WAIT (DI[1]=ON) ;
+   ;
+  ! jumps and labels ;
+  JMP LBL[1] ;
+  JMP LBL[R[1]] ;
+  LBL[100] ;
+  LBL[100:TEST] ;
+   ;
+  ! statements ;
+  PAUSE ;
+  ABORT ;
+  ERROR_PROG=ALL ;
+  RESUME_PROG[1]=TEST ;
+  END ;
+  MESSAGE[ASDF] ;
+   ;
+  ! comments ;
+  --eg:ASDFASDFASDF ;
+  // L P[9] 100mm/sec CNT100 ACC100    ;
+   ;
+  ! motion modifiers ;
+L P[1] 100mm/sec CNT100 ACC100    ;
+L P[1] 100mm/sec CNT100 ACC R[1]    ;
+L P[1] 100mm/sec CNT100 Skip,LBL[1]    ;
+L P[1] 100mm/sec CNT100 BREAK    ;
+L P[1] 100mm/sec CNT100 Offset    ;
+L P[1] 100mm/sec CNT100 PSPD50    ;
+L P[1] 100mm/sec CNT100 Offset,PR[1]    ;
+L P[1] 100mm/sec CNT100 INC    ;
+L P[1] 100mm/sec CNT100 RT_LDR[1]    ;
+L P[1] 100mm/sec CNT100 AP_LD50    ;
+L P[1] 100mm/sec CNT100 Tool_Offset    ;
+L P[1] 100mm/sec CNT100 Tool_Offset,PR[1]    ;
+L P[1] 100mm/sec CNT100 Skip,LBL[1],PR[1]=LPOS    ;
+L P[1] 100mm/sec CNT100 TB R[5]sec,CALL ALL    ;
+L P[1] 100mm/sec CNT100 TA   0.00sec,AO[1]=R[5]    ;
+L P[1] 100mm/sec CNT100 DB    0.0mm,CALL ALL    ;
+L P[1] 100mm/sec CNT100 PTH    ;
+L P[1] 100mm/sec CNT100 VOFFSET,VR[1] ;
+/POS
+P[1:"test"]{
+   GP1:
+	UF : 0, UT : 1,		CONFIG : '',
+	X =   550.000  mm,	Y =     0.000  mm,	Z =  -685.000  mm,
+	W =   180.000 deg,	P =     0.000 deg,	R =     0.000 deg
+};
+/END`;
+
+preview.type_twig = `{% if posts|length %}
+  {% for article in articles %}
+  &lt;div&gt;
+  {{ article.title|upper() }}
+
+  {# outputs 'WELCOME' #}
+  &lt;/div&gt;
+  {% endfor %}
+{% endif %}
+
+{% set user = json_encode(user) %}
+
+{{ random(['apple', 'orange', 'citrus']) }}
+
+{{ include(template_from_string("Hello {{ name }}")) }}
+
+
+{#
+Comments may be long and multiline.
+Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
+#}`;
+
+preview.type_typescript = `class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require("fs");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax`;
+
+preview.type_vala = `using DBus;
+
+namespace Test {
+  class Foo : Object {
+    public signal void some_event ();   // definition of the signal
+    public void method () {
+      some_event ();                    // emitting the signal (callbacks get invoked)
+    }
+  }
+}
+
+/* defining a class */
+class Track : GLib.Object, Test.Foo {              /* subclassing 'GLib.Object' */
+  public double mass;                  /* a public field */
+  public double name { get; set; }     /* a public property */
+  private bool terminated = false;     /* a private field */
+  public void terminate() {            /* a public method */
+    terminated = true;
+  }
+}
+
+const ALL_UPPER_CASE = "you should follow this convention";
+
+var t = new Track();      // same as: Track t = new Track();
+var s = "hello";          // same as: string s = "hello";
+var l = new List<int>();       // same as: List<int> l = new List<int>();
+var i = 10;               // same as: int i = 10;
+
+
+#if (ololo)
+Regex regex = /foo/;
+#endif
+
+/*
+ * Entry point can be outside class
+ */
+void main () {
+  var long_string = """
+    Example of "verbatim string".
+    Same as in @"string" in C#
+  """
+  var foo = new Foo ();
+  foo.some_event.connect (callback_a);      // connecting the callback functions
+  foo.some_event.connect (callback_b);
+  foo.method ();
+}`;
+
+preview.type_vbnet = `Import System
+Import System.IO
+#Const DEBUG = True
+
+Namespace Highlighter.Test
+  ''' <summary>This is an example class.</summary>
+  Public Class Program
+    Protected Shared hello As Integer = 3
+    Private Const ABC As Boolean = False
+
+#Region "Code"
+    ' Cheers!
+    <STAThread()> _
+    Public Shared Sub Main(ByVal args() As String, ParamArray arr As Object) Handles Form1.Click
+      On Error Resume Next
+      If ABC Then
+        While ABC : Console.WriteLine() : End While
+        For i As Long = 0 To 1000 Step 123
+          Try
+            System.Windows.Forms.MessageBox.Show(CInt("1").ToString())
+          Catch ex As Exception       ' What are you doing? Well...
+            Dim exp = CType(ex, IOException)
+            REM ORZ
+            Return
+          End Try
+        Next
+      Else
+        Dim l As New System.Collections.List<String>()
+        SyncLock l
+          If TypeOf l Is Decimal And l IsNot Nothing Then
+            RemoveHandler button1.Paint, delegate
+          End If
+          Dim d = New System.Threading.Thread(AddressOf ThreadProc)
+          Dim a = New Action(Sub(x, y) x + y)
+          Static u = From x As String In l Select x.Substring(2, 4) Where x.Length > 0
+        End SyncLock
+        Do : Laugh() : Loop Until hello = 4
+      End If
+    End Sub
+#End Region
+  End Class
+End Namespace`;
+
+preview.type_vbscript = `' creating configuration storage and initializing with default values
+Set cfg = CreateObject("Scripting.Dictionary")
+
+' reading ini file
+for i = 0 to ubound(ini_strings)
+    s = trim(ini_strings(i))
+
+    ' skipping empty strings and comments
+    if mid(s, 1, 1) <> "#" and len(s) > 0 then
+      ' obtaining key and value
+      parts = split(s, "=", -1, 1)
+
+      if ubound(parts)+1 = 2 then
+        parts(0) = trim(parts(0))
+        parts(1) = trim(parts(1))
+
+        ' reading configuration and filenames
+        select case lcase(parts(0))
+          case "uncompressed""_postfix" cfg.item("uncompressed""_postfix") = parts(1)
+          case "f"
+                    options = split(parts(1), "|", -1, 1)
+                    if ubound(options)+1 = 2 then
+                      ' 0: filename,  1: options
+                      ff.add trim(options(0)), trim(options(1))
+                    end if
+        end select
+      end if
+    end if
+next`;
+
+preview.type_vbscript_html = `<body>
+<%
+If i <  10 Then
+  response.write("Good morning!")
+End If
+%>
+</body>`;
+
+preview.type_verilog = `\`timescale 1ns / 1ps
+
+/**
+ * counter: a generic clearable up-counter
+ */
+
+module counter
+    #(parameter WIDTH=64, NAME="world")
+    (
+        input clk,
+        input ce,
+        input arst_n,
+        output reg [WIDTH-1:0] q
+    );
+    
+    string name = "counter";
+    localparam val0 = 12'ha1f;
+    localparam val1 = 12'h1fa;
+    localparam val2 = 12'hfa1;
+
+    // some child
+    clock_buffer #(WIDTH) buffer_inst (
+      .clk(clk),
+      .ce(ce),
+      .reset(arst_n)
+    );
+
+    // Simple gated up-counter with async clear
+
+    always @(posedge clk or negedge arst_n) begin
+        if (arst_n == 1'b0) begin
+            q <= {WIDTH {1'b0}};
+            end
+        else begin
+            q <= q;
+            if (ce == 1'b1) begin
+                q <= q + 1;
+            end
+        end
+    end
+
+    function int add_one(int x);
+      return x + 1;
+    endfunction : add_one
+
+\`ifdef SIMULATION
+initial $display("Hello %s", NAME);
+\`endif
+endmodule : counter
+
+class my_data extends uvm_data;
+  int x, y;
+
+  function add_one();
+    x++;
+    y++;
+  endfunction : add_one
+endclass : my_data`;
+
+preview.type_vhdl = `/*
+ * RS-trigger with assynch. reset
+ */
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity RS_trigger is
+    generic (T: Time := 0ns);
+    port ( R, S  : in  std_logic;
+           Q, nQ : out std_logic;
+           reset, clock : in  std_logic );
+end RS_trigger;
+
+architecture behaviour of RS_trigger is
+    signal QT: std_logic; -- Q(t)
+begin
+    process(clock, reset) is
+        subtype RS is std_logic_vector (1 downto 0);
+    begin
+        if reset = '0' then
+            QT <= '0';
+        else
+            if rising_edge(C) then
+                if not (R'stable(T) and S'stable(T)) then
+                    QT <= 'X';
+                else
+                    case RS'(R&S) is
+                        when "01" => QT <= '1';
+                        when "10" => QT <= '0';
+                        when "11" => QT <= 'X';
+                        when others => null;
+                    end case;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    Q  <= QT;
+    nQ <= not QT;
+end architecture behaviour;`;
+
+preview.type_vim = `if foo > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+set autoindent
+
+" switch on highlighting
+function UnComment(fl, ll)
+  while idx >= a:ll
+    let srclines=getline(idx)
+    let dstlines=substitute(srclines, b:comment, "", "")
+    call setline(idx, dstlines)
+  endwhile
+endfunction
+
+let conf = {'command': 'git'}`;
+
+preview.type_x86asm = `section .text
+extern  _MessageBoxA@16
+%if     __NASM_VERSION_ID__ >= 0x02030000
+safeseh handler         ; register handler as "safe handler"
+%endif
+
+handler:
+        push    dword 1 ; MB_OKCANCEL
+        push    dword caption
+        push    dword text
+        push    dword 0
+        call    _MessageBoxA@16
+        sub     eax,1   ; incidentally suits as return value
+                        ; for exception handler
+        ret
+
+global  _main
+_main:  push    dword handler
+        push    dword [fs:0]
+        mov     dword [fs:0], esp
+        xor     eax,eax
+        mov     eax, dword[eax]   ; cause exception
+        pop     dword [fs:0]      ; disengage exception handler
+        add     esp, 4
+        ret
+
+avx2:   vzeroupper
+        push      rbx
+        mov       rbx,   rsp
+        sub       rsp,   0h20
+        vmovdqa   ymm0,  [rcx]
+        vpaddb    ymm0,  [rdx]
+        leave
+        ret
+
+text:   db      'OK to rethrow, CANCEL to generate core dump',0
+caption:db      'SEGV',0
+
+section .drectve info
+        db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '`;
+
+preview.type_xl = `import Animate
+import SeasonsGreetingsTheme
+import "myhelper.xl"
+theme "SeasonsGreetings"
+function X:real -> sin(X*0.5) + 16#0.002
+page "A nice car",
+// --------------------------------------
+//    Display car model on a pedestal
+// --------------------------------------
+    clear_color 0, 0, 0, 1
+    hand_scale -> 0.3
+
+    // Display the background image
+    background -4000,
+        locally
+            disable_depth_test
+            corridor N:integer ->
+                locally
+                    rotatez 60 * N
+                    translatex 1000
+                    rotatey 90
+                    color "white"
+                    texture "stars.png"
+                    texture_wrap true, true
+                    texture_transform
+                        translate (time + N) * 0.02 mod 1, 0, 0
+                        scale 0.2, 0.3, 0.3
+                    rectangle 0, 0, 100000, 1154`;
 
 preview.type_xml = `<!DOCTYPE html>
 <title>Title</title>
@@ -3781,16 +6860,94 @@ preview.type_xml = `<!DOCTYPE html>
   <!-- here goes the rest of the page -->
 </body>`;
 
-preview.type_python = `@requires_authorization
-def somefunc(param1='', param2=0):
-    r'''A docstring'''
-    if param1 > param2: # interesting
-        print 'Gre\\'ater'
-    return (param2 - param1 + 1 + 0b10l) or None
+preview.type_xquery = `xquery version "3.1";
+(:~
+ : @author Duncan Paterson
+ : @version 1.0:)
 
-class SomeClass:
-    pass
+declare variable $local:num := math:log10(12345);
 
->>> message = '''interpreter
-... prompt'''`;
+(
+let $map := map { 'R': 'red', 'G': 'green', 'B': 'blue' }
+return (
+  $map?*          (: 1. returns all values; same as: map:keys($map) ! $map(.) :),
+  $map?R          (: 2. returns the value associated with the key 'R'; same as: $map('R') :),
+  $map?('G','B')  (: 3. returns the values associated with the key 'G' and 'B' :)
+),
 
+declare function local:city($country as node()*) as element (country) {
+for $country in doc('factbook')//country
+where $country/@population > 100000000
+let $name := $country/name[1]
+for $city in $country//city[population gt 1000000]
+group by $name
+return
+   element country { attribute type { $name },
+    $city/name }
+};
+
+return
+('A', 'B', 'C') => count(),
+
+<root>{local:city(.) + $local:num}</root>`;
+
+preview.type_zephir = `function testBefore(<Test> a, var b = 5, int c = 10)
+{
+    a->method1();
+
+    return b + c;
+}
+
+namespace Test;
+
+use RuntimeException as RE;
+
+/**
+ * Example comment
+ */
+class Test extends CustomClass implements TestInterface
+{
+    const C1 = null;
+
+    // Magic constant: http://php.net/manual/ru/language.constants.predefined.php
+    const className = __CLASS__;
+
+    public function method1()
+    {
+        int a = 1, b = 2;
+        if likely a > b {
+            a++;
+        } else if unlikely b < a {
+            a--;
+        }
+        return a + b;
+    }
+
+    // See fn is allowed like shortcut
+    public fn method2() -> <Test>
+    {
+        call_user_func(function() { echo "hello"; });
+
+
+        [1, 2, 3, 4, 5]->walk(
+            function(int! x) {
+                return x * x;
+            }
+        );
+
+        [1, 2, 3, 4, 5]->walk(
+            function(_, int key) { echo key; }
+        );
+
+        array input = [1, 2, 3, 4, 5];
+
+        input->walk(
+            function(_, int key) { echo key; }
+        );
+
+
+        input->map(x => x * x);
+
+        return this;
+    }
+}`;
