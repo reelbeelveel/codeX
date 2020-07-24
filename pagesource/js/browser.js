@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Thu July 23, 2020 @ 10:32:53 EDT
+// Last revised: Fri July 24, 2020 @ 12:21:18 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -123,7 +123,7 @@ function generatePlaceholder(lang = null) {
         len = language_list.length;
         randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
         randomLang = language_list[randomIndex];
-        previewId = `type_${randomLang.apiId.replace('-', '_')}`;
+        previewId = `type_${randomLang.apiId.replace(/-|\./gm, '_')}`;
         apiId = randomLang.apiId;
         document.querySelector(`select#lang`).value = randomLang.apiId;
     } else {
