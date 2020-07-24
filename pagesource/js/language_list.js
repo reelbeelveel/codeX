@@ -1,12 +1,12 @@
-// List modified: Thu July 23, 2020 @ 11:26:29 EDT
+// List modified: Thu July 23, 2020 @ 11:45:37 EDT
 let preview = {};
 var language_list = [
     {
         displayText: 'Auto',
         fileTypes: [{
-                type: '.*',
-                common: true
-            }],
+            type: '.*',
+            common: true
+        }],
         apiId: 'auto',
         prettyName: 'Automatic Highlight', // Experimental, does nothing
         cdxEnabled: false
@@ -17,7 +17,7 @@ var language_list = [
         cdxEnabled: false
     },{
         displayText: 'Augmented Backus-Naur Form',
-        fileTypes: [{ 
+        fileTypes: [{
             type: '.abnf',
             common: false
         },{
@@ -52,7 +52,7 @@ var language_list = [
         cdxEnabled: false
     },{
         displayText: 'AngelScript',
-        fileTypes: [{ 
+        fileTypes: [{
             type: '.as',
             common: true
         }],
@@ -894,7 +894,7 @@ var language_list = [
     },{
         displayText: '.properties',
         fileTypes: [{}],
-        apiId: '.properties',
+        apiId: 'properties',
         cdxEnabled: false
     },{
         displayText: 'Protocol Buffers',
@@ -1199,33 +1199,33 @@ var language_list = [
 
 preview.type_1c = `#ЗагрузитьИзФайла ext_module.txt // директива 7.7
 #Если Клиент ИЛИ НаКлиенте Тогда // инструкции препроцессора
-	&НаКлиентеНаСервереБезКонтекста // директивы компиляции
-	Функция ТолстыйКлиентОбычноеПриложение(Знач Параметр1 = Неопределено, // комментарий
-		Параметр2 = "", ПараметрN = 123.45, ПарамNN) Экспорт // еще комментарий
-		Попытка
-			Результат_Булевы_Значения = Новый Структура("П1, П2", Истина, Ложь, NULL, Неопределено);
-			Перейти ~МеткаGOTO; // комментарий
-			РезультатТаблицаДат = Новый ТаблицаЗначений;
-			РезультатТаблицаДат.Колонки.Добавить("Колонка1", 
-			Новый ОписаниеТипов("Дата", , ,
-			Новый КвалификаторыДаты(ЧастиДаты.ДатаВремя));
-			НС = РезультатТаблицаДат.Добавить(); НС["Колонка1"] = '20170101120000');
-		Исключение
-			ОписаниеОшибки = ОписаниеОшибки(); // встроенная функция
-			Масс = Новый Массив; // встроенный тип
-			Для Каждого Значение Из Масс Цикл
-				Сообщить(Значение + Символы.ПС + "
-				|продолжение строки"); // продолжение многострочной строки
-				Продолжить; Прервать;
-			КонецЦикла;
-			СправочникСсылка   = Справочники.Языки.НайтиПоНаименованию("ru"); // встроенные типы
-			СправочникОбъект   = СправочникСсылка.ПолучитьОбъект();
-			ПеречислениеСсылка = Перечисления.ВидыМодификацииДанных.Изменен;
-			ВызватьИсключение ОписаниеОшибки;
-		КонецПопытки;
-		~МеткаGOTO: // еще комментарий
-		ВД = ВидДвиженияБухгалтерии.Дебет;
-	КонецФункции // ТолстыйКлиентОбычноеПриложение()
+    &НаКлиентеНаСервереБезКонтекста // директивы компиляции
+    Функция ТолстыйКлиентОбычноеПриложение(Знач Параметр1 = Неопределено, // комментарий
+        Параметр2 = "", ПараметрN = 123.45, ПарамNN) Экспорт // еще комментарий
+        Попытка
+            Результат_Булевы_Значения = Новый Структура("П1, П2", Истина, Ложь, NULL, Неопределено);
+            Перейти ~МеткаGOTO; // комментарий
+            РезультатТаблицаДат = Новый ТаблицаЗначений;
+            РезультатТаблицаДат.Колонки.Добавить("Колонка1", 
+            Новый ОписаниеТипов("Дата", , ,
+            Новый КвалификаторыДаты(ЧастиДаты.ДатаВремя));
+            НС = РезультатТаблицаДат.Добавить(); НС["Колонка1"] = '20170101120000');
+        Исключение
+            ОписаниеОшибки = ОписаниеОшибки(); // встроенная функция
+            Масс = Новый Массив; // встроенный тип
+            Для Каждого Значение Из Масс Цикл
+                Сообщить(Значение + Символы.ПС + "
+                |продолжение строки"); // продолжение многострочной строки
+                Продолжить; Прервать;
+            КонецЦикла;
+            СправочникСсылка   = Справочники.Языки.НайтиПоНаименованию("ru"); // встроенные типы
+            СправочникОбъект   = СправочникСсылка.ПолучитьОбъект();
+            ПеречислениеСсылка = Перечисления.ВидыМодификацииДанных.Изменен;
+            ВызватьИсключение ОписаниеОшибки;
+        КонецПопытки;
+        ~МеткаGOTO: // еще комментарий
+        ВД = ВидДвиженияБухгалтерии.Дебет;
+    КонецФункции // ТолстыйКлиентОбычноеПриложение()
 #КонецЕсли`;
 
 preview.type_abnf = `; line comment
@@ -1407,10 +1407,10 @@ return FeatureSet($map, ["POPULATION", "ELECTION-DATA"]);`;
 preview.type_arduino = `/*
   Blink
   Turns on an LED on for one second, then off for one second, repeatedly.
- 
+
   This example code is in the public domain.
  */
- 
+
 // Pin 13 has an LED connected on most Arduino boards.
 // give it a name:
 int led = 13;
@@ -1589,13 +1589,13 @@ _Singleton(@ScriptName) ; Allow only one instance
 example(0, 10)
 
 Func example($min, $max)
-	For $i = $min To $max
-		If Mod($i, 2) == 0 Then
-			MsgBox(64, "Message", $i & ' is even number!')
-		Else
-			MsgBox(64, "Message", $i & ' is odd number!')
-		EndIf
-	Next
+    For $i = $min To $max
+        If Mod($i, 2) == 0 Then
+            MsgBox(64, "Message", $i & ' is even number!')
+        Else
+            MsgBox(64, "Message", $i & ' is odd number!')
+        EndIf
+    Next
 EndFunc   ;==>example`;
 
 preview.type_avrasm = `;* Title:       Block Copy Routines
@@ -2023,26 +2023,26 @@ int main(int argc, char *argv[]) {
 preview.type_crmsh = `node webui
 node 168633611: node1
 rsc_template web-server apache \
-	params port=8000 \
-	op monitor interval=10s
+    params port=8000 \
+    op monitor interval=10s
 # Never use this STONITH agent in production!
 primitive development-stonith stonith:null \
-	params hostlist="webui node1 node2 node3"
+    params hostlist="webui node1 node2 node3"
 primitive proxy systemd:haproxy \
-	op monitor interval=10s
+    op monitor interval=10s
 primitive proxy-vip IPaddr2 \
-	params ip=10.13.37.20
+    params ip=10.13.37.20
 primitive srv1 @web-server
 primitive srv2 @web-server
 primitive test1 Dummy
 primitive test2 IPaddr2 \
-	params ip=10.13.37.99
+    params ip=10.13.37.99
 primitive vip1 IPaddr2 \
-	params ip=10.13.37.21 \
-	op monitor interval=20s
+    params ip=10.13.37.21 \
+    op monitor interval=20s
 primitive vip2 IPaddr2 \
-	params ip=10.13.37.22 \
-	op monitor interval=20s
+    params ip=10.13.37.22 \
+    op monitor interval=20s
 group g-proxy proxy-vip proxy
 group g-serv1 vip1 srv1
 group g-serv2 vip2 srv2
@@ -2055,19 +2055,19 @@ location l-proxy g-proxy 200: node1
 location l-serv1 g-serv1 200: node2
 location l-serv2 g-serv2 200: node3
 property cib-bootstrap-options: \
-	stonith-enabled=true \
-	no-quorum-policy=ignore \
-	placement-strategy=balanced \
-	have-watchdog=false \
-	dc-version="1.1.13-1.1.13+git20150827.e8888b9" \
-	cluster-infrastructure=corosync \
-	cluster-name=hacluster
+    stonith-enabled=true \
+    no-quorum-policy=ignore \
+    placement-strategy=balanced \
+    have-watchdog=false \
+    dc-version="1.1.13-1.1.13+git20150827.e8888b9" \
+    cluster-infrastructure=corosync \
+    cluster-name=hacluster
 rsc_defaults rsc-options: \
-	resource-stickiness=1 \
-	migration-threshold=3
+    resource-stickiness=1 \
+    migration-threshold=3
 op_defaults op-options: \
-	timeout=600 \
-	record-pending=true`;
+    timeout=600 \
+    record-pending=true`;
 
 preview.type_crystal = `class Person
   def initialize(@name : String)
@@ -2438,61 +2438,61 @@ preview.type_dts = `/*
 /include/ "skeleton.dtsi"
 
 / {
-	compatible = "xlnx,zynq-7000";
+    compatible = "xlnx,zynq-7000";
 
-	pmu {
-		compatible = "arm,cortex-a9-pmu";
-		interrupts = <0 5 4>, <0 6 4>;
-		interrupt-parent = <&intc>;
-		reg = < 0xf8891000 0x1000 0xf8893000 0x1000 >;
-	};
+    pmu {
+        compatible = "arm,cortex-a9-pmu";
+        interrupts = <0 5 4>, <0 6 4>;
+        interrupt-parent = <&intc>;
+        reg = < 0xf8891000 0x1000 0xf8893000 0x1000 >;
+    };
 
-	regulator_vccpint: fixedregulator@0 {
-		compatible = "regulator-fixed";
-		regulator-name = "VCCPINT";
-		regulator-min-microvolt = <1000000>;
-		regulator-max-microvolt = <1000000>;
-		regulator-boot-on;
-		regulator-always-on;
-	};
+    regulator_vccpint: fixedregulator@0 {
+        compatible = "regulator-fixed";
+        regulator-name = "VCCPINT";
+        regulator-min-microvolt = <1000000>;
+        regulator-max-microvolt = <1000000>;
+        regulator-boot-on;
+        regulator-always-on;
+    };
 
-	amba: amba {
-		compatible = "simple-bus";
-		#address-cells = <1>;
-		#size-cells = <1>;
-		interrupt-parent = <&intc>;
-		ranges;
+    amba: amba {
+        compatible = "simple-bus";
+        #address-cells = <1>;
+        #size-cells = <1>;
+        interrupt-parent = <&intc>;
+        ranges;
 
-		adc: adc@f8007100 {
-			compatible = "xlnx,zynq-xadc-1.00.a";
-			reg = <0xf8007100 0x20>;
-			interrupts = <0 7 4>;
-			interrupt-parent = <&intc>;
-			clocks = <&clkc 12>;
-		};
+        adc: adc@f8007100 {
+            compatible = "xlnx,zynq-xadc-1.00.a";
+            reg = <0xf8007100 0x20>;
+            interrupts = <0 7 4>;
+            interrupt-parent = <&intc>;
+            clocks = <&clkc 12>;
+        };
 
-		i2c0: i2c@e0004000 {
-			compatible = "cdns,i2c-r1p10";
-			status = "disabled";
-			clocks = <&clkc 38>;
-			interrupt-parent = <&intc>;
-			interrupts = <0 25 4>;
-			reg = <0xe0004000 0x1000>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-		};
+        i2c0: i2c@e0004000 {
+            compatible = "cdns,i2c-r1p10";
+            status = "disabled";
+            clocks = <&clkc 38>;
+            interrupt-parent = <&intc>;
+            interrupts = <0 25 4>;
+            reg = <0xe0004000 0x1000>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+        };
 
-		L2: cache-controller@f8f02000 {
-			compatible = "arm,pl310-cache";
-			reg = <0xF8F02000 0x1000>;
-			interrupts = <0 2 4>;
-			arm,data-latency = <3 2 2>;
-			arm,tag-latency = <2 2 2>;
-			cache-unified;
-			cache-level = <2>;
-		};
+        L2: cache-controller@f8f02000 {
+            compatible = "arm,pl310-cache";
+            reg = <0xF8F02000 0x1000>;
+            interrupts = <0 2 4>;
+            arm,data-latency = <3 2 2>;
+            arm,tag-latency = <2 2 2>;
+            cache-unified;
+            cache-level = <2>;
+        };
 
-	};
+    };
 };`;
 
 preview.type_dust = `<h3>Hours</h3>
@@ -2979,19 +2979,19 @@ preview.type_gml = `/// @description Collision code
 
 // Horizontal collisions
 if(place_meeting(x+hspd, y, obj_wall)) {
-	while(!place_meeting(x+sign(hspd), y, obj_wall)) {
-		x += sign(hspd);
-	}
-	hspd = 0;
+    while(!place_meeting(x+sign(hspd), y, obj_wall)) {
+        x += sign(hspd);
+    }
+    hspd = 0;
 }
 x += hspd;
 
 // Vertical collisions
 if(place_meeting(x, y+vspd, collide_obj)) {
-	while(!place_meeting(x, y+sign(vspd), collide_obj)) {
-		y += sign(vspd);
-	}
-	vspd = 0;
+    while(!place_meeting(x, y+sign(vspd), collide_obj)) {
+        y += sign(vspd);
+    }
+    vspd = 0;
 }
 y += vspd;
 
@@ -3020,7 +3020,7 @@ struct human = { name }
 function main = |args| {
     let a = 1
     var b = 2
-    
+
     println("hello") 
 
     let john = human("John Doe")
@@ -3309,7 +3309,7 @@ class Main extends BaseClass implements SomeFunctionality {
         catch(err:String) {
             trace(err);
         }
-        
+
         var map = new haxe.ds.IntMap<String>();
         var f = map.set.bind(_, "12");
     }
@@ -3351,27 +3351,27 @@ class Main extends BaseClass implements SomeFunctionality {
 
 preview.type_hsp = `#include "foo.hsp"
 
-	// line comment
-	message = "Hello, World!"
-	message2 = {"Multi
-	line
-	string"}
-	num = 0
-	mes message
-	
-	input num : button "sqrt", *label
-	stop
-	
+    // line comment
+    message = "Hello, World!"
+    message2 = {"Multi
+    line
+    string"}
+    num = 0
+    mes message
+
+    input num : button "sqrt", *label
+    stop
+
 *label
-	/*
-	 block comment
-	*/
-	if(num >= 0) {
-		dialog "sqrt(" + num + ") = " + sqrt(num)
-	} else {
-		dialog "error", 1
-	}
-	stop`;
+    /*
+     block comment
+    */
+    if(num >= 0) {
+        dialog "sqrt(" + num + ") = " + sqrt(num)
+    } else {
+        dialog "error", 1
+    }
+    stop`;
 
 preview.type_http = `POST /task?id=1 HTTP/1.1
 Host: example.org
@@ -3755,7 +3755,7 @@ trait A {
 }
 
 fun xxx() : Int {
-	return 888
+    return 888
 }
 
 public fun main(args : Array<String>) {
@@ -4163,11 +4163,11 @@ EXTRAS       ?= $(BUILDDIR)/extras
 .PHONY: main clean
 
 main:
-	@echo "Building main facility..."
-	build_main $(BUILDDIR)
+    @echo "Building main facility..."
+    build_main $(BUILDDIR)
 
 clean:
-	rm -rf $(BUILDDIR)/*`;
+    rm -rf $(BUILDDIR)/*`;
 
 preview.type_markdown = `# hello world
 
@@ -4853,44 +4853,44 @@ begin
 end;
 
 method List<T>.ToString: string;
-begin
-  with lBuilder := new StringBuilder do begin
+    begin
+    with lBuilder := new StringBuilder do begin
     AppendToString(lBuilder);
     result := lBuilder.ToString();
-  end;
-end;
+    end;
+    end;
 
-method List<T>.AppendToString(aBuilder: StringBuilder);
-begin
-  if assigned(Data) then
-    aBuilder.Append(Data.ToString)
-  else
-    aBuilder.Append('nil');
+    method List<T>.AppendToString(aBuilder: StringBuilder);
+        begin
+        if assigned(Data) then
+        aBuilder.Append(Data.ToString)
+        else
+        aBuilder.Append('nil');
 
-  if assigned(Next) then begin
-    aBuilder.Append(', ');
-    Next.AppendToString(aBuilder);
-  end;
-end;
+        if assigned(Next) then begin
+        aBuilder.Append(', ');
+        Next.AppendToString(aBuilder);
+        end;
+        end;
 
-end.`;
+        end.`;
 
-    preview.type_parser3 = `@CLASS
-base
+        preview.type_parser3 = `@CLASS
+        base
 
-@USE
-module.p
+        @USE
+        module.p
 
-@BASE
-class
+        @BASE
+        class
 
-# Comment for code
-@create[aParam1;aParam2][local1;local2]
-  ^connect[mysql://host/database?ClientCharset=windows-1251]
-  ^for[i](1;10){
-    <p class="paragraph">^eval($i+10)</p>
-    ^connect[mysql://host/database]{
-      $tab[^table::sql{select * from \`table\` where a='1'}]
+        # Comment for code
+        @create[aParam1;aParam2][local1;local2]
+        ^connect[mysql://host/database?ClientCharset=windows-1251]
+        ^for[i](1;10){
+            <p class="paragraph">^eval($i+10)</p>
+                ^connect[mysql://host/database]{
+                    $tab[^table::sql{select * from \`table\` where a='1'}]
       $var_Name[some\${value}]
     }
   }
@@ -4910,7 +4910,7 @@ class
   # Isn't comment
   $result[$.hash_item1[one] $.hash_item2[two]]`;
 
-    preview.type_pf = `# from the PF FAQ: http://www.openbsd.org/faq/pf/example1.html
+                        preview.type_pf = `# from the PF FAQ: http://www.openbsd.org/faq/pf/example1.html
 
 # macros
 
@@ -4954,7 +4954,7 @@ pass in inet proto icmp all icmp-type $icmp_types
 
 pass in on $int_if`;
 
-preview.type_pgsql = `BEGIN;
+                        preview.type_pgsql = `BEGIN;
 SELECT sum(salary) OVER w, avg(salary) OVER w
   FROM empsalary
   WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
@@ -4968,7 +4968,7 @@ BEGIN
 END;
 $$ STABLE LANGUAGE plpgsql;`;
 
-preview.type_php = `require_once 'Zend/Uri/Http.php';
+                        preview.type_php = `require_once 'Zend/Uri/Http.php';
 
 namespace Location\\Web;
 
@@ -5021,23 +5021,23 @@ datahere
 datahere */
 datahere`;
 
-preview.type_php_template = `<html>
+                        preview.type_php_template = `<html>
 </html>
 <body>
 <?php
 # Here echo command is used to print
 echo "Hello, world!";
-?>
+    ?>
 </body>`;
 
-preview.type_plaintext = ` id | description
+                        preview.type_plaintext = ` id | description
 ----+-------------
   1 | one
   2 | two
   3 | three
 (3 rows)`;
 
-preview.type_pony = `use "collections"
+                        preview.type_pony = `use "collections"
 
 class StopWatch
   """
@@ -5058,7 +5058,7 @@ actor LonelyPony
   new create(env': Env) =>
     env = env`;
 
-preview.type_powershell = `$initialDate = [datetime]'2013/1/8'
+                        preview.type_powershell = `$initialDate = [datetime]'2013/1/8'
 
 $rollingDate = $initialDate
 
@@ -5070,7 +5070,7 @@ do {
     $username = [System.Environment]::UserName
 } until ($rollingDate -ge [datetime]'2013/12/31')`;
 
-preview.type_processing = `import java.util.LinkedList;
+                        preview.type_processing = `import java.util.LinkedList;
 import java.awt.Point;
 
 PGraphics pg;
@@ -5088,7 +5088,7 @@ void draw(){
   background(255);
 }`;
 
-preview.type_profile = `       261917242 function calls in 686.251 CPU seconds
+                        preview.type_profile = `       261917242 function calls in 686.251 CPU seconds
 
        ncalls  tottime  filename:lineno(function)
        152824  513.894  {method 'sort' of 'list' objects}
@@ -5097,7 +5097,7 @@ preview.type_profile = `       261917242 function calls in 686.251 CPU seconds
        153900    1.296  rrule.py:399(_iter)
 304393/151570    0.963  rrule.py:102(_iter_cached)`;
 
-preview.type_prolog = `mergesort([],[]). % special case
+                        preview.type_prolog = `mergesort([],[]). % special case
 mergesort([A],[A]).
 mergesort([A,B|R],S) :-
    split([A,B|R],L1,L2),
@@ -5109,7 +5109,7 @@ split([],[],[]).
 split([A],[A],[]).
 split([A,B|R],[A|Ra],[B|Rb]) :-  split(R,Ra,Rb).`;
 
-preview.type__properties = `# .properties
+                        preview.type_properties = `# .properties
 ! Exclamation mark = comments, too
 
 key1 = value1
@@ -5121,7 +5121,7 @@ empty_key
 ! Key can contain escaped chars
 \\:\\= = value5`;
 
-preview.type_protobuf = `package languages.protobuf;
+                        preview.type_protobuf = `package languages.protobuf;
 
 option java_package = "org.highlightjs.languages.protobuf";
 
@@ -5145,7 +5145,7 @@ service CustomerSearch {
   rpc AllMatches(CustomerRequest) returns (CustomerResponse);
 }`;
 
-preview.type_puppet = `# EC2 sample
+                        preview.type_puppet = `# EC2 sample
 
 class ec2utils {
 
@@ -5179,7 +5179,7 @@ class ec2utils {
 
 }`;
 
-preview.type_purebasic = `; PureBASIC 5 - Syntax Highlighting Example
+                        preview.type_purebasic = `; PureBASIC 5 - Syntax Highlighting Example
 
 Enumeration Test 3 Step 10
   #Constant_One ; Will be 3
@@ -5209,7 +5209,7 @@ Procedure.s Attach(String1$, String2$)
   ProcedureReturn String1$+" "+String2$
 EndProcedure `;
 
-preview.type_python = `@requires_authorization
+                        preview.type_python = `@requires_authorization
 def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 > param2: # interesting
@@ -5222,7 +5222,7 @@ class SomeClass:
 >>> message = '''interpreter
 ... prompt'''`;
 
-preview.type_python_repl = `>>> v = "foo = 42"
+                        preview.type_python_repl = `>>> v = "foo = 42"
 >>> v
 "foo = 42"
 >>> print(v)
@@ -5238,7 +5238,7 @@ foo = 42"
 >>> def test():
 ...     pass`;
 
-preview.type_q = `select time, price by date,stock from quote where price=(max;price)fby stock
+                        preview.type_q = `select time, price by date,stock from quote where price=(max;price)fby stock
 data:raze value flip trade
 select vwap:size wavg price by 5 xbar time.minute from aapl where date within (.z.d-10;.z.d)
 f1:{[x;y;z] show (x;y+z);sum 1 2 3}
@@ -5248,7 +5248,7 @@ nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\\:(2*pi)*n?1f;-1_.z.s 1
 
 mode:{where g=max g:count each group x}		// mode function`;
 
-preview.type_qml = `/****************************************************************************
+                        preview.type_qml = `/****************************************************************************
 ** QML with Highlight.js                                                  **/
 import QtQuick 2.5 // good version
 
@@ -5298,7 +5298,7 @@ Window {
     Component.onCompleted: fileDialog.open()
 }`;
 
-preview.type_r = `library(ggplot2)
+                        preview.type_r = `library(ggplot2)
 
 centre <- function(x, type, ...) {
   switch(type,
@@ -5368,7 +5368,7 @@ foo %union% bar
 \`"test"\`
 `;
 
-preview.type_reasonml = `/* This is a
+                        preview.type_reasonml = `/* This is a
    multiline
    comment */
 
@@ -5416,7 +5416,7 @@ class point = {
   pri move = d => x = x + d;
 };`;
 
-preview.type_rib = `FrameBegin 0
+                        preview.type_rib = `FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
 Option "searchpath" "shader" "+&:/home/kew"
 Option "trace" "int maxdepth" [4]
@@ -5442,71 +5442,71 @@ ReadArchive "Sphere.006_Mesh/instance.rib"
 WorldEnd
 FrameEnd`;
 
-preview.type_roboconf = `# This is a comment
+                        preview.type_roboconf = `# This is a comment
 import toto.graph;
 
 ##
 # Facet
 ##
 facet VM {
-	installer: iaas;
+    installer: iaas;
 }
 
 # Components
 VM_ec2 {
-	facets: VM;
-	children: cluster-node, mysql;
+    facets: VM;
+    children: cluster-node, mysql;
 }
 
 VM_openstack {
-	facets: VM;
-	children: cluster-node, mysql;
+    facets: VM;
+    children: cluster-node, mysql;
 }
 
 cluster-node {
-	alias: a cluster node;
-	installer: puppet;
-	exports: ip, port, optional-property1, optional_property2;
-	imports: cluster-node.ip (optional), cluster-node.port (optional), mysql.ip, mysql.port;
+    alias: a cluster node;
+    installer: puppet;
+    exports: ip, port, optional-property1, optional_property2;
+    imports: cluster-node.ip (optional), cluster-node.port (optional), mysql.ip, mysql.port;
 }
 
 mysql {
-	alias: a MySQL database;
-	installer: puppet;
-	exports: ip, port;
+    alias: a MySQL database;
+    installer: puppet;
+    exports: ip, port;
 }
 
 ##
 # Normally, instances are defined in another file...
 ##
 instance of VM_ec2 {
-	name: VM_;
-	count: 3;
-	my-instance-property: whatever;
-	
-	instance of cluster-node {
-		name: cluster node;		# An in-line comment
-	}
+    name: VM_;
+    count: 3;
+    my-instance-property: whatever;
+
+    instance of cluster-node {
+        name: cluster node;		# An in-line comment
+    }
 }
 
 instance of VM_openstack {
-	name: VM_database;
-	
-	instance of mysql {
-		name: mysql;
-	}
+    name: VM_database;
+
+    instance of mysql {
+        name: mysql;
+    }
 }`;
 
-preview.type_routeros = `# Берем список DNS серверов из /ip dns
+                        preview.type_routeros = `# Берем список DNS серверов из /ip dns
  # Проверяем их доступность, 
 # и только рабочие прописываем в настройки DHCP сервера
 :global ActiveDNSServers []
 :local PingResult 0
 :foreach serv in=[/ip dns get servers] do={
-  :do {:set PingResult [ping $serv count=3]} on-error={:set PingResult 0}
-  :if ($PingResult=3) do={ :set ActiveDNSServers ($ActiveDNSServers,$serv) }
+:do {:set PingResult [ping $serv count=3]} on-error={:set PingResult 0}
+:if ($PingResult=3) do={ :set ActiveDNSServers ($ActiveDNSServers,$serv) }
 # отладочный вывод в журнал 
-  :log info "Server: $serv, Ping-result: $PingResult";
+:log info "Server: $serv, Ping-result: $PingResult";
 }
 
 /ip dhcp-server network set [find address=192.168.254.0/24] dns-server=$ActiveDNSServers
@@ -5516,7 +5516,7 @@ preview.type_routeros = `# Берем список DNS серверов из /ip
 
 `;
 
-preview.type_rsl = `#define TEST_DEFINE 3.14
+                        preview.type_rsl = `#define TEST_DEFINE 3.14
 /*  plastic surface shader
  *
  *  Pixie is:
@@ -5532,7 +5532,7 @@ surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
   Ci *= Oi;
 }`;
 
-preview.type_ruleslanguage = `//This is a comment
+                        preview.type_ruleslanguage = `//This is a comment
 ABORT "You experienced an abort.";
 WARN "THIS IS A WARNING";
 CALL "RIDER_X";
@@ -5569,7 +5569,7 @@ HNDL_1_ADD_EDI = INTDADDATTRIBUTE(HNDL_1, "EDI_TRANSACTION", EDI_ID);
 HNDL_1_ADD_VAL_MSG = INTDADDVMSG(HNDL_1,"Missing (Status Code 9) values found");
 EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600, "Y", "0", " ");`;
 
-preview.type_ruby = `# The Greeter class
+                        preview.type_ruby = `# The Greeter class
 class Greeter
   def initialize(name)
     @name = name.capitalize
@@ -5583,7 +5583,7 @@ end
 g = Greeter.new("world")
 g.salute`;
 
-preview.type_rust = `#[derive(Debug)]
+                        preview.type_rust = `#[derive(Debug)]
 pub enum State {
     Start,
     Transient,
@@ -5600,7 +5600,7 @@ impl From<&'a str> for State {
     }
 }`;
 
-preview.type_sas = `/**********************************************************************
+                        preview.type_sas = `/**********************************************************************
  * Program: example.sas
  * Purpose: SAS Example for HighlightJS Plug-in
  **********************************************************************/
@@ -5649,7 +5649,7 @@ data _null_;
     call symdel(name);
 run;`;
 
-preview.type_scala = `/**
+                        preview.type_scala = `/**
  * A person has a name and an age.
  */
 case class Person(name: String, age: Int)
@@ -5707,7 +5707,7 @@ lazy val ns = for {
   x <- 0 until 100
   y <- 0 until 100`;
 
-preview.type_scheme = `;; Calculation of Hofstadter's male and female sequences as a list of pairs
+                        preview.type_scheme = `;; Calculation of Hofstadter's male and female sequences as a list of pairs
 
 (define (hofstadter-male-female n)
 (letrec ((female (lambda (n)
@@ -5736,7 +5736,7 @@ preview.type_scheme = `;; Calculation of Hofstadter's male and female sequences 
          lst)
    #f)))`;
 
-preview.type_scilab = `// A comment
+                        preview.type_scilab = `// A comment
 function I = foo(dims, varargin)
   d=[1; matrix(dims(1:$-1),-1,1)]
   for i=1:size(varargin)
@@ -5751,7 +5751,7 @@ b = cos(a) + cosh(a);
 bar_matrix = [ "Hello", "world" ];
 foo_matrix = [1, 2, 3; 4, 5, 6];`;
 
-preview.type_scss = `@import "compass/reset";
+                        preview.type_scss = `@import "compass/reset";
 
 // variables
 $colorGreen: #008000;
@@ -5825,7 +5825,7 @@ a {
   }
 }`;
 
-preview.type_shell = `$ echo $EDITOR
+                        preview.type_shell = `$ echo $EDITOR
 vim
 $ git checkout master
 Switched to branch 'master'
@@ -5837,7 +5837,7 @@ $ echo 'All
 All
 done!`;
 
-preview.type_smali = `.class public Lcom/test/Preferences;
+                        preview.type_smali = `.class public Lcom/test/Preferences;
 .super Landroid/preference/PreferenceActivity;
 .source "Preferences.java"
 
@@ -5913,7 +5913,7 @@ preview.type_smali = `.class public Lcom/test/Preferences;
     return-void
 .end method`;
 
-preview.type_smalltalk = `Object>>method: num
+                        preview.type_smalltalk = `Object>>method: num
     "comment 123"
     | var1 var2 |
     (1 to: num) do: [:i | |var| ^i].
@@ -5953,7 +5953,7 @@ heapExample
             sorted add: rnd next]].
     Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'`;
 
-preview.type_sml = `structure List : LIST =
+                        preview.type_sml = `structure List : LIST =
   struct
 
     val op +  = InlineT.DfltInt.+
@@ -5980,9 +5980,9 @@ preview.type_sml = `structure List : LIST =
   end (* structure List *)
 `;
 
-preview.type_sqf = `/***
-	Arma Scripting File
-	Edition: 1.66
+                        preview.type_sqf = `/***
+    Arma Scripting File
+    Edition: 1.66
 ***/
 
 // Enable eating to improve health.
@@ -5997,7 +5997,7 @@ _unit addAction ["Eat Energy Bar", {
     [_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
 }];`;
 
-preview.type_sql = `CREATE TABLE "topic" (
+                        preview.type_sql = `CREATE TABLE "topic" (
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
     "subject" varchar(255) NOT NULL
@@ -6010,7 +6010,7 @@ REFERENCES "forum" ("id");
 insert into "topic" ("forum_id", "subject")
 values (2, 'D''artagnian');`;
 
-preview.type_stan = `// Multivariate Regression Example
+                        preview.type_stan = `// Multivariate Regression Example
 // Taken from stan-reference-2.8.0.pdf p.66
 
 data {
@@ -6050,7 +6050,7 @@ model {
 
 # Note: Octothorpes indicate comments, too!`;
 
-preview.type_stata = `program define gr_log
+                        preview.type_stata = `program define gr_log
 version 6.0
 
 local or = \`2'
@@ -6087,11 +6087,11 @@ forval i=1/4{
     local ln = ln
   }
 }
- 
+
 * add mlibs in the new adopath to the index
 mata: mata mlib index`;
 
-preview.type_step21 = `ISO-10303-21;
+                        preview.type_step21 = `ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION((''),'2;1');
 FILE_NAME('CUBE_4SQUARE','2013-11-29T',('acook'),(''),
@@ -6125,7 +6125,7 @@ DATA;
 ENDSEC;
 END-ISO-10303-21;`;
 
-preview.type_stylus = `@import "nib"
+                        preview.type_stylus = `@import "nib"
 
 // variables
 $green = #008000
@@ -6154,7 +6154,7 @@ button
   color #F0F0F0 !important
   width 100%`;
 
-preview.type_subunit = `progress: 28704
+                        preview.type_subunit = `progress: 28704
 time: 2016-07-05 12:17:02.290433Z
 test: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/branch.txt)
 time: 2016-07-05 12:17:02.314892Z
@@ -6173,7 +6173,7 @@ successful: bzrlib.tests.blackbox.test_add.TestAdd.test_add_control_dir(pre-view
 time: 2016-07-05 12:17:02.368993Z
 time: 2016-07-05 12:17:02.369079Z`;
 
-preview.type_swift = `import Foundation
+                        preview.type_swift = `import Foundation
 
 @objc class Person: Entity {
   var name: String!
@@ -6189,7 +6189,7 @@ preview.type_swift = `import Foundation
   }
 }`;
 
-preview.type_taggerscript = `$if($is_video(),video,$if($is_lossless(),lossless,lossy))/
+                        preview.type_taggerscript = `$if($is_video(),video,$if($is_lossless(),lossless,lossy))/
 $if($is_video(),
 $noop(Video track)
 $if($ne(%album%,[non-album tracks]),
@@ -6202,7 +6202,7 @@ $noop(Single Artist Albums)
 $firstalphachar($if2(%albumartistsort%,%artistsort%))/$if2(%albumartist%,%artist%)/%album%$if(%_releasecomment%, \\(%_releasecomment%\\),)/%_discandtracknumber%%title%
 ))`;
 
-preview.type_yaml = `---
+                        preview.type_yaml = `---
 # comment
 string_1: "Bar"
 string_2: 'bar'
@@ -6242,7 +6242,7 @@ array_nested:
 - b
 - comment`;
 
-preview.type_tap = `# Hardware architecture: x86_64
+                        preview.type_tap = `# Hardware architecture: x86_64
 # Timestamp: 2016-06-16 06:23 (GMT+1)
 # 
 TAP version 13
@@ -6267,7 +6267,7 @@ ok 17 - zdtm/static/maps04
 ok 18 - zdtm/static/pty03
 ok 19 - zdtm/static/pty02`;
 
-preview.type_tcl = `package json
+                        preview.type_tcl = `package json
 
 source helper.tcl
 # randomness verified by a die throw
@@ -6294,7 +6294,7 @@ proc isprime x {
     expr {$x>1 && ![regexp {^(oo+?)\\1+$} [string repeat o $x]]}
 }`;
 
-preview.type_thrift = `namespace * thrift.test
+                        preview.type_thrift = `namespace * thrift.test
 
 /**
  * Docstring!
@@ -6335,7 +6335,7 @@ service ThriftTest
   oneway void testInit()
 }`;
 
-preview.type_tp = `/PROG  ALL
+                        preview.type_tp = `/PROG  ALL
 /ATTR
 OWNER		= MNEDITOR;
 COMMENT		= "";
@@ -6486,13 +6486,13 @@ L P[1] 100mm/sec CNT100 VOFFSET,VR[1] ;
 /POS
 P[1:"test"]{
    GP1:
-	UF : 0, UT : 1,		CONFIG : '',
-	X =   550.000  mm,	Y =     0.000  mm,	Z =  -685.000  mm,
-	W =   180.000 deg,	P =     0.000 deg,	R =     0.000 deg
+    UF : 0, UT : 1,		CONFIG : '',
+    X =   550.000  mm,	Y =     0.000  mm,	Z =  -685.000  mm,
+    W =   180.000 deg,	P =     0.000 deg,	R =     0.000 deg
 };
 /END`;
 
-preview.type_twig = `{% if posts|length %}
+                        preview.type_twig = `{% if posts|length %}
   {% for article in articles %}
   &lt;div&gt;
   {{ article.title|upper() }}
@@ -6514,7 +6514,7 @@ Comments may be long and multiline.
 Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 #}`;
 
-preview.type_typescript = `class MyClass {
+                        preview.type_typescript = `class MyClass {
   public static myValue: string;
   constructor(init: string) {
     this.myValue = init;
@@ -6529,7 +6529,7 @@ module MyModule {
 declare magicNumber number;
 myArray.forEach(() => { }); // fat arrow syntax`;
 
-preview.type_vala = `using DBus;
+                        preview.type_vala = `using DBus;
 
 namespace Test {
   class Foo : Object {
@@ -6576,7 +6576,7 @@ void main () {
   foo.method ();
 }`;
 
-preview.type_vbnet = `Import System
+                        preview.type_vbnet = `Import System
 Import System.IO
 #Const DEBUG = True
 
@@ -6619,7 +6619,7 @@ Namespace Highlighter.Test
   End Class
 End Namespace`;
 
-preview.type_vbscript = `' creating configuration storage and initializing with default values
+                        preview.type_vbscript = `' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
 
 ' reading ini file
@@ -6649,7 +6649,7 @@ for i = 0 to ubound(ini_strings)
     end if
 next`;
 
-preview.type_vbscript_html = `<body>
+                        preview.type_vbscript_html = `<body>
 <%
 If i <  10 Then
   response.write("Good morning!")
@@ -6657,7 +6657,7 @@ End If
 %>
 </body>`;
 
-preview.type_verilog = `\`timescale 1ns / 1ps
+                        preview.type_verilog = `\`timescale 1ns / 1ps
 
 /**
  * counter: a generic clearable up-counter
@@ -6671,7 +6671,7 @@ module counter
         input arst_n,
         output reg [WIDTH-1:0] q
     );
-    
+
     string name = "counter";
     localparam val0 = 12'ha1f;
     localparam val1 = 12'h1fa;
@@ -6716,7 +6716,7 @@ class my_data extends uvm_data;
   endfunction : add_one
 endclass : my_data`;
 
-preview.type_vhdl = `/*
+                        preview.type_vhdl = `/*
  * RS-trigger with assynch. reset
  */
 
@@ -6758,7 +6758,7 @@ begin
     nQ <= not QT;
 end architecture behaviour;`;
 
-preview.type_vim = `if foo > 2 || has("gui_running")
+                        preview.type_vim = `if foo > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
@@ -6776,7 +6776,7 @@ endfunction
 
 let conf = {'command': 'git'}`;
 
-preview.type_x86asm = `section .text
+                        preview.type_x86asm = `section .text
 extern  _MessageBoxA@16
 %if     __NASM_VERSION_ID__ >= 0x02030000
 safeseh handler         ; register handler as "safe handler"
@@ -6817,7 +6817,7 @@ caption:db      'SEGV',0
 section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '`;
 
-preview.type_xl = `import Animate
+                        preview.type_xl = `import Animate
 import SeasonsGreetingsTheme
 import "myhelper.xl"
 theme "SeasonsGreetings"
@@ -6846,7 +6846,7 @@ page "A nice car",
                         scale 0.2, 0.3, 0.3
                     rectangle 0, 0, 100000, 1154`;
 
-preview.type_xml = `<!DOCTYPE html>
+                        preview.type_xml = `<!DOCTYPE html>
 <title>Title</title>
 
 <style>body {width: 500px;}</style>
@@ -6860,10 +6860,10 @@ preview.type_xml = `<!DOCTYPE html>
   <!-- here goes the rest of the page -->
 </body>`;
 
-preview.type_xquery = `xquery version "3.1";
+                        preview.type_xquery = `xquery version "3.1";
 (:~
- : @author Duncan Paterson
- : @version 1.0:)
+: @author Duncan Paterson
+: @version 1.0:)
 
 declare variable $local:num := math:log10(12345);
 
