@@ -1,5 +1,10 @@
 // browser.js
-// Last revised: Mon July 20, 2020 @ 11:02:40 EDT
+// Last revised: Thu July 23, 2020 @ 11:28:21 EDT
+
+// Comment out one or the other to change where the API is called (debug).
+// TODO: instructions for local api hosting
+// const apiUrl = 'http://localhost:3000';
+const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -25,13 +30,14 @@ class Logger {
         if(loggerEnabled) {
             console.log(`%c ${title}`, style);
             console.log(log);
+            console.trace();
         }
     }
 }
-var token = null;
+var token = undefined;
 async function getToken() {
     const Http = new XMLHttpRequest();
-    const tokenUrl='https://codexapp.co/api/getToken/';
+    const tokenUrl = `${apiUrl}/api/getToken/`;
     Http.open("GET", tokenUrl);
     console.log("Token call");
     Http.onreadystatechange=(e)=>{
@@ -62,28 +68,28 @@ function generatePreview() {
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
     if(input == ""){
-        generatePlaceholder(lang);   
+        generatePlaceholder(lang);
     } else {
-    new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
+        new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
-    if (token===null){
-        new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
-    } else {
-        Http.open("POST", `https://codexapp.co/api/create/${engine}${lang}/${token}/`);
-        Http.send(input);
-        console.log(`[POST To:] https://codexapp.co/api/create/${engine}${lang}/${token}`);
-        Http.onreadystatechange=(e)=> {
-            var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
-            console.log(`[API Call to api/create]: Recieved: ${previewText}`);
-            var preview = document.getElementById("previewArea");
-            preview.innerHTML = previewText;
+        if (token == undefined){
+            new Logger('','No Token!', 'color: red; font-weight: bold;');
+            preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
+        } else {
+            Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
+            Http.send(input);
+            console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
+            Http.onreadystatechange=(e)=> {
+                var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+                console.log(`[API Call to api/create]: Recieved: ${previewText}`);
+                var preview = document.getElementById("previewArea");
+                preview.innerHTML = previewText;
+            }
         }
     }
-    }
 }
-function populateSelections(formId, fields) {
-    new Logger ({formid:formId, fields: fields, fieldLength: fields.length});
+function populateSelections(fields) {
+    new Logger ({fields: fields, fieldLength: fields.length});
     var i, j;
     for(i = 0; i < fields.length; i++) {
 
@@ -113,15 +119,15 @@ function populateSelections(formId, fields) {
 function generatePlaceholder(lang = null) {
     const Http = new XMLHttpRequest();
     let len, randomIndex, randomLang, previewId, apiId;
-    if (lang === null) {
-    len = language_list.length;
-    randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
-    randomLang = language_list[randomIndex];
-    previewId = `type_${randomLang.apiId.replace('-', '_')}`;
+    if (lang == null) {
+        len = language_list.length;
+        randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
+        randomLang = language_list[randomIndex];
+        previewId = `type_${randomLang.apiId.replace(/-|\./gm, '_')}`;
         apiId = randomLang.apiId;
-    document.querySelector(`select#lang`).value = randomLang.apiId;
+        document.querySelector(`select#lang`).value = randomLang.apiId;
     } else {
-    previewId = `type_${lang.replace('-', '_')}`;
+        previewId = `type_${lang.replace('-', '_')}`;
         apiId = lang;
     }
     console.log(previewId);
@@ -133,20 +139,71 @@ function generatePlaceholder(lang = null) {
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
     document.querySelector(`select#engine`).value = 'hijs';
 
-    if (token===null){
+    if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = '<span class="error">Could not establish secure connection to codexapp.co/api/</span>';
+        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `https://codexapp.co/api/create/hijs${apiId}/${token}/`);
+        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/${token}/`);
         Http.send(previewText);
-        console.log(`[POST To:] https://codexapp.co/api/create/hijs${apiId}/${token}`);
+        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
         Http.onreadystatechange=(e)=> {
-            var hiPreviewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+            var hiPreviewText = `<pre><code>${Http.responseText}</code><pre>`;
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
             var hiPreview = document.getElementById("previewArea");
             hiPreview.innerHTML = hiPreviewText;
         }
     }
 }
+const previewStyle = document.createElement('link')
+document.querySelector("head").appendChild(previewStyle);
+previewStyle.rel = "stylesheet";
+previewStyle.type= "text/css";
+function refreshSheet() {
+    var styleSelect = document.querySelector('select#style');
+    previewStyle.href=`./css/styles/${styleSelect.options[styleSelect.selectedIndex].value}`;
+}
+
+function getExport() {
+    const Http = new XMLHttpRequest();
+    var engineSelect= document.querySelector("select#engine");
+    var langSelect = document.querySelector("select#lang");
+
+    var engine = engineSelect.options[engineSelect.selectedIndex].value;
+    var lang = langSelect.options[langSelect.selectedIndex].value;
+    var input = document.querySelector("textarea#codeInput").value;
+    var style = document.querySelector("select#style").value;
+    var preview = document.querySelector("div#previewArea");
+
+    if (token == undefined){
+        new Logger('','No Token!', 'color: red; font-weight: bold;');
+        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
+    } else {
+        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`);
+        Http.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        Http.responseType = 'arraybuffer/blob';
+        var image = document.createElement("img");
+
+        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
+        Http.onreadystatechange=(e)=>{
+            if (Http.readyState == 4) {
+                var uInt8Array = new Uint8Array(Http.response);
+                var i = uInt8Array.length;
+                var binaryString = new Array(i);
+                while (i--)
+                {
+                    binaryString[i] = String.fromCharCode(uInt8Array[i]);
+                }
+                var data = binaryString.join('');
+
+                var base64 = window.btoa(data);
+
+                image.src="data:image/png;base64,"+base64;
+                preview.appendChild(image);
+                new Logger({uInt8Array, binaryString, data, base64, image, preview});
+            }}
+        Http.send(input);
+    }
+}
+
 
 

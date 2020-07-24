@@ -3,8 +3,8 @@ tags
 source/pagesource/.jekyll-cache/
 source/.jekyll-cache/
 source/pagesource/_site/
-
 pagesource/.jekyll-cache/
-.gitignore
-.gitignore
 pagesource/_site/
+.gitignore
+node_modules/
+exports/
