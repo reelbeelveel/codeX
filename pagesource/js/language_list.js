@@ -1,4 +1,4 @@
-// List modified: Thu July 23, 2020 @ 11:09:48 EDT
+// List modified: Thu July 23, 2020 @ 11:37:45 EDT
 let preview = {};
 var language_list = [
     {
@@ -894,7 +894,7 @@ var language_list = [
     },{
         displayText: '.properties',
         fileTypes: [{}],
-        apiId: '.properties',
+        apiId: 'properties',
         cdxEnabled: false
     },{
         displayText: 'Protocol Buffers',
@@ -5109,7 +5109,7 @@ split([],[],[]).
 split([A],[A],[]).
 split([A,B|R],[A|Ra],[B|Rb]) :-  split(R,Ra,Rb).`;
 
-preview.type_.properties = `# .properties
+preview.type_properties = `# .properties
 ! Exclamation mark = comments, too
 
 key1 = value1
