@@ -1,4 +1,4 @@
-// List modified: Thu July 23, 2020 @ 11:09:48 EDT
+// List modified: Thu July 23, 2020 @ 11:26:29 EDT
 let preview = {};
 var language_list = [
     {
@@ -5109,7 +5109,7 @@ split([],[],[]).
 split([A],[A],[]).
 split([A,B|R],[A|Ra],[B|Rb]) :-  split(R,Ra,Rb).`;
 
-preview.type_.properties = `# .properties
+preview.type__properties = `# .properties
 ! Exclamation mark = comments, too
 
 key1 = value1
