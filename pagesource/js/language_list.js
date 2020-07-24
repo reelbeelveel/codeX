@@ -1,4 +1,4 @@
-// List modified: Thu July 23, 2020 @ 11:45:37 EDT
+// List modified: Fri July 24, 2020 @ 12:13:27 EDT
 let preview = {};
 var language_list = [
     {
@@ -1196,7 +1196,7 @@ var language_list = [
         apiId: 'zephir',
         cdxEnabled: false
     }];
-
+preview.type_auto =  'YouHaveTo({start: typing_something, to: see_a_preview});';
 preview.type_1c = `#ЗагрузитьИзФайла ext_module.txt // директива 7.7
 #Если Клиент ИЛИ НаКлиенте Тогда // инструкции препроцессора
     &НаКлиентеНаСервереБезКонтекста // директивы компиляции
