@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Fri July 24, 2020 @ 04:50:24 EDT
+// Last revised: Fri July 24, 2020 @ 08:36:54 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -98,7 +98,7 @@ function generatePreview() {
             } else if (detectVisible) {
                 document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
                 detectVisible = false;
-        }
+            }
             Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
             Http.send(input);
             console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
@@ -203,8 +203,9 @@ function getExport() {
         console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
         Http.onreadystatechange=(e)=>{
             if (Http.readyState == 4) {
-                window.open(`${apiUrl}/api/export/${Http.responseText}/`, '_blank');
-            }}
+                if(Http.status == 200) window.open(`${apiUrl}/api/export/${Http.responseText}/`, '_blank');
+            }
+        }
         Http.send(input);
     }
 }

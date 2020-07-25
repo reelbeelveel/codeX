@@ -8,3 +8,5 @@ pagesource/_site/
 .gitignore
 node_modules/
 exports/
+.jekyll-cache/
+_site/

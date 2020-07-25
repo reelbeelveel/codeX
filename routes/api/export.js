@@ -32,11 +32,12 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
     // Validate schema, Check Parameters.
     try {
         const value = await schema.validateAsync(req.params);
+        if (req.body == "" | req.body == undefined | req.body == null) throw new Error('Nothing to Highlight!');
+        else console.log(req.body);
         try {
             // Get output from syntax engine, req type/body.
             var codeExport = await syntaxEngine(value.type, req.body);
             // Get stylesheet filename for screenshot
-            // TODO: Prevent upload of empty images
             const sheet = value.style;
             // launch puppeteer, then newPage() to screenshot our HTML
             const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
@@ -71,20 +72,20 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
     }
 });
 router.get('/:reqId', async (req, res) => {
-        try {
-            // TODO: Validate ID (JOI)
-            const value = await idSchema.validateAsync(req.params);
+    try {
+        // TODO: Validate ID (JOI)
+        const value = await idSchema.validateAsync(req.params);
 
-            // TODO: Get export entry from ID
-            // TODO: Check that entry is valid
-            // TODO: Retrieve image from entry
-            const fileName = pageList.view(value.reqId);
-            // TODO: Return image
-            res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
-        } catch (err) {
-            // TODO ^^^^^^^^ ERRS from any of these ^^^^
-            res.status(400).send(`ERROR: ${err}`);
-        }
+        // TODO: Get export entry from ID
+        // TODO: Check that entry is valid
+        // TODO: Retrieve image from entry
+        const fileName = pageList.view(value.reqId);
+        // TODO: Return image
+        res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
+    } catch (err) {
+        // TODO ^^^^^^^^ ERRS from any of these ^^^^
+        res.status(400).send(`ERROR: ${err}`);
+    }
 }
 )
 
