@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Fri July 24, 2020 @ 03:22:28 EDT
+// Last revised: Fri July 24, 2020 @ 04:50:24 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -199,7 +199,12 @@ function getExport() {
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        window.open(`${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`, 'blank_');
+        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`);
+        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
+        Http.onreadystatechange=(e)=>{
+            if (Http.readyState == 4) {
+                window.open(`${apiUrl}/api/export/${Http.responseText}/`, '_blank');
+            }}
         Http.send(input);
     }
 }

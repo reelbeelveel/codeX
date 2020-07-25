@@ -6,6 +6,7 @@ const syntaxEngine = require('../../engine');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const tokenLength = constante.tkLen;
+var pageList = require('../../pageList');
 
 const schema = joi.object({
     type: joi.string()
@@ -35,6 +36,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             // Get output from syntax engine, req type/body.
             var codeExport = await syntaxEngine(value.type, req.body);
             // Get stylesheet filename for screenshot
+            // TODO: Prevent upload of empty images
             const sheet = value.style;
             // launch puppeteer, then newPage() to screenshot our HTML
             const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
@@ -46,8 +48,14 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/styles/${sheet}`)})
             await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
             // Create Exports Entry
-            // working...
-
+            try {
+                const entry = await pageList.add(value.reqId, value.type.slice(4), sheet);
+                console.log(entry);
+                res.status(200).send(entry).end();
+            } catch (err) {
+                console.log(err);
+                throw new Error(`Could not add page: ${err}`);
+            }
             // XXX Replace ->Send screenshot file back
             // res.status(200).sendFile(`${value.reqId}.png`, { root: path.join(__dirname, '../../exports') });
             //
@@ -62,17 +70,20 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
         res.status(400).send(`Bad Request,\n${err}`).end();
     }
 });
-router.get('/:reqId', (req, res) => {
-        try{
+router.get('/:reqId', async (req, res) => {
+        try {
             // TODO: Validate ID (JOI)
+            const value = await idSchema.validateAsync(req.params);
+
             // TODO: Get export entry from ID
             // TODO: Check that entry is valid
             // TODO: Retrieve image from entry
+            const fileName = pageList.view(value.reqId);
             // TODO: Return image
-            // res.status(200).sendFile(`${value.reqId}.png`, { root: path.join(__dirname, '../../exports') });
+            res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
         } catch (err) {
             // TODO ^^^^^^^^ ERRS from any of these ^^^^
-            // res.status(400).send("ERROR", err);
+            res.status(400).send(`ERROR: ${err}`);
         }
 }
 )

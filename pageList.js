@@ -1,10 +1,8 @@
-// Script modified: Fri July 24, 2020 @ 04:31:57 EDT
+// Script modified: Fri July 24, 2020 @ 08:16:01 EDT
 // TODO: Import Export this list from a file
 
-module.exports = pageList;
-
-var pageList = {
-    add: (id, lang, style, lifetime = 3600) => {
+    var pageList = {
+        add: async function(id, lang, style, lifetime = 3600) {
         // TODO: Implement this check
         // if(pages[id] != undefined) {
         //  throw new Error(`Entry ${id} already exists`);
@@ -23,10 +21,12 @@ var pageList = {
         return id;
     },
     pages: [],
-    view: (id) => {
+    view: function(id) {
         if(id == undefined) return this.pages;
         if(this.pages[id] == undefined) throw new Error(`Page ${id} does not exist`);
         // TODO: If not expired, etc..
         return this.pages[id].file;
     }
 };
+
+module.exports = pageList; 
