@@ -6,7 +6,9 @@ const syntaxEngine = require('../../engine');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const tokenLength = constante.tkLen;
-var pageList = require('../../pageList');
+const pageList = require('../../pageList');
+var list = new pageList.pageList('test');
+console.log({pageList, list});
 
 const schema = joi.object({
     type: joi.string()
@@ -50,7 +52,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
             // Create Exports Entry
             try {
-                const entry = await pageList.add(value.reqId, value.type.slice(4), sheet);
+                const entry = await list.addPage(value.reqId, value.type.slice(4), sheet);
                 console.log(entry);
                 res.status(200).send(entry).end();
             } catch (err) {
@@ -79,7 +81,7 @@ router.get('/:reqId', async (req, res) => {
         // TODO: Get export entry from ID
         // TODO: Check that entry is valid
         // TODO: Retrieve image from entry
-        const fileName = pageList.view(value.reqId);
+        const fileName = await list.view(value.reqId);
         // TODO: Return image
         res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
     } catch (err) {
