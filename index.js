@@ -1,4 +1,4 @@
-// Script modified: Sun July 26, 2020 @ 01:09:44 EDT
+// Script modified: Sun July 26, 2020 @ 01:29:00 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -21,7 +21,7 @@ var cert = fs.readFileSync(__dirname + '/certsFiles/selfsigned.crt');
 app.use(function(req, res, next) {
     //res.header("Access-Control-Allow-Origin", "http://localhost:4000"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Origin", "https://codexapp.co"); // update to match the domain you will make the request from
-    //res.header("Access-Control-Allow-Origin", "http://codexapp.co"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", "http://codexapp.co"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
