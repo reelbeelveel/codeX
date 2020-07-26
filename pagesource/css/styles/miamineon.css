@@ -1,7 +1,7 @@
 /*
  * Highlight.js CSS built on Miamineon.vim
  *  Keelbeelveel 2020
- *  Sheet revised: Fri July 24, 2020 @ 12:13:07 EDT */
+ *  Sheet revised: Sun July 26, 2020 @ 11:38:48 EDT */
 
 :root {
     --clr-mnc-brightgray: #d9cec3;
@@ -35,6 +35,7 @@
     background: var(--clr-mnc-blackgray);
     color: var(--clr-mnc-lime);
 }
+code { color: var(--clr-mnc-lime); }
 
 .hljs-comment, .hljs-quote{
     color: var(--clr-mnc-crocodile);
