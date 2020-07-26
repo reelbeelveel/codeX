@@ -183,6 +183,9 @@ style_list = [
         apiId: "magula.css",
         displayText: "Magula"
     },{
+        apiId: "miamineon.css",
+        displayText: "Miamineon"
+    },{
         apiId: "mono-blue.css",
         displayText: "Mono Blue"
     },{
