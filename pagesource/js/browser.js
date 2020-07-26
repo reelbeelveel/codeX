@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun July 26, 2020 @ 12:03:58 EDT
+// Last revised: Sun July 26, 2020 @ 01:09:23 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -58,6 +58,85 @@ async function getToken() {
     Http.send();
 }
 getToken();
+
+
+var textareas = document.getElementsByTagName('textarea');
+var tabSupportEnabled = true;
+if ( textareas ) {
+    for(var i = 0; i < textareas.length; i++) {
+        textareas[i].addEventListener('keydown', (e) => {
+            if (e.key == 'Escape') {
+                tabSupportEnabled = !tabSupportEnabled;
+                return false;
+            }
+
+            if (e.key == 'Enter' && tabSupportEnabled) {
+                if (this.selectionStart == this.selectionEnd) {
+                    var sel = this.selectionStart;
+                    var text = this.value;
+                    while (sel > 0 && text[sel-1] != '\n')
+                        sel--;
+
+                    var lineStart = sel;
+                    while (text[sel] == ' ' || text[sel]=='\t')
+                        sel++;
+
+                    if (sel > lineStart) {
+                        document.execCommand('insertText', false, "\n" + text.substr(lineStart, sel-lineStart));
+                        this.blur();
+                        this.focus();
+                        return false();
+                    }
+                }
+            }
+
+            if(e.key == 'Tab' && tabSupportEnabled) {
+                if (this.selectionStart == this.selectionEnd) {
+                    if (!e.shiftKey) {
+                        document.execCommand('insertText', false, '\t');
+                    } else {
+                        var text = this.value;
+                        if (this.selectionStart > 0 && text[this.selectionStart-1] == '\t') {
+                            document.execCommand('delete');
+                        }
+                    }
+                } else {
+                    var selStart = this.selectionStart;
+                    var selEnd = this.selectionEnd;
+                    var text = this.value;
+                    while (selStart > 0 && text[selStart-1] != '\n')
+                        selStart--;
+                    while (selEnd > 0 && text[selEnd-1] != '\n' && selEnd < text.length)
+                        selEnd++;
+
+                    var lines = text.substr(selStart, selEnd - selStart).split('\n');
+
+                    for (var i = 0; i < lines.length; i++) {
+                        if (i == lines.length - 1 && lines[i].length==0) 
+                            continue;
+
+                        if (e.shiftKey) {
+                            if (lines[i].startsWith('\t'))
+                                lines[i] = lines[i].substr(1);
+                            else if (lines[i].startsWith("    "))
+                                lines[i] = lines[i].substr(4);
+                        } else {
+                            lines[i] = "\t" + lines[i];
+                        }
+                        lines = lines.join('\n');
+
+                        this.value = text.substr(0, selStart) + lines + text.substr(selEnd);
+                        this.selectionStart = selStart;
+                        this.selectionEnd = selStart + lines.length;
+                    }
+                    return false;
+                }
+                enabled = true;
+                return true;
+            }
+        });
+    }
+}
 
 var langDetect = document.createElement('div');
 var detectVisible = false;
