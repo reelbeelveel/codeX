@@ -1,9 +1,9 @@
 // browser.js
-// Last revised: Thu July 23, 2020 @ 11:28:21 EDT
+// Last revised: Sun July 26, 2020 @ 01:28:49 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-// const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
 const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
@@ -59,6 +59,36 @@ async function getToken() {
 }
 getToken();
 
+
+var textareas = document.getElementsByTagName('textarea');
+if ( textareas ) {
+    for(var i = 0; i < textareas.length; i++) {
+        textareas[i].addEventListener('keydown', (e) => {
+            if(e.key == 'Tab') { // tab was pressed
+                // get caret position/selection
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                var target = e.target;
+                var value = target.value;
+
+                // set textarea value to: text before caret + tab + text after caret
+                target.value = value.substring(0, start)
+                    + "\t"
+                    + value.substring(end);
+
+                // put caret at right position again (add one for the tab)
+                this.selectionStart = this.selectionEnd = start + 1;
+
+                // prevent the focus lose
+                e.preventDefault();
+            }
+        }, false);
+    }
+}
+
+var langDetect = document.createElement('div');
+var detectVisible = false;
 function generatePreview() {
     const Http = new XMLHttpRequest();
     var engineSelect= document.querySelector("select#engine");
@@ -76,6 +106,27 @@ function generatePreview() {
             new Logger('','No Token!', 'color: red; font-weight: bold;');
             preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
         } else {
+            if (lang == "auto"){
+                // TODO: Get Predicted Languages
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", `${apiUrl}/api/detect/`);
+                xhr.send(input);
+                xhr.onreadystatechange=(e)=> {
+                    var detected = xhr.responseText;
+                    for(var i = 1; i < language_list.length; i++){
+                        if(language_list[i].apiId == detected) {
+                            detected = language_list[i].displayText;
+                            detectVisible = true;
+                            break;
+                        }
+                    }
+                    langDetect.innerHTML = `Detected: ${detected}`;
+                    document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
+                }
+            } else if (detectVisible) {
+                document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
+                detectVisible = false;
+            }
             Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
             Http.send(input);
             console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
@@ -83,7 +134,7 @@ function generatePreview() {
                 var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
                 console.log(`[API Call to api/create]: Recieved: ${previewText}`);
                 var preview = document.getElementById("previewArea");
-                preview.innerHTML = previewText;
+                preview.innerHTML = `<pre><code class="hljs">${previewText}</pre></code>`;
             }
         }
     }
@@ -109,9 +160,7 @@ function populateSelections(fields) {
             option.class = `Opt${j}`;
             option.value = list[j].apiId;
             option.innerText = list[j].displayText;
-
             select.appendChild(option);
-            new Logger({option, select}, `option: ${option} attached to select: ${select}`, 'font-weight: bold;');
         }
     }
 }
@@ -147,7 +196,7 @@ function generatePlaceholder(lang = null) {
         Http.send(previewText);
         console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
         Http.onreadystatechange=(e)=> {
-            var hiPreviewText = `<pre><code>${Http.responseText}</code><pre>`;
+            var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
             var hiPreview = document.getElementById("previewArea");
             hiPreview.innerHTML = hiPreviewText;
@@ -160,7 +209,7 @@ previewStyle.rel = "stylesheet";
 previewStyle.type= "text/css";
 function refreshSheet() {
     var styleSelect = document.querySelector('select#style');
-    previewStyle.href=`./css/styles/${styleSelect.options[styleSelect.selectedIndex].value}`;
+    previewStyle.href=`/css/styles/${styleSelect.options[styleSelect.selectedIndex].value}`;
 }
 
 function getExport() {
@@ -179,28 +228,12 @@ function getExport() {
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
         Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`);
-        Http.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-        Http.responseType = 'arraybuffer/blob';
-        var image = document.createElement("img");
-
         console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
         Http.onreadystatechange=(e)=>{
             if (Http.readyState == 4) {
-                var uInt8Array = new Uint8Array(Http.response);
-                var i = uInt8Array.length;
-                var binaryString = new Array(i);
-                while (i--)
-                {
-                    binaryString[i] = String.fromCharCode(uInt8Array[i]);
-                }
-                var data = binaryString.join('');
-
-                var base64 = window.btoa(data);
-
-                image.src="data:image/png;base64,"+base64;
-                preview.appendChild(image);
-                new Logger({uInt8Array, binaryString, data, base64, image, preview});
-            }}
+                if(Http.status == 200) window.open(`${apiUrl}/api/export/${Http.responseText}/`, '_blank');
+            }
+        }
         Http.send(input);
     }
 }

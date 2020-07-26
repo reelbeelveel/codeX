@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Wed July 22, 2020 @ 09:49:05 EDT -->
+<!-- Page revised: Fri July 24, 2020 @ 02:25:03 EDT -->
 <html>
 
 <head>
     <title>codeX | Create</title>
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <link rel="icon" type="image/png" href="/Resources/favicon.png">
     <!-- TODO: Metadata here! -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +17,12 @@
         <ul class="bar">
             <li id="logo">
             <a href="/">
-                <img src="Resources/logo.png"/>
+                <img src="/Resources/logo.png"/>
             </a> <!-- temporary logo -->
             </li>
             <li id="github">
                 <a href="https://github.com/keelbeelveel/codeX">
-                    <img src="Resources/github.png"/>
+                    <img src="/Resources/github.png"/>
                 </a>
         </ul>
     </header>
@@ -45,7 +45,7 @@
                                     <!-- Import engine list -->
                                     <!-- TODO: Convert to json in future? -->
                                 </select>
-                                <script src="js/engine_list.js"></script>
+                                <script src="/js/engine_list.js"></script>
                             </td>
                         </tr>
                         <tr>
@@ -57,7 +57,7 @@
                                     <!-- Import language_list -->
                                     <!-- TODO: Convert to json in future? -->
                                 </select>
-                                <script src="js/language_list.js"></script>
+                                <script src="/js/language_list.js"></script>
                             </td>
                         </tr>
                         <tr>
@@ -81,12 +81,12 @@
             <!-- start flex box two -->
             <div id="previewPanel" class="main-content">
                 <h2>// The preview shows up here.</h2>
+                <hr />
                 <select id="style" onchange="refreshSheet()"></select>
-                <script src="js/style_list.js"></script>
+                <script src="/js/style_list.js"></script>
         <input name="export" type="button" onclick="getExport()">
         Share
         </input>
-                <hr />
                 <div id="previewArea"></div>
             </div>
             <!-- end flex box two -->
@@ -95,7 +95,7 @@
     <footer>
     </footer>
 </body>
-<script src="js/browser.js">
+<script src="/js/browser.js">
 </script>
 <script>
     let fields = [

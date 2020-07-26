@@ -133,6 +133,7 @@ header ul.bar li a img {
     position: relative;
     height: var(--bar-height);
     width: auto;
+    max-width: 100%;
 }
 
 form, input, select, textarea, .previewPanel, .main-content{
@@ -210,11 +211,13 @@ select {
   /* Track */
   ::-webkit-scrollbar-track {
     background: var(--clr-bg-lite);
+    border-radius: 10px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--clr-bg-dark);
+    border-radius: 10px;
   }
   
   /* Handle on hover */
@@ -247,4 +250,25 @@ select {
 
   td{
       width:50%;
+  }
+
+  h1{
+    color:var(--clr-accentA);
+    font-size: 100px;
+    margin-top:10px;
+  }
+
+  h3{
+    font-size: 34px;
+    font-weight: lighter;
+    color: var(--clr-fg-lite); 
+    font-family: "Lucida Console", Courier, monospace;
+
+  }
+
+    h4{
+    color:var(--clr-accentA);
+    font-size: 45px;
+    margin-top:0px;
+    margin-bottom: 0px;
   }

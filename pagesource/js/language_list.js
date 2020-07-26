@@ -1,4 +1,4 @@
-// List modified: Fri July 24, 2020 @ 12:13:27 EDT
+// List modified: Fri July 24, 2020 @ 04:45:32 EDT
 let preview = {};
 var language_list = [
     {
@@ -759,7 +759,7 @@ var language_list = [
     },{
         displayText: 'Mercury',
         fileTypes: [{}],
-        apiId: 'Mercury',
+        apiId: 'mercury',
         cdxEnabled: false
     },{
         displayText: 'MIPS Assembly',
