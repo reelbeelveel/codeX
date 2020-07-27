@@ -1,4 +1,4 @@
-// Script modified: Sun July 26, 2020 @ 01:29:00 EDT
+// Script modified: Sun July 26, 2020 @ 08:45:40 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -9,19 +9,18 @@ const httpPort = 3000;
 const httpsPort = 3001;
 const UIDGenerator = require('uid-generator');
 const uidgen = new UIDGenerator();
+require('dotenv/config');
 
 app.use(bodyParser.text());
 
-var key = fs.readFileSync(__dirname + '/certsFiles/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/certsFiles/selfsigned.crt');
+var key = fs.readFileSync(__dirname + process.env.SSL_KEY);
+var cert = fs.readFileSync(__dirname + process.env.SSL_CRT);
 
 // GLOBALS
 //IMPORT ROUTES
 
 app.use(function(req, res, next) {
-    //res.header("Access-Control-Allow-Origin", "http://localhost:4000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Origin", "https://codexapp.co"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Origin", "http://codexapp.co"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", process.env.REQUEST_ORIGIN); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
