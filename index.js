@@ -1,12 +1,13 @@
-// Script modified: Sun July 26, 2020 @ 08:45:40 EDT
+// Script modified: Mon July 27, 2020 @ 06:45:43 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const fs = require('fs');
 const httpPort = 3000;
 const httpsPort = 3001;
+const mysql = require('./sqlHandler');
 const UIDGenerator = require('uid-generator');
 const uidgen = new UIDGenerator();
 require('dotenv/config');
@@ -43,7 +44,8 @@ var credentials = {
 app.get('/api/getToken/', async (req, res) => {
     try {
         var token = await uidgen.generate();
-        res.status(200).send(token).end();
+        const result = await mysql.sqlQuery(`SELECT * FROM exports WHERE ID = '${token}';`);
+        res.status(200).send(result).end();
     } catch (err) {
         console.log(err);
         res.status(400).send(err).end();
