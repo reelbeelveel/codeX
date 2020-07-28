@@ -29,6 +29,7 @@ const apiDetectRouter = require('./routes/api/detect');
 const apiTokenRouter = require('./routes/api/getToken');
 const createRouter = require('./routes/create');
 const viewRouter = require('./routes/view');
+const exportRouter = require('./routes/export');
 
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);
@@ -36,6 +37,7 @@ app.use('/api/detect', apiDetectRouter);
 app.use('/api/getToken', apiTokenRouter);
 app.use('/create', createRouter);
 app.use('/view', viewRouter);
+app.use('/export' , exportRouter);
 
 var credentials = {
     key: key,
