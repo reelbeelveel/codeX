@@ -1,4 +1,4 @@
-// Script modified: Tue July 28, 2020 @ 01:45:25 EDT
+// Script modified: Tue July 28, 2020 @ 06:26:32 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -7,9 +7,6 @@ const http = require('http');
 const https = require('https');
 const httpPort = 3000;
 const httpsPort = 3001;
-const mysql = require('./sqlHandler');
-const UIDGenerator = require('uid-generator');
-const uidgen = new UIDGenerator();
 require('dotenv/config');
 
 app.use(bodyParser.text());
@@ -27,44 +24,26 @@ app.use(function(req, res, next) {
 });
 
 const apiCreateRouter = require('./routes/api/create');
-const apiViewRouter = require('./routes/api/view');
 const apiExportRouter = require('./routes/api/export');
 const apiDetectRouter = require('./routes/api/detect');
+const apiTokenRouter = require('./routes/api/getToken');
+const viewRouter = require('./routes/view');
 
 app.use('/api/create', apiCreateRouter);
-app.use('/api/view', apiViewRouter);
 app.use('/api/export', apiExportRouter);
 app.use('/api/detect', apiDetectRouter);
+app.use('/api/getToken', apiTokenRouter);
+app.use('/view', viewRouter);
 
 var credentials = {
     key: key,
     cert: cert
 };
 
-app.get('/api/getToken/', async (req, res) => {
-    var token;
-    try {
-        var sql;
-        do {
-            token = await uidgen.generate();
-            sql = await mysql.sqlQuery(`SELECT * FROM exports WHERE id = '${token}';`);
-        } while (sql.result[0]);
-        res.status(200).send(token).end();
-    } catch (err) {
-        console.log(err);
-        res.status(400).send(err).end();
-    }
-});
-
-app.all('/api/getToken', (req, res) => {
-    res.status(400)
-        .send("Bad Request, /api/getToken only supports 'GET'.")
-        .end();
-});
 
 app.all('/api', (req, res) => {
     res.status(400)
-        .send("Bad Request, specify a subroutine ('/api/create/', '/api/detect/', /api/export/', 'api/getToken/', '/api/view/')")
+        .send("Bad Request, specify a subroutine ('/api/create/', '/api/detect/', /api/export/', 'api/getToken/', '/view')")
         .end();
 });
 
