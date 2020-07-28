@@ -1,4 +1,4 @@
-// Script modified: Mon July 27, 2020 @ 08:43:53 EDT
+// Script modified: Tue July 28, 2020 @ 01:45:25 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -42,11 +42,12 @@ var credentials = {
 };
 
 app.get('/api/getToken/', async (req, res) => {
+    var token;
     try {
-        var token, sql;
+        var sql;
         do {
             token = await uidgen.generate();
-            sql = await mysql.sqlQuery(`SELECT * FROM exports WHERE ID = '${token}';`);
+            sql = await mysql.sqlQuery(`SELECT * FROM exports WHERE id = '${token}';`);
         } while (sql.result[0]);
         res.status(200).send(token).end();
     } catch (err) {

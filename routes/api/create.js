@@ -1,4 +1,4 @@
-// Script modified: Wed July 22, 2020 @ 04:50:58 EDT
+// Script modified: Mon July 27, 2020 @ 11:40:56 EDT
 const express = require('express');
 const syntaxEngine = require('../../engine');
 const router = express.Router();
@@ -18,11 +18,10 @@ const schema = joi.object({
     reqId: joi.string()
     .token()
     .length(tokenLength)
-    .required()
 });
 
 // Accepts request in the form url/api/create/TYPE/ID
-router.post('/:type/:reqId', async (req, res) => {
+router.post('/:type', async (req, res) => {
     try {
         // Validates Type and ID using schema
         const value = await schema.validateAsync(req.params);

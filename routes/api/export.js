@@ -1,14 +1,12 @@
 const constante = require('./constants');
 const express = require('express');
 const joi = require('@hapi/joi');
-const router = express.Router();
-const syntaxEngine = require('../../engine');
+const mysql = require('../../sqlHandler');
 const path = require('path');
 const puppeteer = require('puppeteer');
+const router = express.Router();
+const syntaxEngine = require('../../engine');
 const tokenLength = constante.tkLen;
-const pageList = require('../../pageList');
-var list = new pageList.pageList('test');
-console.log({pageList, list});
 
 const schema = joi.object({
     type: joi.string()
@@ -52,9 +50,24 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
             // Create Exports Entry
             try {
-                const entry = await list.addPage(value.reqId, value.type.slice(4), sheet);
-                console.log(entry);
-                res.status(200).send(entry).end();
+                const query = `INSERT INTO images (
+                    id,
+                    path,
+                    plaintext,
+                    style,
+                    engine_type,
+                    code_type
+                ) VALUES (
+                    '${value.reqId}',
+                    '${value.reqId}.png',
+                    '${req.body}',
+                    '${sheet}',
+                    '${value.type.slice(0,4)}',
+                    '${value.type.substring(4)}'
+                );`;
+                var result = mysql.sqlQuery(query); 
+                console.log(result);
+                res.status(200).send(result).end();
             } catch (err) {
                 console.log(err);
                 throw new Error(`Could not add page: ${err}`);
@@ -77,11 +90,12 @@ router.get('/:reqId', async (req, res) => {
     try {
         // TODO: Validate ID (JOI)
         const value = await idSchema.validateAsync(req.params);
-
-        // TODO: Get export entry from ID
-        // TODO: Check that entry is valid
-        // TODO: Retrieve image from entry
-        const fileName = await list.view(value.reqId);
+        const query = `SELECT path
+        FROM images
+        WHERE id = '${value.reqId}';`;
+        const sqlResult = await mysql.sqlQuery(query);
+        if (sqlResult[0] == null || sqlResult[0] == undefined) throw new Error('No defined path for export.');
+        const filename = result[0];
         // TODO: Return image
         res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
     } catch (err) {

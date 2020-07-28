@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Sun July 26, 2020 @ 01:28:49 EDT
+// Last revised: Tue July 28, 2020 @ 01:46:31 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -57,7 +57,6 @@ async function getToken() {
     }
     Http.send();
 }
-getToken();
 
 
 var textareas = document.getElementsByTagName('textarea');
@@ -68,18 +67,14 @@ if ( textareas ) {
                 // get caret position/selection
                 var start = this.selectionStart;
                 var end = this.selectionEnd;
-
                 var target = e.target;
                 var value = target.value;
-
                 // set textarea value to: text before caret + tab + text after caret
                 target.value = value.substring(0, start)
                     + "\t"
                     + value.substring(end);
-
                 // put caret at right position again (add one for the tab)
                 this.selectionStart = this.selectionEnd = start + 1;
-
                 // prevent the focus lose
                 e.preventDefault();
             }
@@ -127,9 +122,9 @@ function generatePreview() {
                 document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
                 detectVisible = false;
             }
-            Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
+            Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/`);
             Http.send(input);
-            console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
+            console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/`);
             Http.onreadystatechange=(e)=> {
                 var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
                 console.log(`[API Call to api/create]: Recieved: ${previewText}`);
@@ -192,9 +187,9 @@ function generatePlaceholder(lang = null) {
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/${token}/`);
+        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/`);
         Http.send(previewText);
-        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
+        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/`);
         Http.onreadystatechange=(e)=> {
             var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
             console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
@@ -213,6 +208,7 @@ function refreshSheet() {
 }
 
 function getExport() {
+
     const Http = new XMLHttpRequest();
     var engineSelect= document.querySelector("select#engine");
     var langSelect = document.querySelector("select#lang");
@@ -223,6 +219,7 @@ function getExport() {
     var style = document.querySelector("select#style").value;
     var preview = document.querySelector("div#previewArea");
 
+    getToken();
     if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
@@ -239,4 +236,4 @@ function getExport() {
 }
 
 
-
+getToken();
