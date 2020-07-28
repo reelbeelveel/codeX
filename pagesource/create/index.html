@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!-- Page revised: Tue July 28, 2020 @ 06:43:12 EDT -->
+<html>
+
+<head>
+    <title>codeX | Create</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="icon" type="image/png" href="/Resources/favicon.png">
+    <!-- TODO: Metadata here! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- helps with mobile/desktop viewing zpg -->
+</head>
+
+<body>
+    <div id="header" class="header">
+    <header>
+        <ul class="bar">
+            <li id="logo">
+            <a href="/">
+                <img src="/Resources/logo.png"/>
+            </a> <!-- temporary logo -->
+            </li>
+            <li id="github">
+                <a href="https://github.com/keelbeelveel/codeX">
+                    <img src="/Resources/github.png"/>
+                </a>
+        </ul>
+    </header>
+    </div>
+    <main>
+        
+        <div class="flex-prop">
+            <!-- start flex box one -->
+            <div class="main-content">
+                <h2>// Write your code here...</h2> 
+                <hr />
+                <form id="codexGenerator" class="input-form">
+                    <table style="margin-left: auto; margin-right:auto; width:100%">
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="engine">Select an Engine:</label>
+                            </td>
+                            <td align="right">
+                                <select id="engine">
+                                    <!-- Import engine list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="/js/engine_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="lang">Select a Language:</label>
+                            </td>
+                            <td align="right">
+                                <select id="lang" onchange="generatePreview()">
+                                    <!-- Import language_list -->
+                                    <!-- TODO: Convert to json in future? -->
+                                </select>
+                                <script src="/js/language_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--<td class="form-label-col">
+                                <label for="codeInput">Label Placeholder:</label>
+                                </td>
+                                <td>
+                                <textarea id="codeInput" name="codeInput" autofocus placeholder="Test" required></textarea>
+                                </td>-->
+                        </tr>
+                    </table>
+                    <textarea id="codeInput" name="codeInput" autofocus placeholder="// Paste your code here..."
+                        required onchange="generatePreview()"oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'a
+                        style="resize: none"></textarea>
+                    <center>
+                        <input type="button" value="Generate Preview" class="button" onclick="generatePreview()" />
+                    </center>
+                </form>
+            </div>
+            <!-- end flex box one -->
+            <!-- start flex box two -->
+            <div id="previewPanel" class="main-content">
+                <h2>// The preview shows up here.</h2>
+                <hr />
+                <select id="style" onchange="refreshSheet()"></select>
+                <script src="/js/style_list.js"></script>
+        <input name="export" type="button" onclick="getExport()">
+        Share
+        </input>
+                <div id="previewArea"></div>
+            </div>
+            <!-- end flex box two -->
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script src="/js/browser.js">
+</script>
+<script>
+    let fields = [
+        {
+            id: "lang",
+            populateWith: language_list
+        }, {
+            id: "engine",
+            populateWith: engine_list
+        }, {
+            id: "style",
+            populateWith: style_list
+        }];
+    populateSelections(fields);
+    generatePlaceholder();
+    refreshSheet();
+</script>
+
+</html>
