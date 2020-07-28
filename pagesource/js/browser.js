@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Sun July 26, 2020 @ 01:28:49 EDT
+// Last revised: Tue July 28, 2020 @ 06:41:39 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -47,17 +47,15 @@ async function getToken() {
                 // The request has been completed successfully
                 token = Http.responseText;
                 new Logger(`[API Call to api/getToken/]: Recieved token: "${token}"`, 'Token Recieved!', 'color: yellow; font-weight: bold;');
-                generatePlaceholder();
             } else {
                 // Oh no! There has been an error with the request!
                 console.log("There was an error with the getToken request.");
                 console.log({status: Http.status});
             }
-        } 
+        }
     }
     Http.send();
 }
-getToken();
 
 
 var textareas = document.getElementsByTagName('textarea');
@@ -68,18 +66,14 @@ if ( textareas ) {
                 // get caret position/selection
                 var start = this.selectionStart;
                 var end = this.selectionEnd;
-
                 var target = e.target;
                 var value = target.value;
-
                 // set textarea value to: text before caret + tab + text after caret
                 target.value = value.substring(0, start)
                     + "\t"
                     + value.substring(end);
-
                 // put caret at right position again (add one for the tab)
                 this.selectionStart = this.selectionEnd = start + 1;
-
                 // prevent the focus lose
                 e.preventDefault();
             }
@@ -102,40 +96,35 @@ function generatePreview() {
     } else {
         new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
-        if (token == undefined){
-            new Logger('','No Token!', 'color: red; font-weight: bold;');
-            preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
-        } else {
-            if (lang == "auto"){
-                // TODO: Get Predicted Languages
-                const xhr = new XMLHttpRequest();
-                xhr.open("POST", `${apiUrl}/api/detect/`);
-                xhr.send(input);
-                xhr.onreadystatechange=(e)=> {
-                    var detected = xhr.responseText;
-                    for(var i = 1; i < language_list.length; i++){
-                        if(language_list[i].apiId == detected) {
-                            detected = language_list[i].displayText;
-                            detectVisible = true;
-                            break;
-                        }
+        if (lang == "auto"){
+            // TODO: Get Predicted Languages
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", `${apiUrl}/api/detect/`);
+            xhr.send(input);
+            xhr.onreadystatechange=(e)=> {
+                var detected = xhr.responseText;
+                for(var i = 1; i < language_list.length; i++){
+                    if(language_list[i].apiId == detected) {
+                        detected = language_list[i].displayText;
+                        detectVisible = true;
+                        break;
                     }
-                    langDetect.innerHTML = `Detected: ${detected}`;
-                    document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
                 }
-            } else if (detectVisible) {
-                document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
-                detectVisible = false;
+                langDetect.innerHTML = `Detected: ${detected}`;
+                document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
             }
-            Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/${token}/`);
-            Http.send(input);
-            console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/${token}`);
-            Http.onreadystatechange=(e)=> {
-                var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
-                console.log(`[API Call to api/create]: Recieved: ${previewText}`);
-                var preview = document.getElementById("previewArea");
-                preview.innerHTML = `<pre><code class="hljs">${previewText}</pre></code>`;
-            }
+        } else if (detectVisible) {
+            document.querySelector('div#previewPanel.main-content').removeChild(langDetect);
+            detectVisible = false;
+        }
+        Http.open("POST", `${apiUrl}/api/create/${engine}${lang}/`);
+        Http.send(input);
+        console.log(`[POST To:] ${apiUrl}/api/create/${engine}${lang}/`);
+        Http.onreadystatechange=(e)=> {
+            var previewText = Http.responseText.replace(/\r|\n/gm, "<br />");
+            console.log(`[API Call to api/create]: Recieved: ${previewText}`);
+            var preview = document.getElementById("previewArea");
+            preview.innerHTML = `<pre><code class="hljs">${previewText}</pre></code>`;
         }
     }
 }
@@ -179,28 +168,18 @@ function generatePlaceholder(lang = null) {
         previewId = `type_${lang.replace('-', '_')}`;
         apiId = lang;
     }
-    console.log(previewId);
-    console.log(Object.keys(preview));
-    console.log(preview[previewId]);
     let previewText = preview[previewId];
 
     new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
     document.querySelector(`select#engine`).value = 'hijs';
-
-    if (token == undefined){
-        new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
-    } else {
-        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/${token}/`);
-        Http.send(previewText);
-        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/${token}`);
-        Http.onreadystatechange=(e)=> {
-            var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
-            console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
-            var hiPreview = document.getElementById("previewArea");
-            hiPreview.innerHTML = hiPreviewText;
-        }
+    Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/`);
+    Http.send(previewText);
+    console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/`);
+    Http.onreadystatechange=(e)=> {
+        var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
+        var hiPreview = document.getElementById("previewArea");
+        hiPreview.innerHTML = hiPreviewText;
     }
 }
 const previewStyle = document.createElement('link')
@@ -214,29 +193,29 @@ function refreshSheet() {
 
 function getExport() {
     const Http = new XMLHttpRequest();
-    var engineSelect= document.querySelector("select#engine");
+    var engineSelect = document.querySelector("select#engine");
     var langSelect = document.querySelector("select#lang");
-
     var engine = engineSelect.options[engineSelect.selectedIndex].value;
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
     var style = document.querySelector("select#style").value;
     var preview = document.querySelector("div#previewArea");
-
     if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
     } else {
-        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}/`);
-        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/arg/${style}/${token}`);
+        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}/`);
+        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
         Http.onreadystatechange=(e)=>{
             if (Http.readyState == 4) {
-                if(Http.status == 200) window.open(`${apiUrl}/api/export/${Http.responseText}/`, '_blank');
+                if(Http.status == 200) window.location.href = `${apiUrl}/view`;
             }
         }
         Http.send(input);
+        getToken();
     }
 }
 
 
-
+getToken();
+generatePlaceholder();
