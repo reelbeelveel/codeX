@@ -11,13 +11,16 @@ var con = mysql.createConnection({
 
 con.connect((err) => {
     if(err) throw err;
-    console.log(`Connected to ${env.SQL_HOSTNAME}:${env.SQL_HOSTNAME}`);
+    console.log(`Connected to ${env.SQL_HOSTNAME}:${env.SQL_DATABASE}`);
 });
 
-module.exports.sqlQuery = async (sql) => {
-    return con.query(sql, (err, result) => {
-        if (err) throw err;
-        console.log({sql, result, err});
-        return result;
-    })
-};
+module.exports.sqlQuery = (sql) => {
+    return new Promise(data => {
+        con.query(sql, (err, result, fields) => {
+            if (err) throw err;
+            try {
+                data({result, fields});
+            } catch (error) {
+                data({});
+                throw error;
+}})})};
