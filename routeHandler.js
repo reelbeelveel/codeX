@@ -1,4 +1,4 @@
-// Script modified: Tue July 28, 2020 @ 07:22:06 EDT
+// Script modified: Tue July 28, 2020 @ 07:29:04 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -28,17 +28,21 @@ const apiExportRouter = require('./routes/api/export');
 const apiDetectRouter = require('./routes/api/detect');
 const apiTokenRouter = require('./routes/api/getToken');
 const createRouter = require('./routes/create');
+const cssRouter = require('./routes/cssRouter');
 const exportRouter = require('./routes/export');
 const indexRouter = require('./routes/index');
+const jsRouter = require('./routes/jsRouter');
 const viewRouter = require('./routes/view');
 
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);
 app.use('/api/detect', apiDetectRouter);
 app.use('/api/getToken', apiTokenRouter);
+app.use('/', indexRouter);
+app.use('/css', cssRouter);
 app.use('/create', createRouter);
 app.use('/export' , exportRouter);
-app.use('/index', indexRouter);
+app.use('/js', jsRouter);
 app.use('/view', viewRouter);
 
 var credentials = {
