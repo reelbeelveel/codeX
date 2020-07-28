@@ -50,24 +50,25 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
             await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
             // Create Exports Entry
             try {
-                const query = `INSERT INTO images (
-                    id,
-                    path,
-                    plaintext,
-                    style,
-                    engine_type,
-                    code_type
-                ) VALUES (
-                    '${value.reqId}',
-                    '${value.reqId}.png',
-                    '${req.body}',
-                    '${sheet}',
-                    '${value.type.slice(0,4)}',
-                    '${value.type.substring(4)}'
-                );`;
-                var result = mysql.sqlQuery(query); 
+                const query = 
+                    "INSERT INTO images (" +                
+                    " id, " + 
+                    " path, " + 
+                    " plaintext, " +
+                    " style, " + 
+                    " engine_type, " +
+                    " code_type " +
+                    ") VALUES (" +
+                    ` '${value.reqId}', ` +
+                    ` '${value.reqId}.png', ` +
+                    ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
+                    ` '${sheet}', ` + 
+                    ` '${value.type.slice(0,4)}', ` +
+                    ` '${value.type.substring(4)}' ` +
+                    ");";
+                var result = await mysql.sqlQuery(query);
                 console.log(result);
-                res.status(200).send(result).end();
+                res.status(200).send(value.reqId).end();
             } catch (err) {
                 console.log(err);
                 throw new Error(`Could not add page: ${err}`);
@@ -90,12 +91,11 @@ router.get('/:reqId', async (req, res) => {
     try {
         // TODO: Validate ID (JOI)
         const value = await idSchema.validateAsync(req.params);
-        const query = `SELECT path
-        FROM images
-        WHERE id = '${value.reqId}';`;
-        const sqlResult = await mysql.sqlQuery(query);
-        if (sqlResult[0] == null || sqlResult[0] == undefined) throw new Error('No defined path for export.');
-        const filename = result[0];
+        const query = `SELECT path FROM images WHERE id = '${value.reqId}';`;
+        const sql = await mysql.sqlQuery(query);
+        if (sql.result[0] == null || sql.result[0] == undefined) throw new Error('No defined path for export.');
+        const fileName = sql.result[0].path;
+        console.log(query, sql.result[0].path);
         // TODO: Return image
         res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
     } catch (err) {

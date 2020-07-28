@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Tue July 28, 2020 @ 01:46:31 EDT
+// Last revised: Tue July 28, 2020 @ 04:41:51 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -47,13 +47,12 @@ async function getToken() {
                 // The request has been completed successfully
                 token = Http.responseText;
                 new Logger(`[API Call to api/getToken/]: Recieved token: "${token}"`, 'Token Recieved!', 'color: yellow; font-weight: bold;');
-                generatePlaceholder();
             } else {
                 // Oh no! There has been an error with the request!
                 console.log("There was an error with the getToken request.");
                 console.log({status: Http.status});
             }
-        } 
+        }
     }
     Http.send();
 }
@@ -97,10 +96,6 @@ function generatePreview() {
     } else {
         new Logger({engineSelect, langSelect, engine, lang, input, token}, 'Attempting to generate a Preview.', 'color: orange; font-weight: bold;');
 
-        if (token == undefined){
-            new Logger('','No Token!', 'color: red; font-weight: bold;');
-            preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
-        } else {
             if (lang == "auto"){
                 // TODO: Get Predicted Languages
                 const xhr = new XMLHttpRequest();
@@ -133,7 +128,6 @@ function generatePreview() {
             }
         }
     }
-}
 function populateSelections(fields) {
     new Logger ({fields: fields, fieldLength: fields.length});
     var i, j;
@@ -174,28 +168,18 @@ function generatePlaceholder(lang = null) {
         previewId = `type_${lang.replace('-', '_')}`;
         apiId = lang;
     }
-    console.log(previewId);
-    console.log(Object.keys(preview));
-    console.log(preview[previewId]);
     let previewText = preview[previewId];
 
-    new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
+    //new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
     document.querySelector(`select#engine`).value = 'hijs';
-
-    if (token == undefined){
-        new Logger('','No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
-    } else {
-        Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/`);
-        Http.send(previewText);
-        console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/`);
-        Http.onreadystatechange=(e)=> {
-            var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
-            console.log(`[API Call to api/create]: Recieved: ${hiPreviewText}`);
-            var hiPreview = document.getElementById("previewArea");
-            hiPreview.innerHTML = hiPreviewText;
-        }
+    Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/`);
+    Http.send(previewText);
+    console.log(`[POST To:] ${apiUrl}/api/create/hijs${apiId}/`);
+    Http.onreadystatechange=(e)=> {
+        var hiPreviewText = `<pre><code class="hljs">${Http.responseText}</code><pre>`;
+        var hiPreview = document.getElementById("previewArea");
+        hiPreview.innerHTML = hiPreviewText;
     }
 }
 const previewStyle = document.createElement('link')
@@ -208,18 +192,14 @@ function refreshSheet() {
 }
 
 function getExport() {
-
     const Http = new XMLHttpRequest();
-    var engineSelect= document.querySelector("select#engine");
+    var engineSelect = document.querySelector("select#engine");
     var langSelect = document.querySelector("select#lang");
-
     var engine = engineSelect.options[engineSelect.selectedIndex].value;
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
     var style = document.querySelector("select#style").value;
     var preview = document.querySelector("div#previewArea");
-
-    getToken();
     if (token == undefined){
         new Logger('','No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
@@ -232,8 +212,10 @@ function getExport() {
             }
         }
         Http.send(input);
+        getToken();
     }
 }
 
 
 getToken();
+generatePlaceholder();
