@@ -33,6 +33,7 @@ const exportRouter = require('./routes/export');
 const indexRouter = require('./routes/index');
 const jsRouter = require('./routes/jsRouter');
 const viewRouter = require('./routes/view');
+const resourceRouter = require('./routes/resource');
 
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);
@@ -44,6 +45,7 @@ app.use('/create', createRouter);
 app.use('/export' , exportRouter);
 app.use('/js', jsRouter);
 app.use('/view', viewRouter);
+app.use('/Resources', viewResources);
 
 var credentials = {
     key: key,
