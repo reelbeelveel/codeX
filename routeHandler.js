@@ -1,4 +1,4 @@
-// Script modified: Tue July 28, 2020 @ 08:20:25 EDT
+// Script modified: Tue July 28, 2020 @ 08:34:32 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,6 +10,7 @@ const httpsPort = 3001;
 require('dotenv/config');
 
 app.use(bodyParser.text());
+app.use(express.static(__dirname + '/public'));
 
 var key = fs.readFileSync(__dirname + process.env.SSL_KEY);
 var cert = fs.readFileSync(__dirname + process.env.SSL_CRT);

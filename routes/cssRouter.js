@@ -1,11 +1,11 @@
-// Script modified: Tue July 28, 2020 @ 07:43:16 EDT
+// Script modified: Tue July 28, 2020 @ 08:31:50 EDT
 const express = require('express');
 const path = require('path');
 const joi = require('@hapi/joi');
 const router = express.Router();
 const fileSchema = joi.object({
     file: joi.string()
-    .regex(#^[0-9a-zA-Z\-_/]*\.css$#)
+    .regex(/^[0-9a-zA-Z\-_\/]*\.css$/)
     .required()
 });
 

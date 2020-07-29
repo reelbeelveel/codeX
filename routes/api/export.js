@@ -46,7 +46,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                     // Set our page's content (template as desired) + styleheet (from request, or default)?
                     // TODO: vvv ADD WATERMARK TO IMAGE USING TEMPLATE HTML vvv
                     await page.setContent(`<html><pre><code class="hljs">${codeExport}</code></pre></html>`);
-                    await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/styles/${sheet}`)})
+                    await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)})
                     await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
                     // Create Exports Entry
                     try {

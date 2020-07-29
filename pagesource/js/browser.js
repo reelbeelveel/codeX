@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Tue July 28, 2020 @ 06:41:39 EDT
+// Last revised: Tue July 28, 2020 @ 08:38:32 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -188,7 +188,7 @@ previewStyle.rel = "stylesheet";
 previewStyle.type= "text/css";
 function refreshSheet() {
     var styleSelect = document.querySelector('select#style');
-    previewStyle.href=`/css/styles/${styleSelect.options[styleSelect.selectedIndex].value}`;
+    previewStyle.href=`/css/${styleSelect.options[styleSelect.selectedIndex].value}`;
 }
 
 function getExport() {
