@@ -5,7 +5,7 @@ const joi = require('@hapi/joi');
 const router = express.Router();
 const fileSchema = joi.object({
     file: joi.string()
-    .regex(/^[a-zA-Z\-_]*\.css$/)
+    .regex(#^[0-9a-zA-Z\-_/]*\.css$#)
     .required()
 });
 
