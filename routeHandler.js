@@ -1,4 +1,4 @@
-// Script modified: Tue July 28, 2020 @ 07:29:04 EDT
+// Script modified: Tue July 28, 2020 @ 08:20:25 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -45,7 +45,7 @@ app.use('/create', createRouter);
 app.use('/export' , exportRouter);
 app.use('/js', jsRouter);
 app.use('/view', viewRouter);
-app.use('/Resources', viewResources);
+app.use('/Resources', resourceRouter);
 
 var credentials = {
     key: key,
