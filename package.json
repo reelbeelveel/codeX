@@ -1,8 +1,8 @@
 {
-  "name": "codex",
+  "name": "codexportapp",
   "version": "1.0.0",
   "description": "Code Exporter",
-  "main": "index.js",
+  "main": "routeHandler.js",
   "scripts": {},
   "author": "keelbeelveel",
   "license": "GPL-3.0-or-later",
