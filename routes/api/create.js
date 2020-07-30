@@ -1,10 +1,9 @@
-// Script modified: Mon July 27, 2020 @ 11:40:56 EDT
+// Script modified: Thu July 30, 2020 @ 06:44:41 EDT
 const express = require('express');
 const syntaxEngine = require('../../engine');
 const router = express.Router();
 const joi = require('@hapi/joi');
-const constants = require('./constants');
-const tokenLength = constants.tkLen;
+const tokenLength = 22;
 
 // JOI Validation Schema:
 //

@@ -1,5 +1,5 @@
 // create.js
-// Last revised: Thu July 30, 2020 @ 06:14:17 EDT
+// Last revised: Thu July 30, 2020 @ 07:08:51 EDT
 
 var textareas = document.getElementsByTagName('textarea');
 if ( textareas ) {
@@ -142,8 +142,9 @@ function quickShare(){
     var engine = engineSelect.options[engineSelect.selectedIndex].value;
     var lang = langSelect.options[langSelect.selectedIndex].value;
     var input = document.querySelector("textarea#codeInput").value;
-    var style = document.querySelector("select#style");
+    var style = document.querySelector("select#style").value;
     var preview = document.querySelector("div#previewArea");
+    new Logger({engineSelect, langSelect, engine, lang, input, style, preview}, 'QuickShare Parameters:', 'color: green; font-weight: bold;');
     if (token == undefined) {
         new Logger('', 'No Token!', 'color: red; font-weight: bold;');
         preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;

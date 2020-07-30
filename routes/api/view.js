@@ -1,12 +1,11 @@
-// Script modified: Thu July 30, 2020 @ 06:18:19 EDT
+// Script modified: Thu July 30, 2020 @ 07:13:13 EDT
 const express = require('express');
 const joi = require('@hapi/joi');
-const mysql = require('../sqlHandler');
+const mysql = require('../../sqlHandler');
 const path = require('path');
 const router = express.Router();
-require('dotenv/config');
 
-const tokenLength = process.env.TK_LEN;
+const tokenLength = 22;
 
 const argSchema = joi.object({
     reqId: joi.string()
@@ -36,7 +35,7 @@ router.get('/:reqId/:arg?', async (req, res) => {
             }
         }
         if (fileName === undefined) throw new Error(`The specified ID ${value.reqId} did not produce a valid filename.`);
-        res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../exports') });
+        res.status(200).sendFile(`${fileName}`, { root: path.join(__dirname, '../../exports') });
         // TODO: Get PNG directly from SQL
     } catch (err) {
         res.status(400).send(`Bad Request.\n${err}`).end();
