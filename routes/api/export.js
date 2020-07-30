@@ -114,11 +114,6 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
         res.status(400).send(`Bad Request,\n${err}`).end();
     }
 });
-router.get('/:reqId', async (req, res) => {
-    // TODO
-});
-
-//TODO new route handlers for get etc
 
 router.post('/', (req, res) => {
     res.status(400)

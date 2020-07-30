@@ -1,5 +1,5 @@
 // create.js
-// Last revised: Thu July 30, 2020 @ 05:44:37 EDT
+// Last revised: Thu July 30, 2020 @ 06:14:17 EDT
 
 var textareas = document.getElementsByTagName('textarea');
 if ( textareas ) {
@@ -151,7 +151,7 @@ function quickShare(){
         Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
         Http.onreadystatechange=(e) => {
             if(Http.readyState == 4) {
-                if(Http.status == 200) copyToClipboard(`${apiUrl}/view`);
+                if(Http.status == 200) copyToClipboard(`${apiUrl}/v/${Http.responseText}`);
             }
         }
         Http.send(input);
