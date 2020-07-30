@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Tue July 28, 2020 @ 10:36:07 EDT -->
+<!-- Page revised: Thu July 30, 2020 @ 05:11:40 EDT -->
 <html>
 
 <head>
@@ -84,9 +84,8 @@
                 <hr />
                 <select id="style" onchange="refreshSheet()"></select>
                 <script src="/js/style_list.js"></script>
-        <input name="export" type="button" onclick="getExport()">
-        Share
-        </input>
+        <input name="Share" type="button" onclick="quickShare()" value="Quick Share"/>
+        <input name="Export" type="button" onclick="getExport()" value="Export"/>
                 <div id="previewArea"></div>
             </div>
             <!-- end flex box two -->
@@ -95,8 +94,8 @@
     <footer>
     </footer>
 </body>
-<script src="/js/browser.js">
-</script>
+<script src="/js/browser.js"></script>
+<script src="/js/create.js"></script>
 <script>
     let fields = [
         {
