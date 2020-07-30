@@ -1,10 +1,12 @@
-// Script modified: Thu July 30, 2020 @ 06:15:23 EDT
+// Script modified: Thu July 30, 2020 @ 06:18:19 EDT
 const express = require('express');
 const joi = require('@hapi/joi');
 const mysql = require('../sqlHandler');
 const path = require('path');
 const router = express.Router();
-const tokenLength = 22;
+require('dotenv/config');
+
+const tokenLength = process.env.TK_LEN;
 
 const argSchema = joi.object({
     reqId: joi.string()

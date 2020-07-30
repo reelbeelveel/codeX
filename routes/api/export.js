@@ -5,7 +5,9 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const router = express.Router();
 const syntaxEngine = require('../../engine');
-const tokenLength = 22;
+require('dotenv/config');
+
+const tokenLength = process.env.TK_LEN;
 const schema = joi.object({
     type: joi.string()
     .min(4)
@@ -14,12 +16,6 @@ const schema = joi.object({
     .required(),
     style: joi.string()
     .required(),
-    reqId: joi.string()
-    .token()
-    .length(tokenLength)
-    .required()
-});
-const idSchema = joi.object({
     reqId: joi.string()
     .token()
     .length(tokenLength)
