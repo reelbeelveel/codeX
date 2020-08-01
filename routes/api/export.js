@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require(fs).promise;
 const joi = require('@hapi/joi');
 const mysql = require('../../sqlHandler');
 const path = require('path');
@@ -43,57 +44,57 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                     await page.setContent(`<html><pre><code class="hljs">${codeExport}</code></pre></html>`);
                     await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)})
                     await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
+                    
+                    const hexBlob = await fs.readFile(
+                        path.join(__dirname, `/../../exports/${value.reqId}.png`), 
+                        {encoding: 'hex'}
+                    );
                     // Create Exports Entry
                     try {
                         var query = [];
-                        query[0] = 
-                            "INSERT INTO images (" +                
-                            " id, " + 
-                            " path, " + 
-                            " plaintext, " +
-                            " style, " + 
-                            " engine_type, " +
-                            " code_type " +
-                            ") VALUES (" +
-                            ` '${value.reqId}', ` +
-                            ` '${value.reqId}.png', ` +
-                            ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
-                            ` '${sheet}', ` + 
-                            ` '${value.type.slice(0,4)}', ` +
-                            ` '${value.type.substring(4)}' ` +
-                            ");";
-                        query[1] = 
+                        query[0] = `DELETE FROM exports WHERE id = '${value.reqId}';`;
+                        query[1] = `DELETE FROM images WHERE id = '${value.reqId}';`;
+
+                        query[2] =
                             "INSERT INTO exports (" +
                             " id, " +
                             " timestamp, " +
-                            " plaintext, " +
-                            " engine_type, " +
                             " code_type, " +
+                            " engine_type, " +
+                            " plaintext, " +
                             " lifetime, " +
-                            " export_type " +
-                            ") VALUES (" + 
+                            " types " +
+                            ") VALUES (" +
                             ` '${value.reqId}', ` +
                             ` ${Date.now()}, ` +
-                            ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
-                            ` '${value.type.slice(0,4)}', ` +
                             ` '${value.type.substring(4)}', ` +
+                            ` '${value.type.slice(0,4)}', ` +
+                            ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
                             " 0, " + // TODO: Implement serious lifetime
-                            " 'images' " +
+                            '{ "image": true }' +
+                            ");";
+
+                        query[3] =
+                            "INSERT INTO images (" +
+                            " id, " +
+                            " data, " +
+                            " sheet " +
+                            ") VALUES (" +
+                            ` '${value.reqId}', ` +
+                            ` '${hexBlob}', ` +
+                            ` '${sheet}', ` +
                             ");";
                         var result = [];
-                        result[0] = await mysql.sqlQuery(query[0]);
-                        result[1] = await mysql.sqlQuery(query[1]);
-                        console.log(result);
+                        query.forEach(async(q) => {
+                            const r = await mysql.sqlQuery(q);
+                            result.push(r);
+                        })
+                        console.table({result, query});
                         res.status(200).send(value.reqId).end();
                     } catch (err) {
                         console.log(err);
                         throw new Error(`Could not add page: ${err}`);
                     }
-                    // XXX Replace ->Send screenshot file back
-                    // res.status(200).sendFile(`${value.reqId}.png`, { root: path.join(__dirname, '../../exports') });
-                    //
-                    // TODO: Send Export entry back for browser to view
-
                 } catch (err) {
                     console.log(err);
                     throw new Error(`Could not Export: ${err}`);
