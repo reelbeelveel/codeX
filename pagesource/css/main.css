@@ -1,4 +1,4 @@
-/* Stylesheet revised: Wed July 22, 2020 @ 08:07:42 EDT */
+/* Stylesheet revised: Sun August 02, 2020 @ 12:20:49 EDT */
 @font-face {
     font-family: Hack;
     src: url('../Resources/fonts/Hack-Regular.ttf');
@@ -272,3 +272,8 @@ select {
     margin-top:0px;
     margin-bottom: 0px;
   }
+  img {
+  max-width: 100%;
+  max-height: 100%;
+  }
+  img

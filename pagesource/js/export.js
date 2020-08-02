@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 11:05:44 EDT
+// Last revised: Sun August 02, 2020 @ 12:34:35 EDT
 
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -13,7 +13,7 @@ function setupCboxZero() {
     contentBox[0].appendChild(title);
     var infoBox = document.createElement("div");
     contentBox[0].appendChild(infoBox);
-    var image = document.createElement("img");
+    var image = document.querySelector("div.main-content img.loading");
     contentBox[0].appendChild(image);
     var shareBox = document.createElement("div");
     contentBox[0].appendChild(shareBox);
@@ -25,7 +25,22 @@ function setupCboxZero() {
     //      - add title to export logic (default title?)
     //      - add title loading query
     infoBox.textContent = "info placeholder"; // TODO <--
-    image.src = `${apiUrl}/api/view/${pageId}/img`;
+    try {
+        const Http = new XMLHttpRequest();
+        Http.open("GET", `${apiUrl}/api/view/${pageId}/img`);
+        Http.onreadystatechange = (e) => {
+            if (Http.readyState == 4) {
+                if(Http.status != 200) throw new Error(`Could not get image id ${pageId}`);
+        image.src = `${apiUrl}/api/view/${pageId}/img`;
+        image.style = "";
+        image.class = "loaded";
+
+            }
+        }
+        Http.send();
+    } catch (err) {
+        console.log(err);
+    }
     shareBox.textContent = "share placeholder"; // TODO <--
 }
 

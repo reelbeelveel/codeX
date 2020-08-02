@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun August 02, 2020 @ 11:21:33 EDT
+// Last revised: Sun August 02, 2020 @ 12:27:58 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
