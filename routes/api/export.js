@@ -1,9 +1,6 @@
 const express = require('express');
-const fs = require(fs).promise;
 const joi = require('@hapi/joi');
 const mysql = require('../../sqlHandler');
-const path = require('path');
-const puppeteer = require('puppeteer');
 const router = express.Router();
 const syntaxEngine = require('../../engine');
 
@@ -36,19 +33,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                     // launch puppeteer, then newPage() to screenshot our HTML
                     var codeExport = await syntaxEngine(value.type, req.body);
                     const sheet = value.style;
-                    const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
-                    const page = await browser.newPage();
-
-                    // Set our page's content (template as desired) + styleheet (from request, or default)?
-                    // TODO: vvv ADD WATERMARK TO IMAGE USING TEMPLATE HTML vvv
-                    await page.setContent(`<html><pre><code class="hljs">${codeExport}</code></pre></html>`);
-                    await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)})
-                    await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
                     
-                    const hexBlob = await fs.readFile(
-                        path.join(__dirname, `/../../exports/${value.reqId}.png`), 
-                        {encoding: 'hex'}
-                    );
                     // Create Exports Entry
                     try {
                         var query = [];
@@ -62,6 +47,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                             " code_type, " +
                             " engine_type, " +
                             " plaintext, " +
+                            " highlight, " +
                             " lifetime, " +
                             " types " +
                             ") VALUES (" +
@@ -70,19 +56,18 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                             ` '${value.type.substring(4)}', ` +
                             ` '${value.type.slice(0,4)}', ` +
                             ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
+                            ` '<html><pre><code class="hljs">${codeExport.replace(/'/g,"\\'")}</code></pre></html>', ` +
                             " 0, " + // TODO: Implement serious lifetime
-                            '{ "image": true }' +
+                            "'{ \"image\": true }'" +
                             ");";
 
                         query[3] =
                             "INSERT INTO images (" +
                             " id, " +
-                            " data, " +
-                            " sheet " +
+                            " style " +
                             ") VALUES (" +
                             ` '${value.reqId}', ` +
-                            ` '${hexBlob}', ` +
-                            ` '${sheet}', ` +
+                            ` '${sheet}' ` +
                             ");";
                         var result = [];
                         query.forEach(async(q) => {
