@@ -1,4 +1,4 @@
-// Script modified: Thu July 30, 2020 @ 06:21:10 EDT
+// Script modified: Sun August 02, 2020 @ 03:06:17 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -34,6 +34,7 @@ const resourceRouter = require('./routes/resource');
 const apiCreateRouter = require('./routes/api/create');
 const apiExportRouter = require('./routes/api/export');
 const apiDetectRouter = require('./routes/api/detect');
+const apiSQLRouter = require('./routes/api/db');
 const apiTokenRouter = require('./routes/api/getToken');
 const apiViewRouter = require('./routes/api/view');
 
@@ -47,6 +48,7 @@ app.use('/v', apiViewRouter);
 app.use('/Resources', resourceRouter);
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);
+app.use('/api/db', apiSQLRouter);
 app.use('/api/detect', apiDetectRouter);
 app.use('/api/getToken', apiTokenRouter);
 app.use('/api/view', apiViewRouter);
