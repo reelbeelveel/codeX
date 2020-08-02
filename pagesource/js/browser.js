@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Sun August 02, 2020 @ 12:27:58 EDT
+// Last revised: Sun August 02, 2020 @ 05:11:51 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -55,6 +55,26 @@ async function getToken() {
         }
     }
     Http.send();
+}
+
+async function dbFetch(id, table, column) {
+    return new Promise(data => {
+    const Http = new XMLHttpRequest();
+    const url = `${apiUrl}/api/db/${id}/${table}/${column}`;
+    Http.open('GET', url);
+    Http.send();
+    Http.onreadystatechange = (e) => {
+        if(Http.readyState == 4){
+            if(Http.status == 200) {
+                console.log(Http.response);
+                data(Http.response);
+            } else {                        
+                data({});
+                throw new Error(`Error with db_fetch`);
+            }
+        }
+    }
+    })
 }
 
 
