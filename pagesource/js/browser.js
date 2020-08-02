@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Thu July 30, 2020 @ 06:32:49 EDT
+// Last revised: Sat August 01, 2020 @ 09:47:49 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -94,6 +94,7 @@ function getParameterByName(name, url) {
 }
 
 const copyToClipboard = (str) => {
+    try {
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');
@@ -108,6 +109,10 @@ const copyToClipboard = (str) => {
     if (selected) {
         document.getSelection().removeAllRanges();
         document.getSelection().addRange(selected);
+    }
+    alert("URL Copied to Clipboard");
+    } catch (err) {
+        console.log(err);
     }
     // TODO: Popup to notify user of successful copying
 };
