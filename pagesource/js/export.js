@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 12:34:35 EDT
+// Last revised: Sun August 02, 2020 @ 12:43:55 EDT
 
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -9,12 +9,9 @@ var contentBox = document.querySelectorAll("main div.flex-prop div.main-content"
 
 // Format elements for contentBox[0]
 function setupCboxZero() {
-    var title = document.createElement("h2");
-    contentBox[0].appendChild(title);
-    var infoBox = document.createElement("div");
-    contentBox[0].appendChild(infoBox);
+    var title = document.querySelector("div.main-content h2.title");
+    var infoSel = "div.main-content table.info";
     var image = document.querySelector("div.main-content img.loading");
-    contentBox[0].appendChild(image);
     var shareBox = document.createElement("div");
     contentBox[0].appendChild(shareBox);
 
@@ -24,16 +21,19 @@ function setupCboxZero() {
     //      - add title to tables
     //      - add title to export logic (default title?)
     //      - add title loading query
-    infoBox.textContent = "info placeholder"; // TODO <--
+    document.querySelector(infoSel + " tr td.id-cell").textContent = pageId;
+    document.querySelector(infoSel + " tr td.lang-cell").textContent = language;
+    document.querySelector(infoSel + " tr td.engine-cell").textContent = engine;
+    document.querySelector(infoSel + " tr td.time-cell").textContent = timestamp;
     try {
         const Http = new XMLHttpRequest();
         Http.open("GET", `${apiUrl}/api/view/${pageId}/img`);
         Http.onreadystatechange = (e) => {
             if (Http.readyState == 4) {
                 if(Http.status != 200) throw new Error(`Could not get image id ${pageId}`);
-        image.src = `${apiUrl}/api/view/${pageId}/img`;
-        image.style = "";
-        image.class = "loaded";
+                image.src = `${apiUrl}/api/view/${pageId}/img`;
+                image.style = "";
+                image.class = "loaded";
 
             }
         }
