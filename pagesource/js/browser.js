@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Sat August 01, 2020 @ 09:51:26 EDT
+// Last revised: Sun August 02, 2020 @ 11:21:33 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://codexapp.co';
 
 function timeStamp() {
     var d = new Date();
@@ -95,24 +95,35 @@ function getParameterByName(name, url) {
 
 const copyToClipboard = (str) => {
     try {
-    const el = document.createElement('textarea');
-    el.value = str;
-    el.setAttribute('readonly', '');
-    el.style.position = 'absolute';
-    el.style.left = '-9999px';
-    document.body.appendChild(el);
-    const selected =
-        document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    if (selected) {
-        document.getSelection().removeAllRanges();
-        document.getSelection().addRange(selected);
-    }
-    alert("URL Copied to Clipboard");
+        const el = document.createElement('textarea');
+        el.value = str;
+        el.setAttribute('readonly', '');
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+        const selected =
+            document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        if (selected) {
+            document.getSelection().removeAllRanges();
+            document.getSelection().addRange(selected);
+        }
+        alert("URL Copied to Clipboard");
     } catch (err) {
         console.log(err);
     }
     // TODO: Popup to notify user of successful copying
 };
+
+function getQueryVariable(variable)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}

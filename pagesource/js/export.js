@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Thu July 30, 2020 @ 05:09:33 EDT
+// Last revised: Sun August 02, 2020 @ 11:05:44 EDT
 
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -12,7 +12,7 @@ function setupCboxZero() {
     var title = document.createElement("h2");
     contentBox[0].appendChild(title);
     var infoBox = document.createElement("div");
-    contentBox[0].appendChlid(infoBox);
+    contentBox[0].appendChild(infoBox);
     var image = document.createElement("img");
     contentBox[0].appendChild(image);
     var shareBox = document.createElement("div");

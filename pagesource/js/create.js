@@ -1,5 +1,5 @@
 // create.js
-// Last revised: Thu July 30, 2020 @ 07:08:51 EDT
+// Last revised: Sun August 02, 2020 @ 11:19:54 EDT
 
 var textareas = document.getElementsByTagName('textarea');
 if ( textareas ) {
@@ -126,7 +126,7 @@ function getExport() {
         console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
         Http.onreadystatechange=(e)=>{
             if (Http.readyState == 4) {
-                if(Http.status == 200) window.location.href = `${apiUrl}/export`;
+                if(Http.status == 200) window.location.href = `${apiUrl}/export?id=${token}`;
                 // TODO: Make this open in-page "pop-up"?
             }
         }
