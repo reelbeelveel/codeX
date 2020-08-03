@@ -63,6 +63,8 @@ function setupCboxOne() {
     // TODO: Add "Actions"
     //       - Edit text / "sign in to edit"
     //       - Download image
+    var downloadLink = document.querySelector("a.downloadimg");
+    downloadLink.href = `${apiUrl}/api/view/${pageId}/img`;
     //       - Embed text/html
     //       - Embed image
     //       - Email
@@ -70,4 +72,30 @@ function setupCboxOne() {
     //       - Tweet/Facebook
     //       - Clipboard
     //       - etc.
+}
+
+function CopyImageById(Id) { //http://embed.plnkr.co/CCalCBmouRtAkoE5arHF/
+  var imgs = document.createElement('img');
+  imgs.src = document.getElementById(Id).src;
+  
+  var bodys = document.body ;
+  bodys.appendChild(imgs);
+
+  if (document.createRange)  
+  {
+    var myrange = document.createRange();
+    myrange.setStartBefore(imgs);
+    myrange.setEndAfter(imgs);
+    myrange.selectNode(imgs);
+  }
+  else
+  {
+    alert ('CreateRange NOT work');
+  }
+  var sel = window.getSelection();
+  sel.addRange(myrange);
+  var successful = document.execCommand('copy');
+  var msg = successful ? 'successful' : 'unsuccessful';
+  bodys.removeChild(imgs);
+  document.getElementById('answer').innerHTML="Copy image command was " + msg ;
 }
