@@ -135,27 +135,4 @@ function getExport() {
     }
 }
 
-function quickShare(){
-    const Http = new XMLHttpRequest();
-    var engineSelect = document.querySelector("select#engine");
-    var langSelect = document.querySelector("select#lang");
-    var engine = engineSelect.options[engineSelect.selectedIndex].value;
-    var lang = langSelect.options[langSelect.selectedIndex].value;
-    var input = document.querySelector("textarea#codeInput").value;
-    var style = document.querySelector("select#style").value;
-    var preview = document.querySelector("div#previewArea");
-    new Logger({engineSelect, langSelect, engine, lang, input, style, preview}, 'QuickShare Parameters:', 'color: green; font-weight: bold;');
-    if (token == undefined) {
-        new Logger('', 'No Token!', 'color: red; font-weight: bold;');
-        preview.innerHTML = `<span class="error">Could not establish secure connection to ${apiUrl}/api/</span>`;
-    } else {
-        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
-        Http.onreadystatechange=(e) => {
-            if(Http.readyState == 4) {
-                if(Http.status == 200) copyToClipboard(`${apiUrl}/v/${Http.responseText}`);
-            }
-        }
-        Http.send(input);
-        getToken();
-    }
-}
+
