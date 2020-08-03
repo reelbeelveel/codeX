@@ -1,4 +1,4 @@
-// List modified: Tue July 28, 2020 @ 01:42:50 EDT
+// List modified: Sun August 02, 2020 @ 10:03:31 EDT
 var preview = {};
 var language_list = [
     {
@@ -854,12 +854,12 @@ var language_list = [
     },{
         displayText: 'PHP Template',
         fileTypes: [{}],
-        apiId: '',
+        apiId: 'php-template',
         cdxEnabled: false
     },{
         displayText: 'PL/pgSQL',
         fileTypes: [{}],
-        apiId: 'pgSQL',
+        apiId: 'pgsql',
         cdxEnabled: false
     },{
         displayText: 'Plain Text',

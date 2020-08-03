@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun August 02, 2020 @ 04:20:56 EDT -->
+<!-- Page revised: Sun August 02, 2020 @ 10:30:37 EDT -->
 <html>
     <head>
         <title>codeX | Simple Code Snipper</title>
@@ -22,64 +22,68 @@
                 </ul>
             </header>
         </div>
-            <main>
-                <div class="flex-prop">
-                    <!-- start flex box one -->
-                    <div class="main-content">
-                        <h2 class="title"></h2>
+        <main>
+            <div class="flex-prop">
+                <!-- start flex box one -->
+                <div class="main-content">
+                    <h2 class="title"></h2>
+                    <hr />
+                    <center>
                         <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
-                        <table class="info">
-                            <tr>
-                                <td><b>ID</b></td>
-                                <td class="id-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Language</b></td>
-                                <td class="lang-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Engine</b></td>
-                                <td class="engine-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Uploaded</b></td>
-                                <td class="time-cell"></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- end flex box one -->
-                    <!-- start flex box two -->
-                    <div class="main-content">
-                        <table style="width:100%">
-                            <tr>
-                                <td>
-                                    <div class="divbutton">
-                                        <h3>
-                                            <b>
-                                                <a class="downloadimg" download>Download</a>
-                                            </b>
-                                        </h3>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="divbutton" onclick="CopyImageById('codeImage')">
-                                        <h3>
-                                            <b>
-                                                Copy to Clipboard
-                                            </b>
-                                        </h3>
-                                    </div>
-                                </td>
-                            </tr>                                                       
-                        </table>
-                    </div>
-                    <!-- end flex box two -->
+                    </center>
+                    <br />
+                    <table class="info">
+                        <tr>
+                            <td><b>ID</b></td>
+                            <td class="id-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Language</b></td>
+                            <td class="lang-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Engine</b></td>
+                            <td class="engine-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Uploaded</b></td>
+                            <td class="time-cell"></td>
+                        </tr>
+                    </table>
                 </div>
-            </main>
-            <footer>
-            </footer>
+                <!-- end flex box one -->
+                <!-- start flex box two -->
+                <div class="main-content">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <div class="divbutton">
+                                    <h3>
+                                        <b>
+                                            <a class="downloadimg" download>Download</a>
+                                        </b>
+                                    </h3>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="divbutton" onclick="CopyImageById('codeImage')">
+                                    <h3>
+                                        <b>
+                                            Copy to Clipboard
+                                        </b>
+                                    </h3>
+                                </div>
+                            </td>
+                        </tr>                                                       
+                    </table>
+                </div>
+                <!-- end flex box two -->
+            </div>
+        </main>
+        <footer>
+        </footer>
     </body>
     <script src="/js/browser.js"></script>
     <script src="/js/export.js"></script>
