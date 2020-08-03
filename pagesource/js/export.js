@@ -13,7 +13,6 @@ function loadImage(image) {
     Http.send();
     Http.onreadystatechange = (e) => {
         if (Http.readyState == 4) {
-            if (Http.status != 200) throw new Error(`Could not get image id ${pageId}`);
             image.src = `${apiUrl}/api/view/${pageId}/img`;
             image.style = "";
             image.class = "loaded";

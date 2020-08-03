@@ -56,7 +56,7 @@ router.post('/:type/:args/:style/:reqId', async (req, res) => {
                             ` '${value.type.substring(4)}', ` +
                             ` '${value.type.slice(0,4)}', ` +
                             ` '${req.body.replace(/'/g, "\\'").replace(/"/g, "`\"")}', ` +
-                            ` '<pre><code class="hljs">${codeExport.replace(/'/g,"\\'")}</code></pre>', ` +
+                            ` '${codeExport.replace(/'/g,"\\'")}', ` +
                                     " 0, " + // TODO: Implement serious lifetime
                             "'{ \"image\": true }'" +
                             ");";

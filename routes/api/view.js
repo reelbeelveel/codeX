@@ -1,4 +1,4 @@
-// Script modified: Sun August 02, 2020 @ 04:09:52 EDT
+// Script modified: Sun August 02, 2020 @ 10:22:15 EDT
 const express = require('express');
 const fs = require('fs').promises;
 const joi = require('@hapi/joi');
@@ -45,9 +45,11 @@ router.get('/:reqId/:arg?', async (req, res) => {
 
                 // Set our page's content (template as desired) + styleheet (from request, or default)?
                 // TODO: vvv ADD WATERMARK TO IMAGE USING TEMPLATE HTML vvv
-                await page.setContent(highlight);
-                await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)})
-                await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`)});
+                await page.setContent(`<html class="hljs"><pre id="bounding" style="margin: 0; padding: 0; position: fixed; top: 0; left: 0;" class="hljs"><code class="hljs" style="padding: 2em 2em 2em 2em;">${highlight}</code></pre></html>`);
+                await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)});
+                const { width, height } = await (await page.$('pre')).boundingBox();
+                await page.setViewport({ width: width, height: height});
+                await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`), clip: { x: 0, y: 0, width, height}});
                 fileName = `${value.reqId}.png`;
             }
                 break;
