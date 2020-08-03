@@ -34,7 +34,8 @@ async function setupCboxZero() {
         var language = await dbFetch(pageId, 'exports', 'code_type');
         var engine = await dbFetch(pageId, 'exports', 'engine_type');
         var timestamp = await dbFetch(pageId, 'exports', 'timestamp');
-
+        timestamp = new Date(timestamp);
+        
         console.log({language, engine, timestamp});
 
         // Load data from SQL (via api) for contentBox[0]
