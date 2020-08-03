@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun August 02, 2020 @ 11:55:32 EDT -->
+<!-- Page revised: Mon August 03, 2020 @ 02:47:43 EDT -->
 <html>
 
     <head>
@@ -82,10 +82,33 @@
                 <div id="previewPanel" class="main-content">
                     <h2>// The preview shows up here.</h2>
                     <hr />
-                    <select id="style" onchange="refreshSheet()"></select style="width:50%">
-                    <script src="/js/style_list.js"></script>
-                    <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="width:24%"/>
-                    <input name="Export" type="button" onclick="getExport()" value="Export" style="width:24%"/>
+                    <table style="margin-left: auto; margin-right: auto; width: 100%">
+                        <tr>
+                            <td class="form-label-col">
+                                <center>
+                                    <label for="style">Select a style:</label>
+                                </center>
+                            </td>
+                            <td align="right">
+                                <center>
+                                    <select id="style" onchange="refreshSheet()" style="width:50%"></select>
+                                </center>
+                                <script src="/js/style_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="width:24%" />
+                                </center>
+                            </td>
+                            <td align="right">
+                                <center>
+                                    <input name="Export" type="button" onclick="getExport()" value="Export" style="width:24%" />
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
                     <div id="previewArea"></div>
                 </div>
                 <!-- end flex box two -->
@@ -109,7 +132,7 @@
                 populateWith: style_list
             }];
         populateSelections(fields);
-        generatePlaceholder();
+        generatePreview();
         getToken();
         refreshSheet();
     </script>
