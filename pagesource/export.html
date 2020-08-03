@@ -59,24 +59,14 @@
                     <table style="width:100%">
                         <tr>
                             <td>
-                                <div class="divbutton">
-                                    <h3>
-                                        <b>
-                                            <a class="downloadimg" download>Download</a>
-                                        </b>
-                                    </h3>
-                                </div>
+                                <a class="downloadimg">
+                                    <input name="download" class="button" type="button" value="Download Image"/>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="divbutton" onclick="CopyImageById('codeImage')">
-                                    <h3>
-                                        <b>
-                                            Copy to Clipboard
-                                        </b>
-                                    </h3>
-                                </div>
+                                <input name="Share" type="button" class="button" onclick="quickShare()" value="Copy Link"/>
                             </td>
                         </tr>                                                       
                     </table>

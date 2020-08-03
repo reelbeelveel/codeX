@@ -1,6 +1,6 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 10:34:42 EDT
-
+// Last revised: Sun August 02, 2020 @ 11:53:02 EDT
+var language;
 var pageId = getParameterByName('id');
 if( pageId == null ) {
     // TODO: Select random id from mysql
@@ -30,7 +30,7 @@ async function setupCboxZero() {
     var shareBox = document.createElement("div");
     contentBox[0].appendChild(shareBox);
     try {
-        var language = await dbFetch(pageId, 'exports', 'code_type');
+        language = await dbFetch(pageId, 'exports', 'code_type');
         var engine = await dbFetch(pageId, 'exports', 'engine_type');
         var timestamp = await dbFetch(pageId, 'exports', 'timestamp');
         var time = new Date(parseInt(timestamp));
@@ -63,6 +63,7 @@ function setupCboxOne() {
     //       - Download image
     var downloadLink = document.querySelector("a.downloadimg");
     downloadLink.href = `${apiUrl}/api/view/${pageId}/img`;
+    downloadLink.download = `codex-${language}`;
     //       - Embed text/html
     //       - Embed image
     //       - Email

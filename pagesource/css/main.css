@@ -159,6 +159,11 @@ form, input, select, textarea, .previewPanel, .main-content{
     .flex-prop{
         flex-direction: column;
     }
+    .main-content{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    }
 }
 
 .main-content {
