@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 08:33:23 EDT
+// Last revised: Sun August 02, 2020 @ 10:34:42 EDT
 
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -56,9 +56,8 @@ async function setupCboxZero() {
 }
 // Format elements for contentBox[1]
 function setupCboxOne() {
-    var title = document.createElement("h2");
-    title.textContent = "Actions"
-    contentBox[1].appendChild(title);
+    var title = document.querySelector("h2.title2");
+    title.textContent = "Actions";
     // TODO: Add "Actions"
     //       - Edit text / "sign in to edit"
     //       - Download image
