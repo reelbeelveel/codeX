@@ -1,5 +1,5 @@
 // browser.js
-// Last revised: Mon August 03, 2020 @ 12:07:39 EDT
+// Last revised: Mon August 03, 2020 @ 07:16:48 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
@@ -165,7 +165,7 @@ function quickShare(){
         Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
         Http.onreadystatechange=(e) => {
             if(Http.readyState == 4) {
-                if(Http.status == 200) copyToClipboard(`${apiUrl}/v/${Http.responseText}`);
+                if(Http.status == 200) copyToClipboard(`${apiUrl}/v?id=${Http.responseText}`);
             }
         }
         Http.send(input);

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Fri July 31, 2020 @ 09:39:01 EDT -->
+<!-- Page revised: Mon August 03, 2020 @ 07:43:54 EDT -->
 <html>
     <head>
         <title>codeX | Simple Code Snipper</title>
@@ -25,10 +25,41 @@
                 <div class="flex-prop">
                     <!-- start flex box one -->
                     <div class="main-content">
+                    <h2 class="title"></h2>
+                    <hr />
+                    <br />
+                    <center>
+                        <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
+                    </center>
+                    <br />
+                    <hr />
+                    <table class="info">
+                        <tr>
+                            <td><b>ID</b></td>
+                            <td class="id-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Language</b></td>
+                            <td class="lang-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Engine</b></td>
+                            <td class="engine-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Uploaded</b></td>
+                            <td class="time-cell"></td>
+                        </tr>
+                    </table>
                     </div>
                     <!-- end flex box one -->
                     <!-- start flex box two -->
                     <div class="main-content">
+                        <input type="radio" id="rendered" name="format" value="Rendered Text">
+                        <input type="radio" id="plain" name="format" value="Plain Text">
+                                                                        
+                        <textarea class="textcontent"></textarea>
+
                     </div>
                     <!-- end flex box two -->
                 </div>
@@ -38,5 +69,6 @@
     </body>
     <script src="/js/browser.js"></script>
     <script src="/js/view.js"></script>
+    <script>setupCboxZero();</script>
     <script data-ad-client="ca-pub-1851317222446723" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </html>
