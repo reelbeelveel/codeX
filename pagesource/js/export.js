@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 06:12:23 EDT
+// Last revised: Sun August 02, 2020 @ 08:33:23 EDT
 
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -34,9 +34,9 @@ async function setupCboxZero() {
         var language = await dbFetch(pageId, 'exports', 'code_type');
         var engine = await dbFetch(pageId, 'exports', 'engine_type');
         var timestamp = await dbFetch(pageId, 'exports', 'timestamp');
-        timestamp = new Date(timestamp);
+        var time = new Date(parseInt(timestamp));
         
-        console.log({language, engine, timestamp});
+        console.log({language, engine, time});
 
         // Load data from SQL (via api) for contentBox[0]
         title.textContent = `My Snippet #${pageId}`;
@@ -47,7 +47,7 @@ async function setupCboxZero() {
         document.querySelector(infoSel + " tr td.id-cell").textContent = pageId;
         document.querySelector(infoSel + " tr td.lang-cell").textContent = language;
         document.querySelector(infoSel + " tr td.engine-cell").textContent = engine;
-        document.querySelector(infoSel + " tr td.time-cell").textContent = timestamp;
+        document.querySelector(infoSel + " tr td.time-cell").textContent = time;
 
     } catch (err) {
         console.log(err);
