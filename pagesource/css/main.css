@@ -82,7 +82,7 @@ span.testcolor5::after { content: " (--clr-fg-lite)";  }
 
 label {
     color: var(--clr-fg-dark); 
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: hurmit-nf;
     font-size: 20px;
 
 }
@@ -142,29 +142,26 @@ form, input, select, textarea, .previewPanel, .main-content{
 }
 
 .main-content div#previewArea pre { overflow-x: auto; }
-.flex-prop, .flex-propq{
+.flex-prop {
     display:flex;
     margin-left: auto;
     margin-right: auto;
     width:100%
 }
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 800px) {
     .flex-prop{
         flex-direction: row;
     }
-    .flex-propq {
-        flex-wrap: wrap;
-    }
+
 }
 
-@media only screen and (max-width: 1500px) {
-    .flex-prop, .flexpropq{
+@media only screen and (max-width: 800px) {
+    .flex-prop{
         flex-direction: column;
     }
     .flex-prop
     .main-content,
-    .flex-propq
     .maincontent {
         margin-left: auto;
         margin-right: auto;
@@ -173,9 +170,9 @@ form, input, select, textarea, .previewPanel, .main-content{
 }
 
 .main-content {
-    max-width: 90%;
-    margin: 2em 2em 2em 2em;
-    padding:10px;
+    max-width: 95%;
+    margin: 1.5em 1em 1.5em 1em;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -187,7 +184,7 @@ form, input, select, textarea, .previewPanel, .main-content{
 
 @media only screen and (min-width: 1500px) {
     .main-content{
-        width: 40%;
+        width: 50%;
     }
 }
 div#previewArea {
@@ -204,7 +201,7 @@ div#previewArea {
 select {
     /* font-family: Hurmit-NF; */
     color: var(--clr-fg-lite); 
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: hurmit-nf;
     font-size: 20px;
     border-radius: 5px;
     width: 50%;
@@ -243,16 +240,27 @@ select {
 
   .button{
     margin-top:10px;
+    margin-bottom:10px;
     color: var(--clr-fg-lite); 
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: hurmit-nf;
     font-size: 20px;
     border-radius: 5px;
 
 
   }
-  .button:hover{
+  .button:hover, .button2:hover{
       background:var(--clr-accentA);
   }
+
+  .button2{
+    margin-top:6px;
+    color: var(--clr-fg-lite); 
+    font-family: hurmit-nf;
+    font-size: 40px;
+    border-radius: 5px;
+  }
+
+  
 
   tr{
     width:100%;
@@ -273,15 +281,16 @@ select {
     font-size: 34px;
     font-weight: lighter;
     color: var(--clr-fg-lite); 
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: hurmit-nf;
 
   }
 
     h4{
     color:var(--clr-accentA);
-    font-size: 45px;
+    font-size: 40px;
     margin-top:0px;
     margin-bottom: 0px;
+    display:inline;
   }
   img {
   max-width: 100%;
@@ -298,4 +307,65 @@ select {
 
 }
 
+  .flexo{
+      display:flex;
+      margin-left:auto;
+      margin-right:auto;
+      width:100%;
+  }
+
+  @media only screen and (min-width: 2500px) {
+    .flexo{
+        flex-direction: row;
+    }
+
+}
+
+@media only screen and (max-width: 2500px) {
+    .flexo{
+        flex-direction: column;
+    }
+}
+
+.flexi{
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%
+}
+
+@media only screen and (min-width: 2500px) {
+  .flexi{
+      flex-direction: row;
+  }
+
+}
+
+@media only screen and (max-width: 2500px) {
+  .flexi{
+      flex-direction: row;
+  }
+}
+@media only screen and (max-width: 1200px) {
+    .flexi{
+        flex-direction: column;
+    }
   
+  }
+
+pre{
+    margin:0px;
+}
+
+.indeximg{
+    height:300px ; 
+    width:auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .indeximg{
+        width:100%;
+        height:auto;
+    }
+  
+  }
