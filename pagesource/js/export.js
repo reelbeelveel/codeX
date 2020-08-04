@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Mon August 03, 2020 @ 02:45:37 EDT
+// Last revised: Mon August 03, 2020 @ 07:16:13 EDT
 var language;
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -106,5 +106,5 @@ function CopyImageById(Id) { //http://embed.plnkr.co/CCalCBmouRtAkoE5arHF/
 }
 
 function getUrl() {
-     copyToClipboard(`${apiUrl}/v/${pageId}`);
+     copyToClipboard(`${apiUrl}/v?id=${pageId}`);
 }

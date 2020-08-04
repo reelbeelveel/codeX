@@ -1,4 +1,4 @@
-// Script modified: Mon August 03, 2020 @ 03:36:12 EDT
+// Script modified: Mon August 03, 2020 @ 07:18:01 EDT
 const express = require('express');
 const fs = require('fs').promises;
 const joi = require('@hapi/joi');
@@ -50,7 +50,7 @@ router.get('/:reqId/:arg?', async (req, res) => {
                 `${highlight}` +
                 '</code><br style="padding: 2em;"><div id="watermark" style="display: block; background-color: #122a40; position: absolute; bottom: 8px; right: 8px; border: 2px solid #f78764; color: #b8336a; padding: 0.5em 1em 1.5em 0.5em; width: fit-content; height: fit-content; font-size: medium; border-radius: 20px;" align="right">' +
                 '<img src="http://localhost:3000/Resources/openbracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
-                `codexapp.co/v/${value.reqId}` +
+                `codexapp.co/v?id=${value.reqId}` +
                 '<img src="http://localhost:3000/Resources/closebracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
                 '</div></pre></html>';
                 await page.setContent(content);                
@@ -70,7 +70,7 @@ router.get('/:reqId/:arg?', async (req, res) => {
                         `${highlight}` +
                         '</code></pre><br style="padding: 2em;"><div id="watermark" style="background-color: #122a40; position: absolute; bottom: 8px; right: 8px; border: 2px solid #f78764; color: #b8336a; padding: 0.5em 1em 1.5em 0.5em; width: fit-content; height: fit-content; font-size: large; border-radius: 20px;" align="right">' +
                         '<img src="http://localhost:3000/Resources/openbracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
-                        `codexapp.co/v/${value.reqId}` +
+                        `codexapp.co/v?id=${value.reqId}` +
                         '<img src="http://localhost:3000/Resources/closebracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
                         '</div></html>';
                     await page.setContent(content);
