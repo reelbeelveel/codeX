@@ -1,4 +1,4 @@
-/* Stylesheet revised: Mon August 03, 2020 @ 09:15:47 EDT */
+/* Stylesheet revised: Mon August 03, 2020 @ 09:49:51 EDT */
 @font-face {
     font-family: Hack;
     src: url('../Resources/fonts/Hack-Regular.ttf');
@@ -157,12 +157,6 @@ form, input, select, textarea, .previewPanel, .main-content{
 
 @media only screen and (max-width: 800px) {
     .flex-prop{
-        flex-wrap: wrap;
-    }
-}
-
-@media only screen and (max-width: 1500px) {
-    .flex-prop, .flexpropq{
         flex-direction: column;
     }
     .flex-prop
@@ -189,7 +183,7 @@ form, input, select, textarea, .previewPanel, .main-content{
 
 @media only screen and (min-width: 1500px) {
     .main-content{
-        width: 40%;
+        width: 50%;
     }
 }
 div#previewArea {
@@ -219,31 +213,31 @@ select {
 }
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: var(--clr-bg-lite);
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: var(--clr-bg-dark);
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: var(--clr-accentA);
-  }
+}
 
-  ::-webkit-scrollbar-corner{
-      background: var(--clr-bg-lite);
-      border-color: var(--clr-bg-lite);
-  }
+::-webkit-scrollbar-corner{
+    background: var(--clr-bg-lite);
+    border-color: var(--clr-bg-lite);
+}
 
-  .button{
+.button{
     margin-top:10px;
     margin-bottom:10px;
     color: var(--clr-fg-lite); 
@@ -252,74 +246,74 @@ select {
     border-radius: 5px;
 
 
-  }
-  .button:hover, .button2:hover{
-      background:var(--clr-accentA);
-  }
+}
+.button:hover, .button2:hover{
+    background:var(--clr-accentA);
+}
 
-  .button2{
+.button2{
     margin-top:6px;
     color: var(--clr-fg-lite); 
     font-family: hurmit-nf;
     font-size: 40px;
     border-radius: 5px;
-  }
+}
 
-  
 
-  tr{
+
+tr{
     width:100%;
     border-style: dashed;
-  }
+}
 
-  td{
-      width:50%;
-  }
+td{
+    width:50%;
+}
 
-  h1{
+h1{
     color:var(--clr-accentA);
     font-size: 100px;
     margin-top:10px;
-  }
+}
 
-  h3{
-    font-size: 34px;
+h3{
+    font-size: 1.2vw;
     font-weight: lighter;
     color: var(--clr-fg-lite); 
     font-family: hurmit-nf;
 
-  }
+}
 
-    h4{
+h4{
     color:var(--clr-accentA);
-    font-size: 40px;
+    font-size: 1.5vw;
     margin-top:0px;
     margin-bottom: 0px;
     display:inline;
-  }
-  img {
-  max-width: 100%;
-  max-height: 100%;
-  }
-  
-  .divbutton{
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.divbutton{
     background: var(--clr-bg-dark)
     max-width: 100%;
 
-  }
-  .divbutton:hover{
+}
+.divbutton:hover{
     background: var(--clr-accentA)
 
 }
 
-  .flexo{
-      display:flex;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-  }
+.flexo{
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
 
-  @media only screen and (min-width: 2500px) {
+@media only screen and (min-width: 2500px) {
     .flexo{
         flex-direction: row;
     }
@@ -340,23 +334,26 @@ select {
 }
 
 @media only screen and (min-width: 2500px) {
-  .flexi{
-      flex-direction: row;
-  }
+    .flexi{
+        flex-direction: row;
+    }
 
 }
 
 @media only screen and (max-width: 2500px) {
-  .flexi{
-      flex-direction: row;
-  }
+    .flexi{
+        flex-direction: row;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .flexi{
         flex-direction: column;
     }
-  
-  }
+    h4 {
+        font-size: 4.2vw;
+    }
+
+}
 
 pre{
     margin:0px;
@@ -372,5 +369,5 @@ pre{
         width:100%;
         height:auto;
     }
-  
-  }
+
+}
