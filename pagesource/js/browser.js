@@ -1,10 +1,13 @@
 // browser.js
-// Last revised: Mon August 03, 2020 @ 12:07:39 EDT
+// Last revised: Fri August 07, 2020 @ 05:23:41 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
 //const apiUrl = 'https://localhost:3001';
 const apiUrl = 'https://codexapp.co';
+if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
 
 function timeStamp() {
     var d = new Date();
@@ -165,7 +168,7 @@ function quickShare(){
         Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
         Http.onreadystatechange=(e) => {
             if(Http.readyState == 4) {
-                if(Http.status == 200) copyToClipboard(`${apiUrl}/v/${Http.responseText}`);
+                if(Http.status == 200) copyToClipboard(`${apiUrl}/v?id=${Http.responseText}`);
             }
         }
         Http.send(input);

@@ -1,4 +1,4 @@
-// Script modified: Sun August 02, 2020 @ 03:06:17 EDT
+// Script modified: Mon August 03, 2020 @ 06:45:16 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -44,7 +44,7 @@ app.use('/create', createRouter);
 app.use('/export' , exportRouter);
 app.use('/js', jsRouter);
 app.use('/view', viewRouter);
-app.use('/v', apiViewRouter);
+app.use('/v', viewRouter);
 app.use('/Resources', resourceRouter);
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);

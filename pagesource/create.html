@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Sun August 02, 2020 @ 11:55:32 EDT -->
+<!-- Page revised: Mon August 03, 2020 @ 02:47:43 EDT -->
 <html>
 
     <head>
@@ -32,10 +32,10 @@
             <div class="flex-prop">
                 <!-- start flex box one -->
                 <div class="main-content">
-                    <h2>// Write your code here...</h2> 
+                    <center><h2>// Write your code here...</h2> </center>
                     <hr />
                     <form id="codexGenerator" class="input-form">
-                        <table style="margin-left: auto; margin-right:auto; width:100%">
+                        <table style="margin-left: auto; margin-right:auto; width:100%;">
                             <tr>
                                 <td class="form-label-col">
                                     <label for="engine">Select an Engine:</label>
@@ -80,12 +80,27 @@
                 <!-- end flex box one -->
                 <!-- start flex box two -->
                 <div id="previewPanel" class="main-content">
-                    <h2>// The preview shows up here.</h2>
+                    <center><h2>// The preview shows up here.</h2></center>
                     <hr />
-                    <select id="style" onchange="refreshSheet()"></select style="width:50%">
-                    <script src="/js/style_list.js"></script>
-                    <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="width:24%"/>
-                    <input name="Export" type="button" onclick="getExport()" value="Export" style="width:24%"/>
+                    <table style="margin-left: auto; margin-right: auto; width: 100%">
+                        <tr>
+                            <td class="form-label-col">
+                                <label for="style">Select a style:</label>
+                            </td>
+                            <td align="right">
+                                    <select id="style" onchange="refreshSheet()" style="width:50%"></select>
+                                <script src="/js/style_list.js"></script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="margin:0px" class="button"/>
+                            </td>
+                            <td align="right">
+                                    <input name="Export" type="button" onclick="getExport()" value="Export" style="margin:0px" class="button"/>
+                            </td>
+                        </tr>
+                    </table>
                     <div id="previewArea"></div>
                 </div>
                 <!-- end flex box two -->
@@ -109,7 +124,7 @@
                 populateWith: style_list
             }];
         populateSelections(fields);
-        generatePlaceholder();
+        generatePreview();
         getToken();
         refreshSheet();
     </script>

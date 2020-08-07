@@ -1,5 +1,5 @@
 // create.js
-// Last revised: Sun August 02, 2020 @ 11:19:54 EDT
+// Last revised: Mon August 03, 2020 @ 02:56:39 EDT
 
 var textareas = document.getElementsByTagName('textarea');
 if ( textareas ) {
@@ -46,14 +46,17 @@ function generatePreview() {
             xhr.send(input);
             xhr.onreadystatechange=(e)=> {
                 var detected = xhr.responseText;
+                var apiId;
                 for(var i = 1; i < language_list.length; i++){
                     if(language_list[i].apiId == detected) {
+                        apiId = `${detected}`;
                         detected = language_list[i].displayText;
                         detectVisible = true;
                         break;
                     }
                 }
-                langDetect.innerHTML = `Detected: ${detected}`;
+                langDetect.textContent = `Detected: ${detected}`;
+                langDetect.value = apiId;
                 document.querySelector(`div#previewPanel.main-content`).appendChild(langDetect);
             }
         } else if (detectVisible) {
@@ -75,20 +78,24 @@ function generatePreview() {
 function generatePlaceholder(lang = null) {
     const Http = new XMLHttpRequest();
     let len, randomIndex, randomLang, previewId, apiId;
-    if (lang == null) {
+    if (lang == null || lang == 'auto') {
         len = language_list.length;
         randomIndex = Math.floor(Math.random() * (len - 1)) + 1;
         randomLang = language_list[randomIndex];
         previewId = `type_${randomLang.apiId.replace(/-|\./gm, '_')}`;
         apiId = randomLang.apiId;
         document.querySelector(`select#lang`).value = randomLang.apiId;
+        len = style_list.length;
+        randomIndex = Math.floor(Math.random() * (len));
+        randomStyle = style_list[randomIndex];
+        document.querySelector('select#style').value = randomStyle.apiId;
     } else {
         previewId = `type_${lang.replace('-', '_')}`;
         apiId = lang;
     }
     let previewText = preview[previewId];
 
-    new Logger({len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
+    new Logger({lang, len, randomIndex, randomLang, preview, previewText}, 'generatePlaceholder() Selected: ', 'color: blue; font-weight: bold;');
     document.querySelector(`textarea#codeInput`).placeholder = previewText;
     document.querySelector(`select#engine`).value = 'hijs';
     Http.open("POST", `${apiUrl}/api/create/hijs${apiId}/`);
@@ -99,6 +106,7 @@ function generatePlaceholder(lang = null) {
         var hiPreview = document.getElementById("previewArea");
         hiPreview.innerHTML = hiPreviewText;
     }
+    refreshSheet();
 }
 const previewStyle = document.createElement('link')
 document.querySelector("head").appendChild(previewStyle);
@@ -115,6 +123,7 @@ function getExport() {
     var langSelect = document.querySelector("select#lang");
     var engine = engineSelect.options[engineSelect.selectedIndex].value;
     var lang = langSelect.options[langSelect.selectedIndex].value;
+    if(lang == 'auto') lang = `${langDetect.value}`;
     var input = document.querySelector("textarea#codeInput").value;
     var style = document.querySelector("select#style").value;
     var preview = document.querySelector("div#previewArea");

@@ -1,5 +1,5 @@
 // export.js
-// Last revised: Sun August 02, 2020 @ 11:53:02 EDT
+// Last revised: Mon August 03, 2020 @ 07:16:13 EDT
 var language;
 var pageId = getParameterByName('id');
 if( pageId == null ) {
@@ -14,7 +14,7 @@ function loadImage(image) {
     Http.onreadystatechange = (e) => {
         if (Http.readyState == 4) {
             image.src = `${apiUrl}/api/view/${pageId}/img`;
-            image.style = "";
+            image.style = "width: 100%; height: auto;";
             image.class = "loaded";
         }
     }
@@ -27,8 +27,6 @@ async function setupCboxZero() {
     var title = document.querySelector("div.main-content h2.title");
     var infoSel = "div.main-content table.info";
     var image = document.querySelector("div.main-content img.loading");
-    var shareBox = document.createElement("div");
-    contentBox[0].appendChild(shareBox);
     try {
         language = await dbFetch(pageId, 'exports', 'code_type');
         var engine = await dbFetch(pageId, 'exports', 'engine_type');
@@ -52,10 +50,9 @@ async function setupCboxZero() {
         console.log(err);
     }
     loadImage(image);
-    shareBox.textContent = "share placeholder"; // TODO <--
 }
 // Format elements for contentBox[1]
-function setupCboxOne() {
+async function setupCboxOne() {
     var title = document.querySelector("h2.title2");
     title.textContent = "Actions";
     // TODO: Add "Actions"
@@ -71,6 +68,15 @@ function setupCboxOne() {
     //       - Tweet/Facebook
     //       - Clipboard
     //       - etc.
+    
+    // Activate buttons
+    document.querySelectorAll(':disabled').forEach(el => {
+        el.removeAttribute('disabled');
+    })
+}
+async function pageLoad() {
+    await setupCboxZero();
+    await setupCboxOne();
 }
 
 function CopyImageById(Id) { //http://embed.plnkr.co/CCalCBmouRtAkoE5arHF/
@@ -97,4 +103,8 @@ function CopyImageById(Id) { //http://embed.plnkr.co/CCalCBmouRtAkoE5arHF/
   var msg = successful ? 'successful' : 'unsuccessful';
   bodys.removeChild(imgs);
   document.getElementById('answer').innerHTML="Copy image command was " + msg ;
+}
+
+function getUrl() {
+     copyToClipboard(`${apiUrl}/v?id=${pageId}`);
 }

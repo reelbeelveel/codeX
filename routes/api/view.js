@@ -1,4 +1,4 @@
-// Script modified: Mon August 03, 2020 @ 12:17:22 EDT
+// Script modified: Mon August 03, 2020 @ 07:18:01 EDT
 const express = require('express');
 const fs = require('fs').promises;
 const joi = require('@hapi/joi');
@@ -44,12 +44,42 @@ router.get('/:reqId/:arg?', async (req, res) => {
                 const page = await browser.newPage();
 
                 // Set our page's content (template as desired) + styleheet (from request, or default)?
-                // TODO: vvv ADD WATERMARK TO IMAGE USING TEMPLATE HTML vvv
-                await page.setContent(`<html class="hljs"><pre id="bounding" style="margin: 0; padding: 0; position: fixed; top: 0; left: 0;" class="hljs"><code class="hljs" style="padding: 2em 2em 2em 2em;">${highlight}</code></pre></html>`);
+                let content = '<html class="hljs">' +
+                '<pre id="bounding" style="margin: 0; padding: 0; position: fixed; top: 0; left: 0; font-size: larger;" class="hljs">' +
+                '<code class="hljs" style="padding: 2em 2em 2em 2em; margin-bottom: 3em;">' +
+                `${highlight}` +
+                '</code><br style="padding: 2em;"><div id="watermark" style="display: block; background-color: #122a40; position: absolute; bottom: 8px; right: 8px; border: 2px solid #f78764; color: #b8336a; padding: 0.5em 1em 1.5em 0.5em; width: fit-content; height: fit-content; font-size: medium; border-radius: 20px;" align="right">' +
+                '<img src="http://localhost:3000/Resources/openbracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
+                `codexapp.co/v?id=${value.reqId}` +
+                '<img src="http://localhost:3000/Resources/closebracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
+                '</div></pre></html>';
+                await page.setContent(content);                
                 await page.addStyleTag({path: path.join(__dirname, `/../../pagesource/css/${sheet}`)});
-                const { width, height } = await (await page.$('pre')).boundingBox();
-                if(width > 800 || height > 600) await page.setViewport({ width: 2000, height: 10000 });
+                var { width, height } = await (await page.$('pre')).boundingBox();
+                if(width <= 800 && height <= 600) await page.setViewport({width: 800, height: 600});
+                else if(width <= 2000 && height <= 10000) await page.setViewport({ width: 2000, height: 10000 });
+                else {
+                    width = 2000;
+                    height = 10000;
+                    content = '<html class="hljs">' +
+                        '<div style="position: fixed:, top: 0; left: 0; background-color: red; color: white; font-size: x-large; font-weight: bold;">' +
+                        'ERROR: This output exceeds the current limit of 2000x10000px. It has been cropped to fit this limit. Consider breaking your code up into several snippets.' +
+                        '</div>' +
+                        '<pre id="bounding" style="margin: 0; padding: 0; position: fixed; top: 0; left: 0; font-size: larger;" class="hljs">' +
+                        '<code class="hljs" style="padding: 2em 2em 2em 2em;">' +
+                        `${highlight}` +
+                        '</code></pre><br style="padding: 2em;"><div id="watermark" style="background-color: #122a40; position: absolute; bottom: 8px; right: 8px; border: 2px solid #f78764; color: #b8336a; padding: 0.5em 1em 1.5em 0.5em; width: fit-content; height: fit-content; font-size: large; border-radius: 20px;" align="right">' +
+                        '<img src="http://localhost:3000/Resources/openbracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
+                        `codexapp.co/v?id=${value.reqId}` +
+                        '<img src="http://localhost:3000/Resources/closebracket.png" style="height: 2em; position: relative; transform: translate(0%, 35%);"/>' +
+                        '</div></html>';
+                    await page.setContent(content);
+                    await page.setViewport({ width: 2000, height: 10000 });
+                }
+                await page.addStyleTag({path: path.join(__dirname, '/../../pagesource/css/snippet.css')});
                 await page.screenshot({path: path.join(__dirname, `/../../exports/${value.reqId}.png`), clip: { x: 0, y: 0, width, height}, defaultViewport: null});
+                await page.close();
+                await browser.close();
                 fileName = `${value.reqId}.png`;
             }
                 break;
@@ -62,7 +92,7 @@ router.get('/:reqId/:arg?', async (req, res) => {
             if (err) throw err;
             else {
                 try {
-                //    await fs.unlink(path.join(__dirname, `/../../exports/${fileName}`));
+                    //    await fs.unlink(path.join(__dirname, `/../../exports/${fileName}`));
                     console.log("send and unlink finished");
                 } catch (err) {
                     console.log(`ERROR WHILE TRYING TO UNLINK ${fileName}: ${err}`);
