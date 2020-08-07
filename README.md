@@ -1,66 +1,29 @@
-# codeX
+# CodeX
 ## The Simple Code Snipper
 ### Code Snippet Generator
 *README Modified: Mon July 13, 2020 @ 09:52:44 EDT*
 
 ---
 
-## File Structure:
+## What is CodeX?
+Our initial goal when building CodeX was to create a simple, accessible tool that makes it easier for programmers, educators, and nerds to share readable (highlighted) code wherever they might normally communicate. Your average communication tool can make it difficult to send highlighted text-- SMS doesn't even support monospaced font, tweets don't allow for colored text, and even if they did (email) are you really going to take the time to manually style your code? CodeX will indent, highlight, and style for you, all in one go, and give you a PNG image you can send on your channel of choice.
 
-```
-$projectFrontendRoot = TBD
-$projectBackendRoot = TBD
-  |    |\___ 📁 (/nodemodules)
-  |    |     \____ 📁 (...)
-  |    |\___ 📁(/routes)
-  |    |     |\___ 📁 (/api)
-  |    |     |     \____ 💾 constants.js
-  |    |     |     \____ 💾 create.js
-  |    |     |     \____ 💾 detect.js
-  |    |     |     \____ 💾 export.js
-  |    |     |     \____ 💾 getToken.js
-  |    |     |\___ 💾 create.js
-  |    |     |\___ 💾 cssRouter.js
-  |    |     |\___ 💾 export.js
-  |    |     |\___ 💾 index.js
-  |    |     |\___ 💾 jsRouter.js
-  |    |     |\___ 💾 resouce.js
-  |    |     |\___ 💾 view.js
-  |    |\___ 💾 index.js
-  |    |\___ 💾 package.lock
-  |    \____ 💾 package.json
-  |    |
-  |    |\__ 📁(/.sh)
-  |    |    |\___ 💾 build.sh
-  |    |    |\___ 💾 clean.sh
-  |    |    |\___ 💾 flag-available.sh
-  |    |    |\___ 💾 flag-unaailable.sh
-  |    |    |\___ 💾 rebuild.sh
-  |    |\__ 📁(/.certsFiles)
-  |    |    |\___ 💾 selfsigned.crt
-  |    |    |\___ 💾 selfsigned.key
-  |    |\_ 📁 (/pagesource)
-  |    |   |\___ 📁 (/css)
-  |    |   |     \____ 💾 main.css
-  |    |   |     \____ 💾 (themes*).css
-  |    |   |\___ 📁 (/js)
-  |    |   |     \____ 💾 browser.js
-  |    |   |     \____ 💾 engine_list.js
-  |    |   |     \____ 💾 language_list.js
-  |    |   |     \____ 💾 style_list.js
-  |    |   |\___ 📁 (/resources)
-  |    |   |     \___ 📁 (/fonts)
-  |    |   |           |\___ 💾hack.ttf
-  |    |   |     \___ 💾 (images*).png
-  |    |   |\___ 💾 create.html
-  |    |   |\___ 💾 export.html
-  |    |   |\___ 💾 index.html
-  |    |   |\___ 💾 testpage.html
-  |    |   |\___ 💾 view.html
-  |    \____ 💾 cdX.conf
-📁 /etc/httpd
-  |\___ 📁 (/sites-available)
-  |     \___ 💾 cdX.conf # Apache `.conf` file
-  \____ 📁 (/sites-enabled)
-        \____ 🔗 cdX.lnk -> cdX.conf # Symlink to conf file
-```
+---
+
+## How does CodeX work?
+Right now, CodeX is a pretty simple system. It depends on an existing highlight package, [highlight.js](http://highlightjs.org/) to generate highlighted code for over 180 [supported languages](https://highlightjs.org/static/demo/). Going forward, we'd like to implement support for more highlight packages (*maybe one with line numbers?*), as well as one of our own. 
+
+---
+
+## What features are in the works?
+ - More highlighting engines, hopefully one with line numbers
+ - More style choices, including more stylesheets, custom stylesheets?
+ - ability to edit code font
+ - Design center for customizing style on the fly
+ - More output forms, embed tags, tweet, facebook, etc?
+ 
+---
+
+## How can I leave feedback?
+Any and all feedback is welcome both on the Github site and at [support@codexapp.co](mailto:support@codexapp.co?subject=Feedback).
+ 
