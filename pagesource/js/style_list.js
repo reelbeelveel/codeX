@@ -168,10 +168,10 @@ style_list = [
         apiId: "isbl-editor-light.css",
         displayText: "ISBL Editor - Light"
     },{
-        apiId: "kimbie.dark.css",
+        apiId: "kimbie-dark.css",
         displayText: "Kimbie - Dark"
     },{
-        apiId: "kimbie.light.css",
+        apiId: "kimbie-light.css",
         displayText: "Kimbie - Light"
     },{
         apiId: "lightfair.css",
