@@ -1,5 +1,5 @@
 // create.js
-// Last revised: Mon August 03, 2020 @ 02:56:39 EDT
+// Last revised: Fri August 07, 2020 @ 09:12:08 EDT
 
 var textareas = document.getElementsByTagName('textarea');
 if ( textareas ) {
@@ -145,3 +145,11 @@ function getExport() {
 }
 
 
+var otherHints = ["But did you know you can refresh the page to preview a random language?", "I see. But did you know you can preview different styles by selecting a style by the preview box?", "But did you know you can preview languages by leaving the input field blank?"];
+var hintCount = 0;
+function cycleHints() {
+    var hint = document.querySelector('div.hint span');
+    hint.textContent = otherHints[hintCount % 3]; 
+    hintCount++;
+    return otherHints[hintCount % 3];
+}

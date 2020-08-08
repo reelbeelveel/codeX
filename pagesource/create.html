@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Mon August 03, 2020 @ 02:47:43 EDT -->
+<!-- Page revised: Fri August 07, 2020 @ 09:12:11 EDT -->
 <html>
 
     <head>
@@ -88,16 +88,16 @@
                                 <label for="style">Select a style:</label>
                             </td>
                             <td align="right">
-                                    <select id="style" onchange="refreshSheet()" style="width:50%"></select>
+                                <select id="style" onchange="refreshSheet()" style="width:50%"></select>
                                 <script src="/js/style_list.js"></script>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                    <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="margin:0px" class="button"/>
+                                <input name="Share" type="button" onclick="quickShare()" value="Quick Share" style="margin:0px" class="button"/>
                             </td>
                             <td align="right">
-                                    <input name="Export" type="button" onclick="getExport()" value="Export" style="margin:0px" class="button"/>
+                                <input name="Export" type="button" onclick="getExport()" value="Export" style="margin:0px" class="button"/>
                             </td>
                         </tr>
                     </table>
@@ -105,8 +105,20 @@
                 </div>
                 <!-- end flex box two -->
             </div>
+            <div class="hint">
+                <center>
+                    <span>Hey! Did you know you can preview languages by leaving the input field blank?</span>
+                    <input type="button" onclick="cycleHints()" value="Yes"/>
+                    <input type="button" onclick="cycleHints()" value="No"/>
+                </center>
+            </div>
         </main>
         <footer>
+            <hr />
+            <span>Leave us feedback or contact support: <a href="mailto:support@codexapp.co?subject=Feedback">
+                    <input type="button" value="Support" class="button" onclick=""></input>
+                </a>
+            </span>
         </footer>
     </body>
     <script src="/js/browser.js"></script>
