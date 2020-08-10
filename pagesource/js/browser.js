@@ -1,10 +1,10 @@
 // browser.js
-// Last revised: Fri August 07, 2020 @ 05:23:41 EDT
+// Last revised: Mon August 10, 2020 @ 12:31:20 EDT
 
 // Comment out one or the other to change where the API is called (debug).
 // TODO: instructions for local api hosting
-//const apiUrl = 'https://localhost:3001';
-const apiUrl = 'https://codexapp.co';
+const apiUrl = 'https://localhost:3001';
+//const apiUrl = 'https://codexapp.co';
 if (location.protocol !== 'https:') {
     location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }

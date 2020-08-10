@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Fri August 07, 2020 @ 08:33:02 EDT -->
+<!-- Page revised: Mon August 10, 2020 @ 12:23:05 EDT -->
 <html>
     <head>
         <title>codeX | Simple Code Snipper</title>
@@ -29,7 +29,10 @@
                         <hr />
                         <br />
                         <center>
-                            <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
+                            <!-- TODO: add "click to download" tooltip" -->
+                            <a class="downloadimg"> 
+                                <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
+                            </a>
                         </center>
                         <br />
                         <hr />
@@ -55,11 +58,14 @@
                     <!-- end flex box one -->
                     <!-- start flex box two -->
                     <div class="main-content">
-                        <input type="radio" id="rendered" name="format" value="Rendered Text">
-                        <input type="radio" id="plain" name="format" value="Plain Text">
-
-                        <textarea class="textcontent"></textarea>
-
+                        <input type="radio" id="rendered" class="radio" name="format" checked>
+                        <label for="rendered">Rendered Text</label>
+                        <input type="radio" id="plain" class="radio" name="format">
+                        <label for="plain">Plaintext</label>
+                        <br />
+                        <hr />
+                        <div class="viewtext">
+                        </div>
                     </div>
                     <!-- end flex box two -->
                 </div>

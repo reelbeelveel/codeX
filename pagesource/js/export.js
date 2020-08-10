@@ -1,32 +1,28 @@
 // export.js
-// Last revised: Mon August 03, 2020 @ 07:16:13 EDT
+// Last revised: Mon August 10, 2020 @ 01:31:44 EDT
 var language;
 var pageId = getParameterByName('id');
 if( pageId == null ) {
     // TODO: Select random id from mysql
 }
 
-function loadImage(image) {
-    const Http = new XMLHttpRequest();
-    Http.open("GET", `${apiUrl}/api/view/${pageId}/img`);
-    console.log(Http);
-    Http.send();
-    Http.onreadystatechange = (e) => {
-        if (Http.readyState == 4) {
-            image.src = `${apiUrl}/api/view/${pageId}/img`;
-            image.style = "width: 100%; height: auto;";
-            image.class = "loaded";
-        }
-    }
+var contentBox = document.querySelectorAll("div.flex-prop div.main-content");
+    var image = document.querySelector("div.main-content img#codeImage");
+var downloadLink = document.querySelector("a.downloadimg");
+var newImg = new Image;
+newImg.src = `${apiUrl}/api/view/${pageId}/img`;
+newImg.onload = function() {
+    console.log("LOADED!!");
+    image.src = this.src;
+    image.class = "loaded";
+    image.style = "width: 100%; height: auto;";
+    downloadLink.href = `${apiUrl}/api/view/${pageId}/img`;
+    downloadLink.download = `codex-${language}`;
 }
 
-var contentBox = document.querySelectorAll("div.flex-prop div.main-content");
-
-// Format elements for contentBox[0]
-async function setupCboxZero() {
     var title = document.querySelector("div.main-content h2.title");
     var infoSel = "div.main-content table.info";
-    var image = document.querySelector("div.main-content img.loading");
+async function setupCboxZero() {
     try {
         language = await dbFetch(pageId, 'exports', 'code_type');
         var engine = await dbFetch(pageId, 'exports', 'engine_type');
@@ -37,10 +33,6 @@ async function setupCboxZero() {
 
         // Load data from SQL (via api) for contentBox[0]
         title.textContent = `My Snippet #${pageId}`;
-        // TODO load title:
-        //      - add title to tables
-        //      - add title to export logic (default title?)
-        //      - add title loading query
         document.querySelector(infoSel + " tr td.id-cell").textContent = pageId;
         document.querySelector(infoSel + " tr td.lang-cell").textContent = language;
         document.querySelector(infoSel + " tr td.engine-cell").textContent = engine;
@@ -49,7 +41,6 @@ async function setupCboxZero() {
     } catch (err) {
         console.log(err);
     }
-    loadImage(image);
 }
 // Format elements for contentBox[1]
 async function setupCboxOne() {
