@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Mon August 10, 2020 @ 12:23:05 EDT -->
+<!-- Page revised: Mon August 10, 2020 @ 01:59:25 EDT -->
 <html>
     <head>
         <title>codeX | Simple Code Snipper</title>
@@ -21,6 +21,7 @@
                         </a>
                 </ul>
             </header>
+            </div>
             <main>
                 <div class="flex-prop">
                     <!-- start flex box one -->
@@ -58,13 +59,15 @@
                     <!-- end flex box one -->
                     <!-- start flex box two -->
                     <div class="main-content">
-                        <input type="radio" id="rendered" class="radio" name="format" checked>
+                        <input type="radio" id="rendered" class="radio" name="format" onclick="checkRadio();" checked>
                         <label for="rendered">Rendered Text</label>
-                        <input type="radio" id="plain" class="radio" name="format">
+                        <input type="radio" id="plain" class="radio" name="format" onclick="checkRadio();">
                         <label for="plain">Plaintext</label>
                         <br />
                         <hr />
                         <div class="viewtext">
+                    <div id="previewArea">PREVIEW AREA</div>
+                        <textarea id="codeInput" name="codeInput" autofocus placeholder="TEXTAREA" required onchange="generatePreview()" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="resize: none; visibility: hidden;"></textarea>
                         </div>
                     </div>
                     <!-- end flex box two -->
@@ -80,6 +83,6 @@
     </body>
     <script src="/js/browser.js"></script>
     <script src="/js/view.js"></script>
-    <script>setupCboxZero();</script>
+    <script>setupCboxZero(); setupCboxOne();</script>
     <script data-ad-client="ca-pub-1851317222446723" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </html>
