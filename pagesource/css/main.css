@@ -1,9 +1,9 @@
-/* Stylesheet revised: Fri August 07, 2020 @ 05:30:00 EDT */
+/* Stylesheet revised: Mon August 10, 2020 @ 03:23:50 EDT */
 @font-face {
     font-family: Hack;
     src: url('../Resources/fonts/Hack-Regular.ttf');
     font-family: Hurmit-NF;
-    src url('../Resources/fonts/Hurmit-NF.otf')
+    src: url('../Resources/fonts/Hurmit-NF.otf');
 }
 :root {    /* Color Settings!                           
             * DO NOT HARD-CODE COLORS.  Add them here as variables,
