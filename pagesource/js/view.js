@@ -1,5 +1,5 @@
 // view.js
-// Last revised: Mon August 10, 2020 @ 02:13:54 EDT
+// Last revised: Mon August 10, 2020 @ 02:39:05 EDT
 
 var engine, highlight, language, plaintext, style, timestamp, time;
 var pageId = getParameterByName('id');
@@ -10,9 +10,14 @@ if( pageId == null ) {
 
 var contentBox = document.querySelectorAll("div.flex-prop div.main-content");
 
-var image = document.querySelector("div.main-content img#codeImage");
+var changeWarning = document.getElementById("changeWarning");
 var downloadLink = document.querySelector("a.downloadimg");
+var image = document.querySelector("div.main-content img#codeImage");
+var infoSel = "div.main-content table.info";
 var newImg = new Image;
+var rendered = document.querySelector('div#previewArea'); 
+var title = document.querySelector("div.main-content h2.title");
+var _textarea = document.querySelector('textarea#codeInput');
 newImg.src = `${apiUrl}/api/view/${pageId}/img`;
 newImg.onload = function() {
     console.log("LOADED!!");
@@ -23,8 +28,6 @@ newImg.onload = function() {
     downloadLink.download = `codex-${language}`;
 }
 
-var title = document.querySelector("div.main-content h2.title");
-var infoSel = "div.main-content table.info";
 async function setupCboxZero() {
     try {
         language = await dbFetch(pageId, 'exports', 'code_type');
@@ -50,22 +53,21 @@ async function setupCboxOne() {
         style = await dbFetch(pageId, 'images', 'style');
         highlight = await dbFetch(pageId, 'exports', 'highlight');
         plaintext = await dbFetch(pageId, 'exports', 'plaintext');
-        document.querySelector("textarea#codeInput").value = plaintext;
-        document.getElementById("previewArea").innerHTML = `<pre><code class="hljs">${highlight}</pre></code>`;
+        _textarea.value = plaintext;
+        rendered.innerHTML = `<pre><code class="hljs">${highlight}</pre></code>`;
         const previewStyle = document.createElement('link')
         document.querySelector("head").appendChild(previewStyle);
         previewStyle.rel = "stylesheet";
         previewStyle.type= "text/css";
         previewStyle.href=`/css/${style}`;
         generatePreview();
+        changeWarning.style.visibility = "hidden";
     } catch (err) {
         console.log(err);
     }
 }
 
 function checkRadio(){
-    var _textarea = document.querySelector('textarea#codeInput');
-    var rendered = document.querySelector('div#previewArea'); 
     if(document.querySelector('input.radio#rendered').checked){
         _textarea.style.visibility = "hidden";
         rendered.style.visibility = "visible";
@@ -76,6 +78,7 @@ function checkRadio(){
 }
 
 function generatePreview() {
+    changeWarning.style.visibility = "visible";
     const Http = new XMLHttpRequest();
     var input = document.querySelector("textarea#codeInput").value;
     if(input != ""){
@@ -88,5 +91,25 @@ function generatePreview() {
             var preview = document.getElementById("previewArea");
             preview.innerHTML = `<pre><code class="hljs">${previewText}</pre></code>`;
         }
+    }
+}
+
+function getExport() {
+    const Http = new XMLHttpRequest();
+    var lang = language;
+    var input = document.querySelector("textarea#codeInput").value;
+    if (token == undefined) {
+        new Logger('','No Token!', 'color: red; font-weight: bold;');
+    } else {
+        Http.open("POST", `${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}/`);
+        console.log(`[POST To:] ${apiUrl}/api/export/${engine}${lang}/img/${style}/${token}`);
+        Http.onreadystatechange=(e)=>{
+            if (Http.readyState == 4) {
+                if(Http.status == 200) window.location.href = `${apiUrl}/export?id=${token}`;
+                // TODO: Make this open in-page "pop-up"?
+            }
+        }
+        Http.send(input);
+        getToken();
     }
 }

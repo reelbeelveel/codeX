@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- Page revised: Mon August 10, 2020 @ 01:59:25 EDT -->
+<!-- Page revised: Mon August 10, 2020 @ 02:44:51 EDT -->
 <html>
     <head>
         <title>codeX | Simple Code Snipper</title>
@@ -21,68 +21,74 @@
                         </a>
                 </ul>
             </header>
-            </div>
-            <main>
-                <div class="flex-prop">
-                    <!-- start flex box one -->
-                    <div class="main-content">
-                        <h2 class="title"></h2>
-                        <hr />
-                        <br />
-                        <center>
-                            <!-- TODO: add "click to download" tooltip" -->
-                            <a class="downloadimg"> 
-                                <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
-                            </a>
-                        </center>
-                        <br />
-                        <hr />
-                        <table class="info">
-                            <tr>
-                                <td><b>ID</b></td>
-                                <td class="id-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Language</b></td>
-                                <td class="lang-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Engine</b></td>
-                                <td class="engine-cell"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Uploaded</b></td>
-                                <td class="time-cell"></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- end flex box one -->
-                    <!-- start flex box two -->
-                    <div class="main-content">
-                        <input type="radio" id="rendered" class="radio" name="format" onclick="checkRadio();" checked>
-                        <label for="rendered">Rendered Text</label>
-                        <input type="radio" id="plain" class="radio" name="format" onclick="checkRadio();">
-                        <label for="plain">Plaintext</label>
-                        <br />
-                        <hr />
-                        <div class="viewtext">
-                    <div id="previewArea">PREVIEW AREA</div>
-                        <textarea id="codeInput" name="codeInput" autofocus placeholder="TEXTAREA" required onchange="generatePreview()" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="resize: none; visibility: hidden;"></textarea>
-                        </div>
-                    </div>
-                    <!-- end flex box two -->
+        </div>
+        <main>
+            <div class="flex-prop">
+                <!-- start flex box one -->
+                <div class="main-content">
+                    <h2 class="title"></h2>
+                    <hr />
+                    <br />
+                    <center>
+                        <!-- TODO: add "click to download" tooltip" -->
+                        <a class="downloadimg"> 
+                            <img style="width: 20%; height: auto;" id="codeImage" class="loading" src="/Resources/loading.gif"/>
+                        </a>
+                    </center>
+                    <br />
+                    <hr />
+                    <table class="info">
+                        <tr>
+                            <td><b>ID</b></td>
+                            <td class="id-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Language</b></td>
+                            <td class="lang-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Engine</b></td>
+                            <td class="engine-cell"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Uploaded</b></td>
+                            <td class="time-cell"></td>
+                        </tr>
+                    </table>
                 </div>
-            </main>
-            <footer>
-                <hr />
-                <span>Leave us feedback or contact support: <a href="mailto:support@codexapp.co?subject=Feedback">
-                        <input type="button" value="Support" class="button" onclick=""></input>
-                    </a>
-                </span>
-            </footer>
+                <!-- end flex box one -->
+                <!-- start flex box two -->
+                <div class="main-content">
+                    <input type="radio" id="rendered" class="radio" name="format" onclick="checkRadio();" checked>
+                    <label for="rendered">Rendered Text</label>
+                    <input type="radio" id="plain" class="radio" name="format" onclick="checkRadio();">
+                    <label for="plain">Plaintext</label>
+                    <br />
+                    <hr />
+                    <div class="viewtext">
+                        <div id="previewArea">PREVIEW AREA</div>
+                        <textarea id="codeInput" name="codeInput" autofocus placeholder="TEXTAREA" required onchange="generatePreview()" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="resize: none; visibility: hidden;"></textarea>
+                    </div>
+                    <div id="changeWarning" style="visibility: hidden;">
+                        <span>
+                            Warning! You have made local modifications to this snippet, but these changes have not been saved.
+                        </span>
+                        <input type="button" id="revert" onclick="if(confirm('Are you sure you would like to revert your changes? All local modifications to this snippet will be lost.')) setupCboxOne();" class="button" value="Revert Changes">
+                        <input type="button" onclick="getExport();" class="button" value="Export Changes">
+                </div>
+                <!-- end flex box two -->
+            </div>
+        </main>
+        <footer>
+            <hr />
+            <span>Leave us feedback or contact support: <a href="mailto:support@codexapp.co?subject=Feedback">
+                    <input type="button" value="Support" class="button" onclick="">
+                </a>
+            </span>
+        </footer>
     </body>
     <script src="/js/browser.js"></script>
     <script src="/js/view.js"></script>
-    <script>setupCboxZero(); setupCboxOne();</script>
+    <script>setupCboxZero(); setupCboxOne(); getToken();</script>
     <script data-ad-client="ca-pub-1851317222446723" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </html>
