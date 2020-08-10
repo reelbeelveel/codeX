@@ -1,4 +1,4 @@
-// Script modified: Mon August 03, 2020 @ 06:45:16 EDT
+// Script modified: Mon August 10, 2020 @ 02:56:05 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -58,7 +58,12 @@ var credentials = {
     cert: cert
 };
 
-
+// TODO: Cleanup route handling error messages.
+// A message like this one vvvvvv should be the default response
+// in case a routehandler does not know what to do. This helps the
+// user correct their queries if needed. This can be done simply by
+// adding: app.all('/', (req, res) => {res.status(400).send(MESSAGE).end();});
+// with an appropriate message for each handler.
 app.all('/api', (req, res) => {
     res.status(400)
         .send("Bad Request, specify a subroutine ('/api/create/', '/api/detect/', /api/export/', 'api/getToken/', '/view')")
