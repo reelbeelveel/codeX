@@ -10,6 +10,7 @@ const fileSchema = joi.object({
 
 router.get('/:file', async (req, res) => {
     try {
+        console.('[resource] GET REQUEST');
         const value = await fileSchema.validateAsync(req.params)
         res.status(200).sendFile(value.file, { root: path.join(__dirname, '../pagesource/Resources/') });
     } catch (err) {
