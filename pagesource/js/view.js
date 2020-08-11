@@ -1,5 +1,5 @@
 // view.js
-// Last revised: Mon August 10, 2020 @ 02:39:05 EDT
+// Last revised: Tue August 11, 2020 @ 04:58:10 EDT
 
 var engine, highlight, language, plaintext, style, timestamp, time;
 var pageId = getParameterByName('id');
@@ -37,10 +37,17 @@ async function setupCboxZero() {
 
         console.log({language, engine, time});
 
+        //lang id to prettyname
+        var i = 0, lang = 'Auto';
+        while(language_list[i].apiId != language && i < language_list.length){
+            i++;
+            lang = language_list[i].displayText;
+        }
+
         // Load data from SQL (via api) for contentBox[0]
         title.textContent = `My Snippet #${pageId}`;
         document.querySelector(infoSel + " tr td.id-cell").textContent = pageId;
-        document.querySelector(infoSel + " tr td.lang-cell").textContent = language;
+        document.querySelector(infoSel + " tr td.lang-cell").textContent = lang;
         document.querySelector(infoSel + " tr td.engine-cell").textContent = engine;
         document.querySelector(infoSel + " tr td.time-cell").textContent = time;
 
