@@ -1,3 +1,4 @@
+const logger = require('./logger');
 const mysql = require('mysql');
 require('dotenv/config');
 const env = process.env;
@@ -10,8 +11,14 @@ var con = mysql.createConnection({
 });
 
 con.connect((err) => {
-    if(err) throw err;
-    console.log(`Connected to ${env.SQL_HOSTNAME}:${env.SQL_DATABASE}`);
+    if(err) {
+        logger.error(`Error while connecting to database:`);
+        logger.error(`>${err}`);
+        logger.error(`> Line 17, ./sqlHandler.js`);
+        throw err;
+    }
+    logger.info(`Connected to ${env.SQL_HOSTNAME}:${env.SQL_DATABASE}`);
+    logger.debug(`> User: ${env.SQL_USERNAME}`);
 });
 
 module.exports.sqlQuery = (sql) => {
@@ -19,8 +26,12 @@ module.exports.sqlQuery = (sql) => {
         con.query(sql, (err, result, fields) => {
             if (err) throw err;
             try {
+                logger.debug(`${result, fields}`);
                 data({result, fields});
             } catch (error) {
                 data({});
+                logger.error(`Error while fulfilling promised result:`);
+                logger.error(`>${err}`);
+                logger.error(`> Line 27, ./sqlHandler.js`)
                 throw error;
 }})})};

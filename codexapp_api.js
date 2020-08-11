@@ -1,4 +1,4 @@
-// Script modified: Mon August 10, 2020 @ 02:56:05 EDT
+// Script modified: Mon August 10, 2020 @ 08:51:25 EDT
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -7,6 +7,7 @@ const http = require('http');
 const https = require('https');
 const httpPort = 3000;
 const httpsPort = 3001;
+const logger = require('./logger');
 require('dotenv/config');
 
 app.use(bodyParser.text());
@@ -46,6 +47,7 @@ app.use('/js', jsRouter);
 app.use('/view', viewRouter);
 app.use('/v', viewRouter);
 app.use('/Resources', resourceRouter);
+app.use('/Resources/fonts', resourceRouter);
 app.use('/api/create', apiCreateRouter);
 app.use('/api/export', apiExportRouter);
 app.use('/api/db', apiSQLRouter);
@@ -65,6 +67,7 @@ var credentials = {
 // adding: app.all('/', (req, res) => {res.status(400).send(MESSAGE).end();});
 // with an appropriate message for each handler.
 app.all('/api', (req, res) => {
+    logger.warn('Bad request to /api/');
     res.status(400)
         .send("Bad Request, specify a subroutine ('/api/create/', '/api/detect/', /api/export/', 'api/getToken/', '/view')")
         .end();
@@ -76,9 +79,9 @@ var httpsServer = https.createServer(credentials, app);
 
 
 httpServer.listen(httpPort, () => {
-    console.log("Http server listing on port : " + httpPort)
+    logger.info("Http server listing on port : " + httpPort)
 });
 
 httpsServer.listen(httpsPort, () => {
-    console.log("Https server listing on port : " + httpsPort)
+    logger.info("Https server listing on port : " + httpsPort)
 });

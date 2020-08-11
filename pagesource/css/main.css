@@ -1,9 +1,9 @@
-/* Stylesheet revised: Mon August 10, 2020 @ 03:23:50 EDT */
+/* Stylesheet revised: Mon August 10, 2020 @ 09:08:44 EDT */
 @font-face {
     font-family: Hack;
-    src: url('../Resources/fonts/Hack-Regular.ttf');
+    src: url('/Resources/Hack-Regular.ttf');
     font-family: Hurmit-NF;
-    src: url('../Resources/fonts/Hurmit-NF.otf');
+    src: url('/Resources/Hurmit-NF.otf');
 }
 :root {    /* Color Settings!                           
             * DO NOT HARD-CODE COLORS.  Add them here as variables,
@@ -189,8 +189,8 @@ form, input, select, textarea, .previewPanel, .main-content{
 }
 div#previewArea {
     margin: 1em 1em 1em 1em;
-    font-family: Hurmit-NF;
 }
+div#previewArea * { font-family: Hurmit-NF;}
 .main-content h2 { 
     color: var(--clr-accentA);
     font-family: Hack;
