@@ -1,5 +1,6 @@
 const express = require('express');
 const joi = require('@hapi/joi');
+const logger = require('../../logger');
 const mysql = require('../../sqlHandler');
 const router = express.Router();
 const tokenLength = 22;
@@ -17,6 +18,7 @@ const schema = joi.object({
 })
 
 router.get('/:reqId/:table/:column', async (req, res) => {
+    logger.debug("[API/db] GET Call to ':/reqId/:table/:column'");
     var result, value;
     try {
         value = await schema.validateAsync(req.params);

@@ -1,4 +1,4 @@
-// Script modified: Tue August 11, 2020 @ 04:28:00 EDT
+// Script modified: Tue August 11, 2020 @ 05:28:33 EDT
 const colors = require('colors');
 require('dotenv/config');
 var enabled = {
@@ -19,19 +19,19 @@ function log(data, level) {
         }
         switch (level) {
             case 'info':
-                console.log(string.dim);
+                console.info(string.dim);
                 break;
             case 'debug':
-                console.log(string.white);
+                console.debug(string.white);
                 break;
             case 'verbose':
                 console.log(string.yellow);
                 break;
             case 'warn':
-                console.log(string.yellow.underline)
+                console.warn(string.yellow.underline)
                 break;
             case 'error':
-                console.log(string.red.bold);
+                console.error(string.red.bold);
                 break;
         }
     } catch (err) {
