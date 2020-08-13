@@ -7,7 +7,7 @@
   "author": "keelbeelveel",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "eslint": "^7.5.0"
+    "eslint": "^7.6.0"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -19,7 +19,7 @@
     "highlight.js": "^10.1.1",
     "index.js": "0.0.3",
     "joi": "^14.3.1",
-    "jsdom": "^16.3.0",
+    "jsdom": "^16.4.0",
     "mime": "^2.4.6",
     "mysql": "^2.18.1",
     "puppeteer": "^5.2.1",
