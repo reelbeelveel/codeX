@@ -1,13 +1,14 @@
-// Script modified: Tue August 11, 2020 @ 05:28:33 EDT
+// Script modified: Thu August 13, 2020 @ 07:05:38 EDT
 const colors = require('colors');
 require('dotenv/config');
 var enabled = {
-    info: process.env.LOG_INFO,
-    debug: process.env.LOG_DEBUG,
-    verbose: process.env.LOG_VERBOSE,
-    warn: process.env.LOG_WARN,
-    error: process.env.LOG_ERROR
+    info: (process.env.LOG_INFO == 'true'),
+    debug: (process.env.LOG_DEBUG == 'true'),
+    verbose: (process.env.LOG_VERBOSE == 'true'),
+    warn: (process.env.LOG_WARN == 'true'),
+    error: (process.env.LOG_ERROR == 'true')
 };
+console.log(enabled);
 function log(data, level) {
     try{
         var string;
