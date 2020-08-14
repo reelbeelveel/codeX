@@ -1,12 +1,12 @@
 #!/bin/bash
-# script revised: Thu August 13, 2020 @ 02:21:24 EDT
+# script revised: Fri August 14, 2020 @ 02:12:03 EDT
 echo "  "
 echo "######################"
 echo " build.sh"
 echo "######################"
 echo "  "
-sudo cp -rv /usr/etc/codeX/pagesource/* /var/www/cdX/html/
-sudo cp /usr/etc/codeX/cdX.conf /etc/httpd/sites-available/cdX.conf
+sudo cp -rv /web/codeX/pagesource/* /var/www/cdX/html/
+sudo cp /web/codeX/cdX.conf /etc/httpd/sites-available/cdX.conf
 echo "  "
 echo "--------------------"
 echo "  "
