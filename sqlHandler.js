@@ -3,35 +3,21 @@ const mysql = require('mysql');
 require('dotenv/config');
 const env = process.env;
 
-var con = mysql.createConnection({
+var pool = mysql.createPool({
+    connectionLimit: 10,
     host: env.SQL_HOSTNAME,
     user: env.SQL_USERNAME,
     password: env.SQL_PASSWORD,
     database: env.SQL_DATABASE
 });
 
-con.connect((err) => {
-    if(err) {
-        logger.error(`[sqlHandler] Error while connecting to database:`);
-        logger.error(`>${err}`);
-        logger.error(`> Line 17, ./sqlHandler.js`);
-        throw err;
-    }
-    logger.info(`[sqlHandler] Connected to ${env.SQL_HOSTNAME}:${env.SQL_DATABASE}`);
-    logger.debug(`> User: ${env.SQL_USERNAME}`);
+pool.on('connection', function (connection) {
+    logger.debug('[mySQL] Connection initiated.');
+    connection.query('SET SESSION auto_increment_increment=1');
 });
 
-module.exports.sqlQuery = (sql) => {
-    return new Promise(data => {
-        con.query(sql, (err, result, fields) => {
-            if (err) throw err;
-            try {
-                logger.debug(`[sqlHandler] ${result, fields}`);
-                data({result, fields});
-            } catch (error) {
-                data({});
-                logger.error(`[sqlHandler] Error while fulfilling promised result:`);
-                logger.error(`>${err}`);
-                logger.error(`> Line 27, ./sqlHandler.js`)
-                throw error;
-}})})};
+pool.on('enqueue', function () {
+    logger.debug('[mySQL] Waiting for available connection slot');
+});
+
+module.exports = pool;

@@ -1,4 +1,4 @@
-// Script modified: Tue August 11, 2020 @ 04:21:09 EDT
+// Script modified: Thu August 13, 2020 @ 07:16:27 EDT
 const express = require('express');
 const fs = require('fs').promises;
 const joi = require('@hapi/joi');
@@ -39,33 +39,53 @@ router.get('/:reqId/:arg?', async (req, res) => {
 
         switch(value.arg) {
             case 'img':
-                // setup necessary sql queries,
-                var query =
-                    "SELECT style AS sheet, highlight " +
-                    "FROM images i " +
-                    "JOIN exports e " +
-                    "ON i.id = e.id " +
-                    `WHERE i.id = '${value.reqId}' ` +
-                    "LIMIT 2;";
-                logger.verbose('[API/View] Querying database');
-                logger.verbose(`> query: ${query}`);
-                var sql = await mysql.sqlQuery(query);
-                logger.debug('[API/View] Result returned from database');
-                logger.debug(`> query: ${query}`);
-                logger.verbose(`> result: ${util.inspect(sql, false, null, true)}`);
-                console.log(util.inspect(sql, false, null, true));
+                var [ sheet, highlight ] = await new Promise( (resolve, reject) => {
+                    try {
+                        mysql.getConnection( (err, con) => {
+                            if(err) {
+                                logger.error("[API/View] Error with operation SELECT ... FROM IMAGES JOIN ON ... LIMIT 2 (did not connect)");
+                                throw new Error(`Could not get connection, returned error: ${err.message}`);
+                            } else {
+                                var query = "SELECT style AS sheet, highlight " +
+                                    "FROM images i " +
+                                    "JOIN exports e " +
+                                    "ON i.id = e.id " +
+                                    "WHERE i.id = ? " +
+                                    "LIMIT 2;";
+                                con.query(query, value.reqId, (err, result) => {
+                                    if (err) {
+                                        logger.error("[API/View] Error with operation SELECT ... FROM IMAGES JOIN ON ... LIMIT 2 (connection error)");
+                                        throw new Error(`Connection query returned error: ${err.message}`);
+                                    } else {
+                                        logger.debug("[API/View] Database query returned:")
+                                        logger.debug(`> query: ${query}`);
+                                        logger.debug(`> id: ${con.escape(value.reqId)}`)
+                                        logger.debug(`> (result!) sheet: ${result[0].sheet}`)
+                                        logger.debug(`> (result!) highlight: ${result[0].highlight}`);
+                                        var s = result[0].sheet;
+                                        var h = result[0].highlight;
+                                        resolve([ s, h ]);
+                                        con.release();
+                                    }
+                                });
+                            }
+                        });
+                    } catch (err) {
+                        logger.error("[API/View] Error with database operation:");
+                        logger.error(`> ${err}`);
+                        reject([undefined, undefined]);
+                        throw new Error(`Error with database operation: ${err.message}`);
+                    }
+                    logger.debug(`> loaded sheet: ${sheet}`);
+                    logger.verbose(`> loaded highlight: ${util.inspect(highlight, false, null, true)}`);
+                });
 
-                const sheet = sql.result[0].sheet;
-                const highlight = sql.result[0].highlight;
-                logger.debug(`> loaded sheet: ${sheet}`);
-                logger.debug(`> loaded highlight length: ${highlight.length} `);
-                logger.verbose(`>loaded highlight: ${util.inspect(highlight, false, null, true)}`);
-
-                if (highlight == undefined || highlight == null || highlight == "") {
-                    throw new Error(`No content defined for the identifier: ${value.reqId}`);
-                }
-                if (sheet == undefined || sheet == null || sheet == "") {
+                if (sheet == undefined) {
+                    logger.debug(sheet); 
                     throw new Error(`No sheet defined for the identifier: ${value.reqId}`);
+                }
+                if (highlight == undefined) {
+                    throw new Error(`No content defined for the identifier: ${value.reqId}`);
                 }
 
                 const browser = await puppeteer.launch({headless: true, args:['--no-sandbox', '--font-render-hinting high']});
@@ -123,8 +143,7 @@ router.get('/:reqId/:arg?', async (req, res) => {
                 fileName = `${value.reqId}.png`;
                 break;
             default: 
-                throw new Error('[API/View.js] Line 118: Invalid argument.');
-
+                throw new Error('[API/View.js] Invalid argument');
         }
 
         if (fileName === undefined) throw new Error(`The specified ID ${value.reqId} did not produce a valid filename.`);
